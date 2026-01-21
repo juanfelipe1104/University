@@ -1,0 +1,103 @@
+TEMA: INTRODUCCIÓN A SISTEMAS DE RECUPERACIÓN DE INFORMACIÓN Y RAG
+
+1. ¿Qué es un sistema de Recuperación de Información?
+Un sistema de Recuperación de Información (Information Retrieval, IR) es un conjunto de técnicas y herramientas
+que permiten buscar información relevante dentro de una colección de documentos. A diferencia de una búsqueda
+por coincidencia exacta de palabras, los sistemas modernos pueden aproximar la intención del usuario, encontrar
+sinónimos y devolver resultados ordenados por relevancia.
+
+Los motores de búsqueda clásicos trabajan normalmente con índices invertidos, donde cada palabra clave se asocia
+a una lista de documentos que la contienen. Sin embargo, estos sistemas pueden fallar si el usuario no formula
+la consulta con las mismas palabras exactas que aparecen en el texto.
+
+2. ¿Qué es una base de datos vectorial?
+Una base de datos vectorial es un tipo de almacenamiento especializado en guardar vectores numéricos (embeddings)
+asociados a fragmentos de texto, imágenes u otros tipos de información. Estos vectores representan el contenido
+en un espacio matemático donde documentos “parecidos” aparecen cerca entre sí.
+
+Esto permite realizar búsquedas por similitud semántica. En lugar de preguntar “¿dónde aparece esta palabra?”,
+preguntamos “¿qué fragmentos se parecen más a lo que estoy preguntando?”.
+
+3. ¿Qué es un embedding?
+Un embedding es una representación numérica (vector) de un texto. Se genera usando un modelo entrenado, por ejemplo
+Sentence Transformers. La idea es que textos con significado similar tengan embeddings similares.
+
+Ejemplo:
+- "¿Qué es Chroma?" y "Explícame la librería Chroma DB" deberían producir embeddings cercanos.
+- "Cómo cocinar arroz" debería estar lejos de "optimización de búsqueda semántica".
+
+4. ¿Qué es RAG (Retrieval-Augmented Generation)?
+RAG significa Recuperación Aumentada con Generación (Retrieval-Augmented Generation).
+Es una técnica usada con modelos de lenguaje donde el sistema primero busca información relevante en una base de
+documentos y luego usa esa información como contexto para generar una respuesta.
+
+En un sistema RAG típico hay dos fases principales:
+
+4.1. Indexación
+- Se carga un documento (TXT o PDF).
+- Se divide en fragmentos (chunks).
+- Cada fragmento se convierte en embedding.
+- Los embeddings se guardan en una base vectorial como Chroma.
+
+4.2. Consulta
+- El usuario escribe una pregunta.
+- Se convierte la pregunta a embedding.
+- Se buscan fragmentos cercanos (más similares).
+- Se devuelven los fragmentos y (opcionalmente) se usa un modelo generativo para crear una respuesta final.
+
+5. Importancia del chunking (fragmentación)
+Dividir el texto en fragmentos es fundamental porque:
+- Si un chunk es demasiado pequeño, puede perder contexto.
+- Si un chunk es demasiado grande, mezcla temas y baja la precisión.
+
+Normalmente se ajustan dos parámetros:
+- chunk_size: tamaño del fragmento (por ejemplo 600 a 1200 caracteres).
+- overlap: superposición entre fragmentos (por ejemplo 100 a 250 caracteres).
+
+Un overlap ayuda a que ideas que quedan “entre dos chunks” no se pierdan.
+
+6. Ejemplo de funcionamiento (conceptual)
+Supongamos que tenemos un documento con esta idea:
+"Chroma permite guardar embeddings y hacer búsquedas por similitud."
+
+Si el usuario pregunta:
+"¿Para qué sirve Chroma?"
+El sistema devolverá el fragmento correcto aunque la pregunta no use las mismas palabras exactas, porque se basa
+en similitud semántica.
+
+7. Librería Chroma
+Chroma DB es una base de datos vectorial ligera que puede ejecutarse en local y persistir en disco.
+Normalmente se usa en Python con estos pasos:
+- Crear un cliente persistente (PersistentClient)
+- Crear una colección
+- Insertar documentos con ids y metadata
+- Consultar con query()
+
+Chroma permite agregar metadatos como:
+- nombre de archivo fuente
+- índice de chunk
+- ruta del documento
+- fecha de carga
+
+Esto ayuda a rastrear de dónde viene cada resultado recuperado.
+
+8. Evaluación del sistema
+Para verificar que el sistema funciona, se recomienda:
+- Hacer preguntas específicas del documento.
+- Revisar si los chunks devueltos realmente responden la pregunta.
+- Probar diferentes chunk_size y overlap.
+- Medir si el sistema da resultados más relevantes con ciertos parámetros.
+
+Ejemplos de preguntas recomendadas:
+- ¿Qué es RAG?
+- ¿Qué es un embedding?
+- ¿Para qué sirve una base de datos vectorial?
+- ¿Qué parámetros se ajustan en el chunking?
+- ¿Qué hace Chroma en un sistema RAG?
+
+9. Conclusión
+Un mini sistema RAG permite construir una base sólida para aplicaciones más avanzadas como chatbots con documentos,
+asistentes académicos o sistemas de soporte técnico. La clave está en indexar bien el contenido y ajustar el
+chunking para obtener resultados consistentes.
+
+FIN DEL DOCUMENTO

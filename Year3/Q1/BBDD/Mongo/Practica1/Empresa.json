@@ -1,0 +1,15 @@
+{"_id":{"$oid":"68e39e2987433b2de17c4a23"},"direccion":"Puerta del Sol, Madrid","direccion_loc":{"type":"Point","coordinates":[-3.703876,40.416863]},"email":"info0@tech.com","nif":"B73144556","nombre":"Tech Group","telefono":"600134384"}
+{"_id":{"$oid":"68e39e2b87433b2de17c4a24"},"direccion":"Sagrada Familia, Barcelona","direccion_loc":{"type":"Point","coordinates":[2.174428,41.403505]},"email":"info1@innova.com","nif":"B32774104","nombre":"Innova Group","telefono":"600340264"}
+{"_id":{"$oid":"68e39e2c87433b2de17c4a25"},"direccion":"Plaza Mayor, Salamanca","direccion_loc":{"type":"Point","coordinates":[-5.664056,40.965028]},"email":"info2@soluciones.com","nif":"B16352939","nombre":"Soluciones Consulting","telefono":"600786603"}
+{"_id":{"$oid":"68e39e2d87433b2de17c4a26"},"direccion":"Calle Larios, Málaga","direccion_loc":{"type":"Point","coordinates":[-4.421597,36.719669]},"email":"info3@global.com","nif":"B78248082","nombre":"Global Corp","telefono":"600576530"}
+{"_id":{"$oid":"68e39e2f87433b2de17c4a27"},"direccion":"Avenida de la Constitución, Sevilla","direccion_loc":{"type":"Point","coordinates":[-5.254501,37.526866]},"email":"info4@tech.com","nif":"B23822303","nombre":"Tech Systems","telefono":"600684917"}
+{"_id":{"$oid":"68e39e2f87433b2de17c4a28"},"email":"info5@global.com","nif":"B20420904","nombre":"Global Systems","telefono":"600761463"}
+{"_id":{"$oid":"68e39e2f87433b2de17c4a29"},"email":"info6@soluciones.com","nif":"B19825077","nombre":"Soluciones Systems","telefono":"600727493"}
+{"_id":{"$oid":"68e39e2f87433b2de17c4a2a"},"email":"info7@global.com","nif":"B67943799","nombre":"Global Group","telefono":"600679476"}
+{"_id":{"$oid":"68e39e2f87433b2de17c4a2b"},"email":"info8@tech.com","nif":"B69804869","nombre":"Tech Consulting","telefono":"600948263"}
+{"_id":{"$oid":"68e39e2f87433b2de17c4a2c"},"email":"info9@innova.com","nif":"B71520397","nombre":"Innova Labs","telefono":"600687249"}
+{"_id":{"$oid":"68e39e2f87433b2de17c4a2d"},"email":"info10@soluciones.com","nif":"B72732165","nombre":"Soluciones Consulting","telefono":"600188844"}
+{"_id":{"$oid":"68e39e2f87433b2de17c4a2e"},"email":"info11@global.com","nif":"B51856844","nombre":"Global Corp","telefono":"600828464"}
+{"_id":{"$oid":"68e39e2f87433b2de17c4a2f"},"email":"info12@global.com","nif":"B63324858","nombre":"Global Labs","telefono":"600554533"}
+{"_id":{"$oid":"68e39e2f87433b2de17c4a30"},"email":"info13@soluciones.com","nif":"B65751198","nombre":"Soluciones Corp","telefono":"600119326"}
+{"_id":{"$oid":"68e39e2f87433b2de17c4a31"},"email":"info14@global.com","nif":"B66591174","nombre":"Global Labs","telefono":"600223975"}

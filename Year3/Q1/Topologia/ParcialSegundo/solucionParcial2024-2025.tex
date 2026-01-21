@@ -1,0 +1,584 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+
+\title{Solución del Parcial 2024-2025}
+\author{Juan Rodríguez}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Ejercicio 1 (0,9 puntos)}
+\textbf{Pregunta:} ¿Son conexos por caminos? ¿Son conexos? Si no, indica una separación.
+
+%------------------------------------------------------------
+
+\subsection*{1.a) \(\{(x,y)\in\mathbb{R}^2 \mid 1\le y\le 2\}\) con topología del orden}
+
+Sea
+\[
+A=\{(x,y)\in\mathbb{R}^2\mid 1\le y\le 2\}.
+\]
+
+\subsubsection*{Conexidad}
+Definimos
+\[
+U=\{(x,y)\in A \mid x<0\},\qquad 
+V=\{(x,y)\in A \mid x>0\}.
+\]
+Entonces \(U\cap V=\varnothing\), \(U\neq\varnothing\), \(V\neq\varnothing\) y \(A=U\cup V\).
+
+Además, \(U\) y \(V\) son abiertos en la topología inducida por el orden (son intersecciones con \(A\) de conjuntos del tipo \(\{(x,y)\mid x<0\}\) y \(\{(x,y)\mid x>0\}\), que son abiertos en el orden lexicográfico).
+
+Por tanto, \(A\) no es conexo.
+
+\subsubsection*{Conexidad por caminos}
+Como \(A\) no es conexo, no puede ser conexo por caminos.
+
+\[
+\boxed{\text{\(A\) no es conexo ni conexo por caminos.}}
+\]
+
+%------------------------------------------------------------
+
+\subsection*{1.b) \(\{(x,y)\in\mathbb{R}^2 \mid 1\le x\le 2\}\) con topología del orden}
+
+Sea
+\[
+B=\{(x,y)\in\mathbb{R}^2\mid 1\le x\le 2\}.
+\]
+
+\subsubsection*{Conexidad (idea: continuo lineal)}
+Con el orden lexicográfico restringido, \(B\) es un \emph{continuo lineal}:
+\begin{itemize}
+\item Es un conjunto linealmente ordenado.
+\item Tiene la propiedad del supremo: todo subconjunto no vacío acotado superiormente en \(B\) tiene supremo en \(B\)
+(porque al restringir \(x\) a \([1,2]\) no aparece ``salto'' en la primera coordenada, y dentro de cada fibra \(\{x\}\times\mathbb{R}\) se usa el orden usual en \(y\)).
+\item No tiene puntos extremos ``aislados'' en el orden (densidad local en el sentido del orden).
+\end{itemize}
+Por el teorema estándar de espacios ordenados, todo continuo lineal es conexo.
+Luego \(B\) es conexo.
+
+\subsubsection*{No conexidad por caminos}
+No es conexo por caminos.
+
+En la topología del orden lexicográfico, cada subconjunto
+\[
+\{x\}\times\mathbb{R}
+\]
+se comporta como un ``día'' fijo, en el que la segunda coordenada \(y\)
+representa las ``horas'' de ese día.
+
+Un camino continuo sólo puede moverse dentro de un mismo día,
+es decir, manteniendo constante la primera coordenada \(x\).
+
+Por tanto, no existe un camino continuo que una dos puntos con distinta
+primera coordenada, por ejemplo \((1,0)\) y \((2,0)\).
+
+Luego el espacio no es conexo por caminos.
+
+\[
+\boxed{\text{\(B\) es conexo, pero no es conexo por caminos.}}
+\]
+
+%------------------------------------------------------------
+
+\subsection*{1.c) \([1,2]\) con la topología de Sorgenfrey}
+
+Sea \(C=[1,2]\) con la topología de Sorgenfrey (base \([a,b)\)).
+
+La recta de Sorgenfrey es totalmente disconexa, luego \(C\) no es conexo (y por tanto tampoco es conexo por caminos).
+
+Una separación explícita es:
+\[
+U=[1,3/2),\qquad V=[3/2,2].
+\]
+Aquí \(U\) es abierto en \(C\). Además \(V\) es abierto en \(C\) porque
+\[
+V=[3/2,\infty)\cap[1,2],
+\]
+y \([3/2,\infty)\) es abierto en Sorgenfrey.
+
+Luego \(C=U\cup V\) con \(U\cap V=\varnothing\), \(U,V\neq\varnothing\).
+
+\[
+\boxed{\text{\([1,2]\) con Sorgenfrey no es conexo ni conexo por caminos.}}
+\]
+
+\section*{Ejercicio 2 (0,75 puntos)}
+
+\textbf{Pregunta:} ¿Son compactos estos subconjuntos de \(\mathbb{R}\) con la
+\textbf{topología de semirrectas derechas}?  
+Si no lo son, indica un recubrimiento que no admite subrecubrimiento finito.
+
+Recordamos que una base de la topología de semirrectas derechas es
+\[
+\mathcal{B}=\{[a,\infty)\mid a\in\mathbb{R}\}.
+\]
+
+%------------------------------------------------------------
+
+\subsection*{2.a) \(A=[0,2]\)}
+
+El conjunto \(A\) es compacto.
+
+En efecto, \(A\) tiene mínimo \(0\).  
+Dado cualquier recubrimiento abierto de \(A\), existe un abierto \([a,\infty)\)
+tal que \(0\in[a,\infty)\).  
+Este abierto cubre todo \(A\), luego existe un subrecubrimiento finito.
+
+\[
+\boxed{A \text{ es compacto}}
+\]
+
+%------------------------------------------------------------
+
+\subsection*{2.b) \(B=[0,2)\)}
+
+El conjunto \(B\) es compacto.
+
+Al igual que en el caso anterior, \(B\) tiene mínimo \(0\), por lo que cualquier
+abierto que contenga a \(0\) cubre todo \(B\).
+
+\[
+\boxed{B \text{ es compacto}}
+\]
+
+%------------------------------------------------------------
+
+\subsection*{2.c) \(C=(0,2]\)}
+
+El conjunto \(C\) no es compacto.
+
+Consideramos el recubrimiento abierto
+\[
+C\subset \bigcup_{n=1}^{\infty}\left[\frac{1}{n},\infty\right).
+\]
+
+Este recubrimiento cubre \(C\), pero no admite subrecubrimiento finito.  
+En efecto, si se toman finitísimos índices \(n_1,\dots,n_k\) y se define
+\(N=\max\{n_1,\dots,n_k\}\), la unión finita es
+\[
+\left[\frac{1}{N},\infty\right),
+\]
+que no cubre los puntos de \(C\) tales que \(0<x<\frac{1}{N}\).
+
+\[
+\boxed{C \text{ no es compacto}}
+\]
+
+%------------------------------------------------------------
+
+\subsection*{2.d) \(D=(-\infty,2)\)}
+
+El conjunto \(D\) no es compacto.
+
+Consideramos el recubrimiento abierto
+\[
+D\subset \bigcup_{n=1}^{\infty}[-n,\infty).
+\]
+
+Este recubrimiento no admite subrecubrimiento finito, pues si tomamos
+\([-n_1,\infty),\dots,[-n_k,\infty)\) y \(N=\max\{n_1,\dots,n_k\}\), la unión es
+\[
+[-N,\infty),
+\]
+que no cubre los puntos de \(D\) menores que \(-N\).
+
+\[
+\boxed{D \text{ no es compacto}}
+\]
+
+%------------------------------------------------------------
+
+\subsection*{2.e) \(E=(2,\infty)\)}
+
+El conjunto \(E\) no es compacto.
+
+Consideramos el recubrimiento abierto
+\[
+E\subset \bigcup_{n=1}^{\infty}\left[2+\frac{1}{n},\infty\right).
+\]
+
+Este recubrimiento cubre \(E\), pero no admite subrecubrimiento finito.  
+En efecto, si tomamos finitísimos índices \(n_1,\dots,n_k\) y
+\(N=\max\{n_1,\dots,n_k\}\), la unión finita es
+\[
+\left[2+\frac{1}{N},\infty\right),
+\]
+que no cubre los puntos \(x\) tales que \(2<x<2+\frac{1}{N}\), los cuales
+pertenecen a \(E\).
+
+\[
+\boxed{E \text{ no es compacto}}
+\]
+
+%------------------------------------------------------------
+
+\subsection*{Conclusión}
+
+Son compactos:
+\[
+[0,2],\ [0,2).
+\]
+
+No son compactos:
+\[
+(0,2],\ (-\infty,2),\ (2,\infty).
+\]
+
+\section*{Ejercicio 3 (0,8 puntos)}
+
+Sea
+\[
+A_m=\{(x,y)\in\mathbb{R}^2\mid y=\tfrac{m}{x}\},\quad m\in\mathbb{N},
+\]
+y
+\[
+A=\{(x,x)\mid 0\le x\le 1\}\ \cup\ \bigcup_{m\in\mathbb{N}} A_m.
+\]
+
+\subsection*{(1) Clausura \(\overline A\) y frontera}
+
+Cada conjunto \(A_m\) es cerrado en \(\mathbb{R}^2\).
+En efecto, si \((x_n,\tfrac{m}{x_n})\to (a,b)\) con \(a\neq 0\), entonces
+\(x_n\to a\) y por continuidad \(b=\tfrac{m}{a}\), luego \((a,b)\in A_m\).
+Si \(x_n\to 0\), entonces \(\tfrac{m}{x_n}\to \pm\infty\), por lo que no hay
+límite en \(\mathbb{R}^2\). Por tanto, \(A_m\) no añade puntos límite finitos
+fuera de sí mismo.
+
+Además, el segmento \(\{(x,x)\mid 0\le x\le 1\}\) es compacto y por tanto cerrado.
+
+Como \(A\) es unión (numerable) de cerrados y no aparecen nuevos puntos de acumulación
+finitos al variar \(m\), se concluye que
+\[
+\overline A = A.
+\]
+
+Como \(A\) no contiene ningún abierto de \(\mathbb{R}^2\), se tiene
+\(\operatorname{int}(A)=\varnothing\), y por tanto
+\[
+\partial A=\overline A\setminus \operatorname{int}(A)=A.
+\]
+
+\subsection*{(2) Conexidad, conexidad por caminos y conexidad local}
+
+Cada \(A_m\) es conexo por caminos (es la gráfica continua \(x\mapsto \tfrac{m}{x}\)
+sobre \((0,\infty)\), homeomorfa a \((0,\infty)\)). El segmento
+\(\{(x,x)\mid 0\le x\le 1\}\) también es conexo por caminos.
+
+Sin embargo, para \(m\neq n\) se tiene \(A_m\cap A_n=\varnothing\).
+Además, el segmento \(\{(x,x)\mid 0\le x\le 1\}\) sólo intersecta a \(A_m\)
+cuando \(x=x\) y \(x=\tfrac{m}{x}\), es decir \(x^2=m\). En \([0,1]\) esto ocurre
+únicamente para \(m=1\) en el punto \((1,1)\).
+Por tanto, \(A\) es unión de varias componentes conexas disjuntas, luego
+\[
+A \text{ no es conexo}.
+\]
+En consecuencia, \(A\) no es conexo por caminos.
+
+Finalmente, \(A\) es localmente conexo: dado un punto \(p\in A\), existe un radio
+\(\varepsilon>0\) tal que la intersección \(B(p,\varepsilon)\cap A\) es un arco
+(conexo) contenido en una única curva \(A_m\) o en el segmento, salvo en \(p=(1,1)\),
+donde la intersección es la unión de dos arcos que se cortan en \(p\), y sigue siendo
+conexa. Por tanto, \(A\) es localmente conexo.
+
+\section*{Ejercicio 4 (0,6 puntos)}
+
+Queremos expresar
+\[
+T^2 \# K \# K
+\]
+como suma conexa de esferas y planos proyectivos.
+
+Recordamos que la esfera es neutro:
+\[
+S^2 \# X \cong X,
+\]
+por lo que \(\#\,2\) esferas no cambia el resultado.
+
+Además,
+\[
+K \cong \mathbb{RP}^2 \# \mathbb{RP}^2.
+\]
+Luego
+\[
+T^2 \# K \# K
+\cong
+T^2 \# (\mathbb{RP}^2 \# \mathbb{RP}^2) \# (\mathbb{RP}^2 \# \mathbb{RP}^2)
+\cong
+T^2 \# \#^4 \mathbb{RP}^2.
+\]
+
+Usamos la identidad
+\[
+T^2 \# \mathbb{RP}^2 \cong \#^3 \mathbb{RP}^2.
+\]
+Entonces
+\[
+T^2 \# \#^4 \mathbb{RP}^2
+\cong
+(\#^3 \mathbb{RP}^2)\# \#^3 \mathbb{RP}^2
+=
+\#^6 \mathbb{RP}^2.
+\]
+
+Por tanto, la superficie es homeomorfa a la suma conexa de \(6\) planos proyectivos.
+
+\section*{Ejercicio 5}
+
+Para decidir si los espacios son homeomorfos, utilizamos el siguiente invariante
+topológico:
+
+\begin{quote}
+Si \(X\) y \(Y\) son homeomorfos, entonces al quitar un punto correspondiente,
+los espacios resultantes tienen el mismo número de componentes conexas.
+\end{quote}
+
+\subsection*{Primer espacio}
+
+Al eliminar un punto adecuado del primer espacio, el conjunto resultante se
+desconecta en dos componentes conexas, cada una homeomorfa a una circunferencia.
+
+\subsection*{Segundo y tercer espacio}
+
+Si se elimina un punto análogo en el segundo y en el tercer espacio, ambos
+siguen siendo conexos.
+
+Por tanto, el primer espacio no es homeomorfo ni al segundo ni al tercero.
+
+\subsection*{Comparación entre el segundo y el tercer espacio}
+
+Eliminando otro punto distinto en ambos espacios, se obtiene que:
+\begin{itemize}
+\item el segundo espacio se desconecta en cuatro componentes conexas;
+\item el tercer espacio se desconecta únicamente en dos componentes conexas.
+\end{itemize}
+
+Como el número de componentes conexas es distinto, el segundo y el tercer
+espacio no son homeomorfos.
+
+\subsection*{Conclusión}
+
+Ninguno de los tres espacios es homeomorfo a otro.
+
+\section*{Ejercicio 6 (1,2 puntos)}
+
+Dados:
+\[
+A=\{(x,y)\in\mathbb{R}^2\mid 1\le x^2+y^2\le 4\},\qquad
+B=\{(x,y,z)\in\mathbb{R}^3\mid x^2+y^2=9,\ 1\le z\le 4\},
+\]
+\[
+C=\{(x,y)\in\mathbb{R}^2\mid x^2+y^2\le 4\},\qquad
+D=\{(x,y)\in\mathbb{R}^2\mid x^2+y^2<4\}.
+\]
+
+\subsection*{(1) \(A\) y \(B\) son homeomorfos}
+
+El conjunto \(A\) es un anillo cerrado, y es homeomorfo a \(S^1\times[0,1]\)
+(vía coordenadas polares con radio en \([1,2]\)).
+El conjunto \(B\) es la superficie lateral de un cilindro de radio \(3\) y altura finita,
+y es homeomorfo a \(S^1\times[1,4]\).
+Como \([1,4]\cong[0,1]\), se concluye:
+\[
+A \cong B.
+\]
+
+\subsubsection*{Homeomorfismo explícito entre \(A\) y \(B\)}
+
+Recordemos:
+\[
+A=\{(x,y)\in\mathbb{R}^2\mid 1\le x^2+y^2\le 4\},\qquad
+B=\{(X,Y,Z)\in\mathbb{R}^3\mid X^2+Y^2=9,\ 1\le Z\le 4\}.
+\]
+
+Definimos la aplicación
+\[
+f:A\longrightarrow B
+\]
+por
+\[
+f(x,y)=\left(
+3\frac{x}{\sqrt{x^2+y^2}},\;
+3\frac{y}{\sqrt{x^2+y^2}},\;
+3\sqrt{x^2+y^2}-2
+\right).
+\]
+
+Si \((x,y)\in A\), entonces \(r=\sqrt{x^2+y^2}\in[1,2]\). Se tiene
+\[
+\left(3\frac{x}{r}\right)^2+\left(3\frac{y}{r}\right)^2=9
+\quad\text{y}\quad
+3r-2\in[1,4],
+\]
+luego \(f(x,y)\in B\).
+
+\subsection*{(2) \(C\) y \(D\) no son homeomorfos}
+
+El conjunto \(C\) es compacto (cerrado y acotado en \(\mathbb{R}^2\)).
+En cambio, \(D\) no es compacto (por ejemplo, no es cerrado: su clausura es \(C\)).
+Como la compacidad es invariante topológica,
+\[
+C \not\cong D.
+\]
+
+\subsection*{(3) \(A\) y \(B\) no son homeomorfos ni a \(C\) ni a \(D\)}
+
+Se tiene \(\pi_1(A)\cong\mathbb{Z}\) y \(\pi_1(B)\cong\mathbb{Z}\), al ser ambos
+homeomorfos a \(S^1\times[0,1]\).
+En cambio, \(C\) (disco cerrado) y \(D\) (disco abierto) son simplemente conexos,
+luego \(\pi_1(C)=\pi_1(D)=\{e\}\).
+Como el grupo fundamental es invariante topológica:
+\[
+A \not\cong C,\quad A\not\cong D,\quad B\not\cong C,\quad B\not\cong D.
+\]
+
+\subsection*{Conclusión}
+
+Los únicos homeomorfismos son:
+\[
+\boxed{A\cong B}
+\]
+y no hay otros.
+
+\section*{Ejercicio 7}
+
+\textbf{Objetivo:} identificar la superficie de cada diagrama usando la característica de Euler
+\[
+\chi = V - A + F,
+\]
+donde \(V\) es el número de vértices, \(A\) el número de aristas y \(F\) el número de caras.
+
+Recordamos:
+\[
+\chi(\#^g T^2)=2-2g \quad\text{(orientables)}, 
+\qquad
+\chi(\#^k \mathbb{RP}^2)=2-k \quad\text{(no orientables)}.
+\]
+
+\subsection*{Diagrama A}
+
+Del diagrama se obtiene:
+\[
+V=1,\qquad A=4,\qquad F=1.
+\]
+Luego
+\[
+\chi(A)=V-A+F=1-4+1=-2.
+\]
+Además, el diagrama es \textbf{no orientable}. Por tanto debe ser de la forma \(\#^k\mathbb{RP}^2\), y
+\[
+2-k=-2 \;\Rightarrow\; k=4.
+\]
+Concluimos:
+\[
+\boxed{A \cong \#^4 \mathbb{RP}^2 \text{ (suma conexa de 4 planos proyectivos)}.}
+\]
+
+\subsection*{Diagrama B}
+
+Del diagrama se obtiene:
+\[
+V=1,\qquad A=3,\qquad F=1.
+\]
+Luego
+\[
+\chi(B)=V-A+F=1-3+1=-1.
+\]
+Además, el diagrama es \textbf{no orientable}. Por tanto \(B\cong \#^k\mathbb{RP}^2\) y
+\[
+2-k=-1 \;\Rightarrow\; k=3.
+\]
+Concluimos:
+\[
+\boxed{B \cong \#^3 \mathbb{RP}^2 \text{ (suma conexa de 3 planos proyectivos)}.}
+\]
+
+\section*{Ejercicio 8}
+
+\subsection*{a)}
+Sea
+\[
+X=C_- \cup C_+ \cup S
+\]
+donde
+\[
+C_-=\{(x,y)\in\mathbb{R}^2:(x+2)^2+y^2=1\},\quad
+C_+=\{(x,y)\in\mathbb{R}^2:(x-2)^2+y^2=1\},
+\]
+\[
+S=\{(x,y)\in\mathbb{R}^2:|x|\le 1\}.
+\]
+El conjunto \(S\) es homeomorfo a \(\mathbb{R}^2\), luego es contractible.
+Además, \(S\) se retrae por deformación fuerte al segmento
+\[
+I=[-1,1]\times\{0\}
+\]
+mediante \(H((x,y),t)=(x,(1-t)y)\). Manteniendo fijos los puntos de unión
+\((-1,0)\) y \((1,0)\), el espacio \(X\) se retrae a
+\[
+G=C_- \cup I \cup C_+,
+\]
+que es un grafo con dos ciclos independientes. Por tanto,
+\[
+\pi_1(X)\cong \pi_1(G)\cong \mathbb{Z}*\mathbb{Z}.
+\]
+
+\subsection*{b)}
+Usando que \(\pi_1(X\times Y)\cong \pi_1(X)\times\pi_1(Y)\),
+\[
+\pi_1(S^2\times S^1)\cong \pi_1(S^2)\times\pi_1(S^1)\cong \{e\}\times\mathbb{Z}\cong\mathbb{Z}.
+\]
+
+\subsection*{c)}
+Sea
+\[
+Y=\mathbb{R}^3\setminus\{(x,y,z):x^2+y^2<1\}.
+\]
+Entonces
+\[
+Y\cong \bigl(\mathbb{R}^2\setminus\{(x,y):x^2+y^2<1\}\bigr)\times\mathbb{R}.
+\]
+El conjunto \(\mathbb{R}^2\setminus\{x^2+y^2<1\}\) se retrae por deformación fuerte
+a la circunferencia \(S^1\) por proyección radial.
+
+Consideramos el conjunto
+\[
+X=\mathbb{R}^2\setminus\{(x,y)\mid x^2+y^2<1\}.
+\]
+
+Definimos el retracto
+\[
+r:X\longrightarrow S^1,\qquad
+r(x,y)=\left(\frac{x}{\sqrt{x^2+y^2}},\frac{y}{\sqrt{x^2+y^2}}\right).
+\]
+
+Además, definimos la homotopía
+\[
+H:X\times[0,1]\longrightarrow X
+\]
+por
+\[
+H((x,y),t)=\left((1-t)x+t\frac{x}{\sqrt{x^2+y^2}},\;
+(1-t)y+t\frac{y}{\sqrt{x^2+y^2}}\right).
+\]
+
+Se verifica que:
+\begin{itemize}
+\item \(H(\cdot,0)=\mathrm{id}_X\),
+\item \(H(\cdot,1)=r\),
+\item \(H(p,t)=p\) para todo \(p\in S^1\) y todo \(t\in[0,1]\),
+\item \(H((x,y),t)\in X\) para todo \((x,y)\in X\).
+\end{itemize}
+
+Por tanto, \(X\) se retrae por deformación fuerte a \(S^1\).
+
+Luego \(Y\) se retrae a \(S^1\times\mathbb{R}\),
+y por tanto
+\[
+\pi_1(Y)\cong \pi_1(S^1\times\mathbb{R})\cong \pi_1(S^1)\cong \mathbb{Z}.
+\]
+
+\end{document}

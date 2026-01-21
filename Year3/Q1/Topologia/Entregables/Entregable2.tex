@@ -1,0 +1,138 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\title{Hojas de Ejercicios de Topología}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\setlength{\parskip}{0.8em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Topología – Hojas 7 y 8
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Tema 7. Espacios conexos}
+
+\subsection*{Ejercicio 1}
+  Considera el conjunto
+  \[
+      A = \Big([0,1] \times \bigcup_{n \in \mathbb{N}} \Big\{\frac{1}{n}\Big\}\Big) 
+      \,\cup\, \{0\} \times (0,1) \subset \mathbb{R}^2.
+  \]
+  \begin{enumerate}
+      \item Dibújalo.
+      \item Busca su clausura.
+      \item ¿Es conexo?
+      \item ¿Es conexo por caminos?
+  \end{enumerate}
+
+  \vspace{10cm}
+
+  \subsection*{Ejercicio 2}
+  Construye un espacio en el plano que sea conexo por caminos pero no conexo localmente.
+
+  \vspace{10cm}
+
+  \subsection*{Ejercicio 3}
+  Sea
+  \[
+     E = \left\{(x,y)\in\mathbb{R}^2 : x = 1 - \frac{1}{t},\ t\ge 1 \right\}
+     \,\cup\, \{(0,\sin t) : t\in\mathbb{R}\}.
+  \]
+  ¿Es conexo? ¿Es conexo por caminos?
+
+  \vspace{10cm}
+
+  \subsection*{Ejercicio 4}
+  ¿Cómo son los subconjuntos conexos de $\mathbb{R}$ con la topología cofinita?
+  \begin{enumerate}
+      \item Nombra 3 subconjuntos no conexos y 2 conexos.
+      \item Describe todos los subconjuntos conexos.
+  \end{enumerate}
+
+  \vspace{10cm}
+
+  \subsection*{Ejercicio 5}
+  Sea $N \subset \mathbb{R}^2$ un conjunto numerable. Demuestra que $\mathbb{R}^2 \setminus N$ es conexo por caminos.
+
+  \vspace{10cm}
+
+  \subsection*{Ejercicio 6}
+  Demuestra que todo subconjunto conexo de $\mathbb{R}^2$ que tiene más de un punto es no numerable.
+
+  \vspace{10cm}
+
+  \subsection*{Ejercicio 7}
+  Demuestra que el conjunto de Cantor es totalmente disconexo.
+
+  \vspace{10cm}
+
+\section*{Tema 8. Espacios compactos}
+
+  \subsection*{Ejercicio 1}
+  Indica si es compacto
+  \[
+      E = \{\,(-1)^n + \tfrac{1}{n} : n \in \mathbb{N}\,\} \subset \mathbb{R}
+  \]
+  con la topología canónica.
+
+  \vspace{10cm}
+
+  \subsection*{Ejercicio 2}
+  Indica si es compacto
+  \[
+     A = [0,1] \times \{0.5\}
+  \]
+  con la topología del orden lexicográfico en $\mathbb{R}^2$.
+
+  \vspace{10cm}
+
+  \subsection*{Ejercicio 3}
+  Sea $X$ un conjunto con la topología discreta. ¿Cuándo es compacto?
+
+  \vspace{10cm}
+
+  \subsection*{Ejercicio 4}
+  Inventa un espacio topológico $(X,\mathcal{T})$ que tenga un subconjunto compacto no cerrado.
+
+  \vspace{10cm}
+
+  \subsection*{Ejercicio 5}
+  ¿Es cierto que la unión de una familia de compactos siempre es compacta?
+
+  \vspace{10cm}
+
+  \subsection*{Ejercicio 6}
+  Considera la base
+  \[
+     \mathcal{B} = \big\{\,\{0,n\} : n\in\mathbb{Z}\,\big\}
+  \]
+  que genera una topología en $\mathbb{Z}$.
+  \begin{enumerate}
+      \item ¿Es compacto $A = \{0\}$?
+      \item ¿Cuál es $\overline{A}$?
+      \item ¿Es compacto $\overline{A}$?
+  \end{enumerate}
+
+  \vspace{10cm}
+
+  \subsection*{Ejercicio 7}
+  Demuestra que una biyección $X \to Y$ tal que $X$ es compacto e $Y$ es Hausdorff es un homeomorfismo.  
+
+  \textit{Pista: demuestra que pasa cerrados a cerrados.}
+
+  \vspace{10cm}
+
+  \subsection*{Ejercicio 8}
+  ¿Son compactos con la topología del orden:
+  \begin{enumerate}
+      \item $[0,1] \times [0,1]$?
+      \item $[0,1] \times (0,1]$?
+  \end{enumerate}
+
+\end{document}

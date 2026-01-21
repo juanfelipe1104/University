@@ -1,0 +1,248 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{physics}
+\usepackage{mathtools}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage[most]{tcolorbox}
+\tcbset{
+  definitionstyle/.style={
+    colback=gray!10,    % color de fondo
+    colframe=gray!50,   % color del borde
+    boxrule=0.4pt,      % grosor del borde
+    arc=3pt,            % redondeo de esquinas
+    left=6pt,right=6pt,top=4pt,bottom=4pt,
+  }
+}
+
+
+\title{Definiciones}
+\author{Juan Rodríguez}
+\date{}
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\phantomsection
+\section*{Métrica o Distancia}
+\addcontentsline{toc}{section}{Métrica o Distancia}
+\begin{tcolorbox}[definitionstyle]
+Sea \( X \) un conjunto.  
+Se dice que \( d : X \times X \to \mathbb{R} \) define una \textbf{distancia} (o \textbf{métrica}) en \( X \) si se cumplen las siguientes propiedades:
+
+\begin{enumerate}
+    \item \( d(x,y) = 0 \) si y solo si \( x = y \) \quad (Reflexiva)
+    \item \( d(x,y) = d(y,x) \) \quad (Simetría)
+    \item \( d(x,y) \leq d(x,z) + d(z,y) \) para todo \( x,y,z \in X \) \quad (Desigualdad triangular)
+\end{enumerate}
+
+En estas condiciones, el par \( (X,d) \) se denomina \textbf{espacio métrico}.
+\end{tcolorbox}
+
+\section*{Continuidad}
+\addcontentsline{toc}{section}{Continuidad}
+\subsection*{Función continua en espacios métricos}
+\addcontentsline{toc}{subsection}{Función continua en espacios métricos}
+\begin{tcolorbox}[definitionstyle]
+Sean \((X_1, d_1)\) y \((X_2, d_2)\) espacios métricos.  
+La función \(f : X_1 \to X_2\) se dice \textbf{continua en un punto} \(x \in X_1\) si y solo si:
+\[
+\forall \varepsilon > 0, \ \exists \delta > 0 \text{ tal que } 
+f(B_\delta(x)) \subseteq B_\varepsilon(f(x)).
+\]
+La función \(f\) se llama \textbf{continua} si lo es en todos los puntos de su dominio.
+\end{tcolorbox}
+
+\subsection*{Caracterización topológica de continuidad}
+\addcontentsline{toc}{subsection}{Caracterización topológica de continuidad}
+\begin{tcolorbox}[definitionstyle]
+Sea \(f : X_1 \to X_2\) una función entre espacios topológicos.  
+La función \(f\) es \textbf{continua} si y solo si la preimagen de todo conjunto abierto de \(X_2\) es abierta en \(X_1\); es decir,
+\[
+\forall A \subseteq X_2 \text{ abierto}, \quad f^{-1}(A) \text{ es abierto en } X_1.
+\]
+\end{tcolorbox}
+\section*{Espacios topológicos}
+\addcontentsline{toc}{section}{Espacios topológicos}
+\subsection*{Topología}
+\addcontentsline{toc}{subsection}{Topología}
+\begin{tcolorbox}[definitionstyle]
+Dado un conjunto \( X \), se dice que una colección de subconjuntos \( \mathcal{T} \) de \( X \) es una \textbf{topología} si se cumplen las siguientes propiedades:
+
+\begin{enumerate}
+    \item \( \varnothing, X \in \mathcal{T} \)
+    \item La intersección de un número \textbf{finito} de elementos de \( \mathcal{T} \) también pertenece a \( \mathcal{T} \):
+    \[
+        \bigcap_{i=1}^{k} T_i \in \mathcal{T}
+    \]
+    \item La unión de cualquier número (posiblemente infinito) de elementos de \( \mathcal{T} \) también pertenece a \( \mathcal{T} \):
+    \[
+        \bigcup_{i \in I} T_i \in \mathcal{T}
+    \]
+\end{enumerate}
+
+La pareja \( (X, \mathcal{T}) \) se llama \textbf{espacio topológico}, y los elementos de \( \mathcal{T} \) se denominan \textbf{abiertos}.
+\end{tcolorbox}
+
+\subsection*{Base de una topología}
+\addcontentsline{toc}{subsection}{Base de una topología}
+\begin{tcolorbox}[definitionstyle]
+Una colección de subconjuntos \( B_i \) de \( X \) se llama \textbf{base} si:
+\[
+\forall x \in X,\ \exists B_i \in \mathcal{B} : x \in B_i
+\]
+Además, si un punto está en la intersección de dos elementos, hay un elemento de la base en la
+intersección que contiene este punto 
+\[
+\forall x \in B_1 \cap B_2,\ \exists B_3 \in \mathcal{B} : x \in B_3 \subseteq B_1 \cap B_2.
+\]
+\end{tcolorbox}
+\subsection*{Topología heredada}
+\addcontentsline{toc}{subsection}{Topología heredada}
+\begin{tcolorbox}[definitionstyle]
+Si tenemos un espacio topológico \( (X, \mathcal{T}) \) y un subconjunto \( A \subseteq X \), podemos definir una topología en \( A \) dada por:
+\[
+\mathcal{T}_A = \{\, A \cap T : T \in \mathcal{T} \,\}.
+\]
+La pareja \( (A, \mathcal{T}_A) \) se llama \textbf{topología heredada} de \( X \).
+\end{tcolorbox}
+\subsection*{Topología inducida por una distancia}
+\addcontentsline{toc}{subsection}{Topología inducida por una distancia}
+\begin{tcolorbox}[definitionstyle]  
+Cualquier función de distancia \( d \) en un conjunto \( X \) permite definir \textbf{bolas abiertas} como los conjuntos de puntos que están a una distancia menor que una dada respecto de un centro:
+\[
+B_r(x) = \{\, y \in X : d(x,y) < r \,\}.
+\]
+Si tomamos estas bolas abiertas como base de nuestra topología, la topología resultante se llama \textbf{topología inducida por una distancia}.
+\end{tcolorbox}
+\subsection*{Topología del orden}
+\addcontentsline{toc}{subsection}{Topología del orden}
+\begin{tcolorbox}[definitionstyle] 
+Dado un conjunto ordenado \( X \), la \textbf{topología del orden} es la generada por la base de intervalos abiertos de la forma \( (a, b) = \{\, x \in X : a < x < b \,\} \),  
+añadiendo además los conjuntos \( [\min(X), b) \) y \( (a, \max(X)] \) si estos extremos existen en \( X \).
+\end{tcolorbox}
+\subsection*{Topología producto}
+\addcontentsline{toc}{subsection}{Topología producto}
+\begin{tcolorbox}[definitionstyle] 
+Si \( (X, \mathcal{T}_1) \) y \( (Y, \mathcal{T}_2) \) son espacios topológicos, se llama \textbf{topología producto} en \( X \times Y \) a la topología cuya base está formada por todos los productos cartesianos de conjuntos abiertos de los espacios originales:
+\[
+\mathcal{B} = \{\, U \times V : U \in \mathcal{T}_1,\ V \in \mathcal{T}_2 \,\}.
+\]
+\end{tcolorbox}
+\section*{Conceptos básicos}
+\addcontentsline{toc}{section}{Conceptos básicos}
+\subsection*{Conjunto abierto}
+\addcontentsline{toc}{subsection}{Conjunto abierto}
+\begin{tcolorbox}[definitionstyle]
+Un conjunto \( A \subseteq X \) se llama \textbf{abierto} si para cada punto \( x \in A \) existe un entorno abierto \( U \) tal que \( x \in U \subseteq A \).
+\end{tcolorbox}
+\subsection*{Conjunto cerrado}
+\addcontentsline{toc}{subsection}{Conjunto cerrado}
+\begin{tcolorbox}[definitionstyle]
+Un conjunto \( A \subseteq X \) se llama \textbf{cerrado} si contiene a todos sus puntos frontera, o equivalentemente, si su complementario \( X \setminus A \) es abierto.
+\end{tcolorbox}
+\subsection*{Punto fronterizo y frontera}
+\addcontentsline{toc}{subsection}{Punto fronterizo y frontera}
+\begin{tcolorbox}[definitionstyle]
+Un punto \( x \in X \) se llama \textbf{fronterizo} de un conjunto \( A \) si todo entorno de \( x \) contiene puntos de \( A \) y de su complementario \( X \setminus A \).  
+El conjunto de todos los puntos fronterizos de \( A \) se llama la \textbf{frontera} de \( A \), denotada \( \operatorname{Fr}(A) \).
+\end{tcolorbox}
+\subsection*{Interior}
+\addcontentsline{toc}{subsection}{Interior}
+\begin{tcolorbox}[definitionstyle]
+ El \textbf{interior} de un conjunto \( A \), denotado \( \operatorname{Int}(A) \), es el mayor conjunto abierto contenido en \( A \).  
+Equivalentemente, es la unión de todos los abiertos contenidos en \( A \).
+\end{tcolorbox}
+\subsection*{Clausura}
+\addcontentsline{toc}{subsection}{Clausura}
+\begin{tcolorbox}[definitionstyle]
+La \textbf{clausura} de un conjunto \( A \), denotada \( \overline{A} \), es el menor conjunto cerrado que contiene a \( A \).  
+Se puede expresar como \( \overline{A} = A \cup \operatorname{Fr}(A) \).
+\end{tcolorbox}
+\subsection*{Puntos de acumulación}
+\addcontentsline{toc}{subsection}{Puntos de acumulación}
+\begin{tcolorbox}[definitionstyle]
+Un punto \( x \in X \) se llama \textbf{punto de acumulación} (o límite) de un conjunto \( A \) si todo entorno de \( x \) contiene algún punto de \( A \) distinto de \( x \).  
+El conjunto de todos los puntos de acumulación de \( A \) se denota por \( A' \).
+\end{tcolorbox}
+\subsection*{Puntos aislados}
+\addcontentsline{toc}{subsection}{Puntos aislados}
+\begin{tcolorbox}[definitionstyle]
+Los \textbf{puntos aislados} de un conjunto \( A \) son aquellos que pertenecen a \( \overline{A} \) pero no son puntos de acumulación, es decir, los elementos de \( \overline{A} \setminus A' \).
+\end{tcolorbox}
+\section*{Densidad}
+\addcontentsline{toc}{section}{Densidad}
+\subsection*{Conjunto denso}
+\addcontentsline{toc}{subsection}{Conjunto denso}
+\begin{tcolorbox}[definitionstyle]
+Un subconjunto \( H \subseteq X \) se llama \textbf{denso} en \( X \) si su clausura es todo el espacio, es decir:
+\[
+\overline{H} = X.
+\]
+Equivalentemente, \( H \) es denso si su intersección con cualquier abierto no vacío de \( X \) es no vacía.  
+Intuitivamente, los puntos de \( H \) se aproximan arbitrariamente a cualquier punto de \( X \).
+\end{tcolorbox}
+\subsection*{Conjunto no denso en ninguna parte}
+\addcontentsline{toc}{subsection}{Conjunto no denso en ninguna parte}
+\begin{tcolorbox}[definitionstyle]
+Un subconjunto \( A \subseteq X \) se llama \textbf{no denso en ninguna parte} si el interior de su clausura es vacío:
+\[
+\operatorname{Int}(\overline{A}) = \varnothing.
+\]
+Esto significa que \( A \) sólo puede ser frontera.
+\end{tcolorbox}
+\section*{Axiomas de Separación $T$}
+\addcontentsline{toc}{section}{Axiomas de Separación T}
+\begin{tcolorbox}[definitionstyle]
+\subsection*{Propiedad de Fréchet (T\textsubscript{1})}
+\addcontentsline{toc}{subsection}{Propiedad de Fréchet (T1)}  
+Un espacio topológico \( X \) es \textbf{T\textsubscript{1}} si para cada par de puntos distintos \( x_1, x_2 \in X \),  
+existen entornos abiertos \( U_1, U_2 \subseteq X \) tales que:
+\[
+x_1 \in U_1, \quad x_2 \notin U_1, \qquad \text{y} \qquad x_2 \in U_2, \quad x_1 \notin U_2.
+\]
+Equivalente a decir que todos los puntos de \( X \) son conjuntos cerrados.
+\end{tcolorbox}
+\subsection*{Propiedad de Hausdorff (T\textsubscript{2})}
+\addcontentsline{toc}{subsection}{Propiedad de Hausdorff (T2)}
+\begin{tcolorbox}[definitionstyle]
+Un espacio topológico \( X \) es \textbf{Hausdorff} o \textbf{T\textsubscript{2}} si para cada par de puntos distintos \( x_1, x_2 \in X \),  
+existen entornos abiertos disjuntos \( U_1, U_2 \subseteq X \) tales que:
+\[
+x_1 \in U_1, \quad x_2 \in U_2, \quad \text{y} \quad U_1 \cap U_2 = \varnothing.
+\]
+Intuitivamente, los puntos de un espacio Hausdorff “viven en casas separadas”.
+\end{tcolorbox}
+\section*{Axiomas de Numerabilidad}
+\addcontentsline{toc}{section}{Axiomas de Numerabilidad}
+\subsection*{Primer Axioma de Numerabilidad (1AN)}
+\addcontentsline{toc}{subsection}{Primer Axioma de Numerabilidad (1AN)}
+\begin{tcolorbox}[definitionstyle]
+Un espacio topológico \( X \) satisface el \textbf{primer axioma de numerabilidad} si para cada punto \( x \in X \)  
+existe una colección numerable de entornos \( \{A_i(x)\}_{i \in \mathbb{N}} \) tal que  
+todo entorno abierto \( B(x) \) de \( x \) contiene al menos uno de los \( A_i(x) \).
+ 
+Todo espacio metrizable cumple el primer axioma de numerabilidad.
+\end{tcolorbox}
+\subsection*{Segundo Axioma de Numerabilidad (2AN)}
+\addcontentsline{toc}{subsection}{Segundo Axioma de Numerabilidad (2AN)}
+\begin{tcolorbox}[definitionstyle]
+Un espacio topológico \( X \) satisface el \textbf{segundo axioma de numerabilidad}  
+si la topología de \( X \) tiene una base numerable, es decir,  
+existe una familia numerable de abiertos \( \{B_i\}_{i \in \mathbb{N}} \) tal que  
+todo abierto de \( X \) puede expresarse como unión de algunos de los \( B_i \).
+\end{tcolorbox}
+\section*{Homeomorfismo}
+\addcontentsline{toc}{section}{Homeomorfismo}
+\begin{tcolorbox}[definitionstyle]
+Sea \( f : X \to Y \) una biyección entre espacios topológicos.  
+Se dice que \( f \) es un \textbf{homeomorfismo} si \( f \) es continua y abierta  
+(es decir, si la imagen de cualquier conjunto abierto de \( X \) es abierta en \( Y \)).
+
+Equivalentemente, \( f \) es homeomorfismo si \( f \) y su inversa \( f^{-1} \) son continuas.
+
+En tal caso, los espacios \( X \) y \( Y \) se dicen \textbf{homeomorfos},  
+lo que significa que son topológicamente equivalentes.
+\end{tcolorbox}
+\end{document}

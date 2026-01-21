@@ -1,0 +1,45 @@
+Persona:
+  required_vars:
+    - nombre
+  admissible_vars:
+    - dni
+    - ciudad_residencia
+    - descripcion           
+    - estudios              # array de objetos { universidad, titulo, anio_fin }
+    - trabajos              # array de objetos { empresa, inicio, fin }
+    - domicilio         
+  unique_indexes:
+    - dni
+  regular_indexes:
+    - nombre
+    - descripcion    
+  location_index: domicilio            
+
+Empresa:
+  required_vars:
+    - nombre
+  admissible_vars:
+    - nif
+    - direccion
+    - telefono
+    - email
+  unique_indexes:
+    - nif
+  regular_indexes:
+    - nombre
+    - telefono
+  location_index: direccion
+Centro_Educativo:
+  required_vars:
+    - nombre
+  admissible_vars:
+    - codigo
+    - direccion
+    - telefono
+    - email
+  unique_indexes:
+    - codigo
+  regular_indexes:
+    - nombre
+    - telefono
+  location_index: direccion

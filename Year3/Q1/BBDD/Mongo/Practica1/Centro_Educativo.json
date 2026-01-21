@@ -1,0 +1,15 @@
+{"_id":{"$oid":"68e39e3087433b2de17c4a32"},"codigo":"CE8557","direccion":"Puerta del Sol, Madrid","direccion_loc":{"type":"Point","coordinates":[-3.703876,40.416863]},"email":"contacto0@centro.edu","nombre":"Centro Santa Carlos","telefono":"917043997"}
+{"_id":{"$oid":"68e39e3287433b2de17c4a33"},"codigo":"CE7684","direccion":"Sagrada Familia, Barcelona","direccion_loc":{"type":"Point","coordinates":[2.174428,41.403505]},"email":"contacto1@academia.edu","nombre":"Academia San Carmen","telefono":"915721778"}
+{"_id":{"$oid":"68e39e3387433b2de17c4a34"},"codigo":"CE4168","direccion":"Plaza Mayor, Salamanca","direccion_loc":{"type":"Point","coordinates":[-5.664056,40.965028]},"email":"contacto2@instituto.edu","nombre":"Instituto Santa Carlos","telefono":"911253556"}
+{"_id":{"$oid":"68e39e3487433b2de17c4a35"},"codigo":"CE2000","direccion":"Calle Larios, Málaga","direccion_loc":{"type":"Point","coordinates":[-4.421597,36.719669]},"email":"contacto3@academia.edu","nombre":"Academia Los Carlos","telefono":"913995800"}
+{"_id":{"$oid":"68e39e3687433b2de17c4a36"},"codigo":"CE1222","direccion":"Avenida de la Constitución, Sevilla","direccion_loc":{"type":"Point","coordinates":[-5.254501,37.526866]},"email":"contacto4@escuela.edu","nombre":"Escuela Los Carmen","telefono":"917810702"}
+{"_id":{"$oid":"68e39e3687433b2de17c4a37"},"codigo":"CE9302","email":"contacto5@colegio.edu","nombre":"Colegio Santa Juan","telefono":"913276386"}
+{"_id":{"$oid":"68e39e3687433b2de17c4a38"},"codigo":"CE4800","email":"contacto6@academia.edu","nombre":"Academia Los María","telefono":"913677816"}
+{"_id":{"$oid":"68e39e3687433b2de17c4a39"},"codigo":"CE4965","email":"contacto7@instituto.edu","nombre":"Instituto Nuestra Señora Carmen","telefono":"916325807"}
+{"_id":{"$oid":"68e39e3687433b2de17c4a3a"},"codigo":"CE2877","email":"contacto8@colegio.edu","nombre":"Colegio Santa Carmen","telefono":"913592318"}
+{"_id":{"$oid":"68e39e3687433b2de17c4a3b"},"codigo":"CE4531","email":"contacto9@academia.edu","nombre":"Academia Los Juan","telefono":"911366926"}
+{"_id":{"$oid":"68e39e3687433b2de17c4a3c"},"codigo":"CE9220","email":"contacto10@colegio.edu","nombre":"Colegio Las Carlos","telefono":"914575838"}
+{"_id":{"$oid":"68e39e3687433b2de17c4a3d"},"codigo":"CE3973","email":"contacto11@academia.edu","nombre":"Academia San Carlos","telefono":"912161270"}
+{"_id":{"$oid":"68e39e3687433b2de17c4a3e"},"codigo":"CE9682","email":"contacto12@instituto.edu","nombre":"Instituto Los Carmen","telefono":"911997314"}
+{"_id":{"$oid":"68e39e3687433b2de17c4a3f"},"codigo":"CE2521","email":"contacto13@colegio.edu","nombre":"Colegio San Carmen","telefono":"918031259"}
+{"_id":{"$oid":"68e39e3687433b2de17c4a40"},"codigo":"CE9238","email":"contacto14@colegio.edu","nombre":"Colegio Los Carmen","telefono":"918174794"}

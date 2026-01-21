@@ -1,0 +1,210 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+
+\title{Definiciones}
+\author{Juan Rodríguez}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Conexidad}
+
+\subsection*{Espacio conexo}
+
+Un espacio topológico \(X\) se dice \textbf{conexo} si no existen dos abiertos disjuntos y no vacíos \(U,V\subset X\) tales que
+\[
+X=U\cup V.
+\]
+
+En caso de existir tal descomposición, se dice que \(X\) admite una \textbf{separación}.
+
+Intuitivamente, un espacio es conexo si está hecho de una sola pieza, es decir, no puede dividirse en dos partes abiertas separadas.
+
+\subsection*{Espacio conexo por caminos}
+
+Un espacio topológico \(X\) se dice \textbf{conexo por caminos} si para cualquier par de puntos \(x,y\in X\) existe un camino continuo
+\[
+f:[0,1]\to X
+\]
+tal que
+\[
+f(0)=x,\qquad f(1)=y.
+\]
+
+\subsection*{Espacio localmente conexo}
+
+Un espacio topológico \(X\) se dice \textbf{localmente conexo} si para todo punto \(x\in X\) y todo entorno abierto \(U\) de \(x\), existe un subentorno abierto \(V\) tal que
+\[
+x\in V\subset U
+\]
+y \(V\) es conexo.
+
+\subsection*{Espacio localmente conexo por caminos}
+
+Un espacio topológico \(X\) se dice \textbf{localmente conexo por caminos} si para todo punto \(x\in X\) y todo entorno abierto \(U\) de \(x\), existe un subentorno abierto \(V\) tal que
+\[
+x\in V\subset U
+\]
+y \(V\) es conexo por caminos.
+
+\subsection*{Espacio simplemente conexo}
+
+Un espacio topológico \(X\) se dice \textbf{simplemente conexo} si es conexo por caminos y su grupo fundamental es trivial, es decir,
+\[
+\pi_1(X)=\{e\}.
+\]
+
+\subsection*{Componente conexa}
+
+Sea \(X\) un espacio topológico.  
+Una \textbf{componente conexa} de \(X\) es un subconjunto \(C\subset X\) que es conexo tal que,
+\[
+\forall Z: C \subset Z \subset X,\quad Z \text{ no es conexo }
+\]
+
+Dicho de otro modo, una componente conexa es la \emph{máxima parte conexa} de \(X\) que contiene a un punto dado.
+
+\section*{Espacio compacto}
+
+Un espacio topológico \(X\) se dice \textbf{compacto} si todo recubrimiento abierto de \(X\) admite un subrecubrimiento finito.
+
+\subsection*{Recubrimiento abierto}
+
+Un \textbf{recubrimiento abierto} de \(X\) es una familia de abiertos \(\{U_i\}_{i\in I}\) tal que
+\[
+X=\bigcup_{i\in I} U_i.
+\]
+
+Un \textbf{subrecubrimiento finito} es una subfamilia finita
+\[
+U_{i_1},\dots,U_{i_n}
+\]
+tal que
+\[
+X=U_{i_1}\cup\cdots\cup U_{i_n}.
+\]
+
+\section*{Característica de Euler}
+
+Sea \(G\) un grafo contenido en una superficie.  
+La \textbf{característica de Euler} se define como
+\[
+\chi = V - A + F,
+\]
+donde:
+\begin{itemize}
+\item \(V\) es el número de vértices,
+\item \(A\) es el número de aristas,
+\item \(F\) es el número de zonas cerradas (caras).
+\end{itemize}
+
+\subsection*{Triangulación}
+
+Una \textbf{triangulación} de una superficie es una descomposición de la misma en triángulos topológicos (posiblemente con lados curvos), de manera que dos triángulos cualesquiera se intersecan en una arista o vértice.
+
+\section*{Grupo fundamental}
+
+\subsection*{Lazo}
+
+Sea \(X\) un espacio topológico y sea \(x_0\in X\).  
+Un \textbf{lazo con base en \(x_0\)} es una aplicación continua
+\[
+\alpha:[0,1]\to X
+\]
+tal que
+\[
+\alpha(0)=\alpha(1)=x_0.
+\]
+
+\subsection*{Suma de lazos}
+
+Sean \(f,g:[0,1]\to X\) dos lazos con el mismo punto base \(x_0\).  
+La \textbf{suma de lazos} \(f+g\) se define como el lazo
+\[
+(f+g)(t)=
+\begin{cases}
+f(2t), & 0\le t\le \frac{1}{2},\\[4pt]
+g(2t-1), & \frac{1}{2}<t\le 1.
+\end{cases}
+\]
+
+Esta definición puede generalizarse reparametrizando los lazos según su longitud.
+
+\subsection*{Lazo neutro}
+
+El \textbf{lazo neutro} es el lazo constante
+\[
+e:[0,1]\to X,\qquad e(t)=x_0\ \ \forall t\in[0,1].
+\]
+
+Este lazo actúa como elemento identidad para la suma de lazos.
+
+\subsection*{Lazo inverso}
+
+Dado un lazo \(f:[0,1]\to X\) con base en \(x_0\), su \textbf{lazo inverso} se define como
+\[
+f^{-1}(t)=f(1-t), \qquad t\in[0,1].
+\]
+
+\subsection*{Homotopía de lazos}
+
+Sean \(\alpha,\beta:[0,1]\to X\) dos lazos con base en \(x_0\).  
+Se dice que son \textbf{homotópicos} si existe una aplicación continua
+\[
+h:[0,1]\times[0,1]\to X
+\]
+tal que
+\[
+h(t,0)=\alpha(t), \qquad h(t,1)=\beta(t),
+\]
+y además
+\[
+h(0,s)=h(1,s)=x_0 \quad \forall s\in[0,1].
+\]
+
+\subsection*{Lazos equivalentes}
+
+Dos lazos se dicen \textbf{equivalentes} si son homotópicos fijando el punto base.
+
+Esta relación define una relación de equivalencia en el conjunto de lazos con base en \(x_0\).
+
+\subsection*{Grupo fundamental}
+
+El \textbf{grupo fundamental} de \(X\) con base en \(x_0\), también llamado \textbf{grupo de Poincaré}, es el conjunto de clases de equivalencia de lazos con base en \(x_0\), con la operación inducida por la suma de lazos:
+\[
+\pi_1(X,x_0).
+\]
+
+\subsection*{Grupo cociente}
+
+Sea \(A\) un conjunto y sea \(\sim\) una relación de equivalencia en \(A\).
+El \textbf{conjunto cociente} es el conjunto de clases de equivalencia
+\[
+A/\!\sim \;=\;\{[a]\mid a\in A\}.
+\]
+
+Si además \(A\) está dotado de una operación binaria y la relación de equivalencia
+\(\sim\) es compatible con dicha operación, entonces el conjunto cociente
+hereda de forma natural una estructura de grupo, llamada \textbf{grupo cociente}.
+
+\subsection*{Grupo fundamental como grupo cociente}
+
+Sea \(X\) un espacio topológico y \(x_0\in X\).  
+Sea \(\Omega(X,x_0)\) el conjunto de todos los lazos con base en \(x_0\).
+
+Consideramos en \(\Omega(X,x_0)\) la relación de equivalencia dada por la homotopía
+fijando el punto base.
+
+El \textbf{grupo fundamental} de \(X\) con base en \(x_0\) se define como el grupo
+del conjunto cociente
+\[
+\pi_1(X,x_0)
+\;=\;
+\Omega(X,x_0)\big/\sim,
+\]
+es decir, el conjunto de clases de equivalencia de lazos basados en \(x_0\)
+módulo homotopía, con la operación inducida por la suma de lazos.
+
+\end{document}

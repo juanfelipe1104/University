@@ -1,0 +1,69 @@
+\documentclass[fleqn]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\title{Continuidad en Topologías}
+\author{Juan Felipe Rodríguez Córdoba}
+\date{}
+
+\begin{document}
+	\maketitle
+    \section*{Definición de Continuidad}
+    Sea \( f: X \to Y \) una función entre dos espacios topológicos \( (X, \tau_X) \) y \( (Y, \tau_Y) \).
+    
+    Decimos que \( f \) es continua si para cada conjunto abierto \( V \in \tau_Y \), su preimagen \( f^{-1}(V) \) es un conjunto abierto en \( X \), es decir, \( f^{-1}(V) \in \tau_X \).
+
+    \section*{Definición Función Inversa}
+    La función inversa de \( f \), denotada como \( f^{-1} \), es una función que asigna a cada conjunto \( V \subseteq Y \) su preimagen en \( X \):
+    \[ f^{-1}(V) = \{ x \in X \mid f(x) \in V \}. \]
+
+    \section*{Topología de Semirrectas Derechas}
+    La topología de semirrectas derechas en \( \mathbb{R} \) está definida por la base de conjuntos abiertos de la forma \( (a, \infty) \).
+
+    \section*{Ejemplo en Topología de Semirrectas Derechas}
+    Consideremos los espacios topológicos \( (X, \tau_X) \) y \( (Y, \tau_Y) \) donde:
+    \begin{itemize}
+        \item \( X = \mathbb{R} \) con la topología de semirrectas derechas.
+        \item \( Y = \mathbb{R} \) con la topología de semirrectas derechas.
+    \end{itemize}
+    Definimos el conjunto abierto en \( Y \):
+    \[ A = (a, \infty) \]
+    \begin{itemize}
+        \item \(f(x) = 2x\) \\
+        \(f^{-1}(A) = (\frac{a}{2}, \infty)\) es abierto en \( X \). Por lo tanto, \( f \) es continua.
+        \item \(f(x) = -x\) \\
+        \(f^{-1}(A) = (-\infty, -a)\) no es abierto en \( X \). Por lo tanto, \( f \) no es continua.
+        \item \(f(x) = x^2\) \\
+        \(f^{-1}(A) = (-\infty, -\sqrt{a}) \cup (\sqrt{a}, \infty)\) no es abierto en \( X \). Por lo tanto, \( f \) no es continua.
+        \item \(f(x) = x^3\) \\
+        \(f^{-1}(A) = (\sqrt[3]{a}, \infty)\) es abierto en \( X \). Por lo tanto, \( f \) es continua.
+    \end{itemize}
+
+    \section*{Topología de Sorgenfrey}
+    La topología de Sorgenfrey en \( \mathbb{R} \) está definida por la base de conjuntos abiertos de la forma \( [a, b) \) donde \( a < b \).
+    
+    \section*{Ejemplo en Topología de Sorgenfrey}
+    Consideremos los espacios topológicos \( (X, \tau_X) \) y \( (Y, \tau_Y) \) donde:
+    \begin{itemize}
+        \item \( X = \mathbb{R} \) con la topología de Sorgenfrey.
+        \item \( Y = \mathbb{R} \) con la topología de Sorgenfrey.
+    \end{itemize}
+    Definimos el conjunto abierto en \( Y \):
+    \[ A = [a, b) \]
+    \begin{itemize}
+        \item \(f(x) = 2x\) \\
+        \(f^{-1}(A) = [\frac{a}{2}, \frac{b}{2})\) es abierto en \( X \). Por lo tanto, \( f \) es continua.
+        \item \(f(x) = -x\) \\
+        \(f^{-1}(A) = (-b, -a]\) no es abierto en \( X \). Por lo tanto, \( f \) no es continua.
+        \item \(f(x) = x^2\) \\
+        \(f^{-1}(A) = (-\sqrt{b}, -\sqrt{a}] \cup [\sqrt{a}, \sqrt{b})\) no es abierto en \( X \). Por lo tanto, \( f \) no es continua.
+        \item \(f(x) = x^3\) \\
+        \(f^{-1}(A) = [\sqrt[3]{a}, \sqrt[3]{b})\) es abierto en \( X \). Por lo tanto, \( f \) es continua.
+    \end{itemize}
+
+    \section*{Topología Cofinita}
+    La topología cofinita en un conjunto \( X \) está definida por la colección de conjuntos abiertos que son \( X \) y todos los subconjuntos cuyo complemento en \( X \) es finito.
+
+    \section*{Ejemplo en Topología Cofinita}
+    Todas las funciones \( f: X \to Y \) entre espacios topológicos con la topología cofinita son continuas excepto las periodicas. Esto se debe a que la preimagen de cualquier conjunto abierto en \( Y \) (que es \( Y \) o tiene complemento finito) tendrá un complemento finito en \( X \), asegurando que la preimagen sea abierta en \( X \).
+\end{document}

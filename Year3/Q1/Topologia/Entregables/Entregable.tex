@@ -1,0 +1,140 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\title{Hojas de Ejercicios de Topología}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\setlength{\parskip}{0.8em}
+
+\section*{Ejercicios Distancias}
+
+\subsection*{Ejercicio 1}
+¿Son distancias en $\mathbb{R}$.?
+\begin{enumerate}
+    \item $d(x,y)=|x-y|$
+    \item $d(x,y)=|x^2-y^2|$
+    \item $d(x,y)=|x-2y|$
+    \item $d(x,y)=(x-y)^2$
+    \item $d(x,y)=\sin^2(x-y)$
+    \item $d(x,y)=\arctan|x-y|$
+\end{enumerate}
+
+\vspace{10cm}
+
+\subsection*{Ejercicio 2}
+¿Es o no distancia entre dos conjuntos $A$ y $B$ ? \\
+$d(A,B)=|A\cup B|-|A\cap B|.$
+
+\vspace{10cm}
+
+\subsection*{Ejercicio 3}
+¿Son distancias en $\mathbb{R}^2$?
+\[
+\begin{aligned}
+\text{a)}\;& d_2((x_1,y_1),(x_2,y_2))=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2},\\
+\text{b)}\;& d_\times((x_1,y_1),(x_2,y_2))=|x_1-x_2|\cdot|y_1-y_2|,\\
+\text{c)}\;& d_1((x_1,y_1),(x_2,y_2))=|x_1-x_2|+|y_1-y_2|,\\
+\text{d)}\;& d_{\min}((x_1,y_1),(x_2,y_2))=\min\{|x_1-x_2|,|y_1-y_2|\},\\
+\text{e)}\;& d_\infty((x_1,y_1),(x_2,y_2))=\max\{|x_1-x_2|,|y_1-y_2|\}.
+\end{aligned}
+\]
+
+\vspace{10cm}
+
+\subsection*{Ejercicio 5}
+Demuestra que en un conjunto finito sólo hay una distancia posible que tenga valores 0 o 1.
+
+\vspace{10cm}
+
+\subsection*{Ejercicio 6}
+Demuestra que la distancia Taxicab/Manhattan en $\mathbb{R}^2$ es equivalente a la euclidiana
+\vspace{10cm}
+
+\subsection*{Ejercicio 8}
+Calcula el número $\pi$ en la Taxicab
+
+\vspace{10cm}
+
+\subsection*{Ejercicio 9}
+Calcula la distancia entre $f(x) = \sin{2x}$, $g(x) = cos(x)$ en $[0, \pi]$
+\begin{itemize}
+    \item[a)] En la métrica integral
+    \item[b)] En la métrica del supremo
+\end{itemize}
+
+\vspace{10cm}
+
+
+\newpage
+\section*{Hojas 3: Ejercicios sobre Topologías}
+
+\subsection*{Ejercicio 1}
+¿Son una topología?
+\begin{enumerate}
+    \item $X=\{a,b,c\}$, $T_1=\{\varnothing,\{a\},\{b\},\{a,c\},\{a,b\},\{a,b,c\}\}$.
+    \item $X=\mathbb{R}$, $\mathcal{T}=\{(a,+\infty):a\in\mathbb{R}\}$.
+    \item $X=\mathbb{R}$, $\mathcal{S}=\{[a,b):a,b\in\mathbb{R},\,a<b\}$.
+\end{enumerate}
+
+\vspace{10cm}
+
+\subsection*{Ejercicio 2}
+¿Son una topología?
+\begin{enumerate}
+    \item $X=\{a,b,c\}$, $T_2=\{\varnothing,\{a\},\{c\},\{b,c\},\{a,b\},X\}$.
+    \item $X=\mathbb{R}$, $\mathcal{C}=\{U\subseteq\mathbb{R}:|\mathbb{R}\setminus U|<\infty\}$.
+\end{enumerate}
+
+\vspace{10cm}
+
+\subsection*{Ejercicio 3}
+Halla un ejemplo de topología heredada de un espacio que no coincida con la topología interior
+
+\vspace{10cm}
+
+\subsection*{Ejercicio 4}
+Busca interior, frontera y clausura
+\begin{enumerate}
+    \item $(0,2)$ en $\mathbb{R}$
+    \item $\{1/n : n\in\mathbb{Z}^+\}$ en $\mathbb{R}$
+    \item $(0,2)$ en $(0,4)$
+\end{enumerate}
+
+\vspace{10cm}
+
+\subsection*{Ejercicio 5}
+Busca interior, frontera y clausura
+\begin{enumerate}
+    \item $A = \{-3-\tfrac{1}{n}:n\in\mathbb{N}\}\cup(1,2)\cup\{4+\tfrac{1}{n}:n\in\mathbb{N}\}$ en Sorgenfrey.
+    \item $[1,2]\cup\{3\}$ en $\mathbb{R}$
+\end{enumerate}
+
+\vspace{10cm}
+
+\subsection*{Ejercicio 6}
+Busca interior, frontera y clausura
+\begin{enumerate}
+    \item[a.] $\mathbb{Q}$ en $\mathbb{R}$ (topología canónica).
+    \item[b.] $(\mathbb{R}\setminus\mathbb{Z})\times(\mathbb{R}\setminus\mathbb{Q})$ en $\mathbb{R}^2$ (topología canónica).
+\end{enumerate}
+
+\vspace{10cm}
+
+\subsection*{Ejercicio 7}
+¿Es verdad que?
+\begin{enumerate}
+    \item[c.] $\operatorname{Fr}(A)=\overline{A}\cap\overline{A^c}$.
+    \item[d.] $\operatorname{Int}(A\cup B)=\operatorname{Int}(A)\cup\operatorname{Int}(B)$.
+    \item[e.] $\operatorname{Int}(A\cap B)=\operatorname{Int}(A)\cap\operatorname{Int}(B)$.
+    \item[f.] $\operatorname{Int}(\operatorname{Fr}(A))=\varnothing$.
+\end{enumerate}
+
+\vspace{10cm}
+
+\end{document}

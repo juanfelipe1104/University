@@ -1,0 +1,276 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{physics}
+\usepackage{mathtools}
+
+\title{Continuidad en autómatas celulares y su interpretación topológica}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{1. Configuraciones y estructura topológica}
+
+Un \textbf{autómata celular} es un sistema dinámico discreto definido sobre una red de celdas, donde cada celda puede adoptar un valor de un conjunto finito de estados.
+
+\subsection*{Espacio de configuraciones}
+
+Sea:
+\[
+A = \{a_1, a_2, \dots, a_k\} \quad \text{(conjunto finito de estados)},
+\]
+y sea $\mathbb{Z}^d$ la red $d$-dimensional de índices de celdas.
+
+Una \textbf{configuración} es una función:
+\[
+x : \mathbb{Z}^d \longrightarrow A, \qquad i \longmapsto x(i),
+\]
+que asigna a cada celda su estado.
+
+El conjunto de todas las configuraciones posibles se denota:
+\[
+X = A^{\mathbb{Z}^d}.
+\]
+
+Cada elemento $x \in X$ representa un ``estado global'' del autómata.
+
+\subsection*{Topología sobre $X$}
+
+Se dota a $A$ de la \textbf{topología discreta}.  
+La topología natural sobre $X$ es la \textbf{topología producto discreta}, la más débil que hace continuas las proyecciones:
+\[
+\pi_i : X \to A, \quad \pi_i(x) = x(i).
+\]
+
+\subsection*{Base de abiertos}
+
+Los abiertos básicos se denominan \textbf{cilindros} y tienen la forma:
+\[
+C(i_1, \dots, i_k; a_1, \dots, a_k)
+= \{\, x \in X : x(i_j) = a_j,\; j=1,\dots,k \,\}.
+\]
+
+En esta topología:
+\begin{itemize}
+  \item Dos configuraciones son \textbf{cercanas} si coinciden en un gran número de posiciones alrededor de un punto central.
+  \item Cuanto mayor sea la región de coincidencia, más ``cercanas'' son.
+\end{itemize}
+
+Esta noción de cercanía refleja la idea física de que un cambio local en una celda no debería alterar inmediatamente la configuración global.
+
+\bigskip
+
+\section*{2. Regla local y evolución global}
+
+Sea $N \subset \mathbb{Z}^d$ un conjunto finito (vecindario).  
+La \textbf{regla local} es una función:
+\[
+f : A^N \longrightarrow A,
+\]
+que determina el nuevo estado de una celda en función de los valores de sus vecinas.
+
+La \textbf{evolución global} del autómata se define como:
+\[
+F : X \longrightarrow X, \qquad (F(x))(i) = f\big(x|_{i+N}\big),
+\]
+donde $x|_{i+N}$ denota la restricción de $x$ al bloque $i+N$.
+
+\bigskip
+
+\section*{3. Continuidad de $F$ en la topología producto (canónica)}
+
+\subsection*{Proposición}
+La función global $F : A^{\mathbb{Z}^d} \to A^{\mathbb{Z}^d}$ es continua en la topología producto discreta.
+
+\subsection*{Demostración}
+
+Sea $U$ un cilindro en la imagen:
+\[
+U = \{\, y \in X : y(i_j) = b_j,\; j=1,\dots,k \,\}.
+\]
+
+Entonces:
+\[
+F^{-1}(U)
+= \{\, x \in X : (F(x))(i_j) = b_j,\; j=1,\dots,k \,\}.
+\]
+
+Por la definición de $F$:
+\[
+(F(x))(i_j) = f(x|_{i_j + N}),
+\]
+de modo que:
+\[
+F^{-1}(U)
+= \bigcap_{j=1}^{k} \{\, x \in X : f(x|_{i_j + N}) = b_j \,\}.
+\]
+
+Cada conjunto del tipo $\{ x : f(x|_{i_j + N}) = b_j \}$ restringe solo un número \textbf{finito} de coordenadas.  
+Como $A$ tiene la topología discreta, fijar finitas coordenadas define un conjunto abierto (una unión de cilindros).
+
+Por tanto, cada uno de los conjuntos anteriores es abierto, y su intersección finita también lo es.
+
+\[
+\boxed{F^{-1}(U) \text{ es abierto } \Rightarrow F \text{ es continua.}}
+\]
+
+\subsection*{Interpretación}
+
+La \textbf{localidad finita} de la regla $f$ garantiza que la imagen de una configuración solo depende de un número finito de valores.  
+Esto hace que la evolución global $F$ sea continua en la topología producto: configuraciones ``cercanas'' (iguales en una gran región finita) evolucionan hacia configuraciones igualmente cercanas.
+
+\[
+\text{Pequeños cambios locales} \;\Rightarrow\; \text{pequeños cambios en la evolución.}
+\]
+
+\bigskip
+
+\section*{4. Ejemplo numérico: Regla 90 (caso unidimensional)}
+
+Consideremos $A=\{0,1\}$, $\mathbb{Z}$ como red de celdas y $N=\{-1,0,1\}$ como vecindario.  
+La regla local está dada por:
+\[
+f(a_{i-1}, a_i, a_{i+1}) = a_{i-1} + a_{i+1} \pmod 2.
+\]
+
+Entonces:
+\[
+(F(x))(i) = f(x(i-1), x(i), x(i+1)).
+\]
+
+Sea el cilindro:
+\[
+U = \{\, y \in X : y(0)=1,\, y(1)=0 \,\}.
+\]
+
+Su preimagen bajo $F$ es:
+\[
+F^{-1}(U)
+= \{\, x : f(x(-1),x(0),x(1))=1, \, f(x(0),x(1),x(2))=0 \,\}.
+\]
+
+Sustituyendo $f$:
+\[
+\begin{cases}
+x(-1) + x(1) \equiv 1 \pmod 2,\\[3pt]
+x(0) + x(2) \equiv 0 \pmod 2.
+\end{cases}
+\quad \Rightarrow \quad
+\begin{cases}
+x(-1)\neq x(1),\\
+x(0)=x(2).
+\end{cases}
+\]
+
+Estas condiciones afectan solo a las coordenadas $\{-1,0,1,2\}$, un conjunto finito.  
+Cada combinación de valores que las satisface define un cilindro abierto, y la unión de todos ellos es abierta.
+
+\[
+\boxed{F^{-1}(U) \text{ es abierto } \Rightarrow F \text{ es continua.}}
+\]
+
+\bigskip
+
+\section*{5. Contraejemplo: no continuidad con la topología de semirrectas derechas}
+
+\subsection*{Definición}
+
+La \textbf{topología de semirrectas derechas} sobre $X=A^{\mathbb{Z}}$ se define por la base:
+\[
+U_N(x) = \{\, y \in X : y(i)=x(i) \text{ para todo } i \ge N \,\}.
+\]
+
+En esta topología, dos configuraciones son ``cercanas'' si coinciden completamente a partir de cierto punto hacia la derecha.
+
+\subsection*{Ejemplo}
+
+Consideremos nuevamente la regla local de la Regla 90:
+\[
+F(x)(i) = x(i-1) + x(i+1) \pmod 2.
+\]
+
+Sea el abierto en la imagen:
+\[
+V = \{\, y : y(0)=0 \,\}.
+\]
+Entonces:
+\[
+F^{-1}(V) = \{\, x : x(-1)=x(1) \,\}.
+\]
+
+\subsection*{Prueba de no continuidad}
+
+Tomemos la configuración nula $x_0$, definida por $x_0(i)=0$ para todo $i$.  
+Entonces $x_0 \in F^{-1}(V)$.
+
+Supongamos que $F$ fuera continua.  
+Entonces existiría algún $N$ tal que $U_N(x_0) \subseteq F^{-1}(V)$.
+
+Sin embargo, para cualquier $N$, definimos $y$ como:
+\[
+y(i) = 
+\begin{cases}
+1, & i=-1,\\
+0, & \text{en otro caso.}
+\end{cases}
+\]
+Entonces $y \in U_N(x_0)$ (porque coincide con $x_0$ para todo $i \ge N$),  
+pero:
+\[
+(F(y))(0) = y(-1) + y(1) = 1 + 0 = 1 \pmod 2.
+\]
+Por tanto, $y \notin F^{-1}(V)$.
+
+Esto ocurre para todo $N$, de modo que ningún vecindario derecho de $x_0$ está contenido en $F^{-1}(V)$.
+
+\[
+\boxed{F^{-1}(V) \text{ no es abierto } \Rightarrow F \text{ no continua.}}
+\]
+
+\subsection*{Interpretación}
+
+En la topología de semirrectas derechas:
+\begin{itemize}
+  \item La noción de cercanía solo considera la parte ``futura'' de la configuración (índices grandes).
+  \item La regla local, en cambio, depende de valores tanto a izquierda como a derecha.
+  \item Por tanto, un pequeño cambio a la izquierda (invisible topológicamente) puede alterar el resultado global.
+\end{itemize}
+
+\[
+\boxed{
+\text{Topología producto (canónica): } F \text{ continua.}
+\qquad
+\text{Topología semirrectas derechas: } F \text{ no continua.}
+}
+\]
+
+\bigskip
+
+\section*{6. Comentario topológico final: compacidad, Cantor y estabilidad}
+
+El espacio $X = A^{\mathbb{Z}^d}$, con $A$ finito y topología discreta, es un \textbf{producto infinito de espacios finitos discretos}.  
+Por el \textit{teorema de Tychonoff}, $X$ es \textbf{compacto}.
+
+Además, como es totalmente disconexo, sin puntos aislados y compacto, $X$ es \textbf{homeomorfo al espacio de Cantor}.  
+Así, el espacio de configuraciones de un autómata celular tiene la misma estructura topológica que el famoso \textbf{conjunto de Cantor}.
+
+\subsection*{Implicaciones dinámicas}
+
+\begin{itemize}
+  \item La continuidad de $F$ garantiza que la dinámica del autómata es \textbf{estable} respecto a perturbaciones locales.
+  \item La compacidad de $X$ implica que toda secuencia de configuraciones tiene una subsecuencia convergente (en el sentido topológico).
+  \item La estructura tipo Cantor permite aplicar herramientas de la \textbf{dinámica simbólica}, como medidas invariantes, entropía topológica y conjuntos invariantes.
+\end{itemize}
+
+En otras palabras, los autómatas celulares pueden verse como \textbf{transformaciones continuas en espacios de Cantor compactos}, lo que los sitúa dentro de la teoría general de los \textbf{sistemas dinámicos topológicos discretos}.
+
+\[
+\boxed{
+(X,F) \text{ es un sistema dinámico topológico discreto y compacto.}
+}
+\]
+
+\end{document}

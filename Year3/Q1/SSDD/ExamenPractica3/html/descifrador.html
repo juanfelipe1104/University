@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Decrypt Data</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+  <script>
+    function decryptData() {
+      const encryptedData = document.getElementById("encrypted").value;
+      if (!encryptedData) {
+        document.getElementById("msg").innerHTML = "Ingrese datos encriptados";
+        return false;
+      }
+
+      $.get("https://5hlzijp6kaj7xtxj6n5lijdwmy0keqrm.lambda-url.us-east-1.on.aws/", { encryptedData }, function (data) {
+        alert(data);
+        return true;
+      }).fail(function () {
+        document.getElementById("msg").innerHTML = "Error llamando al servicio de descencriptado.";
+      });
+
+      return false;
+    }
+  </script>
+</head>
+
+<body>
+    <h2>Descencriptar data</h2>
+
+    <form onsubmit="return decryptData();">
+      <label>Data encriptada</label>
+      <input id="encrypted" type="text"/>
+      <button type="submit">Desencriptar</button>
+    </form>
+
+    <p id="msg"></p>
+  </div>
+</body>
+</html>

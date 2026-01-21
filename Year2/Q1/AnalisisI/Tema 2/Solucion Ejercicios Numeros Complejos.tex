@@ -1,0 +1,618 @@
+\documentclass[fleqn]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\title{Solución Problemas Números Complejos}
+\author{Juan Rodríguez}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+	\maketitle
+	\section*{Apuntes}
+	\begin{itemize}
+		\item $i^{2} = -1$
+		\item $i^{3} = i^{2} \cdot i = -i$
+		\item $i^{4} = i^{2} \cdot i^{2} = 1$
+		\item $(a+bi) \cdot (c+di) = (ac-bd+adi+bci)$
+		\item $\frac{a+bi}{c+di} = \frac{a+bi}{c+di} \cdot \frac{c-di}{c-di} = \frac{(a+bi) \cdot (c-di)}{c^{2}+d^{2}}$
+		\item $x = e^{Ln(x)} \leftrightarrow x = Ln(e^{x})$
+	\end{itemize}
+	\section{Ejercicio 1}
+	Calcular parte real e imaginaria de los siguientes números complejos: \\
+	a) $z_1 = \frac{3-2i}{1+4i} $
+	b) $z_2 = \frac{1}{i} + \frac{1}{1+i}$
+	c) $z_3 = cos(i)$
+	d) $z_4 = sen(2+i)$
+	\subsection{Solución}
+	\[
+	z_1 = \frac{3-2i}{1+4i} = \frac{3-2i}{1+4i} \cdot \frac{1-4i}{1-4i} = \frac{3-8-12i-2i}{17} = \boxed{-\frac{5}{17} - \frac{14}{17}i}
+	\]
+	\[
+	z_2 = \frac{1}{i} + \frac{1}{1+i} = \frac{1+2i}{-1+i} = \frac{1+2i}{-1+i} \cdot \frac{-1-i}{-1-i} = \frac{-1+2-1i-2i}{2} = \boxed{\frac{1}{2} - \frac{3}{2}i}
+	\]
+	\[
+	z_3 = cos(i) = \frac{e^{-1} + e}{2} = \frac{\frac{1}{e}+e}{2} = \boxed{\frac{1}{2e}+\frac{e}{2}}
+	\]
+	\[
+	z_4 = sen(2+i) = \frac{e^{i(2+i)}-e^{-i(2+i)}}{2i} = \frac{e^{-1+2i}-e^{1-2i}}{2i} = -\frac{i}{2} (\frac{1}{e} \cdot (cos(2)+isen(2)) - e \cdot (cos(-2)+isen(-2)))
+	\]
+	\[
+	= -\frac{i}{2} (\frac{1}{e} \cdot (cos(2)+isen(2)) - e \cdot (cos(2)-isen(2))) = \frac{1}{2e} (sen(2)-icos(2)) - \frac{e}{2} (-sen(2)-icos(2))
+	\]
+	\[
+	= \boxed{(\frac{1}{2e}+\frac{e}{2})sen(2) + i(-\frac{1}{2e}+\frac{e}{2})cos(2)}
+	\]
+	\section{Ejercicio 2}
+	Calcular el modulo y argumento de: \\
+	a) $z_1 = 3^i$
+	b) $z_2 = i^{i}$
+	c) $z_3 = i^{3+i}$
+	d) $z_4 = (1+i)^{2+i}$
+	\subsection{Solución}
+	\[
+	z_1 = 3^{i} = e^{Ln(3^{i})} = e^{i Ln(3)} = \boxed{r=1 , \sigma = Ln (3)}
+	\]
+	\[
+	z_2 = (e^{i\frac{\pi}{2}})^{i} = e^{-\frac{\pi}{2}} = \boxed{r=e^{-\frac{\pi}{2}}, \sigma = 0}
+	\]
+	\[
+	z_3 = i^{3+i} = i^{3} \cdot i^{i} = (-i) \cdot e^{-\frac{\pi}{2}} = e^{-\frac{\pi}{2}} \cdot e^{i\frac{3\pi}{2}} = \boxed{r=e^{-\frac{\pi}{2}}, \sigma = \frac{\pi}{2}}
+	\]
+	\[
+	z_4 = (1+i)^{2+i} = (1+i)^{2} \cdot (1+i)^{i} = (\sqrt{2} \cdot e^{i\frac{\pi}{4}})^{2} \cdot (\sqrt{2} \cdot e^{i\frac{\pi}{4}})^{i} = (2 \cdot e^{i\frac{\pi}{2}}) \cdot ((\sqrt{2})^{i} \cdot e^{-\frac{\pi}{4}})
+	\]
+	\[
+	= 2e^{-\frac{\pi}{4}} \cdot e^{i\frac{\pi}{2}} \cdot e^{iLn(\sqrt{2})} = 2e^{-\frac{\pi}{4}} \cdot e^{i(\frac{\pi}{2} + Ln(\sqrt{2}))} = \boxed{r=2e^{-\frac{\pi}{4}}, \sigma = \frac{\pi}{2} + Ln(\sqrt{2})}
+	\]
+	\section{Ejercicio 3}
+	Calcular las raíces cuartas de la unidad
+	\subsection{Solución}
+	\[
+	z^{4} = 1 \rightarrow z = \sqrt[4]{1} e^{i(\frac{2k\pi}{4})} || k = 0,1,2,3
+	\]
+	\[
+	k = 0 \rightarrow e^{0} = \boxed{1}
+	\]
+	\[
+	k = 1 \rightarrow e^{i\frac{\pi}{2}} = \boxed{i}
+	\]
+	\[
+	k = 2 \rightarrow e^{i\pi} = \boxed{-1}
+	\]
+	\[
+	k = 3 \rightarrow e^{i3\frac{\pi}{2}} = \boxed{-i}
+	\]
+	\section{Ejercicio 4}
+	Calcular las raíces cúbicas de -8
+	\subsection{Solución}
+	\[
+	z^{3} = -8 \rightarrow \sqrt[3]{8} e^{i(\frac{\pi + 2k\pi}{3})} || k = 0,1,2
+	\]
+	\[
+	k = 0 \rightarrow 2e^{i\frac{\pi}{3}} = 2(cos(\frac{\pi}{3}) + isen(\frac{\pi}{3})) = \boxed{1 + i\sqrt{3}} 
+	\]
+	\[
+	k = 1 \rightarrow 2e^{i\pi} = \boxed{-2}
+	\]
+	\[
+	k = 2 \rightarrow 2e^{i\frac{5\pi}{3}} = 2(cos(\frac{5\pi}{3}) + isen(\frac{5\pi}{3})) = \boxed{1 - i\sqrt{3}}
+	\]
+	\section{Ejercicio 5}
+	Determina la forma binómica de $e^{\sqrt{i}}$
+	\subsection{Solución}
+	\[
+	\sqrt{i} = \sqrt{e^{i\frac{\pi}{2}}} = e^{i(\frac{\frac{\pi}{2} + 2k\pi}{2})} || k = 0,1
+	\]
+	\[
+	k = 0 \rightarrow e^{i\frac{\pi}{4}} = cos(\frac{\pi}{4}) + sen(\frac{\pi}{4}) = \frac{\sqrt{2}}{2} + i\frac{\sqrt{2}}{2}
+	\]
+	\[
+	k = 1 \rightarrow e^{i\frac{5\pi}{4}} = cos(\frac{5\pi}{4}) + sen(5\frac{\pi}{4}) = -\frac{\sqrt{2}}{2} - i\frac{\sqrt{2}}{2}
+	\]
+	Opción 1
+	\[
+	e^{\sqrt{i}} = e^{\frac{\sqrt{2}}{2} + i\frac{\sqrt{2}}{2}} = e^{\frac{\sqrt{2}}{2}}(cos(\frac{\sqrt{2}}{2}) + i sen(\frac{\sqrt{2}}{2})) = \boxed{e^{\frac{\sqrt{2}}{2}}cos(\frac{\sqrt{2}}{2}) + ie^{\frac{\sqrt{2}}{2}}sen(\frac{\sqrt{2}}{2})}
+	\]
+	Opción 2
+	\[
+	e^{\sqrt{i}} = e^{\frac{-\sqrt{2}}{2} - i\frac{\sqrt{2}}{2}} = e^{\frac{-\sqrt{2}}{2}}(cos(-\frac{\sqrt{2}}{2}) + i sen(-\frac{\sqrt{2}}{2})) = \boxed{e^{-\frac{\sqrt{2}}{2}}cos(\frac{\sqrt{2}}{2}) - ie^{-\frac{\sqrt{2}}{2}}sen(\frac{\sqrt{2}}{2})}
+	\]
+	\section{Ejercicio 6}
+	Expresa en forma binómica el número $(-\frac{\sqrt{3}}{2} + \frac{i}{2})^{6}$
+	\subsection{Solución}
+	\[
+	(-\frac{\sqrt{3}}{2} + \frac{i}{2})^{6} = (e^{i\frac{5\pi}{6}})^{6} = e^{i5\pi} = e^{i\pi} = \boxed{-1}
+	\]
+	\section{Ejercicio 7}
+	Calcula $\sqrt{-16-30i}$
+	\subsection{Solución}
+	\[
+	\sqrt{-16-30i} = (x+iy) \rightarrow (\sqrt{-16-30i})^{2} = (x+iy)^{2} \rightarrow -16-30i = x^{2} + 2ixy - y^{2} \rightarrow
+	\]
+	\[
+	x^{2} - y^{2} = -16
+	\]
+	\[
+	2xy = -30 \rightarrow x = -\frac{15}{y}
+	\]
+	\[
+	(-\frac{15}{y})^{2} - y^{2} = -16 \rightarrow \frac{225}{y^{2}} - y^{2} = -16 \rightarrow y^{4} +16y^{2} - 225 = 0
+	\]
+	\[
+	\underrightarrow{y^{2} = t}
+	\]
+	\[
+	t^{2} +16t -225 = 0 \rightarrow (t-25)(t+9) = 0 \rightarrow y=\pm5, x=\mp3
+	\]
+	\[
+	\boxed{z_1 = -3 + 5i, z_2 = 3 -5i}
+	\]
+	\section{Ejercicio 8}
+	Determinar $m \in \mathbb{R}$ de modo que $(2e^{i\sqrt{2}})^{m}$ sea un número real negativo
+	\subsection{Solución}
+	\[
+	(2e^{i\sqrt{2}})^{m} = 2^{m} \cdot \underline{e^{im\sqrt{2}}}
+	\]
+	Nota: Nos fijamos en la parte imaginaria ya que $2^{m}$ siempre sera un valor positivo
+	\[
+	2^{m}(cos(m\sqrt{2}) + isen(m\sqrt{2}))
+	\]
+	Nota: Para que el número sea real negativo, el coseno debe ser negativo y el seno nulo. Por lo tanto, $\forall k \in \mathbb{Z} \rightarrow cos((2k+1)\pi) = -1, sen((2k+1)\pi) = 0$
+	\[
+	m\sqrt{2} = (2k+1)\pi \rightarrow \boxed{m = \frac{(2k+1)\pi}{\sqrt{2}} || k \in \mathbb{Z}}
+	\]
+	\section{Ejercicio 9}
+	Determinar los números complejos no nulos tal que su quinta potencia, $z^{5}$, sea igual a su conjugado, es decir, $\overline{z}$
+	\subsection{Solución}
+	\[
+	z = re^{i\sigma}, \overline{z} = z = re^{-i\sigma}
+	\]
+	\[
+	(re^{i\sigma})^{5} = re^{-i\sigma} \rightarrow r^{5}e^{i\sigma5} = re^{-i\sigma}
+	\]
+	\[
+	r^{5} = r \rightarrow r(r^{4} - 1) = 0 \rightarrow r = 0 X, r = -1 X, r = 1 \checkmark
+	\]
+	\[
+	e^{i\sigma5} = e^{-i\sigma} \rightarrow 5\sigma = -\sigma + 2k\pi \rightarrow \sigma = \frac{k\pi}{3}
+	\]
+	\[
+	k = 0 \rightarrow z = 1, \boxed{1^{5} = \overline{1}}
+	\]
+	\[
+	k = 1 \rightarrow z = e^{i\frac{\pi}{3}}, \boxed{e^{i\frac{5\pi}{3}} = e^{-i\frac{\pi}{3}}}
+	\]
+	\[
+	\boxed{\forall k \in \mathbb{N} \rightarrow (e^{i\frac{k\pi}{3}})^{5} = e^{-i\frac{k\pi}{3}}}
+	\]
+	\section{Ejercicio 10}
+	Dado el polinomio $P(z) = z^{4} -6z^{3} + 24z^{2} -18z + 63$. Calcula $P(i\sqrt{3})$ y $P(-i\sqrt{3})$. Resuelve a continuación la ecuación $P(z) = 0$
+	\subsection{Solución}
+	\[
+	P(i\sqrt{3}) = (i\sqrt{3})^{4} - 6(i\sqrt{3})^{3} + 24 (i\sqrt{3})^{2} - 18(i\sqrt{3}) + 63 = 9 + 18\sqrt{3}i - 72 - 18\sqrt{3}i + 63 = \boxed{0}
+	\]
+	\[
+	\boxed{P(-i\sqrt{3}) = 0} 
+	\]
+	Nota: Si un número complejo es solución o raíz de un polinomio de coeficientes reales, su conjugado también lo es. \\
+	\[
+	P(z) = (z - i\sqrt{3})(z - (-i\sqrt{3})) \cdot Q(x) = (z^{2} + 3) \cdot Q(x) 
+ 	\]
+ 	\[
+ 	Q(x) = \frac{z^{4} -6z^{3} + 24z^{2} -18z + 63}{z^{2} + 3} = \text{...} = z^{2} - 6z + 21 = \text{...} = (z - (3+2\sqrt{3}i))(z - (3-2\sqrt{3}i))
+ 	\]
+ 	\[
+ 	P(z) = 0 \rightarrow \boxed{P(z) = (z - i\sqrt{3})(z - (-i\sqrt{3}))(z - (3+2\sqrt{3}i))(z - (3-2\sqrt{3}i))}
+ 	\]
+ 	\section{Ejercicio 11}
+ 	Dado el número complejo $z = -\sqrt{2+\sqrt{2}} + i\sqrt{2-\sqrt{2}}$, calcula $z^{2}$ en forma binómica. A continuación, expresa $z^{2}$ en forma exponencial y deduce la forma exponencial de $z$
+ 	\subsection{Solución}
+ 	 \[
+ 	 z^{2} = (-\sqrt{2+\sqrt{2}} + i\sqrt{2-\sqrt{2}})^{2} = 2 + \sqrt{2} - 2 + \sqrt{2} - 2i(\sqrt{2+\sqrt{2}})(\sqrt{2-\sqrt{2}}) = \boxed{2\sqrt{2} - 2i\sqrt{2}}
+ 	 \]
+ 	 \[
+ 	 \begin{cases}
+ 	 	r = \sqrt{(2\sqrt{2})^{2} + (2\sqrt{2})^{2}} = 4 \\
+ 	 	\sigma = arctg(\frac{-2\sqrt{2}}{2\sqrt{2}}) = -\frac{\pi}{4} = \frac{7\pi}{4}
+ 	 \end{cases}
+ 	 \]
+ 	 \[
+ 	 z^{2} = 4e^{\frac{7\pi}{4}}
+ 	 \]
+ 	 \[
+ 	 z = \sqrt{4e^{\frac{7\pi}{4}}} = 2e^{i\frac{\frac{7\pi}{4}+ 2k\pi}{2}} \text{ tal que } k = 0,1
+ 	 \]
+ 	 \[
+ 	 \begin{cases}
+ 	 	k = 0 & 2e^{i\frac{7\pi}{8}} \text{ Correcto, segundo cuadrante} \\
+ 	 	k = 1 & 2e^{i\frac{15\pi}{8}} \text{ Incorrecto, cuarto cuadrante}
+ 	 \end{cases}
+ 	 \]
+ 	 Nota: El número original estaba en el segundo cuadrante. Al elevar al cuadrado y después deshacerlo, podemos introducir soluciones irreales.
+\section*{Ejercicio 12}
+Obtén la forma exponencial del número complejo $(1+i\sqrt{3})^{(1-i)}$.
+
+\subsection*{Solución}
+Buscamos la \emph{forma exponencial principal} $z=r\,e^{i\alpha}$ usando el logaritmo complejo principal:
+\[
+\ln z=\ln r+i\alpha,\qquad 
+(1-i)\,\ln(1+i\sqrt{3})=\ln r+i\alpha.
+\]
+Primero, escribimos $1+i\sqrt{3}$ en forma exponencial:
+\[
+1+i\sqrt{3}=2\,e^{\,i\pi/3}.
+\]
+Luego
+\[
+\ln(1+i\sqrt{3})=\ln\!\big(2e^{\,i\pi/3}\big)=\ln 2+\frac{i\pi}{3}.
+\]
+Multiplicamos por $(1-i)$:
+\[
+(1-i)\,\ln(1+i\sqrt{3})
+=(1-i)\!\left(\ln 2+\frac{i\pi}{3}\right)
+=(1-i)\,\ln 2+(1-i)i\,\frac{\pi}{3}.
+\]
+Como $(1-i)i=i-i^2=i+1$, queda
+\[
+(1-i)\,\ln 2+\frac{(1+i)\pi}{3}
+=\underbrace{\Big(\ln 2+\frac{\pi}{3}\Big)}_{\text{parte real}}
++i\,\underbrace{\Big(\frac{\pi}{3}-\ln 2\Big)}_{\text{parte imaginaria}}.
+\]
+Por identificación,
+\[
+\ln r=\ln 2+\frac{\pi}{3},
+\qquad
+\alpha=\frac{\pi}{3}-\ln 2.
+\]
+Así,
+\[
+r=e^{\,\ln 2+\pi/3}=2\,e^{\pi/3}.
+\]
+El resultado es:
+\[
+\boxed{\;z=(1+i\sqrt{3})^{(1-i)} \;=\; r\,e^{i\alpha}
+\;=\; 2\,e^{\pi/3}\; e^{\,i\left(\frac{\pi}{3}-\ln 2\right)}\;}
+\]
+\section*{Ejercicio 13}
+Calcula la parte real e imaginaria del número complejo
+\[
+z=\cos\!\left(\frac{\pi}{6}+2i\right).
+\]
+\subsection*{Solución}
+Usamos la fórmula del coseno de suma:
+\[
+z= cos(\frac{\pi}{6}) cos(2i)- sen(\frac{\pi}{6})sen(2i)
+\]
+\[
+z =\frac{\sqrt{3}}{2}\cdot\frac{e^{2}+e^{-2}}{2}
+-\frac{1}{2}\cdot\frac{e^{-2}-e^{2}}{2i}
+\]
+\[
+\boxed{\,z=\frac{\sqrt{3}}{4}\,(e^{2}+e^{-2})+\frac{e^{-2}-e^{2}}{4}\,i\,}
+\]
+\section*{Ejercicio 14}
+Obtén la forma binómica del número complejo
+\[
+z=\left(\frac{\sqrt{3}-i}{\sqrt{3}+i}\right)^{4}\cdot\left(\frac{1+i}{1-i}\right)^{5}.
+\]
+
+\subsection*{Solución}
+Primero expresamos cada fracción en forma exponencial:
+
+\begin{itemize}
+\item Para $\dfrac{\sqrt{3}-i}{\sqrt{3}+i}$:
+
+\[
+\frac{\sqrt{3}-i}{\sqrt{3}+i}
+=\frac{2\,e^{-i\pi/6}}{2\,e^{i\pi/6}}
+=e^{-i\pi/3}.
+\]
+
+Entonces
+\[
+\left(\frac{\sqrt{3}-i}{\sqrt{3}+i}\right)^{4}
+=\left(e^{-i\pi/3}\right)^4
+=e^{-4i\pi/3}.
+\]
+
+\item Para $\dfrac{1+i}{1-i}$:
+
+\[
+\frac{1+i}{1-i}
+=\frac{\sqrt{2}\,e^{i\pi/4}}{\sqrt{2}\,e^{-i\pi/4}}
+=e^{i\pi/2}.
+\]
+
+Entonces
+\[
+\left(\frac{1+i}{1-i}\right)^{5}
+=\left(e^{i\pi/2}\right)^5
+=e^{5i\pi/2}.
+\]
+\end{itemize}
+
+Multiplicando ambos resultados:
+\[
+z=e^{-4i\pi/3}\cdot e^{5i\pi/2}
+=e^{\,i\left(-\tfrac{4\pi}{3}+\tfrac{5\pi}{2}\right)}
+=e^{\,i\frac{7\pi}{6}}.
+\]
+
+\[
+\boxed{\,z=-\frac{\sqrt{3}}{2}-\frac{1}{2}i\,}
+\]
+\section*{Ejercicio 15}
+\textbf{Enunciado.} Resuelve la ecuación
+\[
+z^3+(-1+i)z^2+(1-i)z+i=0
+\]
+en el cuerpo de los números complejos, dando las soluciones en forma binómica o exponencial.
+
+\subsection*{Desarrollo paso a paso}
+\begin{enumerate}
+\item \textbf{Búsqueda de una raíz sencilla.} Probamos con $z=-i$:
+\[
+(-i)^3+(-1+i)(-i)^2+(1-i)(-i)+i
+=i+(1-i)+(-i-1)+i=0.
+\]
+Luego $z=-i$ es raíz.
+
+\item \textbf{División sintética por $(z+i)$.} Con coeficientes
+\(
+1,\;(-1+i),\;(1-i),\;i
+\)
+se obtiene:
+\[
+(z+i)\bigl(z^2- z+1\bigr)=
+z^3+(-1+i)z^2+(1-i)z+i.
+\]
+Por tanto,
+\[
+z^3+(-1+i)z^2+(1-i)z+i=(z+i)\,(z^2-z+1).
+\]
+
+\item \textbf{Resolución del trinomio cuadrático.}
+\[
+z^2-z+1=0
+\;\Longrightarrow\;
+z=\frac{1\pm\sqrt{1-4}}{2}
+=\frac{1\pm i\sqrt{3}}{2}.
+\]
+\end{enumerate}
+
+\subsection*{Soluciones}
+En forma binómica:
+\[
+\boxed{\,z_1=-i,\qquad z_2=\frac{1+i\sqrt{3}}{2},\qquad z_3=\frac{1-i\sqrt{3}}{2}\, }.
+\]
+En forma exponencial:
+\[
+-\,i=e^{-i\pi/2},\qquad 
+\frac{1\pm i\sqrt{3}}{2}=e^{\pm i\pi/3}.
+\]
+\section*{Ejercicio 16}
+Dado
+\[
+z=\frac{1+i\sqrt{3}}{1-i\sqrt{3}},
+\]
+completa:
+
+\subsection*{a) Forma binómica y exponencial}
+Escribimos numerador y denominador en forma polar:
+\[
+1+i\sqrt{3}=2\,e^{\,i\pi/3},\qquad
+1-i\sqrt{3}=2\,e^{-\,i\pi/3}.
+\]
+Entonces
+\[
+z=\frac{2e^{\,i\pi/3}}{2e^{-\,i\pi/3}}=e^{\,i\frac{2\pi}{3}}
+=\cos\!\left(\frac{2\pi}{3}\right)+i\sin\!\left(\frac{2\pi}{3}\right)
+=-\frac12+\frac{\sqrt{3}}{2}\,i.
+\]
+
+\subsection*{b) Prueba de que $z^4=z$}
+\[
+z^4=\bigl(e^{\,i\frac{2\pi}{3}}\bigr)^4=e^{\,i\frac{8\pi}{3}}
+=e^{\,i\left(\frac{8\pi}{3}-2\pi\right)}=e^{\,i\frac{2\pi}{3}}=z.
+\]
+
+\subsection*{c) Otras tres raíces de cuarto grado de $z$}
+Buscamos $w$ tal que $w^4=z=e^{\,i\frac{2\pi}{3}}$. Escribimos
+\[
+w=e^{\,i\alpha},\qquad 4\alpha=\frac{2\pi}{3}+2k\pi \ \Rightarrow\ 
+\alpha=\frac{\pi}{6}+\frac{k\pi}{2},\quad k=0,1,2,3.
+\]
+Por tanto,
+\[
+\boxed{\,w\in\left\{\,e^{\,i\frac{\pi}{6}},\ e^{\,i\frac{2\pi}{3}},\ e^{\,i\frac{7\pi}{6}},\ e^{\,i\frac{5\pi}{3}}\,\right\}.}
+\]
+(La segunda coincide con $z^{1/4}$ en otra rama).
+\section*{Ejercicio 17}
+\textbf{Enunciado.} Resuelve en $\mathbb{C}$:
+\[
+z^3+(5+3i)z^2+(4+7i)z=0,
+\]
+y, obtenidas las soluciones, da la forma binómica del inverso multiplicativo de cada una.
+
+\subsection*{Desarrollo paso a paso}
+Sacamos factor común $z$:
+\[
+z\Big(z^2+(5+3i)z+(4+7i)\Big)=0.
+\]
+Luego una solución es $z_1=0$ y las otras satisfacen el cuadrático
+\[
+z^2+(5+3i)z+(4+7i)=0.
+\]
+Discriminante:
+\[
+\Delta=(5+3i)^2-4(4+7i)=(25+30i-9)-(16+28i)=2i.
+\]
+Raíz cuadrada del discriminante:
+\[
+\sqrt{2i}=\sqrt{2}\,e^{i\pi/4}=1+i,
+\qquad -\sqrt{2i}=-(1+i)=-1-i.
+\]
+Por la fórmula cuadrática,
+\[
+z=\frac{-(5+3i)\pm \sqrt{2i}}{2}
+=\frac{-5-3i\pm(1+i)}{2}.
+\]
+Así,
+\[
+z_2=\frac{-5-3i+(1+i)}{2}=\frac{-4-2i}{2}=-2-i,\qquad
+z_3=\frac{-5-3i-(1+i)}{2}=\frac{-6-4i}{2}=-3-2i.
+\]
+
+\subsection*{Soluciones}
+\[
+\boxed{\,z_1=0,\qquad z_2=-2-i,\qquad z_3=-3-2i\, }.
+\]
+
+\subsection*{Inversos multiplicativos}
+Para $z\neq 0$:
+\[
+(-2-i)^{-1}=\frac{1}{-2-i}\cdot\frac{-2+i}{-2+i}
+=\frac{-2+i}{(-2)^2+1^2}
+=\frac{-2+i}{5},
+\]
+\[
+(-3-2i)^{-1}=\frac{1}{-3-2i}\cdot\frac{-3+2i}{-3+2i}
+=\frac{-3+2i}{(-3)^2+2^2}
+=\frac{-3+2i}{13}.
+\]
+Para $z_1=0$ el inverso multiplicativo \emph{no existe}.
+
+\[
+\boxed{\,(-2-i)^{-1}=\dfrac{-2+i}{5},\qquad
+(-3-2i)^{-1}=\dfrac{-3+2i}{13},\qquad
+0^{-1}\ \text{no existe}\, }.
+\]
+\section*{Ejercicio 18}
+\textbf{Enunciado.} Resuelve el sistema
+\[
+\begin{cases}
+(3-i)x+(4+2i)y=2+6i,\\[2pt]
+(4+2i)x-(2+3i)y=5+4i.
+\end{cases}
+\]
+
+\subsection*{Cramer}
+Determinante del sistema:
+\[
+\Delta=
+\begin{vmatrix}
+3-i & 4+2i\\
+4+2i & -2-3i
+\end{vmatrix}
+=(3-i)(-2-3i)-(4+2i)^2
+=-21-23i.
+\]
+
+\subsection*{Cálculo de $x$}
+\[
+\Delta_x=
+\begin{vmatrix}
+2+6i & 4+2i\\
+5+4i & -2-3i
+\end{vmatrix}
+=(2+6i)(-2-3i)-(4+2i)(5+4i)
+=2-44i.
+\]
+Entonces
+\[
+x=\frac{\Delta_x}{\Delta}
+=\frac{2-44i}{-21-23i}
+=\frac{(2-44i)(-21+23i)}{(-21)^2+23^2}
+=\frac{970+970i}{970}=1+i.
+\]
+
+\subsection*{Cálculo de $y$}
+\[
+\Delta_y=
+\begin{vmatrix}
+3-i & 2+6i\\
+4+2i & 5+4i
+\end{vmatrix}
+=(3-i)(5+4i)-(2+6i)(4+2i)
+=23-21i.
+\]
+Luego
+\[
+y=\frac{\Delta_y}{\Delta}
+=\frac{23-21i}{-21-23i}
+=\frac{(23-21i)(-21+23i)}{(-21)^2+23^2}
+=\frac{970\,i}{970}=i.
+\]
+
+\subsection*{Solución}
+\[
+\boxed{\,x=1+i,\qquad y=i\, }.
+\]
+\section*{Ejercicio 19}
+\textbf{Enunciado.} Resolver en $\mathbb{C}$ la ecuación
+\[
+\sin(z)=5.
+\]
+
+\subsection*{Desarrollo paso a paso}
+Sea $z=\alpha+\ell\,i$. Usamos
+\[
+\sin(\alpha+\ell i)=\sin\alpha\;\cosh\ell\;+\;i\,\cos\alpha\;\sinh\ell,
+\]
+o, de forma equivalente con exponenciales,
+\[
+\cosh\ell=\frac{e^{-\ell}+e^{\ell}}{2},\qquad
+\sinh\ell=\frac{e^{-\ell}-e^{\ell}}{2}.
+\]
+Entonces
+\[
+\sin z
+=\sin\alpha\;\frac{e^{-\ell}+e^{\ell}}{2}
+\;+\; \cos\alpha\;\frac{e^{-\ell}-e^{\ell}}{2}\,i.
+\]
+
+Imponiendo $\sin z=5$:
+\[
+\begin{cases}
+\displaystyle \sin\alpha\;\frac{e^{-\ell}+e^{\ell}}{2}=5,\\[6pt]
+\displaystyle \cos\alpha\;\frac{e^{-\ell}-e^{\ell}}{2}=0.
+\end{cases}
+\]
+
+De la segunda ecuación, o bien $\cos\alpha=0$ o bien $e^{-\ell}-e^{\ell}=0$.
+
+\begin{itemize}
+\item \underline{$e^{-\ell}-e^{\ell}=0$} $\Rightarrow$ $e^{\ell}=e^{-\ell}$ $\Rightarrow$ $\ell=0$.  
+Entonces la primera ecuación da $\sin\alpha=5$, imposible en $\mathbb{R}$. Se descarta.
+
+\item \underline{$\cos\alpha=0$} $\Rightarrow$ $\alpha=\dfrac{\pi}{2}+k\pi$.
+
+\begin{itemize}
+\item Si $\alpha=\dfrac{\pi}{2}+2k\pi$, entonces $\sin\alpha=1$ y
+\[
+\frac{e^{-\ell}+e^{\ell}}{2}=5 \ \Longleftrightarrow\ e^{\ell}+e^{-\ell}=10.
+\]
+Con $t=e^{\ell}>0$:
+\[
+t^2-10t+1=0 \ \Longrightarrow\ t=\frac{10\pm\sqrt{96}}{2}=5\pm2\sqrt{6}.
+\]
+Así,
+\[
+\ell=\ln\!\big(5\pm2\sqrt{6}\big).
+\]
+
+\item Si $\alpha=\dfrac{3\pi}{2}+2k\pi$, entonces $\sin\alpha=-1$ y exigiría
+\[
+-\frac{e^{-\ell}+e^{\ell}}{2}=5 \ \Longleftrightarrow\ e^{\ell}+e^{-\ell}=-10,
+\]
+que es imposible (suma de positivos). Se descarta.
+\end{itemize}
+\end{itemize}
+
+\subsection*{Solución}
+Por tanto, las soluciones son
+\[
+\boxed{\ z=\frac{\pi}{2}+2k\pi \;+\; i\,\ln\!\big(5\pm2\sqrt{6}\big),\quad k\in\mathbb{Z}\ }.
+\]
+
+\end{document}

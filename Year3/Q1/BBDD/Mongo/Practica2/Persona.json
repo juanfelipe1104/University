@@ -1,0 +1,285 @@
+[
+  {
+    "nombre": "Carlos García",
+    "dni": "12345678Z",
+    "ciudad_residencia": "Madrid",
+    "descripcion": "Apasionado por el desarrollo backend en Python. Trabajo con Big Data a gran escala.",
+    "estudios": [
+      {
+        "universidad": "UPM",
+        "titulo": "Grado en Informática",
+        "anio_fin": 2018
+      },
+      {
+        "universidad": "UCM",
+        "titulo": "Máster en Ciencia de Datos",
+        "anio_fin": 2020
+      }
+    ],
+    "trabajos": [
+      {
+        "empresa": "Google",
+        "inicio": "2023-01",
+        "fin": null
+      }
+    ],
+    "domicilio": "Puerta del Sol, Madrid",
+    "domicilio_loc": {
+      "type": "Point",
+      "coordinates": [
+        -3.70379,
+        40.416775
+      ]
+    }
+  },
+  {
+    "nombre": "Lucía Martínez",
+    "dni": "23456789X",
+    "ciudad_residencia": "Barcelona",
+    "descripcion": "Experiencia en sistemas distribuidos y microservicios. Investigación en Inteligencia Artificial aplicada.",
+    "estudios": [
+      {
+        "universidad": "UAM",
+        "titulo": "Grado en Matemáticas",
+        "anio_fin": 2017
+      }
+    ],
+    "trabajos": [
+      {
+        "empresa": "Microsoft",
+        "inicio": "2020-03",
+        "fin": null
+      }
+    ],
+    "domicilio": "Sagrada Familia, Barcelona",
+    "domicilio_loc": {
+      "type": "Point",
+      "coordinates": [
+        2.174355,
+        41.403629
+      ]
+    }
+  },
+  {
+    "nombre": "Pablo López",
+    "dni": "34567890A",
+    "ciudad_residencia": "Madrid",
+    "descripcion": "Interés en analítica de datos y visualización. Trabajo con Big Data a gran escala.",
+    "estudios": [
+      {
+        "universidad": "UC3M",
+        "titulo": "Grado en Informática",
+        "anio_fin": 2016
+      },
+      {
+        "universidad": "UOC",
+        "titulo": "Máster en Big Data",
+        "anio_fin": 2019
+      }
+    ],
+    "trabajos": [
+      {
+        "empresa": "Google",
+        "inicio": "2022-06",
+        "fin": null
+      }
+    ],
+    "domicilio": "Plaza Mayor, Salamanca",
+    "domicilio_loc": {
+      "type": "Point",
+      "coordinates": [
+        -5.6653,
+        40.965
+      ]
+    }
+  },
+  {
+    "nombre": "Laura Sánchez",
+    "dni": "45678901B",
+    "ciudad_residencia": "Sevilla",
+    "descripcion": "Experto en bases de datos NoSQL y mensajería. Investigación en Inteligencia Artificial aplicada.",
+    "estudios": [
+      {
+        "universidad": "UAM",
+        "titulo": "Grado en Telecomunicaciones",
+        "anio_fin": 2015
+      },
+      {
+        "universidad": "US",
+        "titulo": "Máster en Ingeniería de Datos",
+        "anio_fin": 2017
+      }
+    ],
+    "trabajos": [
+      {
+        "empresa": "Microsoft",
+        "inicio": "2020-03",
+        "fin": "2022-12"
+      }
+    ],
+    "domicilio": "Avenida de la Constitución, Sevilla",
+    "domicilio_loc": {
+      "type": "Point",
+      "coordinates": [
+        -5.9901,
+        37.3891
+      ]
+    }
+  },
+  {
+    "nombre": "Miguel Gómez",
+    "dni": "56789012C",
+    "ciudad_residencia": "Valencia",
+    "descripcion": "Apasionado por el desarrollo backend en Python.",
+    "estudios": [
+      {
+        "universidad": "UPV",
+        "titulo": "Grado en Industriales",
+        "anio_fin": 2017
+      },
+      {
+        "universidad": "UPV",
+        "titulo": "Máster en Automatización y Robótica",
+        "anio_fin": 2019
+      }
+    ],
+    "trabajos": [
+      {
+        "empresa": "Indra",
+        "inicio": "2019-02",
+        "fin": "2021-08"
+      }
+    ],
+    "domicilio": "Ciudad de las Artes y las Ciencias, Valencia",
+    "domicilio_loc": {
+      "type": "Point",
+      "coordinates": [
+        -0.353,
+        39.454
+      ]
+    }
+  },
+  {
+    "nombre": "Sara Díaz",
+    "dni": "67890123D",
+    "ciudad_residencia": "Madrid",
+    "descripcion": "Experiencia en sistemas distribuidos y microservicios. Trabajo con Big Data a gran escala.",
+    "estudios": [
+      {
+        "universidad": "Complutense",
+        "titulo": "Grado en Matemáticas",
+        "anio_fin": 2019
+      },
+      {
+        "universidad": "UCM",
+        "titulo": "Máster en Ciencia de Datos",
+        "anio_fin": 2021
+      }
+    ],
+    "trabajos": [
+      {
+        "empresa": "Microsoft",
+        "inicio": "2020-03",
+        "fin": null
+      }
+    ]
+  },
+  {
+    "nombre": "David Ruiz",
+    "dni": "78901234E",
+    "ciudad_residencia": "Madrid",
+    "descripcion": "Experto en bases de datos NoSQL y mensajería. Investigación en Inteligencia Artificial aplicada.",
+    "estudios": [
+      {
+        "universidad": "UAM",
+        "titulo": "Máster en IA",
+        "anio_fin": 2021
+      }
+    ],
+    "trabajos": [
+      {
+        "empresa": "Google",
+        "inicio": "2023-02",
+        "fin": null
+      }
+    ],
+    "domicilio": "Calle Larios, Málaga",
+    "domicilio_loc": {
+      "type": "Point",
+      "coordinates": [
+        -4.4214,
+        36.7202
+      ]
+    }
+  },
+  {
+    "nombre": "Ana Jiménez",
+    "dni": "89012345F",
+    "ciudad_residencia": "Salamanca",
+    "descripcion": "Interés en analítica de datos y visualización.",
+    "estudios": [
+      {
+        "universidad": "Deusto",
+        "titulo": "Grado en Informática",
+        "anio_fin": 2014
+      },
+      {
+        "universidad": "USAL",
+        "titulo": "Máster en Análisis de Datos",
+        "anio_fin": 2016
+      }
+    ],
+    "trabajos": [
+      {
+        "empresa": "Telefónica",
+        "inicio": "2018-09",
+        "fin": "2020-12"
+      }
+    ]
+  },
+  {
+    "nombre": "Javier Moreno",
+    "dni": "90123456G",
+    "ciudad_residencia": "Madrid",
+    "descripcion": "Apasionado por el desarrollo backend en Python.",
+    "estudios": [
+      {
+        "universidad": "UPM",
+        "titulo": "Grado en Informática",
+        "anio_fin": 2013
+      }
+    ],
+    "trabajos": [
+      {
+        "empresa": "Acciona",
+        "inicio": "2017-05",
+        "fin": "2021-04"
+      }
+    ]
+  },
+  {
+    "nombre": "Elena Álvarez",
+    "dni": "01234567H",
+    "ciudad_residencia": "Valencia",
+    "descripcion": "Experiencia en sistemas distribuidos y microservicios. Investigación en Inteligencia Artificial aplicada.",
+    "estudios": [
+      {
+        "universidad": "UPV",
+        "titulo": "Grado en Telecomunicaciones",
+        "anio_fin": 2018
+      },
+      {
+        "universidad": "UOC",
+        "titulo": "Máster en Ciencia de Datos",
+        "anio_fin": 2020
+      }
+    ],
+    "trabajos": [
+      {
+        "empresa": "Indra",
+        "inicio": "2019-02",
+        "fin": "2021-08"
+      }
+    ]
+  }
+]

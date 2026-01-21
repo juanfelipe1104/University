@@ -1,0 +1,466 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+
+\title{Teoremas}
+\author{Juan Rodríguez}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{La conexidad y la conexidad por caminos son invariantes topológicas}
+
+\subsection*{Conexidad}
+
+Sea \(f:X\to Y\) una función continua y supongamos que \(X\) es conexo.
+
+Supongamos por contradicción que \(f(X)\) no es conexo. Entonces existen abiertos disjuntos y no vacíos \(U,V\subset Y\) tales que
+\[
+f(X)=U\cup V.
+\]
+
+Como \(f\) es continua, \(f^{-1}(U)\) y \(f^{-1}(V)\) son abiertos disjuntos y no vacíos en \(X\), y
+\[
+X=f^{-1}(U)\cup f^{-1}(V),
+\]
+lo que contradice que \(X\) sea conexo.
+
+Por tanto, la imagen continua de un espacio conexo es conexa, y la conexidad es una invariante topológica.
+
+\subsection*{Conexidad por caminos}
+
+Sea \(f:X\to Y\) continua y supongamos que \(X\) es conexo por caminos.
+
+Dados dos puntos \(y_1,y_2\in f(X)\), existen \(x_1,x_2\in X\) tales que
+\[
+f(x_1)=y_1, \qquad f(x_2)=y_2.
+\]
+
+Como \(X\) es conexo por caminos, existe un camino \(\gamma:[0,1]\to X\) tal que
+\[
+\gamma(0)=x_1, \qquad \gamma(1)=x_2.
+\]
+
+Entonces \(f\circ\gamma:[0,1]\to Y\) es un camino continuo que une \(y_1\) con \(y_2\).
+
+Por tanto, \(f(X)\) es conexo por caminos, y la conexidad por caminos es una invariante topológica.
+
+\section*{La compacidad es una invariante topológica}
+
+Sea \(f:X\to Y\) un homeomorfismo y supongamos que \(X\) es compacto.
+
+Sea \(\{U_i\}_{i\in I}\) un recubrimiento abierto de \(Y\).  
+Entonces \(\{f^{-1}(U_i)\}_{i\in I}\) es un recubrimiento abierto de \(X\), ya que \(f\) es continua.
+
+Como \(X\) es compacto, existe un subrecubrimiento finito
+\[
+X=f^{-1}(U_{i_1})\cup\cdots\cup f^{-1}(U_{i_n}).
+\]
+
+Aplicando \(f\), se obtiene
+\[
+Y=U_{i_1}\cup\cdots\cup U_{i_n},
+\]
+que es un subrecubrimiento finito de \(Y\).
+
+Por tanto, \(Y\) es compacto. Como el razonamiento es simétrico, la compacidad es una invariante topológica.
+
+\section*{Un subconjunto cerrado de un compacto es compacto}
+
+Sea \(X\) un espacio topológico compacto y sea \(F\subset X\) un subconjunto cerrado.
+
+Sea \(\{U_i\}_{i\in I}\) un recubrimiento abierto de \(F\).
+
+Como \(F\) es cerrado, su complementario \(X\setminus F\) es abierto en \(X\).  
+Entonces
+\[
+\{U_i\}_{i\in I} \cup \{X\setminus F\}
+\]
+es un recubrimiento abierto de \(X\).
+
+Como \(X\) es compacto, existe un subrecubrimiento finito
+\[
+X = U_{i_1} \cup \cdots \cup U_{i_n} \cup (X\setminus F).
+\]
+
+Eliminando \(X\setminus F\), se obtiene un subrecubrimiento finito
+\[
+F = U_{i_1} \cup \cdots \cup U_{i_n}
+\]
+de \(F\).
+
+Por tanto, \(F\) es compacto.
+
+\section*{Todo espacio conexo por caminos es conexo}
+
+Sea \(X\) un espacio conexo por caminos.
+
+Supongamos por contradicción que \(X\) no es conexo. Entonces existen abiertos disjuntos y no vacíos \(U,V\subset X\) tales que
+\[
+X = U \cup V.
+\]
+
+Sean \(x\in U\) e \(y\in V\). Como \(X\) es conexo por caminos, existe un camino continuo
+\[
+f:[0,1]\to X
+\]
+tal que
+\[
+f(0)=x, \qquad f(1)=y.
+\]
+
+Como \(f\) es continua, los conjuntos \(f^{-1}(U)\) y \(f^{-1}(V)\) son abiertos disjuntos y no vacíos de \([0,1]\), y verifican
+\[
+[0,1]=f^{-1}(U)\cup f^{-1}(V).
+\]
+
+Esto define una separación de \([0,1]\), lo cual es imposible ya que \([0,1]\) es conexo.
+
+Se obtiene una contradicción, luego \(X\) es conexo.
+
+\section*{La unión de conjuntos conexos con intersección no vacía es conexa}
+
+Sea \(X=\bigcup_{i\in I} A_i\), donde cada \(A_i\) es conexo y
+\[
+\bigcap_{i\in I} A_i \neq \varnothing.
+\]
+
+Supongamos por contradicción que \(X\) no es conexo. Entonces existen abiertos disjuntos y no vacíos \(P,Q\subset X\) tales que
+\[
+X=P\cup Q.
+\]
+
+Sea \(x\in \bigcap_{i\in I} A_i\). Sin pérdida de generalidad, supongamos \(x\in P\).
+
+Si para algún \(i\) se tuviera \(A_i\cap Q\neq\varnothing\), entonces
+\[
+A_i=(A_i\cap P)\cup(A_i\cap Q)
+\]
+sería una separación de \(A_i\), lo cual es imposible porque \(A_i\) es conexo.
+
+Por tanto, \(A_i\subset P\) para todo \(i\), y se sigue que
+\[
+X=\bigcup_{i\in I} A_i \subset P,
+\]
+lo cual contradice que \(Q\) sea no vacío.
+
+Luego \(X\) es conexo.
+
+\section*{El intervalo \([0,1]\) es compacto}
+
+Sea \(\{U_i\}_{i\in I}\) un recubrimiento abierto de \([0,1]\).
+
+Como \(0\in[0,1]\), existe un abierto \(U_{i_0}\) tal que \(0\in U_{i_0}\).  
+Al ser abierto, existe \(\varepsilon>0\) tal que
+\[
+[0,\varepsilon)\subset U_{i_0}.
+\]
+
+Definimos
+\[
+S=\{x\in[0,1]\mid [0,x]\ \text{admite un subrecubrimiento finito}\}.
+\]
+El conjunto \(S\) es no vacío y está acotado superiormente por \(1\). Sea
+\[
+s=\sup S.
+\]
+
+Supongamos por contradicción que \(s<1\). Como \(\{U_i\}\) es un recubrimiento, existe un abierto \(U_j\) tal que \(s\in U_j\).  
+Al ser \(U_j\) abierto, existe \(\delta>0\) tal que
+\[
+(s-\delta,s+\delta)\subset U_j.
+\]
+
+Por la definición de supremo, existe \(x\in S\) tal que \(s-\delta<x\le s\).  
+Entonces \([0,x]\) tiene un subrecubrimiento finito, y añadiendo \(U_j\) se obtiene un subrecubrimiento finito de \([0,s+\delta)\), lo cual contradice que \(s\) sea supremo.
+
+Por tanto, \(s=1\) y \([0,1]\) admite un subrecubrimiento finito.  
+Luego \([0,1]\) es compacto.
+
+\section*{En la topología cofinita todo conjunto es compacto}
+
+Sea \(X\) un conjunto con la topología cofinita y sea \(A\subset X\).
+
+Sea \(\{U_i\}_{i\in I}\) un recubrimiento abierto de \(A\).  
+Entonces los complementarios \(U_i^c\) son conjuntos finitos y se cumple
+\[
+A^c=\bigcap_{i\in I} U_i^c.
+\]
+
+La intersección de una familia de conjuntos finitos coincide con la intersección de una subfamilia finita, por lo que existen índices \(i_1,\dots,i_n\) tales que
+\[
+A^c=U_{i_1}^c\cap\cdots\cap U_{i_n}^c.
+\]
+
+Tomando complementarios, se obtiene
+\[
+A=U_{i_1}\cup\cdots\cup U_{i_n},
+\]
+que es un subrecubrimiento finito de \(A\).
+
+Por tanto, todo subconjunto de \(X\) es compacto en la topología cofinita.
+
+\section*{En los espacios Hausdorff, los compactos son separables de cualquier punto exterior}
+
+Sea \(X\) un espacio Hausdorff, \(K\subset X\) un conjunto compacto y sea \(x\in X\setminus K\).
+
+Como \(X\) es Hausdorff, para cada punto \(y\in K\) existen abiertos disjuntos
+\[
+U_y,\; V_y \subset X
+\]
+tales que
+\[
+x\in U_y, \qquad y\in V_y, \qquad U_y\cap V_y=\varnothing.
+\]
+
+La familia \(\{V_y\}_{y\in K}\) es un recubrimiento abierto de \(K\).  
+Como \(K\) es compacto, existe un subrecubrimiento finito
+\[
+K\subset V_{y_1}\cup\cdots\cup V_{y_n}.
+\]
+
+Definimos
+\[
+U=\bigcap_{i=1}^n U_{y_i}, \qquad V=\bigcup_{i=1}^n V_{y_i}.
+\]
+
+Entonces \(U\) y \(V\) son abiertos, \(x\in U\), \(K\subset V\), y además
+\[
+U\cap V=\varnothing.
+\]
+
+Por tanto, el compacto \(K\) puede separarse de cualquier punto exterior mediante abiertos disjuntos.
+
+\section*{En espacios Hausdorff, los compactos son cerrados}
+
+Sea \(X\) un espacio Hausdorff y sea \(K\subset X\) un conjunto compacto.
+
+Tomemos un punto \(x\in X\setminus K\).  
+Por el teorema de separación en espacios Hausdorff, existen abiertos disjuntos
+\[
+U,V\subset X
+\]
+tales que
+\[
+x\in U, \qquad K\subset V, \qquad U\cap V=\varnothing.
+\]
+
+En particular,
+\[
+U\subset X\setminus K,
+\]
+lo que implica que \(X\setminus K\) es abierto.
+
+Por tanto, \(K\) es cerrado.
+
+\section*{Teorema de Heine--Borel}
+
+En \(\mathbb{R}^n\) con la topología usual, un conjunto es compacto si y solo si es cerrado y acotado.
+
+\subsection*{(\(\Rightarrow\)) Compacto implica cerrado y acotado}
+
+Sea \(C\subset \mathbb{R}^n\) compacto.
+
+Como \(\mathbb{R}^n\) es Hausdorff, todo compacto es cerrado, luego \(C\) es cerrado.
+
+Supongamos que \(C\) no es acotado. Entonces, para todo \(n\in\mathbb{N}\), existe un punto de \(C\) fuera de la bola
+\[
+B_n=\{x\in\mathbb{R}^n\mid \|x\|<n\}.
+\]
+La familia \(\{B_n\}_{n\in\mathbb{N}}\) es un recubrimiento abierto de \(\mathbb{R}^n\), y por tanto de \(C\), que no admite subrecubrimiento finito, contradiciendo la compacidad de \(C\).
+
+Luego \(C\) es acotado.
+
+\subsection*{(\(\Leftarrow\)) Cerrado y acotado implica compacto}
+
+Sea \(C\subset \mathbb{R}^n\) cerrado y acotado.  
+Entonces existen \(a_i<b_i\) tales que
+\[
+C\subset [a_1,b_1]\times\cdots\times[a_n,b_n].
+\]
+
+Cada intervalo \([a_i,b_i]\) es compacto en \(\mathbb{R}\), y el producto finito de compactos es compacto, luego
+\[
+[a_1,b_1]\times\cdots\times[a_n,b_n]
+\]
+es compacto en \(\mathbb{R}^n\).
+
+Como \(C\) es un subconjunto cerrado de un compacto, se concluye que \(C\) es compacto.
+
+\section*{El producto finito de espacios compactos es compacto}
+
+Sean \(X\) e \(Y\) espacios topológicos compactos. Entonces el espacio producto
+\[
+X\times Y
+\]
+es compacto.
+
+\subsection*{Idea de la demostración}
+
+Sea \(\{U_i\}_{i\in I}\) un recubrimiento abierto de \(X\times Y\).
+
+Fijado \(x\in X\), el conjunto \(\{x\}\times Y\) es homeomorfo a \(Y\), y por tanto es compacto. Luego admite un subrecubrimiento finito
+\[
+\{x\}\times Y \subset U_{i_1^x}\cup\cdots\cup U_{i_{n_x}^x}.
+\]
+
+Para cada uno de estos abiertos existe un entorno abierto \(V_x\subset X\) de \(x\) tal que
+\[
+V_x\times Y \subset U_{i_1^x}\cup\cdots\cup U_{i_{n_x}^x}.
+\]
+
+La familia \(\{V_x\}_{x\in X}\) es un recubrimiento abierto de \(X\).  
+Como \(X\) es compacto, existe un subrecubrimiento finito
+\[
+X=V_{x_1}\cup\cdots\cup V_{x_m}.
+\]
+
+Entonces
+\[
+X\times Y \subset \bigcup_{k=1}^m \bigcup_{j=1}^{n_{x_k}} U_{i_j^{x_k}},
+\]
+que es un subrecubrimiento finito de \(X\times Y\).
+
+Por tanto, \(X\times Y\) es compacto.
+
+\section*{Teorema del valor extremo}
+
+Sea \(X\) un espacio topológico compacto y sea
+\[
+f:X\to\mathbb{R}
+\]
+una función continua. Entonces \(f\) alcanza su máximo y su mínimo, es decir,
+\[
+\exists\, a,b\in X \text{ tales que } \forall x\in X,\quad f(a)\le f(x)\le f(b).
+\]
+
+
+\subsection*{Demostración}
+
+Sea \(f:X\to Y\) continua, con \(X\) compacto y \(Y\) un espacio ordenado.
+
+Como \(f\) es continua y \(X\) es compacto, la imagen \(f(X)\) es compacta en \(Y\).
+
+Dado que \(Y\) es un espacio totalmente ordenado con la topología del orden,
+todo subconjunto compacto de \(Y\) admite máximo y mínimo.
+
+Por tanto, existen \(m,M\in f(X)\) tales que
+\[
+m \le y \le M \quad \forall y\in f(X).
+\]
+
+Como \(m,M\in f(X)\), existen \(a,b\in X\) tales que
+\[
+f(a)=m,\qquad f(b)=M.
+\]
+
+Luego \(f\) alcanza su mínimo y su máximo en \(X\).
+
+\section*{En espacios conexos por caminos, el grupo fundamental no depende del punto base}
+
+Sea \(X\) un espacio conexo por caminos y sean \(x_0,x_1\in X\).
+
+Denotemos por \(\pi_1(X,x_0)\) y \(\pi_1(X,x_1)\) los grupos de lazos con base en \(x_0\) y \(x_1\), respectivamente.
+
+Como \(X\) es conexo por caminos, existe un camino continuo
+\[
+f:[0,1]\to X
+\]
+tal que
+\[
+f(0)=x_0, \qquad f(1)=x_1.
+\]
+
+Sea \(\alpha:[0,1]\to X\) un lazo con base en \(x_1\), es decir,
+\[
+\alpha(0)=\alpha(1)=x_1.
+\]
+
+Definimos un lazo \(\alpha'\) con base en \(x_0\) como sigue:
+\[
+\alpha':[0,1]\to X,\qquad
+\alpha'(t)=
+\begin{cases}
+f(3t), & 0\le t\le \frac{1}{3},\\[4pt]
+\alpha(3t-1), & \frac{1}{3}< t\le \frac{2}{3},\\[4pt]
+f(3-3t), & \frac{2}{3}< t\le 1.
+\end{cases}
+\]
+
+Se tiene que:
+\[
+\alpha'(0)=x_0,\qquad \alpha'(1)=x_0,
+\]
+y \(\alpha'\) es continua, luego es un lazo con base en \(x_0\).
+
+Este proceso define una correspondencia entre los lazos con base en \(x_1\) y los lazos con base en \(x_0\).
+
+Por tanto,
+\[
+\pi_1(X,x_0)\cong \pi_1(X,x_1).
+\]
+
+En consecuencia, en espacios conexos por caminos, el grupo fundamental no depende del punto base.
+
+\section*{Todos los lazos en \(\mathbb{R}^2\) son equivalentes}
+
+Sean \(\alpha,\beta:[0,1]\to \mathbb{R}^2\) dos lazos con la misma base \(x_0\), es decir,
+\[
+\alpha(0)=\alpha(1)=x_0, \qquad \beta(0)=\beta(1)=x_0.
+\]
+
+Definimos la homotopía
+\[
+h:[0,1]\times[0,1]\to \mathbb{R}^2,\qquad
+h(t,s)=(1-s)\alpha(t)+s\beta(t).
+\]
+
+Entonces:
+\[
+h(t,0)=\alpha(t),\qquad h(t,1)=\beta(t),
+\]
+y además fija los extremos:
+\[
+h(0,s)=x_0,\qquad h(1,s)=x_0 \quad \forall s\in[0,1].
+\]
+
+Por tanto, \(\alpha\sim \beta\). En consecuencia, todos los lazos en \(\mathbb{R}^2\) son equivalentes y
+\[
+\pi_1(\mathbb{R}^2,x_0)=\{e\}.
+\]
+
+\subsection*{El grupo fundamental de la esfera es trivial}
+
+Se tiene que
+\[
+\pi_1(S^2)=\{e\}.
+\]
+
+\subsection*{Demostración}
+
+Consideramos los abiertos
+\[
+U_1=S^2\setminus\{\text{polo norte}\}, \qquad
+U_2=S^2\setminus\{\text{polo sur}\}.
+\]
+
+Ambos conjuntos son homeomorfos a \(\mathbb{R}^2\), por lo que son simplemente conexos:
+\[
+\pi_1(U_1)=\pi_1(U_2)=\{e\}.
+\]
+
+Además,
+\[
+U_1\cup U_2=S^2,
+\]
+y la intersección \(U_1\cap U_2\) es conexa por caminos.
+
+Por el corolario del Teorema de Seifert--van Kampen, el grupo fundamental de \(S^2\) es el producto libre de los grupos fundamentales de \(U_1\) y \(U_2\), factorizado por las identificaciones inducidas por la intersección.
+
+Como el producto libre de dos grupos triviales es trivial, se concluye que
+\[
+\pi_1(S^2)=\{e\}.
+\]
+
+\end{document}

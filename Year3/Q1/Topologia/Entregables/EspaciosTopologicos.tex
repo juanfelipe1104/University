@@ -1,0 +1,218 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{physics}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes}
+\title{Entregables Espacios Topologicos Topología}
+\author{Juan Rodríguez}
+\date{}
+\begin{document}
+\maketitle
+\section*{Ejercicio 1: ¿Son una topología?}
+
+\begin{enumerate}
+\item $X=\{a,b,c\}$, \ 
+$T_1=\{\varnothing,\{a\},\{b\},\{a,c\},\{a,b,c\},\{a,b\}\}$.
+
+\textbf{Solución.} 
+Comprobamos axiomas:
+(i) $\varnothing,X\in T_1$ (sí).
+(ii) Intersección finita: por ejemplo,
+$\{a\}\cap\{b\}=\varnothing\in T_1$,
+$\{a\}\cap\{a,c\}=\{a\}\in T_1$,
+$\{a,b\}\cap\{a,c\}=\{a\}\in T_1$, etc.
+(iii) Unión arbitraria: 
+$\{a\}\cup\{b\}=\{a,b\}\in T_1$,
+$\{b\}\cup\{a,c\}=X\in T_1$, etc.
+Como todos los casos cierran, 
+\[
+\boxed{T_1\text{ es topología en }X.}
+\]
+
+\item $X=\mathbb{R}$, \ 
+$\mathcal{T}=\{(a,+\infty):a\in\mathbb{R}\}$.
+
+\textbf{Solución.}
+No es topología tal como está escrita porque 
+\(\varnothing\notin\mathcal{T}\).
+(Obs.: estas semirrectas forman \emph{base} de una topología —la de semirrectas derechas—,
+pero la familia dada no incluye \(\varnothing\) ni garantiza que toda unión de ellas
+siga estando en \(\mathcal{T}\) como \emph{un solo elemento}.) 
+\[
+\boxed{\mathcal{T}\text{ no es topología (falta } \varnothing).}
+\]
+
+\item $X=\mathbb{R}$, \ 
+$\mathcal{S}=\{[a,b):a,b\in\mathbb{R},\,a<b\}$.
+
+\textbf{Solución.}
+Tampoco es topología como \emph{colección} final, porque (i) 
+\(\varnothing\notin\mathcal{S}\) ni \(X\in\mathcal{S}\); 
+(ii) una unión arbitraria de intervalos de la forma $[a,b)$ 
+no tiene por qué ser nuevamente un único intervalo $[a,b)$.
+(En realidad, $\mathcal{S}$ es \emph{base} de la topología de Sorgenfrey.) 
+\[
+\boxed{\mathcal{S}\text{ no es topología (sí es base).}}
+\]
+\end{enumerate}
+
+\section*{Ejercicio 2: ¿Son una topología?}
+
+\begin{enumerate}
+\item $X=\{a,b,c\}$, \ 
+$T_2=\{\varnothing,\{a\},\{c\},\{b,c\},\{a,b,c\},\{a,b\}\}$.
+
+\textbf{Solución.}
+No cierra por uniones: 
+\(\{a\}\cup\{c\}=\{a,c\}\notin T_2\).
+\[
+\boxed{T_2\text{ no es topología.}}
+\]
+
+\item $X=\mathbb{R}$, \ 
+$\mathcal{C}=\{U\subset\mathbb{R}:\ |\mathbb{R}\setminus U|<\infty\}$.
+
+\textbf{Solución.}
+La \emph{topología cofinita} estándar es 
+\(\mathcal{C}\cup\{\varnothing\}\).
+Tal como está escrita (sin $\varnothing$ explícita),
+\(\varnothing\notin\mathcal{C}\) porque 
+\(|\mathbb{R}\setminus\varnothing|=|\mathbb{R}|=\infty\).
+Luego la familia dada \emph{no} es topología,
+aunque basta añadir $\varnothing$ para que sí lo sea (y, de hecho, lo es):
+las uniones arbitrarias de cofinito siguen siendo cofinito,
+y las intersecciones finitas de cofinito también lo son.
+\[
+\boxed{\mathcal{C}\ \text{no es topología tal como está (falta }\varnothing).}
+\]
+\end{enumerate}
+
+\section*{Ejercicio 3}
+\emph{Halla un ejemplo de topología heredada de un espacio que no coincida con la topología “usual” (interior/inferior).}
+
+\textbf{Ejemplo claro con Sorgenfrey.}
+Sea \( (\mathbb{R},\tau_S) \) la topología de Sorgenfrey (base \( [a,b) \)).
+Considérese el \emph{subespacio} \(X=\mathbb{R}\subset(\mathbb{R},\tau_S)\):
+la topología \emph{heredada} en \(X\) \emph{coincide} con \(\tau_S\),
+pero \emph{no} coincide con la topología usual canonica \(\tau_C\) en \(\mathbb{R}\).
+Por ejemplo, \( [0,1) \) es abierto en \(\tau_S\) y no es abierto en \(\tau_C\).
+Así, en el mismo conjunto \(X=\mathbb{R}\) tenemos dos topologías distintas:
+la heredada de Sorgenfrey y la canonica.
+
+\[
+\boxed{\text{Conclusión: la topología heredada de Sorgenfrey en }X
+\text{ no coincide con la canonica de }X.}
+\]
+
+\subsection*{Ejercicio 4}
+Determinar el interior, la frontera y la clausura de los siguientes conjuntos.
+
+\begin{enumerate}
+\item $(0,2)$ en $\mathbb{R}$ (topología usual).\\[4pt]
+$\operatorname{Int}((0,2)) = (0,2)$, \quad 
+$\overline{(0,2)} = [0,2]$, \quad 
+$Fr((0,2)) = \{0,2\}.$
+
+\item $\{1/n : n \in \mathbb{Z}^+\}$ en $\mathbb{R}$.\\[4pt]
+Todo punto $1/n$ es aislado $\rightarrow \operatorname{Int}(A) = \varnothing$. 
+El punto $0$ es límite porque $1/n \to 0$.\\
+$\overline{A} = \{1/n : n \in \mathbb{Z}^+\} \cup \{0\}$, \quad
+$Fr(A) = \{1/n : n \in \mathbb{Z}^+\} \cup \{0\}.$
+
+\item $(0,2)$ en $(0,4)$ con la topología subespacio.\\[4pt]
+$\operatorname{Int}(A) = (0,2)$, \quad
+$\overline{A} = (0,2]$, \quad
+$Fr(A) = \{2\}$.
+\end{enumerate}
+
+\subsection*{Ejercicio 5}
+Determinar el interior, la frontera y la clausura de los siguientes conjuntos.
+
+\begin{enumerate}
+\item $A = \{-3-\tfrac{1}{n} : n\in\mathbb{N}\} \cup (1,2) \cup \{4+\tfrac{1}{n} : n\in\mathbb{N}\}$ \\
+en la recta de Sorgenfrey (base de abiertos $[a,b)$).
+
+\begin{itemize}
+\item \textbf{Interior:} las partes discretas no contienen abiertos, mientras que $(1,2)$ sí es abierto.\\
+$\operatorname{Int}_{\mathbb{S}}(A) = (1,2).$
+\item \textbf{Clausura:} $\overline{(1,2)}^{\,\mathbb{S}} = [1,2)$, \quad 
+el punto $4$ se añade porque $[4,4+\varepsilon)$ corta $\{4+\tfrac1n\}$, 
+mientras que $-3$ no pertenece a la clausura (no hay puntos de $A$ a su derecha).\\[2pt]
+$\displaystyle \overline{A}^{\,\mathbb{S}} = 
+\{-3-\tfrac{1}{n} : n\in\mathbb{N}\} \cup [1,2) \cup 
+\{4+\tfrac{1}{n} : n\in\mathbb{N}\} \cup \{4\}.$
+\item \textbf{Frontera:}\\
+$Fr(A) = \{-3-\tfrac{1}{n}\} \cup \{1\} \cup \{4+\tfrac{1}{n}\} \cup \{4\}.$
+\end{itemize}
+
+\item $[1,2]\cup\{3\}$ en $\mathbb{R}$ (topología usual).\\[4pt]
+$\operatorname{Int}([1,2]\cup\{3\}) = (1,2)$, \quad 
+$\overline{[1,2]\cup\{3\}} = [1,2]\cup\{3\}$, \quad 
+$Fr([1,2]\cup\{3\}) = \{1,2,3\}.$
+\end{enumerate}
+
+\subsection*{Ejercicio 6}
+Determinar el interior, la frontera y la clausura de los siguientes conjuntos.
+
+\begin{enumerate}
+\item $\mathbb{Q}$ en $\mathbb{R}$ (topología usual).\\[4pt]
+$\operatorname{Int}(\mathbb{Q}) = \varnothing$, \quad 
+$\overline{\mathbb{Q}} = \mathbb{R}$, \quad 
+$Fr(\mathbb{Q}) = \mathbb{R}$.
+
+\item $(\mathbb{R}\setminus\mathbb{Z}) \times (\mathbb{R}\setminus\mathbb{Q})$ 
+como subconjunto de $\mathbb{R}^2$ (topología usual).\\[4pt]
+$\operatorname{Int} = \varnothing$ (pues $\mathbb{R}\setminus\mathbb{Q}$ no tiene interior),\\
+$\overline{A} = \mathbb{R}^2$ \\
+$Fr(A) = \mathbb{R}^2.$
+\end{enumerate}
+
+\section*{Ejercicio 7}
+\begin{enumerate}
+
+\item  $\displaystyle \operatorname{Fr}(A)=\overline{A}\cap\overline{A^c}$
+
+\emph{Verdadero.} Si $x\in\operatorname{Fr}(A)$, todo abierto de $x$ corta $A$ y $A^c$,
+luego $x\in\overline{A}$ y $x\in\overline{A^c}$. Recíprocamente,
+si $x\in\overline{A}\cap\overline{A^c}$, todo abierto de $x$ corta ambos conjuntos,
+así que $x\notin \operatorname{Int}(A)$ ni en $\operatorname{Int}(A^c)$ y, por tanto,
+$x\in\operatorname{Fr}(A)$. También: 
+\(\operatorname{Fr}(A)=\overline{A}\setminus \operatorname{Int}(A)=
+\overline{A}\cap\overline{A^c}\).
+
+\item  $\displaystyle \operatorname{Int}(A\cup B)=\operatorname{Int}(A)\cup\operatorname{Int}(B)$
+
+\emph{Falso en general}. Siempre vale la inclusión
+\(\operatorname{Int}(A)\cup\operatorname{Int}(B)\subseteq \operatorname{Int}(A\cup B)\),
+pero la igualdad puede fallar. Contraejemplo en \(\mathbb{R}\) usual:
+\(A=\mathbb{Q}\), \(B=\mathbb{R}\setminus\mathbb{Q}\).
+Entonces \(A\cup B=\mathbb{R}\) y \(\operatorname{Int}(A\cup B)=\mathbb{R}\),
+mientras que \(\operatorname{Int}(A)=\operatorname{Int}(B)=\varnothing\).
+
+\item  $\displaystyle \operatorname{Int}(A\cap B)=\operatorname{Int}(A)\cap\operatorname{Int}(B)$
+
+\emph{Verdadero}. Vía dualidad con clausura:
+\[
+\operatorname{Int}(A)=X\setminus\overline{A^c}.
+\]
+Así,
+\[
+\operatorname{Int}(A\cap B)=X\setminus\overline{(A\cap B)^c}
+= X\setminus\overline{A^c\cup B^c}
+= X\setminus\big(\overline{A^c}\cup\overline{B^c}\big)
+= \big(X\setminus\overline{A^c}\big)\cap\big(X\setminus\overline{B^c}\big)
+= \operatorname{Int}(A)\cap\operatorname{Int}(B).
+\]
+
+\item  $\displaystyle \operatorname{Int}(\operatorname{Fr}(A))=\varnothing$
+
+\emph{Falso en general}. En \(\mathbb{R}\) con la topología usual, si \(A=\mathbb{Q}\),
+entonces \(\overline{A}=\mathbb{R}\) y \(\operatorname{Int}(A)=\varnothing\),
+así que \(\operatorname{Fr}(A)=\mathbb{R}\) y, por tanto,
+\(\operatorname{Int}(\operatorname{Fr}(A))=\mathbb{R}\neq\varnothing\).
+(Sí puede ocurrir que sea vacía para muchos \(A\), pero no es una verdad general.)
+\end{enumerate}
+
+\end{document}

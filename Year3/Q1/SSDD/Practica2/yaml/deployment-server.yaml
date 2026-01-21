@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-deployment
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: server
+  template:
+    metadata:
+      labels:
+        app: server
+    spec:
+      containers:
+        - name: kubernetes-server
+          image: docker.io/juanfelipe1104/server:latest
+          ports:
+            - containerPort: 32001
+          # Variable de entorno para que cada servidor tenga IP diferente
+          env:
+            - name: OWN_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+          command: ["/bin/sh", "-c"]
+          args:
+            - >
+              ./serverFileManager
+              $BROKER_SERVICE_SERVICE_HOST
+              $BROKER_SERVICE_SERVICE_PORT
+              $OWN_IP
+              32001
+          volumeMounts:
+            - name: fm-dir
+              mountPath: /app/FileManagerDir
+      volumes:
+        - name: fm-dir
+          hostPath: /tmp/home
+          type: Directory

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: client-pod
+  namespace: default
+spec:
+  containers:
+    - name: kubernetes-client
+      image: docker.io/juanfelipe1104/client:latest
+      command: ["/bin/sh", "-c"]
+      args: ["sleep 3600"]

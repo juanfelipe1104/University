@@ -1,0 +1,475 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+
+\title{Solución del Parcial 2023-2024}
+\author{Juan Rodríguez}
+\date{}
+
+\begin{document}
+\maketitle
+\section*{Ejercicio 1}
+
+\subsection*{a) \([0,2]\times\{0\}\) con la topología del orden en \(\mathbb{R}^2\)}
+
+Sea
+\[
+X=[0,2]\times\{0\}\subset\mathbb{R}^2
+\]
+
+En \(X\), podemos presentar la separación:
+\[
+X = ((0,0),(1,0'5)) \cup ((1,0'5),(2,0))
+\]
+Por tanto, \(X\) no es conexo lo que implica que tampoco lo es por caminos.
+\[
+\boxed{[0,2]\times\{0\}\ \text{ no es conexo ni conexo por caminos}}
+\]
+
+\subsection*{b) \(\{0\}\times[0,2]\) con la topología del orden en \(\mathbb{R}^2\)}
+
+Sea
+\[
+Y=\{0\}\times[0,2]\subset\mathbb{R}^2
+\]
+
+En \(Y\), el orden lexicográfico queda determinado por la segunda coordenada:
+\[
+(0,y) < (0,y') \iff y<y'.
+\]
+Por tanto, \(Y\) con la topología del orden es homeomorfo al intervalo \([0,2]\) con la topología canónica.
+
+Luego \(Y\) es conexo y conexo por caminos.
+
+\[
+\boxed{\{0\}\times[0,2]\ \text{ es conexo y conexo por caminos}}
+\]
+
+\subsection*{c) \(P=\{x=0\}\cup\{y=\ln x\}\)}
+
+Sea
+\[
+P = L \cup G,
+\quad
+L=\{(0,y): y\in\mathbb{R}\},
+\quad
+G=\{(x,\ln x): x>0\}.
+\]
+
+Observamos que \(L\cap G=\varnothing\). Además, $P = L \cup G$
+
+Por lo tanto,
+\[
+P = L \cup G
+\]
+es una separación de \(P\) en dos abiertos disjuntos no vacíos. Por tanto, \(P\) no es conexo
+y tampoco es conexo por caminos.
+
+\[
+\boxed{P\ \text{ no es conexo ni conexo por caminos}}
+\]
+
+\subsection*{d) \(A=\bigcup_{n\in\mathbb{N}} A_n\) y \(A\cup\{(1,0)\}\)}
+
+Sea, para cada \(n\in\mathbb{N}\),
+\[
+A_n=\{(x,y)\in\mathbb{R}^2:0\le x\le 1,\ y=x/n\},
+\qquad
+A=\bigcup_{n\in\mathbb{N}} A_n.
+\]
+
+Cada \(A_n\) es la imagen continua de \([0,1]\) (por \(x\mapsto(x,x/n)\)), luego es conexo.
+Además,
+\[
+(0,0)\in A_n \quad \forall n,
+\]
+así que la unión \(\bigcup_n A_n\) es conexa. Por tanto, \(A\) es conexo.
+
+El punto \((1,0)\) pertenece a la clausura de \(A\), pues \((1,1/n)\in A_n\) y
+\((1,1/n)\to(1,0)\).
+Como la unión de un conexo con un punto de su clausura es conexa, se concluye que
+\[
+A\cup\{(1,0)\}\ \text{ es conexo}.
+\]
+
+Sin embargo, \(A\cup\{(1,0)\}\) no es conexo por caminos (ejemplo clásico de la ``escoba infinita''):
+no existe un camino continuo contenido en \(A\cup\{(1,0)\}\) que una \((1,0)\) con \((0,0)\).
+
+\[
+\boxed{A\cup\{(1,0)\}\ \text{ es conexo pero no conexo por caminos}}
+\]
+
+\section*{Ejercicio 2}
+
+Decidimos si los siguientes subconjuntos son compactos.
+
+\subsection*{a) \([0,2]\cup[3,4]\)}
+
+En \(\mathbb{R}\) con la topología usual, un conjunto es compacto si y solo si es cerrado y acotado
+(Teorema de Heine--Borel).
+
+El conjunto \([0,2]\cup[3,4]\) es cerrado (unión de cerrados) y acotado. Luego es compacto.
+
+\[
+\boxed{[0,2]\cup[3,4]\ \text{ es compacto}}
+\]
+
+\subsection*{b) \([0,2)\cup(2,4]\)}
+
+El conjunto no es cerrado: el punto \(2\) es punto de acumulación, pero \(2\notin [0,2)\cup(2,4]\).
+Luego no es compacto (en \(\mathbb{R}\), compacto \(\Rightarrow\) cerrado).
+
+\[
+\boxed{[0,2)\cup(2,4]\ \text{ no es compacto}}
+\]
+
+\subsection*{c) \(\{1/n:n\in\mathbb{N}\}\cup\{0\}\)}
+
+Sea
+\[
+C=\left\{\frac1n:n\in\mathbb{N}\right\}\cup\{0\}.
+\]
+Es acotado. Además, su único punto de acumulación es \(0\), y \(0\in C\), luego \(C\) es cerrado.
+
+Por Heine--Borel, \(C\) es compacto.
+
+\[
+\boxed{\left\{\frac1n:n\in\mathbb{N}\right\}\cup\{0\}\ \text{ es compacto}}
+\]
+
+\subsection*{d) \(\mathbb{R}\) con la topología cofinita}
+
+Sea \((\mathbb{R},\tau_{cf})\) con la topología cofinita.
+Recordamos que un abierto no vacío tiene complementario finito.
+
+Sea \(\{U_i\}_{i\in I}\) un recubrimiento abierto de \(\mathbb{R}\).
+Elige \(U_{i_0}\neq\varnothing\). Entonces \(\mathbb{R}\setminus U_{i_0}\) es finito, digamos
+\(\mathbb{R}\setminus U_{i_0}=\{x_1,\dots,x_k\}\).
+Como \(\{U_i\}\) recubre \(\mathbb{R}\), para cada \(x_j\) existe \(U_{i_j}\) tal que \(x_j\in U_{i_j}\).
+
+Entonces
+\[
+U_{i_0}\cup U_{i_1}\cup\cdots\cup U_{i_k}=\mathbb{R},
+\]
+y hemos obtenido un subrecubrimiento finito. Por tanto, \(\mathbb{R}\) es compacto en la topología cofinita.
+
+\[
+\boxed{(\mathbb{R},\tau_{cf})\ \text{ es compacto}}
+\]
+
+\section*{Ejercicio 3}
+
+Queremos hallar \(k\) tal que
+\[
+3K \;\cong\; 2T \,\#\, k\mathbb{RP}^2,
+\]
+donde \(K\) es la botella de Klein y \(T\) el toro.
+
+Usamos la característica de Euler y la fórmula de suma conexa:
+\[
+\chi(X\#Y)=\chi(X)+\chi(Y)-2.
+\]
+
+Recordamos:
+\[
+\chi(T)=0,\qquad \chi(K)=0,\qquad \chi(\mathbb{RP}^2)=1.
+\]
+
+\subsection*{Cálculo de \(\chi(3K)\)}
+\[
+\chi(K\#K)=0+0-2=-2,
+\qquad
+\chi(K\#K\#K)=(-2)+0-2=-4.
+\]
+Luego
+\[
+\chi(3K)=-4.
+\]
+
+\subsection*{Cálculo de \(\chi(2T\# k\mathbb{RP}^2)\)}
+Primero,
+\[
+\chi(2T)=\chi(T\#T)=0+0-2=-2.
+\]
+Además, para \(k\mathbb{RP}^2\) se tiene \(\chi(k\mathbb{RP}^2)=2-k\).
+Entonces,
+\[
+\chi(2T\# k\mathbb{RP}^2)=\chi(2T)+\chi(k\mathbb{RP}^2)-2
+= (-2) + (2-k) -2
+= -(k+2).
+\]
+
+\subsection*{Igualación}
+Como las superficies son homeomorfas, sus características de Euler coinciden:
+\[
+-4 = -(k+2)\quad\Rightarrow\quad k=2.
+\]
+
+\[
+\boxed{k=2}
+\]
+
+\section*{Ejercicio 4}
+
+Sea \(S\) una superficie compacta, sin borde, \textbf{orientable} y con
+\[
+\chi(S)=-2.
+\]
+Queremos identificar \(S\) y dar un diagrama poligonal.
+
+\subsection*{Identificación por característica de Euler}
+
+Si \(S\) es orientable, entonces \(S\cong \#^g T\) (suma conexa de \(g\) toros) y
+\[
+\chi(S)=2-2g.
+\]
+Imponiendo \(\chi(S)=-2\):
+\[
+2-2g=-2 \quad\Longrightarrow\quad 2g=4 \quad\Longrightarrow\quad g=2.
+\]
+Por tanto,
+\[
+\boxed{S \cong T\#T}
+\]
+(es decir, la superficie orientable de género \(2\), el ``doble toro'').
+
+\subsection*{Diagrama poligonal}
+
+Un modelo estándar para \(T\#T\) es un octógono con identificaciones
+\[
+a\,b\,a^{-1}\,b^{-1}\,c\,d\,c^{-1}\,d^{-1}.
+\]
+
+\section*{Ejercicio 5}
+
+Dados los espacios:
+\[
+A=\{(x,y)\in\mathbb{R}^2: x=0\},\quad
+B=S^2\setminus\{(4,0,0)\},
+\]
+\[
+C=\{(x,y)\in\mathbb{R}^2: |x+y|<3\},\quad
+D=\{(x,y)\in\mathbb{R}^2: x^2+y^2\le 9\},
+\]
+\[
+E=\{(x,y)\in\mathbb{R}^2: x^2+y^2<9\},\quad
+F=\{(x,y)\in\mathbb{R}^2: 0< x^2+y^2\le 9\},
+\]
+\[
+G=F\setminus\{(1,1)\}.
+\]
+
+\subsection*{1) Clase homeomorfa a \(\mathbb{R}^2\)}
+
+\begin{itemize}
+\item \(B\cong \mathbb{R}^2\): por proyección estereográfica, la esfera menos un punto es homeomorfa al plano.
+\item \(C\cong \mathbb{R}^2\): el cambio lineal \((u,v)=(x+y,x-y)\) es un homeomorfismo lineal de \(\mathbb{R}^2\) y lleva
+\[
+C=\{|x+y|<3\}
+\]
+al conjunto \((-3,3)\times\mathbb{R}\), que es homeomorfo a \(\mathbb{R}^2\) (por ejemplo con \(u\mapsto \tan(\frac{\pi}{6}u)\)).
+\item \(E\cong \mathbb{R}^2\): el disco abierto es homeomorfo al plano (por ejemplo mediante una aplicación radial).
+\end{itemize}
+
+Por tanto,
+\[
+\boxed{B\cong C\cong E\cong \mathbb{R}^2.}
+\]
+
+\subsection*{2) \(A\) no es homeomorfo a \(B,C,E\)}
+
+El conjunto \(A\) son los ejes de coordenadas (homeomorfo a \(\mathbb{R}\)).
+Además, \(A\setminus\{0,0\}\) es disconexo (se separa en cuatro semirrectas),
+mientras que \(\mathbb{R}^2\setminus\{q\}\) es conexo para cualquier \(q\in\mathbb{R}^2\).
+
+Como el número de componentes conexas tras quitar un punto es invariante topológica, se concluye que
+\[
+\boxed{A \not\cong B,\quad A\not\cong C,\quad A\not\cong E.}
+\]
+
+\subsection*{3) \(D\) no es homeomorfo a los anteriores}
+
+El conjunto \(D\) es compacto (cerrado y acotado en \(\mathbb{R}^2\)).
+En cambio, \(A,B,C,E\) no son compactos.
+
+Como la compacidad es invariante topológica,
+\[
+\boxed{D \not\cong A,\ B,\ C,\ E.}
+\]
+
+\subsection*{4) Clasificación de \(F\) y \(G\) mediante \(\pi_1\)}
+
+El conjunto \(F\) es el disco cerrado de radio \(3\) con el origen eliminado.
+Se retrae por deformación fuerte a la circunferencia \(S^1\) (proyección radial), luego
+\[
+\pi_1(F)\cong \pi_1(S^1)\cong \mathbb{Z}.
+\]
+Por tanto \(F\) no es homeomorfo a \(A,B,C,D,E\) (todos ellos son simplemente conexos salvo \(A\), o bien compactos).
+
+El conjunto \(G=F\setminus\{(1,1)\}\) es el disco (con borde) con dos puntos eliminados.
+Se retrae por deformación fuerte a un grafo con dos ciclos (equivalente a un ``ocho''), luego
+\[
+\pi_1(G)\cong \mathbb{Z}*\mathbb{Z}.
+\]
+En particular, \(\pi_1(G)\not\cong \pi_1(F)\), luego
+\[
+\boxed{G \not\cong F.}
+\]
+
+\subsection*{Conclusión}
+
+Las clases de homeomorfismo quedan:
+
+\[
+\boxed{B\cong C\cong E,}
+\]
+y los demás no son homeomorfos entre sí:
+\[
+\boxed{A,\ D,\ F,\ G\ \text{ quedan cada uno en su propia clase}.}
+\]
+
+\section*{Ejercicio 6}
+
+En ambos casos se nos da un polígono con lados identificados mediante colores y flechas.
+Para identificar la superficie asociada contamos el número de clases de vértices \(V\),
+aristas \(E\) y caras \(F\), calculamos la característica de Euler
+\[
+\chi = V - E + F,
+\]
+y estudiamos la orientabilidad.
+
+\subsection*{Primer diagrama}
+
+El polígono tiene \(8\) lados identificados en \(4\) pares, luego
+\[
+E = 4.
+\]
+Al seguir las identificaciones de los extremos de las aristas se obtienen
+tres clases distintas de vértices, que denotamos por \(A,B,C\). Por tanto,
+\[
+V = 3.
+\]
+El interior del polígono constituye una única cara, así que
+\[
+F = 1.
+\]
+
+La característica de Euler es
+\[
+\chi = V - E + F = 3 - 4 + 1 = 0.
+\]
+
+Además, el patrón de identificaciones no preserva la orientación, por lo que
+la superficie es no orientable.
+
+En superficies no orientables se cumple
+\[
+\chi = 2 - k,
+\]
+donde \(k\) es el número de planos proyectivos en la suma conexa.
+Imponiendo \(\chi = 0\), obtenemos
+\[
+0 = 2 - k \quad\Rightarrow\quad k = 2.
+\]
+
+Como \(\#^2 \mathbb{RP}^2\) es homeomorfa a la botella de Klein, concluimos que
+\[
+\boxed{\text{El primer diagrama representa una botella de Klein}.}
+\]
+
+\subsection*{Segundo diagrama}
+
+El polígono tiene \(6\) lados identificados en \(3\) pares, luego
+\[
+E = 3.
+\]
+Siguiendo las identificaciones de los vértices se obtienen dos clases distintas
+de vértices, por lo que
+\[
+V = 2.
+\]
+De nuevo, hay una única cara:
+\[
+F = 1.
+\]
+
+La característica de Euler es
+\[
+\chi = V - E + F = 2 - 3 + 1 = 0.
+\]
+
+En este caso, todas las identificaciones preservan la orientación, luego la
+superficie es orientable. Para superficies orientables se cumple
+\[
+\chi = 2 - 2g,
+\]
+donde \(g\) es el género. Imponiendo \(\chi = 0\), obtenemos
+\[
+0 = 2 - 2g \quad\Rightarrow\quad g = 1.
+\]
+
+Por tanto,
+\[
+\boxed{\text{El segundo diagrama representa un toro}.}
+\]
+
+\section*{Ejercicio 7}
+
+\subsection*{a) \(\pi_1(\mathbb{T}^2\times S^1)\)}
+
+Usamos que el grupo fundamental del producto es el producto directo:
+\[
+\pi_1(X\times Y)\cong \pi_1(X)\times \pi_1(Y).
+\]
+Además,
+\[
+\pi_1(\mathbb{T}^2)\cong \mathbb{Z}^2,
+\qquad
+\pi_1(S^1)\cong \mathbb{Z}.
+\]
+Luego
+\[
+\pi_1(\mathbb{T}^2\times S^1)\cong \mathbb{Z}^2\times \mathbb{Z}\cong \mathbb{Z}^3.
+\]
+\[
+\boxed{\pi_1(\mathbb{T}^2\times S^1)\cong \mathbb{Z}^3}
+\]
+
+\subsection*{b) \(\pi_1(\mathbb{R}^4)\)}
+
+El espacio \(\mathbb{R}^4\) es contractible (se retrae por deformación fuerte a un punto),
+por lo que su grupo fundamental es trivial:
+\[
+\boxed{\pi_1(\mathbb{R}^4)=\{e\}}.
+\]
+
+\subsection*{c) \(\pi_1(Y)\), donde \(Y=\{(x,y):|x|\le 3,\,|y|\le 3\}\cup\{(x,y):x^2=9\}\)}
+
+Obsérvese que \(\{(x,y):x^2=9\}=\{x=3\}\cup\{x=-3\}\) está contenida en el borde del cuadrado
+\(\{(x,y):|x|\le 3,\,|y|\le 3\}\). Por tanto,
+\[
+Y=\{(x,y):|x|\le 3,\,|y|\le 3\},
+\]
+que es un cuadrado cerrado, y por tanto contractible.
+
+Luego,
+\[
+\boxed{\pi_1(Y)=\{e\}}.
+\]
+
+\subsection*{d) \(\pi_1(Z)\), donde \(Z=\{(x,y):x^2+y^2=9\}\cup\{(x,y):x^2=9\}\)}
+
+El conjunto \(Z\) es la unión de la circunferencia de radio \(3\) con las dos rectas verticales
+\(x=3\) y \(x=-3\). Estas rectas se pegan a la circunferencia en los puntos \((3,0)\) y \((-3,0)\)
+y no añaden ciclos (son ramas contractibles).
+
+Por tanto, \(Z\) se retrae por deformación fuerte a la circunferencia \(S^1\) (de radio \(3\)),
+y en consecuencia:
+\[
+\pi_1(Z)\cong \pi_1(S^1)\cong \mathbb{Z}.
+\]
+\[
+\boxed{\pi_1(Z)\cong \mathbb{Z}}.
+\]
+
+\end{document}

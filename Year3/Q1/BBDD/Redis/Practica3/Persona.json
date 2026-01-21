@@ -1,0 +1,177 @@
+[
+    {
+        "_id": {
+            "$oid": "68e39e2287433b2de17c4a14"
+        },
+        "apellidos": "López",
+        "direccion": "Puerta del Sol, Madrid",
+        "direccion_loc": {
+            "type": "Point",
+            "coordinates": [
+                -3.703876,
+                40.416863
+            ]
+        },
+        "dni": "34809094O",
+        "edad": 30,
+        "nombre": "Miguel"
+    },
+    {
+        "_id": {
+            "$oid": "68e39e2387433b2de17c4a15"
+        },
+        "apellidos": "Martínez",
+        "direccion": "Sagrada Familia, Barcelona",
+        "direccion_loc": {
+            "type": "Point",
+            "coordinates": [
+                2.174428,
+                41.403505
+            ]
+        },
+        "dni": "29896567I",
+        "edad": 62,
+        "nombre": "Javier"
+    },
+    {
+        "_id": {
+            "$oid": "68e39e2587433b2de17c4a16"
+        },
+        "apellidos": "Pérez",
+        "direccion": "Plaza Mayor, Salamanca",
+        "direccion_loc": {
+            "type": "Point",
+            "coordinates": [
+                -5.664056,
+                40.965028
+            ]
+        },
+        "dni": "72062632U",
+        "edad": 74,
+        "nombre": "Miguel"
+    },
+    {
+        "_id": {
+            "$oid": "68e39e2687433b2de17c4a17"
+        },
+        "apellidos": "Torres",
+        "direccion": "Calle Larios, Málaga",
+        "direccion_loc": {
+            "type": "Point",
+            "coordinates": [
+                -4.421597,
+                36.719669
+            ]
+        },
+        "dni": "32516641C",
+        "edad": 35,
+        "nombre": "Pablo"
+    },
+    {
+        "_id": {
+            "$oid": "68e39e2887433b2de17c4a18"
+        },
+        "apellidos": "Moreno",
+        "direccion": "Avenida de la Constitución, Sevilla",
+        "direccion_loc": {
+            "type": "Point",
+            "coordinates": [
+                -5.254501,
+                37.526866
+            ]
+        },
+        "dni": "74180830B",
+        "edad": 53,
+        "nombre": "Diego"
+    },
+    {
+        "_id": {
+            "$oid": "68e39e2887433b2de17c4a19"
+        },
+        "apellidos": "Vázquez",
+        "dni": "27287930M",
+        "edad": 44,
+        "nombre": "Pablo"
+    },
+    {
+        "_id": {
+            "$oid": "68e39e2887433b2de17c4a1a"
+        },
+        "apellidos": "Torres",
+        "dni": "73254553Q",
+        "edad": 37,
+        "nombre": "Carlos"
+    },
+    {
+        "_id": {
+            "$oid": "68e39e2887433b2de17c4a1b"
+        },
+        "apellidos": "Sánchez",
+        "dni": "32270613H",
+        "edad": 74,
+        "nombre": "Manuel"
+    },
+    {
+        "_id": {
+            "$oid": "68e39e2887433b2de17c4a1c"
+        },
+        "apellidos": "Ruiz",
+        "dni": "93929514Q",
+        "edad": 68,
+        "nombre": "Sara"
+    },
+    {
+        "_id": {
+            "$oid": "68e39e2887433b2de17c4a1d"
+        },
+        "apellidos": "Gil",
+        "dni": "89880469K",
+        "edad": 42,
+        "nombre": "Lucía"
+    },
+    {
+        "_id": {
+            "$oid": "68e39e2887433b2de17c4a1e"
+        },
+        "apellidos": "Álvarez",
+        "dni": "35942066F",
+        "edad": 54,
+        "nombre": "Manuel"
+    },
+    {
+        "_id": {
+            "$oid": "68e39e2887433b2de17c4a1f"
+        },
+        "apellidos": "Pérez",
+        "dni": "71913116B",
+        "edad": 75,
+        "nombre": "Carlos"
+    },
+    {
+        "_id": {
+            "$oid": "68e39e2887433b2de17c4a20"
+        },
+        "apellidos": "Díaz",
+        "dni": "95765506S",
+        "edad": 34,
+        "nombre": "Sara"
+    },
+    {
+        "_id": {
+            "$oid": "68e39e2887433b2de17c4a21"
+        },
+        "apellidos": "García",
+        "dni": "75788586C",
+        "edad": 42,
+        "nombre": "Miguel"
+    },
+    {
+        "_id": {
+            "$oid": "68e39e2887433b2de17c4a22"
+        },
+        "apellidos": "Domínguez",
+        "dni": "32296365I",
+        "edad": 58,
+        "nombre": "Elena"
+    }
+]

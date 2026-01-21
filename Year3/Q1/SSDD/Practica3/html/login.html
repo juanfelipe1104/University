@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Login</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-box {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      width: 300px;
+    }
+
+    .login-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #0073bb;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #005fa3;
+    }
+
+    #msg {
+      text-align: center;
+      margin-top: 10px;
+      color: red;
+      min-height: 18px;
+    }
+  </style>
+
+  <script>
+    const LOGIN_ENDPOINT =
+      "https://3rfqzyww3xijcen7tml6wv67ga0vtqfq.lambda-url.us-east-1.on.aws/";
+
+    function doLogin() {
+      const user = $("#user").val().trim();
+      const pass = $("#pass").val().trim();
+      $("#msg").text("");
+
+      if (!user || !pass) {
+        $("#msg").text("Introduce usuario y contraseña.");
+        return false;
+      }
+
+      $.get(LOGIN_ENDPOINT, { user, pass }, function (data) {
+        if (data === "OK") {
+          localStorage.setItem("loggedUser", user);
+          window.location.href = "postComment.html";
+        } else {
+          $("#msg").text("Usuario o contraseña incorrectos.");
+          $("#pass").val("").focus();
+        }
+      }).fail(function () {
+        $("#msg").text("Error llamando al servicio de login.");
+      });
+
+      return false;
+    }
+  </script>
+</head>
+
+<body>
+  <div class="login-box">
+    <h2>Iniciar sesión</h2>
+
+    <form onsubmit="return doLogin();">
+      <label for="user">Usuario</label>
+      <input id="user" type="text" autocomplete="username" />
+
+      <label for="pass">Contraseña</label>
+      <input id="pass" type="password" autocomplete="current-password" />
+
+      <button type="submit">Entrar</button>
+    </form>
+
+    <p id="msg"></p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,213 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+
+\title{Contra Ejemplos}
+\author{Juan Rodríguez}
+\date{}
+
+\begin{document}
+\maketitle
+\section*{Un espacio localmente conexo no tiene por qué ser conexo}
+
+\textbf{Ejemplo:}
+\[
+X = (0,1) \cup (1,2)
+\]
+
+El conjunto \(X\) no es conexo, ya que
+\[
+X = (0,1) \cup (1,2)
+\]
+es una separación en dos abiertos disjuntos y no vacíos.
+
+Sin embargo, \(X\) es localmente conexo, pues para cualquier punto \(x \in X\) existe un entorno abierto contenido en \((0,1)\) o en \((1,2)\), respectivamente, y dichos intervalos son conexos.
+
+Por tanto, un espacio localmente conexo no tiene por qué ser conexo.
+
+\section*{Si la clausura es conexa, el conjunto no tiene por qué serlo}
+
+\textbf{Ejemplo:}
+\[
+X = (0,1) \cup (1,2)
+\]
+
+El conjunto \(X\) no es conexo, ya que puede escribirse como la unión de dos abiertos disjuntos y no vacíos:
+\[
+X = (0,1) \cup (1,2).
+\]
+
+Sin embargo, su clausura en \(\mathbb{R}\) es
+\[
+\overline{X} = [0,1] \cup [1,2] = [0,2],
+\]
+que es un intervalo cerrado y acotado, por tanto, conexo en la topología canónica.
+
+Por tanto, que la clausura de un conjunto sea conexa no implica que el conjunto lo sea.
+
+\section*{Un espacio conexo no tiene por qué ser localmente conexo}
+
+\textbf{Ejemplo:} el peine con el punto \((0,1)\).
+
+\subsection*{El peine es conexo}
+
+El peine es conexo porque puede expresarse como la unión de conjuntos conexos con puntos en común.
+
+Cada púa
+\[
+\{(x,y)\mid x=\tfrac{1}{n},\; y\in[0,1]\}
+\]
+es homeomorfa al intervalo \([0,1]\), luego es conexa, y todas intersectan al mango
+\[
+\{(x,0)\mid x\in[0,1]\},
+\]
+que también es conexo.
+
+Por el teorema de la unión de conexos con intersección no vacía, el peine es conexo.
+
+\subsection*{No es localmente conexo}
+
+El peine no es localmente conexo en el punto \((0,1)\).
+
+En cualquier entorno abierto de \((0,1)\) aparecen puntos de la forma \((1/n,1)\), que pertenecen a componentes conexas distintas dentro de dicho entorno.
+
+Por tanto, ningún entorno de \((0,1)\) contiene un subentorno abierto conexo que lo incluya, y el espacio no es localmente conexo.
+
+\section*{Un conjunto conexo no tiene por qué ser conexo por caminos}
+
+\textbf{Ejemplo:} el peine reducido.
+
+\subsection*{Es conexo}
+
+El peine completo es conexo, y el peine reducido se obtiene eliminando dos puntos, quedando como un conjunto intermedio entre un conexo y su clausura.
+
+Además, puede expresarse como unión de conjuntos conexos con puntos en común, por lo que sigue siendo conexo.
+
+\subsection*{No es conexo por caminos}
+
+Supongamos que existe un camino continuo
+\[
+f:[0,1]\to P
+\]
+tal que
+\[
+f(0)=(0,1), \qquad f(1)=(0,0),
+\]
+donde \(P\) es el peine reducido.
+
+Sea \(x=(0,1)\). Como \(f\) es continua, todo entorno abierto de \(x\) es imagen de un abierto de \([0,1]\). Tomemos un entorno abierto \(B\subset[0,1]\) conexo.
+
+Entonces \(f(B)\) es conexo y contiene a \(x\). Sin embargo, en el peine reducido la única componente conexa que contiene a \(x\) es el propio punto \(x\), que es cerrado.
+
+Por tanto, \(f^{-1}(\{x\})\) es abierto y cerrado en \([0,1]\), lo cual es imposible salvo que sea todo \([0,1]\).
+
+Esto contradice la existencia del camino, luego el peine reducido no es conexo por caminos.
+
+\section*{Dos espacios con el mismo grupo fundamental no siempre son homeomorfos}
+
+\textbf{Ejemplo:} la esfera \(S^2\) y el plano \(\mathbb{R}^2\).
+
+\subsection*{Tienen el mismo grupo fundamental}
+
+El plano \(\mathbb{R}^2\) es simplemente conexo, ya que todos sus lazos son homotópicos al lazo trivial. Por tanto,
+\[
+\forall x_0 \in \mathbb{R}^2, \quad \pi_1(\mathbb{R}^2,x_0)=\{e\}.
+\]
+
+La esfera \(S^2\) también es simplemente conexa. En efecto, cualquier lazo puede contraerse a un punto, por lo que
+\[
+\forall x_0 \in S^2, \quad \pi_1(S^2,x_0)=\{e\}.
+\]
+
+\subsection*{No son homeomorfos}
+
+La esfera \(S^2\) es compacta, al ser un subconjunto cerrado y acotado de \(\mathbb{R}^3\).
+
+El plano \(\mathbb{R}^2\) no es compacto, ya que no es acotado.
+
+Como la compacidad es un invariante topológico, \(S^2\) y \(\mathbb{R}^2\) no pueden ser homeomorfos.
+
+\section*{Una función contractiva no siempre tiene un punto fijo si el espacio no es compacto}
+
+\textbf{Ejemplo:}
+\[
+f:(0,1)\to(0,1), \qquad f(x)=\frac{x}{2}.
+\]
+
+Buscamos los puntos fijos de \(f\):
+\[
+\frac{x}{2}=x \iff x=0,
+\]
+pero \(0 \notin (0,1)\). Por tanto, \(f\) no tiene puntos fijos en \((0,1)\).
+
+El punto fijo se encuentra en la frontera del espacio, fuera de \((0,1)\).
+
+El Teorema del Punto Fijo de Banach garantiza la existencia de un punto fijo en espacios compactos como \([0,1]\), pero no es aplicable en \((0,1)\), ya que este espacio no es compacto.
+
+En efecto, \((0,1)\) admite el recubrimiento abierto
+\[
+(0,1)=\bigcup_{n=2}^{\infty}\left(\frac{1}{n},1\right),
+\]
+del cual no se puede extraer un subrecubrimiento finito. Por tanto, \((0,1)\) no es compacto.
+
+\section*{Un abierto puede ser compacto}
+
+\textbf{Ejemplo:} un espacio con la topología cofinita.
+
+En la topología cofinita, los abiertos son los subconjuntos cuyo complementario es finito.
+
+Sea \(U\) un abierto cualquiera y sea \(\{U_i\}_{i\in I}\) un recubrimiento abierto de \(U\).  
+Entonces los complementarios \(U_i^c\) son conjuntos finitos y
+\[
+U^c = \bigcap_{i\in I} U_i^c.
+\]
+
+Como la intersección de conjuntos finitos se estabiliza en una intersección finita, existe un subíndice finito \(i_1,\dots,i_n\) tal que
+\[
+U^c = U_{i_1}^c \cap \cdots \cap U_{i_n}^c.
+\]
+
+Tomando complementarios, se obtiene un subrecubrimiento finito de \(U\).
+
+Por tanto, todo abierto en la topología cofinita es compacto.
+
+\section*{Un espacio cerrado y acotado no siempre es compacto}
+
+\textbf{Ejemplo:} el intervalo \([0,1]\) con la topología de Sorgenfrey.
+
+El conjunto \([0,1]\) es cerrado y acotado en la recta real.
+
+Consideremos el recubrimiento abierto en la topología de Sorgenfrey
+\[
+[0,1]=\bigcup_{n=1}^{\infty}\left[1-\frac{1}{n},\,1-\frac{1}{n+1}\right)\;\cup\;[1,2).
+\]
+
+Todos los conjuntos del recubrimiento son abiertos en Sorgenfrey y son disjuntos entre sí, por lo que ningún subrecubrimiento finito puede cubrir \([0,1]\).
+
+Por tanto, \([0,1]\) no es compacto en la topología de Sorgenfrey, a pesar de ser cerrado y acotado.
+
+\section*{Dos espacios con la misma característica de Euler no siempre son homeomorfos}
+
+\textbf{Ejemplo:} el disco y el plano proyectivo.
+
+La característica de Euler de una superficie se define como
+\[
+\chi = V - A + D,
+\]
+donde \(V\) es el número de vértices, \(A\) el de aristas y \(D\) el de discos poligonales de una triangulación.
+
+Para el disco, considerando una triangulación simple, se obtiene
+\[
+\chi(\text{disco}) = 1 - 1 + 1 = 1.
+\]
+
+Para el plano proyectivo, a partir de una triangulación adecuada, se obtiene
+\[
+\chi(\mathbb{RP}^2) = 2 - 2 + 1 = 1.
+\]
+
+Sin embargo, el disco es una superficie orientable con borde, mientras que el plano proyectivo es no orientable y no tiene borde.
+
+Como la orientación y la presencia de borde son invariantes topológicos, el disco y el plano proyectivo no son homeomorfos, a pesar de tener la misma característica de Euler.
+
+\end{document}
