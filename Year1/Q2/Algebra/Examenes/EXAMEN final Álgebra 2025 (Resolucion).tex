@@ -1,0 +1,702 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\title{Álgebra Lineal \\ Examen Final 2025 \\ Resolución}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problema 1}
+
+Consideramos el endomorfismo \( f: P_2(x) \to P_2(x) \), y usamos el isomorfismo:
+\[
+P_2(x) \cong \mathbb{R}^3, \quad a + bx + cx^2 \mapsto (a, b, c)
+\]
+
+\subsection*{Datos del problema}
+
+\begin{itemize}
+    \item
+    \[
+    \ker f = \{ (a, b, c) \in \mathbb{R}^3 \mid a = b = c \} = L\langle (1,1,1) \rangle
+    \Rightarrow \dim(\ker f) = 1
+    \]
+    
+    \item \(\forall (0,b,c) \in \mathbb{R}^3 \), se tiene:
+    \[
+    f(0,b,c) = (0,b,c)
+    \]
+    Es decir:
+    \[
+    W = \{ (0,b,c) \} = L\langle (0,1,0), (0,0,1) \rangle
+    \Rightarrow W \subseteq \operatorname{Im}(f)
+    \]
+\end{itemize}
+
+\subsection*{a) Matriz del endomorfismo en la base canónica}
+
+Sea la base canónica \( \mathcal{B}_C = \{ e_1 = (1,0,0),\ e_2 = (0,1,0),\ e_3 = (0,0,1) \} \).
+
+Ya sabemos que:
+
+\[
+f(e_2) = (0,1,0), \quad f(e_3) = (0,0,1)
+\]
+
+Para \( f(e_1) \), sabemos que:
+
+\[
+f(e_1) \in \operatorname{Im}(f) = L\langle (0,1,0), (0,0,1) \rangle
+\Rightarrow f(1,0,0) = (0,\alpha,\beta)
+\]
+
+Ahora usamos linealidad:
+
+\[
+f(1,1,1) = f(1,0,0) + f(0,1,0) + f(0,0,1) = (0,\alpha,\beta) + (0,1,0) + (0,0,1) = (0,\alpha + 1, \beta + 1)
+\]
+
+Pero como \( (1,1,1) \in \ker f \), entonces:
+
+\[
+f(1,1,1) = (0,0,0) \Rightarrow \alpha + 1 = 0,\ \beta + 1 = 0 \Rightarrow \alpha = -1,\ \beta = -1
+\]
+
+Por lo tanto:
+
+\[
+f(1,0,0) = (0,-1,-1)
+\]
+
+Finalmente, la matriz del endomorfismo en la base canónica es:
+
+\[
+M_{\mathcal{B}_C}(f) =
+\begin{bmatrix}
+0 & 0 & 0 \\
+-1 & 1 & 0 \\
+-1 & 0 & 1 \\
+\end{bmatrix}
+\]
+
+\subsection*{b) Imagen de \( f \) y su dimensión}
+
+Sabemos que:
+
+\[
+\ker f = L\langle (1,1,1) \rangle \Rightarrow \dim(\ker f) = 1
+\]
+
+Por el teorema del rango:
+
+\[
+\dim(\operatorname{Im} f) = 3 - 1 = 2
+\]
+
+Además, como \( f(0,1,0) = (0,1,0) \), \( f(0,0,1) = (0,0,1) \), entonces:
+
+\[
+\operatorname{Im} f = L\langle (0,1,0),\ (0,0,1) \rangle
+\]
+
+\subsection*{c) Determinar \( f(S) \)}
+
+Sea el conjunto:
+
+\[
+S = \left\{ \left( \lambda - 2\mu + \delta,\ \lambda - 2\mu - \delta,\ \lambda - 2\mu \right) \;\middle|\; \lambda, \mu, \delta \in \mathbb{R} \right\}
+\]
+
+Aplicamos \( f(a,b,c) = (0,\ -a + b,\ -a + c) \), donde:
+
+\[
+a = \lambda - 2\mu + \delta,\quad
+b = \lambda - 2\mu - \delta,\quad
+c = \lambda - 2\mu
+\]
+
+Calculamos los componentes:
+
+\[
+-a + b = -(\lambda - 2\mu + \delta) + (\lambda - 2\mu - \delta) = -2\delta
+\]
+\[
+-a + c = -(\lambda - 2\mu + \delta) + (\lambda - 2\mu) = -\delta
+\]
+
+Entonces:
+
+\[
+f(a,b,c) = (0, -2\delta, -\delta) = -\delta \cdot (0, 2, 1)
+\]
+
+Por lo tanto:
+
+\[
+f(S) = L\langle (0,2,1) \rangle, \qquad \dim(f(S)) = 1
+\]
+
+\subsection*{d) Matriz en la base \( \mathcal{B}^* = \{ (1,1,1),\ (1,1,0),\ (1,0,0) \} \)}
+
+Denotamos:
+
+\[
+v_1 = (1,1,1),\quad v_2 = (1,1,0),\quad v_3 = (1,0,0)
+\]
+
+Aplicamos la transformación a cada vector:
+
+\[
+f(v_1) = f(1,1,1) = (0,0,0) \Rightarrow [f(v_1)]_{\mathcal{B}^*} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}
+\]
+
+\[
+f(v_2) = f(1,1,0) = f(1,0,0) + f(0,1,0) = (0,-1,-1) + (0,1,0) = (0,0,-1)
+\]
+
+Buscamos \( \alpha, \beta, \gamma \) tales que:
+
+\[
+\alpha(1,1,1) + \beta(1,1,0) + \gamma(1,0,0) = (0,0,-1)
+\]
+
+Resolviendo el sistema:
+
+\[
+\begin{cases}
+\alpha + \beta + \gamma = 0 \\
+\alpha + \beta = 0 \\
+\alpha = -1
+\end{cases}
+\Rightarrow [f(v_2)]_{\mathcal{B}^*} = \begin{bmatrix} -1 \\ 1 \\ 0 \end{bmatrix}
+\]
+
+\[
+f(v_3) = f(1,0,0) = (0,-1,-1)
+\]
+
+Buscamos \( \alpha, \beta, \gamma \) tales que:
+
+\[
+\alpha(1,1,1) + \beta(1,1,0) + \gamma(1,0,0) = (0,-1,-1)
+\]
+
+Resolviendo:
+
+\[
+\begin{cases}
+\alpha + \beta + \gamma = 0 \\
+\alpha + \beta = -1 \\
+\alpha = -1
+\end{cases}
+\Rightarrow [f(v_3)]_{\mathcal{B}^*} = \begin{bmatrix} -1 \\ 0 \\ 1 \end{bmatrix}
+\]
+
+\noindent Finalmente, la matriz del endomorfismo en la base \( \mathcal{B}^* \) es:
+
+\[
+M_{\mathcal{B}^*}(f) =
+\begin{bmatrix}
+0 & -1 & -1 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+\]
+
+
+\subsubsection*{Método matricial}
+
+Usamos la fórmula de cambio de base:
+
+\[
+M_{\mathcal{B}^*}(f) = 
+M_{\mathcal{B}_C \to \mathcal{B}^*} 
+\cdot M_{\mathcal{B}_C}(f) 
+\cdot M_{\mathcal{B}^* \to \mathcal{B}_C}
+\]
+
+Las matrices de cambio de base son:
+
+\[
+M_{\mathcal{B}^* \to \mathcal{B}_C} =
+\begin{bmatrix}
+1 & 1 & 1 \\
+1 & 1 & 0 \\
+1 & 0 & 0 \\
+\end{bmatrix}, \qquad
+M_{\mathcal{B}_C \to \mathcal{B}^*} =
+\begin{bmatrix}
+0 & 0 & 1 \\
+0 & 1 & -1 \\
+1 & -1 & 0 \\
+\end{bmatrix}
+\]
+
+La matriz del endomorfismo \( f \) en la base canónica es:
+
+\[
+M_{\mathcal{B}_C}(f) =
+\begin{bmatrix}
+0 & 0 & 0 \\
+-1 & 1 & 0 \\
+-1 & 0 & 1
+\end{bmatrix}
+\]
+
+Multiplicando:
+
+\[
+M_{\mathcal{B}^*}(f) =
+\begin{bmatrix}
+0 & 0 & 1 \\
+0 & 1 & -1 \\
+1 & -1 & 0 \\
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+0 & 0 & 0 \\
+-1 & 1 & 0 \\
+-1 & 0 & 1
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+1 & 1 & 1 \\
+1 & 1 & 0 \\
+1 & 0 & 0
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 & -1 & -1 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+\]
+
+Este resultado coincide con el obtenido por coordenadas, como debe ocurrir.
+
+\section*{Problema 2}
+
+Dado un endomorfismo \( f: \mathbb{R}^3 \to \mathbb{R}^3 \) cuya matriz asociada en la base canónica es:
+
+\[
+A =
+\begin{pmatrix}
+4 & -1 & 6 \\
+2 & 1 & 6 \\
+2 & -1 & 8
+\end{pmatrix}
+\]
+
+\section*{Diagonalización}
+
+El proceso de diagonalización consiste en encontrar una base B de autovectores tal que la matriz asociada al endomorfismo en dicha base sea diagonal
+\[
+P^{-1} A P = D
+\]
+
+\subsubsection*{Paso 1: Cálculo del polinomio característico}
+
+Calculamos:
+
+\[
+\chi_A(\lambda) = \det(A - \lambda I) =
+\left|
+\begin{array}{ccc}
+4 - \lambda & -1 & 6 \\
+2 & 1 - \lambda & 6 \\
+2 & -1 & 8 - \lambda
+\end{array}
+\right|
+\]
+
+El desarrollo del determinante da:
+
+\[
+\chi_A(\lambda) = (2 - \lambda)^2 (9 - \lambda)
+\]
+
+Por lo tanto, los valores propios son:
+
+\[
+\lambda_1 = 2 \quad \text{(multiplicidad algebraica 2)}, \quad
+\lambda_2 = 9 \quad \text{(multiplicidad algebraica 1)}
+\]
+
+\subsubsection*{Paso 2: Cálculo de los subespacios propios}
+
+\textbf{Para \( \lambda = 2 \)}:
+
+\[
+A - 2I =
+\begin{pmatrix}
+2 & -1 & 6 \\
+2 & -1 & 6 \\
+2 & -1 & 6
+\end{pmatrix}
+\Rightarrow \text{Rango 1}
+\Rightarrow \dim(\ker(A - 2I)) = 2
+\]
+
+\textbf{Base del subespacio propio \( E_2 \):}
+
+Al resolver \( (A - 2I)\vec{v} = 0 \), obtenemos una base:
+
+\[
+E_2 = L\langle (1, 2, 0),\ (0, 6, 1) \rangle
+\]
+
+\textbf{Para \( \lambda = 9 \)}:
+
+\[
+A - 9I =
+\begin{pmatrix}
+-5 & -1 & 6 \\
+2 & -8 & 6 \\
+2 & -1 & -1
+\end{pmatrix}
+\Rightarrow \text{Rango 2}
+\Rightarrow \dim(\ker(A - 9I)) = 1
+\]
+
+\textbf{Base de \( E_9 \):}
+
+Resolviendo \( (A - 9I)\vec{v} = 0 \) se obtiene:
+
+\[
+E_9 = L\langle (1, 1, 1) \rangle
+\]
+
+\subsubsection*{Paso 3: Matrices \( P \) y \( D \)}
+
+Tomamos como base los vectores propios:
+
+\[
+v_1 = (1, 2, 0), \quad
+v_2 = (0, 6, 1), \quad
+v_3 = (1, 1, 1)
+\]
+
+Entonces:
+
+\[
+P = \begin{pmatrix}
+1 & 0 & 1 \\
+2 & 6 & 1 \\
+0 & 1 & 1
+\end{pmatrix}, \quad
+D = \begin{pmatrix}
+2 & 0 & 0 \\
+0 & 2 & 0 \\
+0 & 0 & 9
+\end{pmatrix}
+\]
+
+Y se cumple:
+
+\[
+P^{-1} A P = D
+\]
+
+\section*{Cuestión 1}
+
+Calcular la dimensión y una base del subespacio:
+
+\[
+U = \left\{ X \in M_{2 \times 2}(\mathbb{R}) \,\middle|\, \operatorname{tr}(MX) = 0 \right\}, \quad \text{con } M =
+\begin{pmatrix}
+1 & -1 \\
+-1 & 1
+\end{pmatrix}
+\]
+
+\subsection*{Resolución}
+
+Sea
+\[
+X =
+\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}
+\in M_{2 \times 2}(\mathbb{R})
+\]
+
+Entonces:
+\[
+MX =
+\begin{pmatrix}
+1 & -1 \\
+-1 & 1
+\end{pmatrix}
+\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}
+=
+\begin{pmatrix}
+a - c & b - d \\
+- a + c & -b + d
+\end{pmatrix}
+\]
+
+\[
+\operatorname{tr}(MX) = (a - c) + (-b + d) = a - b - c + d
+\]
+
+\[
+\operatorname{tr}(MX) = 0 \rightarrow a - b - c + d = 0
+\]
+
+La dimensión del subespacio \( U \) es:
+
+\[
+\dim(U) = 3
+\]
+
+y una base está dada por las matrices:
+
+\[
+\left\{
+\begin{pmatrix}
+1 & 1 \\
+0 & 0
+\end{pmatrix},
+\begin{pmatrix}
+0 & -1 \\
+1 & 0
+\end{pmatrix},
+\begin{pmatrix}
+0 & 1 \\
+0 & 1
+\end{pmatrix}
+\right\}
+\]
+
+\section*{Cuestión 2}
+
+Dadas las aplicaciones lineales:
+
+\begin{itemize}
+    \item \( f: \mathbb{R}^2 \to \mathbb{R}^3 \), tal que:
+    \[
+    f(1,0) = (2,1,2), \quad f(0,1) = (3,2,1)
+    \]
+    \item \( g: \mathbb{R}^3 \to \mathbb{R}^2 \), tal que:
+    \[
+    g(1,0,0) = (3,-1), \quad g(0,1,0) = (1,0), \quad g(0,0,1) = (1,-2)
+    \]
+\end{itemize}
+
+Definimos la aplicación \( h = g \circ f: \mathbb{R}^2 \to \mathbb{R}^2 \) y queremos calcular \( h(4,-2) \) por dos métodos: por coordenadas y matricialmente.
+
+\subsection*{Por coordenadas}
+
+Primero calculamos \( f(4,-2) \) como combinación lineal:
+
+\[
+f(4,-2) = 4 \cdot f(1,0) + (-2) \cdot f(0,1)
+= 4(2,1,2) - 2(3,2,1) = (8,4,8) - (6,4,2) = (2,0,6)
+\]
+
+Luego aplicamos \( g \):
+
+\[
+g(2,0,6) = 2 \cdot g(1,0,0) + 6 \cdot g(0,0,1)
+= 2(3,-1) + 6(1,-2) = (6,-2) + (6,-12) = (12, -14)
+\]
+
+\[
+\boxed{h(4,-2) = (12, -14)}
+\]
+
+\subsection*{Matricialmente}
+
+La matriz de \( f \) (por columnas \( f(1,0), f(0,1) \)) es:
+
+\[
+M_f =
+\begin{pmatrix}
+2 & 3 \\
+1 & 2 \\
+2 & 1
+\end{pmatrix}
+\]
+
+La matriz de \( g \) (por filas \( g \) aplicado a las canónicas de \( \mathbb{R}^3 \)) es:
+
+\[
+M_g =
+\begin{pmatrix}
+3 & 1 & 1 \\
+-1 & 0 & -2
+\end{pmatrix}
+\]
+
+La matriz de la composición es:
+
+\[
+M_h = M_g M_f =
+\begin{pmatrix}
+3 & 1 & 1 \\
+-1 & 0 & -2
+\end{pmatrix}
+\begin{pmatrix}
+2 & 3 \\
+1 & 2 \\
+2 & 1
+\end{pmatrix}
+=
+\begin{pmatrix}
+9 & 12 \\
+-6 & -5
+\end{pmatrix}
+\]
+
+Finalmente:
+
+\[
+h(4,-2) = M_h \cdot 
+\begin{pmatrix}
+4 \\ -2
+\end{pmatrix}
+=
+\begin{pmatrix}
+9 & 12 \\
+-6 & -5
+\end{pmatrix}
+\begin{pmatrix}
+4 \\ -2
+\end{pmatrix}
+=
+\begin{pmatrix}
+12 \\
+-14
+\end{pmatrix}
+\]
+
+\[
+\boxed{h(4,-2) = (12, -14)}
+\]
+
+\section*{Cuestión 3}
+
+Dado:
+
+\[
+U = L\langle (1,0,0,1),\ (1,1,1,1),\ (0,2,2,0) \rangle,\quad
+W = \left\{ (x,y,z,t) \in \mathbb{R}^4 \;\middle|\; 
+\begin{array}{l}
+3x + y - z - 3t = 0 \\
+y - t = 0
+\end{array}
+\right\}
+\]
+
+\subsection*{Paso 1: Dimensiones}
+
+Notamos que:
+
+\[
+(1,1,1,1) = (1,0,0,1) + \frac{1}{2}(0,2,2,0)
+\Rightarrow \text{Los vectores de } U \text{ son linealmente dependientes}
+\]
+
+Una base de \( U \) es:
+
+\[
+\{ (1,0,0,1),\ (0,2,2,0) \} \Rightarrow \dim(U) = 2
+\]
+
+Resolvemos el sistema de \( W \):
+
+\[
+y = t,\quad 3x + y - z - 3t = 0 \Rightarrow z = 3x - 2t
+\]
+
+\[
+\Rightarrow W = \left\{ x(1,0,3,0) + t(0,1,-2,1) \right\}
+\Rightarrow \dim(W) = 2
+\]
+
+\subsection*{Paso 2: Verificación de suma directa}
+
+Juntamos las bases:
+
+\[
+\left\{
+(1,0,0,1),\ (0,2,2,0),\ (1,0,3,0),\ (0,1,-2,1)
+\right\}
+\]
+
+Formamos la matriz con estos vectores como filas y verificamos que el rango es 4. Por tanto:
+
+\[
+\dim(U + W) = 4 = \dim(U) + \dim(W) \Rightarrow U \cap W = \{0\}
+\]
+
+\subsection*{Conclusión}
+
+\[
+\boxed{U + W \text{ es una suma directa}}
+\]
+
+\section*{Cuestión 4}
+
+\textbf{1.} Una matriz \( A \) tiene autovalor 0 si y solo si \( \det(A) = 0 \)
+
+\textbf{Razonamiento:}
+
+Si \( A \) tiene autovalor 0, entonces existe un vector no nulo \( v \) tal que \( Av = 0 \), lo cual implica que el sistema homogéneo tiene solución no trivial y por tanto \( \det(A) = 0 \).
+
+Si \( \det(A) = 0 \), entonces el sistema \( Av = 0 \) tiene infinitas soluciones  \( \rightarrow 0 \) es autovalor.
+
+\[
+\boxed{\text{Verdadero}}
+\]
+
+\textbf{2.} Las matrices
+
+\[
+A =
+\begin{pmatrix}
+1 & 2 & 0 \\
+-1 & 3 & 1 \\
+0 & 1 & 1
+\end{pmatrix}, \quad
+B =
+\begin{pmatrix}
+5 & 0 & -4 \\
+0 & 3 & 0 \\
+2 & 0 & -1
+\end{pmatrix}
+\]
+
+son semejantes.
+
+\textbf{Razonamiento:}
+
+Dos matrices son semejantes si;
+
+- Tienen el mismo rango
+
+- Tienen el mismo determinante
+
+- Tienen la misma traza
+
+Calculamos las trazas:
+
+\[
+tr(A) = 1 + 3 + 1 = 5 \quad tr(B) = 5 + 3 - 1 = 7 \quad 5 \neq 7
+\]
+
+\[
+\boxed{\text{Falso}}
+\]
+
+\end{document}

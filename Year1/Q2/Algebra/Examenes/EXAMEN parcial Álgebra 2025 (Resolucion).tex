@@ -1,0 +1,609 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{Álgebra Lineal \\ Examen Parcial 2025 \\ Resolución}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problema 1}
+
+Si \( z_1 \) es una de las raíces cuartas de \( \displaystyle \frac{-4}{1 - \sqrt{3}i} \) y \( z_2 = -4\sqrt{2} + 4\sqrt{2}i \), calcular el valor de \( z_1 z_2^3 \).
+
+\subsection*{Solución}
+
+Primero simplificamos el número complejo:
+
+\[
+\frac{-4}{1 - \sqrt{3}i} = \frac{-4(1 + \sqrt{3}i)}{(1 - \sqrt{3}i)(1 + \sqrt{3}i)} = \frac{-4(1 + \sqrt{3}i)}{1 + 3} = \frac{-4(1 + \sqrt{3}i)}{4} = -1 - \sqrt{3}i
+\]
+
+Entonces:
+
+\[
+z_1 \text{ es una raíz cuarta de } -1 - \sqrt{3}i
+\]
+
+Escribimos este número en forma polar:
+
+\[
+-1 - \sqrt{3}i = 2 e^{\frac{4\pi}{3}i} 
+\]
+
+Las raíces cuartas de un número complejo \( r e^{i\theta}\) son:
+
+\[
+z_k = \sqrt[4]{r} \cdot e^{\frac{\theta + 2k\pi}{4}i}, \quad k = 0, 1, 2, 3
+\]
+
+Entonces:
+
+\[
+z_1 = \sqrt[4]{2} \cdot e^{\frac{\frac{4\pi}{3}i}{4}} = \sqrt[4]{2} \cdot e^{\frac{\pi}{3}i}
+\]
+
+Ahora, calculemos \( z_2^3 \):
+
+Dado que:
+
+\[
+z_2 = -4\sqrt{2} + 4\sqrt{2}i = 4\sqrt{2}(-1 + i)
+\]
+
+La forma polar de \( -1 + i \) es:
+
+\[
+|-1 + i| = \sqrt{2}, \quad \arg(-1 + i) = \frac{3\pi}{4}
+\]
+
+Entonces:
+
+\[
+z_2 = 4\sqrt{2} \cdot \sqrt{2} \cdot e^{\frac{3\pi}{4}i} = 8 \cdot e^{\frac{3\pi}{4}i}
+\]
+
+Por lo tanto:
+
+\[
+z_2^3 = 8^3 \cdot (e^{\frac{3\pi}{4}i})^3 = 512 \cdot e^{\frac{9\pi}{4}i} = 512 \cdot e^{\frac{\pi}{4}i}
+\]
+
+Finalmente:
+
+\[
+z_1 z_2^3 = \sqrt[4]{2} \cdot e^{\frac{\pi}{3}i} \cdot 512 \cdot e^{\frac{\pi}{4}i}
+\]
+
+\[
+\boxed{z_1 z_2^3 = 512 \cdot \sqrt[4]{2} \cdot e^{\frac{7\pi}{12}i}}
+\]
+
+\section*{Problema 2}
+
+Dadas las matrices 
+\[
+A = \begin{pmatrix}
+1 & \alpha & 1 \\
+-1 & 2 - \alpha & 0 \\
+1 - \alpha & -2 + \alpha - \alpha^2 & 1 - 2\alpha
+\end{pmatrix}, \quad
+B = \begin{pmatrix}
+1 \\
+1 \\
+-\alpha - \alpha^2
+\end{pmatrix}
+\]
+
+\subsection*{a.1) Determinar si existe algún valor real de \( \alpha \) para el que el sistema \( AX = B \) sea compatible indeterminado.}
+
+Para que un sistema sea compatible indeterminado, el rango de la matriz de coeficientes \( A \) debe ser igual al rango de la matriz aumentada \( (A|B) \), y ambos menores que el número de incógnitas (en este caso, 3).
+
+Vemos cuando se anula el determinante de A
+
+\[
+det(A) = \begin{vmatrix}
+1 & \alpha & 1 \\
+-1 & 2-\alpha & 0 \\
+1-\alpha & -2 + \alpha - \alpha^2 & 1 - 2\alpha
+\end{vmatrix}
+= \begin{vmatrix}
+0 & 2 & 1 \\
+-1 & 2-\alpha & 0 \\
+-\alpha & - \alpha^2 & 1 - 2\alpha
+\end{vmatrix} = -2\alpha + 2 = 0 \rightarrow \alpha = 1
+\]
+
+\[
+\boxed{\text{El sistema es compatible indeterminado para } \alpha = 1}
+\]
+
+\subsection*{a.2) Análisis de la posición relativa de los planos para \( \alpha = 0 \)}
+
+Cuando \( \alpha = 0 \), tenemos tres planos en \( \mathbb{R}^3 \). Si el rango de la matriz de coeficientes es 3, los planos se cortan en un punto.
+
+Para \( \alpha = 0 \):
+
+\[
+A = \begin{pmatrix}
+1 & 0 & 1 \\
+-1 & 2 & 0 \\
+1 & -2 & 1
+\end{pmatrix}
+\Rightarrow \operatorname{rg}(A) = 3
+\]
+
+Entonces, el sistema tiene solución única, y los planos se intersectan en un punto.
+
+\[
+\boxed{\text{Para } \alpha = 0, \text{ los planos se intersectan en un único punto}}
+\]
+
+\subsection*{b) Condición para que las rectas \( r \) y \( s \) estén en un mismo plano}
+
+Las rectas están dadas por:
+
+\[
+r: \begin{cases}
+x = p + 2\lambda \\
+y = 3 - \lambda \\
+z = \lambda
+\end{cases}, \quad
+s: \begin{cases}
+x = 1 - \mu \\
+y = q + 2\mu \\
+z = \mu
+\end{cases}
+\]
+
+Vector director de \( r \): \( \vec{v}_r = (2, -1, 1) \)
+
+Vector director de \( s \): \( \vec{v}_s = (-1, 2, 1) \)
+
+Punto en \( r \): \( P_r = (p, 3, 0) \)
+
+Punto en \( s \): \( P_s = (1, q, 0) \)
+
+Para que estén en el mismo plano, el vector \( \vec{P_rP_s} = (1 - p, q - 3, 0) \) debe estar contenido en el plano generado por \( \vec{v}_r \) y \( \vec{v}_s \), es decir:
+
+\[
+\vec{P_rP_s} \in L <\{ \vec{v}_r, \vec{v}_s \}>
+\]
+
+Entonces, el determinante del siguiente sistema debe ser cero:
+
+\[
+\left|
+\begin{array}{ccc}
+1 - p & q - 3 & 0 \\
+2 & -1 & 1 \\
+-1 & 2 & 1
+\end{array}
+\right| = 3p -3q + 6 = 0 \rightarrow p - q + 2 = 0
+\]
+
+\subsection*{Determinación de \( p \) y \( q \) para que el plano pase por el punto \( (1,1,1) \)}
+
+El plano contiene a las dos rectas y pasa por el punto \( (1,1,1) \). Un punto del plano es \( P_r = (p, 3, 0) \), y dos vectores directores son \( \vec{v}_r \) y \( \vec{v}_s \).
+
+Verificamos si el vector \( (1 - p, -2, 1) \) (de \( P_r \) a \( (1,1,1) \)) es combinación lineal de \( \vec{v}_r = (2, -1, 1) \) y \( \vec{v}_s = (-1, 2, 1) \).
+
+Eso ocurre si el determinante:
+
+\[
+\left|
+\begin{array}{ccc}
+1 - p & -2 & 1 \\
+2 & -1 & 1 \\
+-1 & 2 & 1
+\end{array}
+\right| = 3p + 6 = 0 \rightarrow p = -2
+\]
+
+\[
+\boxed{p = -2, \quad q = 0}
+\]
+
+\section*{Problema 3}
+
+Dada una matriz cuadrada \( A \) que verifica:
+
+\[
+A^2 + 2A = I
+\]
+
+\subsection*{a) Demostrar que \( A \) tiene rango completo y obtener una expresión de \( A^{-1} \)}
+
+Partimos de la ecuación dada:
+
+\[
+A^2 + 2A = I
+\]
+
+Factorizamos:
+
+\[
+A(A + 2I) = I
+\]
+
+Esto implica que el producto de dos matrices \( A \) y \( A + 2I \) es la identidad. Por lo tanto, \( A \) es invertible y tiene rango completo.
+
+Dado que:
+
+\[
+A(A + 2I) = I \Rightarrow A^{-1} = A + 2I
+\]
+
+\[
+\boxed{A^{-1} = A + 2I}
+\]
+
+\subsection*{b) Calcular, si existen, los valores de \( p \) y \( q \) tales que \( A^3 = pI + qA \)}
+
+Partimos nuevamente de:
+
+\[
+A^2 + 2A = I \Rightarrow A^2 = I - 2A
+\]
+
+Multiplicamos ambos lados por \( A \) para obtener \( A^3 \):
+
+\[
+A^3 = A \cdot A^2 = A(I - 2A) = A - 2A^2
+\]
+
+Reemplazamos \( A^2 \) por \( I - 2A \):
+
+\[
+A^3 = A - 2(I - 2A) = A - 2I + 4A = 5A - 2I
+\]
+
+Por lo tanto:
+
+\[
+\boxed{A^3 = -2I + 5A}
+\Rightarrow \boxed{p = -2, \quad q = 5}
+\]
+
+\subsection*{c) Dada \( A = \begin{pmatrix} 0 & 1 \\ 1 & k \end{pmatrix} \), ¿existe algún valor de \( k \) para el que \( A^2 + 2A = I \)?}
+
+Calculamos:
+
+\[
+A = \begin{pmatrix}
+0 & 1 \\
+1 & k
+\end{pmatrix}, \quad
+A^2 = A \cdot A = 
+\begin{pmatrix}
+1 & k \\
+k & 1 + k^2
+\end{pmatrix}
+\]
+
+\[
+2A = \begin{pmatrix}
+0 & 2 \\
+2 & 2k
+\end{pmatrix}
+\Rightarrow
+A^2 + 2A = 
+\begin{pmatrix}
+1 & k + 2 \\
+k + 2 & 1 + k^2 + 2k
+\end{pmatrix}
+\]
+
+Queremos que esta matriz sea igual a la identidad:
+
+\[
+A^2 + 2A = I = \begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}
+\]
+
+Igualamos entrada a entrada:
+
+\[
+k + 2 = 0 \Rightarrow k = -2
+\]
+
+Verificamos la entrada (2,2):
+
+\[
+1 + k^2 + 2k = 1 + 4 - 4 = 1
+\]
+
+Todo coincide, por lo tanto:
+
+\[
+\boxed{\text{Sí, para } k = -2 \text{ se verifica la ecuación}}
+\]
+
+\section*{Cuestión 1}
+
+Sabiendo que:
+
+\[
+\begin{vmatrix}
+1 & 2 & 3 \\
+6 & 0 & 3 \\
+\alpha & \beta & \gamma
+\end{vmatrix}
+= 3,
+\]
+
+calcular, utilizando propiedades de los determinantes, el valor de:
+
+\[
+\begin{vmatrix}
+3\alpha + 2 & 2\alpha & \alpha + 6 \\
+3\beta + 4 & 2\beta & \beta \\
+3\gamma + 6 & 2\gamma & \gamma + 3
+\end{vmatrix}
+\]
+
+\subsection*{Solución}
+
+\[
+\begin{vmatrix}
+3\alpha + 2 & 2\alpha & \alpha + 6 \\
+3\beta + 4 & 2\beta & \beta \\
+3\gamma + 6 & 2\gamma & \gamma + 3
+\end{vmatrix} \overrightarrow{F_1 - F_2} \begin{vmatrix}
+\alpha + 2 & 2\alpha & \alpha + 6 \\
+\beta + 4 & 2\beta & \beta \\
+\gamma + 6 & 2\gamma & \gamma + 3
+\end{vmatrix} = 2 \cdot \begin{vmatrix}
+\alpha + 2 & \alpha & \alpha + 6 \\
+\beta + 4 & \beta & \beta \\
+\gamma + 6 & \gamma & \gamma + 3
+\end{vmatrix}
+\]
+\[
+\overrightarrow{F_1 - F_2 ; F_3 - F_2} \quad 2 \cdot \begin{vmatrix}
+2 & \alpha & 6 \\
+4 & \beta & 0 \\
+6 & \gamma & 3
+\end{vmatrix} = 4 \cdot \begin{vmatrix}
+1 & \alpha & 6 \\
+2 & \beta & 0 \\
+3 & \gamma & 3
+\end{vmatrix} = -4 \cdot \begin{vmatrix}
+1 & 6 & \alpha \\
+2 & 0 & \beta \\
+3 & 3 & \gamma
+\end{vmatrix} = -12
+\]
+Nota: \(det(A) = det(A^t)\)
+
+\section*{Cuestión 2}
+
+Razonar si son verdaderas o falsas las siguientes afirmaciones:
+
+\subsection*{a) No existe ninguna matriz \( A \in \mathbb{R}^{3 \times 3} \) tal que \( |A| = 1 \) y \( A \begin{pmatrix} 1 \\ 2 \\ 1 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix} \)}
+
+Si \( A \cdot \vec{v} = \vec{0} \) para \( \vec{v} = \begin{pmatrix} 1 \\ 2 \\ 1 \end{pmatrix} \), entonces \( \vec{v} \in \ker A \), lo que implica que \( A \) no es inyectiva y por tanto no es invertible.
+
+Pero eso contradice el hecho de que \( |A| = 1 \), ya que una matriz con determinante distinto de cero es invertible, y su núcleo solo contiene el vector nulo.
+
+\[
+\boxed{
+\text{Verdadera: si } A\vec{v} = \vec{0} \text{ con } \vec{v} \neq \vec{0}, \text{ entonces } A \text{ no es invertible, } \Rightarrow |A| \neq 1
+}
+\]
+
+Por tanto:
+
+\[
+\boxed{
+\text{Verdadera}
+}
+\]
+
+\subsection*{b) No existe ninguna matriz \( A \) tal que \( A^2 = D \) y \( A^3 = E \), donde:}
+
+\[
+D = \begin{pmatrix}
+2 & 1 \\
+1 & 1
+\end{pmatrix}, \quad
+E = \begin{pmatrix}
+-2 & 2 \\
+-1 & 3
+\end{pmatrix}
+\]
+
+\textbf{Analizamos:} si \( A^2 = D \) y \( A^3 = E \), entonces multiplicando ambos lados de la primera ecuación por \( A \), se debe cumplir:
+
+\[
+A^3 = A \cdot A^2 = A \cdot D
+\Rightarrow E = A \cdot D
+\Rightarrow A = E \cdot D^{-1}
+\]
+
+Verificamos si \( D \) es invertible:
+
+\[
+|D| = 1 \Rightarrow D^{-1} \text{ existe}
+\]
+
+Entonces calculamos:
+
+\[
+A = E D^{-1}
+\]
+
+Primero, la inversa de \( D \) es:
+
+\[
+D^{-1} = \begin{pmatrix}
+1 & -1 \\
+-1 & 2
+\end{pmatrix}
+\]
+
+Multiplicamos:
+
+\[
+A = E D^{-1} = 
+\begin{pmatrix}
+-2 & 2 \\
+-1 & 3
+\end{pmatrix}
+\begin{pmatrix}
+1 & -1 \\
+-1 & 2
+\end{pmatrix}
+=
+\begin{pmatrix}
+-4 & 6 \\
+-4 & 7
+\end{pmatrix}
+\]
+
+Ahora verificamos si \( A^2 = D \):
+
+\[
+A^2 = 
+\begin{pmatrix}
+-4 & 6 \\
+-4 & 7
+\end{pmatrix}^2
+=
+\begin{pmatrix}
+-8 & 18 \\
+-12 & 25
+\end{pmatrix}
+\neq D
+\]
+
+Por tanto, aunque \( A = ED^{-1} \), no se cumple que \( A^2 = D \), lo cual contradice la hipótesis. Por lo tanto:
+
+\[
+\boxed{\text{Verdadera: no existe tal matriz } A}
+\]
+
+\section*{Cuestión 3}
+
+Calcular en forma binómica:
+
+\[
+Z = \frac{(2 + i \sqrt{5}) \cdot (1 + i \sqrt{3})^3}{\sqrt{5} + i \sqrt{3}}
+\]
+
+y obtener su módulo.
+
+\subsection*{Solución}
+
+Primero calculamos \( (1 + i \sqrt{3})^3 \). Pasamos a forma polar:
+
+\[
+1 + i \sqrt{3} = 2 \cdot e^{i \frac{\pi}{3}} \Rightarrow (1 + i \sqrt{3})^3 = 2^3 \cdot e^{i \pi} = 8 \cdot (-1) = -8
+\]
+
+Entonces:
+
+\[
+Z = \frac{(2 + i \sqrt{5})(-8)}{\sqrt{5} + i \sqrt{3}} = \frac{-8(2 + i \sqrt{5})}{\sqrt{5} + i \sqrt{3}}
+\]
+
+Multiplicamos numerador y denominador por el conjugado del denominador:
+
+\[
+\frac{-8(2 + i \sqrt{5})(\sqrt{5} - i \sqrt{3})}{(\sqrt{5} + i \sqrt{3})(\sqrt{5} - i \sqrt{3})}
+\Rightarrow
+\frac{-8(2 + i \sqrt{5})(\sqrt{5} - i \sqrt{3})}{5 + 3} = \frac{-8(2 + i \sqrt{5})(\sqrt{5} - i \sqrt{3})}{8}
+\]
+
+Simplificamos el 8:
+
+\[
+Z = -(2 + i \sqrt{5})(\sqrt{5} - i \sqrt{3})
+\]
+
+Desarrollamos:
+
+\[
+Z = -\left[2 \sqrt{5} - 2 i \sqrt{3} + i \sqrt{5} \cdot \sqrt{5} - i \sqrt{5} \cdot i \sqrt{3} \right]
+\]
+\[
+= -\left[2 \sqrt{5} - 2 i \sqrt{3} + 5 i - i^2 \sqrt{15} \right]
+= -\left[2 \sqrt{5} - 2 i \sqrt{3} + 5 i + \sqrt{15} \right]
+\]
+
+\[
+Z = -\left(2 \sqrt{5} + \sqrt{15} + i(5 - 2 \sqrt{3})\right)
+= -2 \sqrt{5} - \sqrt{15} - i(5 - 2 \sqrt{3})
+\]
+
+\[
+\boxed{Z = -2 \sqrt{5} - \sqrt{15} - i(5 - 2 \sqrt{3})}
+\]
+
+\subsubsection*{Módulo de \( Z \)}
+
+Denotamos:
+\[
+x = -2 \sqrt{5} - \sqrt{15}, \quad y = - (5 - 2 \sqrt{3})
+\]
+
+\[
+|Z| = \sqrt{x^2 + y^2} = \sqrt{(-2 \sqrt{5} - \sqrt{15})^2 + (5 - 2 \sqrt{3})^2}
+\]
+
+Calculamos:
+
+\[
+x^2 = (2 \sqrt{5} + \sqrt{15})^2 = 4 \cdot 5 + 2 \cdot 2 \sqrt{5} \cdot \sqrt{15} + 15 = 20 + 4 \sqrt{75} + 15 = 35 + 20 \sqrt{3}
+\]
+
+\[
+y^2 = (5 - 2 \sqrt{3})^2 = 25 - 20 \sqrt{3} + 4 \cdot 3 = 25 - 20 \sqrt{3} + 12 = 37 - 20 \sqrt{3}
+\]
+
+Entonces:
+
+\[
+|Z| = \sqrt{(35 + 20 \sqrt{3}) + (37 - 20 \sqrt{3})} = \sqrt{72} = \boxed{6 \sqrt{2}}
+\]
+
+---
+
+\section*{Cuestión 4}
+
+Razonar si son verdaderas o falsas las siguientes afirmaciones.
+
+\subsection*{a) Un sistema homogéneo de ecuaciones lineales tal que el rango de la matriz de coeficientes coincide con el número de incógnitas puede tener infinitas soluciones.}
+
+Un sistema homogéneo \( AX = 0 \) con \( \operatorname{rg}(A) = n \) (número de incógnitas) tiene como única solución el vector nulo:
+
+\[
+\dim(\ker A) = n - \operatorname{rg}(A) = 0
+\Rightarrow \text{sólo existe la solución } X = 0
+\]
+
+\[
+\boxed{\text{Falsa}}
+\]
+
+\subsection*{b) Un sistema de ecuaciones lineales con \( n+1 \) ecuaciones y \( n \) incógnitas tal que el rango de la matriz ampliada es \( n+1 \) puede ser indeterminado.}
+
+El rango de la matriz ampliada no puede ser mayor que el número de incógnitas para que el sistema sea compatible. Si:
+
+\[
+\operatorname{rg}(A|B) = n+1 > n = \operatorname{rg}(A)
+\Rightarrow \text{El sistema es incompatible}
+\]
+
+Por tanto, nunca puede ser indeterminado:
+
+\[
+\boxed{\text{Falsa}}
+\]
+
+\end{document}
