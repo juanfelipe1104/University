@@ -1,0 +1,601 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\title{Soluciones de Sucesiones y Series}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\section*{Solución Ejercicio 1}
+Consideramos el término general:
+\[
+u_n = \frac{n+2}{a^n(n+1)}.
+\]
+
+Para estudiar la convergencia en función de \(a\), aplicamos
+el \textbf{criterio de comparación en el límite}.
+
+\[
+\lim_{n\to\infty} \frac{u_n}{\frac{1}{n^2}}
+= 
+\lim_{n\to\infty} \frac{\frac{n+2}{a^n(n+1)}}{\frac{1}{n^2}}
+=
+\lim_{n\to\infty} \frac{n^2(n+2)}{a^n(n+1)}
+= 0
+\quad\text{si } a>1.
+\]
+
+Puesto que \(\sum \frac{1}{n^2}\) converge, por comparación en el límite
+\[
+\sum_{n=1}^{\infty} u_n \quad \text{converge si } a>1.
+\]
+
+Ahora, comparamos con \(\sum \frac{1}{n}\) cuando \(a \leq 1\):
+
+\[
+\lim_{n\to\infty} \frac{u_n}{\frac{1}{n}}
+=
+\lim_{n\to\infty} \frac{\frac{n+2}{a^n(n+1)}}{\frac{1}{n}}
+=
+\lim_{n\to\infty} \frac{n(n+2)}{a^n(n+1)}
+=
++\infty
+\quad\text{si } a\le 1.
+\]
+
+Puesto que \(\sum \frac{1}{n}\) diverge, concluimos que también
+\[
+\sum_{n=1}^{\infty} u_n \quad \text{diverge si } a \le 1.
+\]
+
+\[
+\boxed{
+\text{La serie converge si } a>1
+\quad\text{y diverge si } 0<a \le 1.
+}
+\]
+
+\section*{Solución Ejercicio 2}
+Sea
+\[
+a_n=\sqrt[3]{2}+\sqrt[6]{7}+\cdots+\sqrt[3n]{5n-3},
+\qquad
+b_n=7n+2.
+\]
+Entonces la expresión del límite es
+\[
+\lim_{n\to\infty}\frac{a_n}{b_n}.
+\]
+
+Observamos que \(a_n\) es creciente y \(b_n\) es creciente y no acotada, luego
+podemos aplicar el \textbf{criterio de Stolz}:
+\[
+\lim_{n\to\infty}\frac{a_n}{b_n}
+=
+\lim_{n\to\infty}\frac{a_{n+1}-a_n}{b_{n+1}-b_n},
+\]
+si el límite de la derecha existe.
+
+Calculamos:
+\[
+a_{n+1}-a_n = \sqrt[3(n+1)]{5(n+1)-3}
+= \sqrt[3n+3]{5n+2},
+\]
+\[
+b_{n+1}-b_n = 7.
+\]
+
+Por tanto
+\[
+L=\lim_{n\to\infty}\frac{a_n}{b_n}
+=\lim_{n\to\infty}\frac{\sqrt[3n+3]{5n+2}}{7}
+=\frac{1}{7}\,\lim_{n\to\infty}(5n+2)^{\frac{1}{3n+3}}.
+\]
+
+El límite interior es de tipo \(\infty^0\). Usamos la forma
+\[
+\lim f_n^{g_n} = e^{\lim g_n\ln f_n},
+\]
+si dicho límite existe. Tomamos
+\[
+f_n = 5n+2, \qquad g_n = \frac{1}{3n+3}.
+\]
+
+Entonces
+\[
+\lim_{n\to\infty}(5n+2)^{\frac{1}{3n+3}}
+=
+\exp\left(\lim_{n\to\infty}\frac{\ln(5n+2)}{3n+3}\right).
+\]
+
+El límite del exponente es
+\[
+\lim_{n\to\infty}\frac{\ln(5n+2)}{3n+3}=0,
+\]
+pues el numerador crece como \(\ln n\) y el denominador como \(n\).
+
+Así,
+\[
+\lim_{n\to\infty}(5n+2)^{\frac{1}{3n+3}}
+= e^{0}=1.
+\]
+
+Finalmente,
+\[
+L=\frac{1}{7}\cdot 1 = \frac{1}{7}.
+\]
+
+\[
+\boxed{\displaystyle
+\lim_{n\to\infty}
+\frac{\sqrt[3]{2}+\sqrt[6]{7}+\cdots+\sqrt[3n]{5n-3}}{7n+2}
+= \frac{1}{7}
+}
+\]
+
+\section*{Solución Ejercicio 3}
+Sea
+\[
+a_n=\frac{(n^{2}-3)^{3n}}{(6n^{6}+5n^{5}-n+1)^{n}}.
+\]
+
+Aplicamos el \textbf{criterio de la raíz}:
+\[
+L=\lim_{n\to\infty}\sqrt[n]{a_n}
+= \lim_{n\to\infty}
+\frac{\sqrt[n]{(n^{2}-3)^{3n}}}{\sqrt[n]{(6n^{6}+5n^{5}-n+1)^{n}}}
+=
+\lim_{n\to\infty}
+\frac{(n^{2}-3)^{3}}{6n^{6}+5n^{5}-n+1}.
+\]
+
+Desarrollamos el numerador:
+\[
+(n^{2}-3)^{3}=n^{6}-9n^{4}+27n^{2}-27.
+\]
+
+Por tanto
+\[
+L
+= \lim_{n\to\infty}
+\frac{n^{6}-9n^{4}+27n^{2}-27}{6n^{6}+5n^{5}-n+1}.
+\]
+
+Dividimos numerador y denominador por \(n^{6}\):
+\[
+L = \lim_{n\to\infty}
+\frac{1-\frac{9}{n^{2}}+\frac{27}{n^{4}}-\frac{27}{n^{6}}}
+     {6+\frac{5}{n}-\frac{1}{n^{5}}+\frac{1}{n^{6}}}
+= \frac{1}{6}.
+\]
+
+Como
+\[
+L=\frac{1}{6}<1,
+\]
+por el criterio de la raíz la serie converge.
+
+\[
+\boxed{\text{La serie es convergente.}}
+\]
+
+\section*{Solución Ejercicio 4}
+\textbf{a)} Sea
+\[
+a_n = \frac{3^{n}n!}{n^{n}}.
+\]
+Aplicamos el \textbf{criterio del cociente}:
+\[
+\frac{a_{n+1}}{a_n}
+=
+\frac{3^{n+1}(n+1)!}{(n+1)^{n+1}}
+\cdot
+\frac{n^{n}}{3^{n}n!}
+=
+3\,\frac{(n+1)n^{n}}{(n+1)^{n+1}}
+=
+3\left(\frac{n}{n+1}\right)^{n}.
+\]
+Por tanto
+\[
+L=\lim_{n\to\infty}\frac{a_{n+1}}{a_n}
+=
+3\lim_{n\to\infty}\left(\frac{n}{n+1}\right)^{n}
+= \frac{3}{e}.
+\]
+Como
+\[
+\frac{3}{e}>1,
+\]
+por el criterio del cociente la serie diverge.
+
+\[
+\boxed{\text{La serie a) es divergente (no converge ni absoluta ni condicionalmente).}}
+\]
+
+\textbf{b)} Sea ahora
+\[
+a_n = \frac{n!}{n^{n}}.
+\]
+De nuevo aplicamos el \textbf{criterio del cociente}:
+\[
+\frac{a_{n+1}}{a_n}
+=
+\frac{(n+1)!}{(n+1)^{n+1}}
+\cdot
+\frac{n^{n}}{n!}
+=
+\frac{(n+1)n^{n}}{(n+1)^{n+1}}
+=
+\left(\frac{n}{n+1}\right)^{n}.
+\]
+Entonces
+\[
+L=\lim_{n\to\infty}\frac{a_{n+1}}{a_n}
+=
+\lim_{n\to\infty}\left(\frac{n}{n+1}\right)^{n}
+=\frac{1}{e}<1.
+\]
+Por el criterio del cociente la serie converge absolutamente
+(al ser términos positivos).
+
+\[
+\boxed{\text{La serie b) es convergente y la convergencia es absoluta.}}
+\]
+
+\textbf{c)} Observamos que
+\[
+\cos(\pi n)=(-1)^{n},
+\]
+por lo que
+\[
+\frac{1}{n\cos(\pi n)}=\frac{(-1)^{n}}{n}.
+\]
+La serie se puede escribir como
+\[
+\sum_{n=1}^{\infty}\frac{1}{n\cos(\pi n)}
+=\sum_{n=1}^{\infty}\frac{(-1)^{n}}{n},
+\]
+que es la \emph{serie armónica alternada}.
+
+Sea \(a_n=\dfrac{(-1)^{n}}{n}\). Entonces
+\[
+\lim_{n\to\infty}a_n=0,
+\qquad
+|a_{n}|=\frac{1}{n},
+\qquad
+|a_{n+1}|=\frac{1}{n+1}<\frac{1}{n}=|a_n|.
+\]
+Es decir, los términos alternan de signo, su módulo es decreciente y tiende a
+cero. Por el \textbf{criterio de Leibniz}, la serie es convergente.
+
+Sin embargo,
+\[
+\sum_{n=1}^{\infty}|a_n|
+=
+\sum_{n=1}^{\infty}\frac{1}{n}
+\]
+es la serie armónica, que es divergente.
+
+\[
+\boxed{\text{La serie c) converge, pero sólo de forma condicional (no absoluta).}}
+\]
+
+\section*{Solución Ejercicio 5}
+Definimos
+\[
+a_n = \sum_{k=1}^{n} k^{2}2^{k}, \qquad b_n = 2^{n}n^{2}.
+\]
+Entonces el límite pedido es
+\[
+L=\lim_{n\to\infty}\frac{a_n}{b_n}.
+\]
+
+Como \(b_n\) es creciente y tiende a infinito, podemos aplicar el
+\textbf{criterio de Stolz}:
+\[
+L = \lim_{n\to\infty}\frac{a_{n+1}-a_n}{b_{n+1}-b_n}.
+\]
+
+Calculamos:
+\[
+a_{n+1}-a_n = (n+1)^2 2^{n+1},
+\]
+\[
+b_{n+1}-b_n = 2^{n+1}(n+1)^2 - 2^{n}n^{2}
+= 2^{n}\bigl(2(n+1)^2 - n^{2}\bigr).
+\]
+
+Por tanto
+\[
+L = \lim_{n\to\infty}
+\frac{(n+1)^2 2^{n+1}}{2^{n}\bigl(2(n+1)^2 - n^{2}\bigr)}
+= \lim_{n\to\infty}
+\frac{2(n+1)^2}{2(n+1)^2 - n^{2}}.
+\]
+
+Desarrollamos numerador y denominador:
+\[
+2(n+1)^2 = 2(n^{2}+2n+1)=2n^{2}+4n+2,
+\]
+\[
+2(n+1)^2 - n^{2} = (2n^{2}+4n+2) - n^{2}
+= n^{2}+4n+2.
+\]
+
+Así,
+\[
+L = \lim_{n\to\infty}\frac{2n^{2}+4n+2}{n^{2}+4n+2}
+= \frac{2}{1}=2.
+\]
+
+\[
+\boxed{L=2.}
+\]
+
+\section*{Solución Ejercicio 6}
+\begin{enumerate}
+\item \textbf{Acotación.}
+
+Como todos los términos se obtienen aplicando una raíz cuadrada,
+se tiene \(a_n\ge 0\) para todo \(n\). Además \(a_1=0{,}5>0\), luego
+la sucesión está acotada inferiormente por
+\[
+a_n \ge a_1 = 0{,}5, \qquad \forall n\in\mathbb{N}.
+\]
+
+Veamos ahora que está acotada superiormente por \(3\).  
+Probamos por inducción que \(a_n<3\) para todo \(n\):
+
+\begin{itemize}
+  \item Caso base: 
+  \[
+  a_1=0{,}5<3.
+  \]
+  \item Paso inductivo: supongamos que para algún \(k\ge 1\) se cumple
+  \(a_k<3\). Entonces
+  \[
+  a_{k+1} = \sqrt{a_k+6} < \sqrt{3+6} = \sqrt{9}=3.
+  \]
+\end{itemize}
+
+Por inducción, \(a_n<3\) para todo \(n\).  
+Por tanto, la sucesión está acotada:
+\[
+0{,}5 \le a_n < 3,\qquad \forall n.
+\]
+
+\item \textbf{Monotonía.}
+
+Estudiamos el signo de \(a_n-a_{n-1}\). Para \(n\ge 2\),
+\[
+a_n-a_{n-1}
+= \sqrt{a_{n-1}+6}-\sqrt{a_{n-2}+6}.
+\]
+Racionalizando:
+\[
+a_n-a_{n-1}
+= \frac{(a_{n-1}+6)-(a_{n-2}+6)}
+       {\sqrt{a_{n-1}+6}+\sqrt{a_{n-2}+6}}
+= \frac{a_{n-1}-a_{n-2}}{\sqrt{a_{n-1}+6}+\sqrt{a_{n-2}+6}}.
+\]
+El denominador es siempre positivo, luego el signo de \(a_n-a_{n-1}\)
+coincide con el de \(a_{n-1}-a_{n-2}\).
+
+Calculamos el primer incremento:
+\[
+a_2-a_1 = \sqrt{a_1+6}-a_1 = \sqrt{0{,}5+6}-0{,}5 \approx 2{,}46-0{,}5>0.
+\]
+Por lo tanto \(a_2>a_1\), y como cada diferencia tiene el mismo signo
+que la anterior, se deduce que
+\[
+a_n-a_{n-1}>0\quad\forall n\ge 2.
+\]
+Es decir, la sucesión es \textbf{estrictamente creciente}.
+
+\item \textbf{Límite.}
+
+Hemos probado que \((a_n)\) es creciente y está acotada superiormente,
+por lo que es convergente. Sea
+\[
+\lim_{n\to\infty} a_n = L.
+\]
+Pasando al límite en la relación recurrente
+\[
+a_{n+1}=\sqrt{a_n+6},
+\]
+obtenemos
+\[
+L = \sqrt{L+6}.
+\]
+Elevando al cuadrado:
+\[
+L^2 = L+6
+\quad\Longrightarrow\quad
+L^2-L-6=0
+\quad\Longrightarrow\quad
+(L-3)(L+2)=0.
+\]
+De aquí \(L=3\) o \(L=-2\). Como todos los términos de la sucesión son
+positivos, el límite debe ser positivo, luego
+\[
+L=3.
+\]
+
+\[
+\boxed{\text{La sucesión es creciente, está acotada y converge a }3.}
+\]
+\end{enumerate}
+\section*{Solución Ejercicio 7}
+\begin{enumerate}
+\item Sea \(a_n=\dfrac{n^{3}}{4^{n}}\). Aplicamos el criterio del cociente:
+\[
+L=\lim_{n\to\infty}\frac{a_{n+1}}{a_n}
+ =\lim_{n\to\infty}\frac{(n+1)^{3}4^{n}}{4^{n+1}n^{3}}
+ =\frac14\lim_{n\to\infty}\frac{(n+1)^{3}}{n^{3}}
+ =\frac14<1.
+\]
+Por el criterio del cociente, la serie
+\(\displaystyle\sum_{n=1}^{\infty}\frac{n^{3}}{4^{n}}\) es convergente.  
+Como todos los términos son positivos, la convergencia es \textbf{absoluta}.
+
+\item Consideramos
+\[
+a_n=\frac{\cos(n^{2})+2}{n\sqrt{n}}.
+\]
+Se tiene \(|\cos(n^{2})+2|\le 3\), luego
+\[
+|a_n|\le\frac{3}{n\sqrt{n}}=\frac{3}{n^{3/2}}.
+\]
+La serie de comparación
+\(\displaystyle\sum_{n=1}^{\infty}\frac{3}{n^{3/2}}\) es convergente por Pringsheim con
+\(p=\tfrac32>1\).  
+Por el criterio de comparación, la serie
+\(\displaystyle\sum_{n=1}^{\infty}\frac{\cos(n^{2})+2}{n\sqrt{n}}\) es
+convergente y, además, lo es \textbf{absolutamente}.
+
+\item Sea
+\[
+a_n=(-1)^{n}\sen\!\left(\frac1{\sqrt[3]{n}}\right).
+\]
+En primer lugar,
+\[
+\lim_{n\to\infty}\sen\!\left(\frac1{\sqrt[3]{n}}\right)=0,
+\]
+y los argumentos \(\dfrac1{\sqrt[3]{n}}\) son positivos y decrecientes a \(0\),
+por lo que
+\(\bigl|\sen(1/\sqrt[3]{n})\bigr|\) es también una sucesión decreciente.  
+Luego, por el criterio de Leibniz, la serie alternada
+\(\displaystyle\sum_{n=1}^{\infty}(-1)^{n}\sen\!\left(\frac1{\sqrt[3]{n}}\right)\)
+es \textbf{convergente}.
+
+Para estudiar la convergencia absoluta, observamos que
+\[
+\sen\!\left(\frac1{\sqrt[3]{n}}\right)\sim \frac1{\sqrt[3]{n}}
+\quad\text{cuando }n\to\infty.
+\]
+Por tanto, la serie
+\[
+\sum_{n=1}^{\infty}\left|\sen\!\left(\frac1{\sqrt[3]{n}}\right)\right|
+\]
+se comporta como
+\(\displaystyle\sum_{n=1}^{\infty}\frac1{n^{1/3}}\), que es divergente por Pringsheim con
+\(p=\tfrac13<1\).  
+
+En conclusión, la serie del apartado c) es \textbf{convergente
+condicionalmente}.
+\end{enumerate}
+\section*{Solución Ejercicio 8}
+\begin{enumerate}
+\item Consideramos la serie
+\[
+\sum_{n=1}^{\infty}\frac{\cos^2(n)}{2^n}.
+\]
+Como \(0\le\cos^2(n)\le 1\) para todo \(n\in\mathbb{N}\), se tiene
+\[
+0\le\frac{\cos^2(n)}{2^n}\le\frac1{2^n}.
+\]
+La serie geométrica \(\displaystyle\sum_{n=1}^{\infty}\frac1{2^n}\) es convergente
+(ratio \(1/2<1\)).  
+Por el criterio de comparación, la serie
+\(\displaystyle\sum_{n=1}^{\infty}\frac{\cos^2(n)}{2^n}\) es \textbf{convergente}
+(y, de hecho, absolutamente convergente).
+
+\item Ahora estudiamos
+\[
+\sum_{n=1}^{\infty}\frac{\sqrt[3]{n^4}}{\sqrt{n^3+4n+3}}.
+\]
+Aplicamos el criterio de Pringsheim para determinar el comportamiento de \(a_n\)
+cuando \(n\to\infty\).
+\[
+\lim_{n\to\infty}a_n \cdot n^{1/6}
+=\lim_{n\to\infty}\frac{\sqrt[3]{n^4}\,n^{1/6}}{\sqrt{n^3+4n+3}}
+=1.
+\]
+
+Por Pringsheim, \(\alpha = \frac{1}{6} \leq 1\), luego la serie
+\(\displaystyle\sum_{n=1}^{\infty}\frac{\sqrt[3]{n^4}}{\sqrt{n^3+4n+3}}\) es \textbf{divergente}.
+\end{enumerate}
+
+\section*{Solución Ejercicio 9}
+\begin{enumerate}
+\item 
+\[
+a_n=\frac{(n+1)^{n+1}}{n^n(2n+1)}
+   =\left(\frac{n+1}{n}\right)^n\cdot\frac{n+1}{2n+1}.
+\]
+
+Por un lado,
+\[
+\lim_{n\to\infty}\frac{n+1}{2n+1}=\frac12.
+\]
+
+Por otro lado, el límite
+\[
+\lim_{n\to\infty}\left(\frac{n+1}{n}\right)^n
+=\lim_{n\to\infty}\left(1+\frac1n\right)^n
+\]
+es de tipo $1^\infty$. Lo resolvemos con
+\[
+\left(1+\frac1n\right)^n = e^{A_n},\qquad
+A_n = n\ln\!\left(1+\frac1n\right),
+\]
+y
+\[
+A=\lim_{n\to\infty}A_n
+   =\lim_{n\to\infty}n\!\left(\frac1n+o\!\left(\frac1n\right)\right)=1,
+\]
+luego
+\[
+\lim_{n\to\infty}\left(1+\frac1n\right)^n=e^1=e.
+\]
+
+Por tanto,
+\[
+\lim_{n\to\infty}a_n
+=\left(\lim_{n\to\infty}\left(\frac{n+1}{n}\right)^n\right)
+ \left(\lim_{n\to\infty}\frac{n+1}{2n+1}\right)
+=e\cdot\frac12=\frac e2.
+\]
+
+La sucesión es convergente y
+\[
+a_n \longrightarrow \frac e2.
+\]
+
+\item 
+Consideramos
+\[
+a_n=\frac{n^2+(-1)^n n}{\sen(n)-n^2}.
+\]
+
+Dividimos numerador y denominador por $n^2$:
+\[
+a_n
+=\frac{1+\dfrac{(-1)^n}{n}}{\dfrac{\sen(n)}{n^2}-1}.
+\]
+
+Como $\left|\sen(n)\right|\leq 1$ para todo $n$, se tiene
+\[
+\lim_{n\to\infty}\frac{\sen(n)}{n^2}=0,
+\qquad
+\lim_{n\to\infty}\frac{(-1)^n}{n}=0.
+\]
+
+Por tanto,
+\[
+\lim_{n\to\infty}a_n
+=\frac{1+0}{0-1}=-1.
+\]
+
+Luego la sucesión es convergente y
+\[
+a_n \longrightarrow -1.
+\]
+\end{enumerate}
+\end{document}

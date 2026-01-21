@@ -1,0 +1,255 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\title{Soluciones de los Ejercicios de Interpolación de Funciones \\[4pt] \large (Taylor, Maclaurin y Lagrange)}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+\bigskip
+
+\section*{Ejercicio 1}
+
+Queremos aproximar
+\[
+\sqrt{1{,}2}.
+\]
+Para ello consideramos la función
+\[
+g(x) = \sqrt{1 + 2x},
+\]
+de modo que \( g(0{,}1) = \sqrt{1{,}2} \).
+Buscaremos su polinomio de Maclaurin de cuarto grado.
+
+\subsection*{1. Derivadas sucesivas de \( g(x) \)}
+
+\[
+\begin{aligned}
+g(x) &= (1+2x)^{1/2}, \\[4pt]
+g'(x) &= \frac{1}{\sqrt{1+2x}}, \\[4pt]
+g''(x) &= -\frac{1}{(1+2x)^{3/2}}, \\[4pt]
+g^{(3)}(x) &= \frac{3}{(1+2x)^{5/2}}, \\[4pt]
+g^{(4)}(x) &= -\frac{15}{(1+2x)^{7/2}}, \\[4pt]
+g^{(5)}(x) &= \frac{105}{(1+2x)^{9/2}}.
+\end{aligned}
+\]
+
+Evaluando en \(x = 0\):
+
+\[
+g(0)=1, \quad g'(0)=1, \quad g''(0)=-1, \quad g^{(3)}(0)=3, \quad g^{(4)}(0)=-15.
+\]
+
+\subsection*{2. Polinomio de Maclaurin de cuarto grado}
+
+\[
+P_4(x) = g(0) + g'(0)x + \frac{g''(0)}{2!}x^2 + \frac{g^{(3)}(0)}{3!}x^3 + \frac{g^{(4)}(0)}{4!}x^4.
+\]
+
+Sustituyendo valores:
+
+\[
+P_4(x) = 1 + x - \frac{x^2}{2} + \frac{x^3}{2} - \frac{5x^4}{8}.
+\]
+
+Evaluando en \(x = 0{,}1\):
+
+\[
+P_4(0{,}1) = 1 + 0{,}1 - \frac{0{,}01}{2} + \frac{0{,}001}{2} - \frac{5(0{,}0001)}{8} = \boxed{1{,}0954375.}
+\]
+
+\subsection*{3. Cálculo del error}
+
+El resto de Taylor (forma de Lagrange) es:
+\[
+R_4(x) = \frac{g^{(5)}(\xi)}{5!}x^5, \qquad \xi \in (0,x).
+\]
+
+Como
+\[
+g^{(5)}(x) = \frac{105}{(1+2x)^{9/2}} \quad \Rightarrow \quad |g^{(5)}(\xi)| \le 105 \text{ para } 0 \le \xi \le 0{,}1,
+\]
+entonces:
+\[
+|R_4(0{,}1)| \le \frac{105}{5!}(0{,}1)^5 = \frac{105}{120}\times 10^{-5} = \boxed{8{,}75\times 10^{-6}.}
+\]
+
+\subsection*{4. Resultado final}
+
+\[
+\sqrt{1{,}2} = g(0{,}1) = P_4(0{,}1) + R_4(0{,}1) \in 
+\left[1{,}0954375,\;1{,}0954375 + 8{,}75\times10^{-6}\right].
+\]
+
+El valor real es:
+\[
+\sqrt{1{,}2} \approx 1{,}0954451,
+\]
+por lo que el error real es \(|R|\approx 7{,}6\times10^{-6}\), dentro de la cota estimada.
+
+\bigskip
+\hrule
+\bigskip
+
+\section*{Ejercicio 2}
+Dada
+\[
+f(x)=x^{5}-3x^{4}-x^{3}+76x^{2}-78x+11,
+\]
+calculamos el polinomio de Taylor de grado \(5\) en torno a \(c=1\). Como \(f\) es un polinomio de grado \(5\),
+su polinomio de Taylor de orden \(5\) coincide con \(f\).
+
+\subsection*{1. Derivadas en \(x=1\)}
+\[
+\begin{aligned}
+f(1)&=1-3-1+76-78+11=6,\\
+f'(x)&=5x^{4}-12x^{3}-3x^{2}+152x-78 \ \Rightarrow\ f'(1)=4,\\
+f''(x)&=20x^{3}-36x^{2}-6x+152 \ \Rightarrow\ f''(1)=10,\\
+f^{(3)}(x)&=60x^{2}-72x-6 \ \Rightarrow\ f^{(3)}(1)=-18,\\
+f^{(4)}(x)&=120x-72 \ \Rightarrow\ f^{(4)}(1)=48,\\
+f^{(5)}(x)&=120 \ \Rightarrow\ f^{(5)}(1)=120.
+\end{aligned}
+\]
+
+\subsection*{2. Taylor en torno a \(c=1\)}
+\[
+\begin{aligned}
+f(x)
+&= f(1)+f'(1)(x-1)+\frac{f''(1)}{2!}(x-1)^2+\frac{f^{(3)}(1)}{3!}(x-1)^3
++\frac{f^{(4)}(1)}{4!}(x-1)^4+\frac{f^{(5)}(1)}{5!}(x-1)^5\\[2mm]
+&= 6+4(x-1)+5(x-1)^2-3(x-1)^3+2(x-1)^4+(x-1)^5.
+\end{aligned}
+\]
+
+\section*{Ejercicio 3}
+
+Puntos de interpolación: \((x_1,y_1)=(1,1)\), \((x_2,y_2)=(2,6)\), \((x_3,y_3)=(4,4)\), \((x_4,y_4)=(5,-1)\).
+Usamos la forma de Lagrange:
+\[
+P(x)=\sum_{i=1}^{4} y_i\,L_i(x),\qquad
+L_i(x)=\prod_{j\ne i}\frac{x-x_j}{x_i-x_j}.
+\]
+
+Como solo se pide \(P(3)\), evaluamos directamente las bases \(L_i\) en \(x=3\):
+\[
+\begin{aligned}
+L_1(3) &= \frac{(3-2)(3-4)(3-5)}{(1-2)(1-4)(1-5)}= -\frac{1}{6},\\[2mm]
+L_2(3) &= \frac{(3-1)(3-4)(3-5)}{(2-1)(2-4)(2-5)}= \ \frac{2}{3},\\[2mm]
+L_3(3) &= \frac{(3-1)(3-2)(3-5)}{(4-1)(4-2)(4-5)}= \ \frac{2}{3},\\[2mm]
+L_4(3) &= \frac{(3-1)(3-2)(3-4)}{(5-1)(5-2)(5-4)}= -\frac{1}{6}.
+\end{aligned}
+\]
+
+Por tanto,
+\[
+\boxed{
+P(3)=y_1L_1(3)+y_2L_2(3)+y_3L_3(3)+y_4L_4(3)
+=1\!\left(-\frac{1}{6}\right)+6\!\left(\frac{2}{3}\right)+4\!\left(\frac{2}{3}\right)+(-1)\!\left(-\frac{1}{6}\right)
+=\frac{20}{3}.
+}
+\]
+
+(Opcional) El polinomio explícito simplificado es
+\[
+P(x)=\frac{1}{6}x^3-\frac{19}{6}x^2+\frac{40}{3}x-\frac{28}{3},
+\]
+y verifica \(P(3)=\frac{20}{3}\).
+
+\section*{Ejercicio 4}
+
+Tenemos \(f(x)=\ln(1+ax)+b\,x\sin(cx)+d\) y \(P_3(x)=2x-3x^2+\frac{8}{3}x^3\).
+
+\subsection*{a) Identificación de \(a,b,c,d\) mediante Maclaurin}
+
+Como \(P_3\) no tiene término independiente, \(f(0)=d=0\).
+
+Derivadas:
+\[
+\begin{aligned}
+f'(x) &= \frac{a}{1+ax}+b\sin(cx)+bc\,x\cos(cx),\\
+f''(x) &= -\frac{a^2}{(1+ax)^2}+2bc\,\cos(cx)-bc^2\,x\sin(cx),\\
+f^{(3)}(x) &= \frac{2a^3}{(1+ax)^3}-3bc^2\sin(cx)-bc^3\,x\cos(cx).
+\end{aligned}
+\]
+
+Condiciones de Maclaurin:
+\[
+\begin{aligned}
+f'(0)=2 &\Rightarrow a=2,\\
+\frac{f''(0)}{2!}=-3 &\Rightarrow f''(0)=-6 \Rightarrow -a^2+2bc=-6 \Rightarrow bc=-1,\\
+\frac{f^{(3)}(0)}{3!}=\frac{8}{3} &\Rightarrow f^{(3)}(0)=16 \Rightarrow 2a^3=16 \Rightarrow a=2.
+\end{aligned}
+\]
+
+Por tanto,
+\[
+\boxed{a=2,\quad d=0,\quad bc=-1\ (b,c\neq 0).}
+\]
+
+\subsection*{b) Resto de Lagrange del orden 3}
+
+Necesitamos \(f^{(4)}(x)\). Derivando \(f^{(3)}(x)\):
+\[
+\begin{aligned}
+f^{(4)}(x)
+&= -\frac{6a^4}{(1+ax)^4} -4bc^3\cos(cx) + bc^4\,x\sin(cx).
+\end{aligned}
+\]
+Con \(a=2\) y \(bc=-1\) resulta
+\[
+\boxed{\,f^{(4)}(x)= -\frac{96}{(1+2x)^4} + 4c^{2}\cos(cx) - c^{3}x\sin(cx).\,}
+\]
+
+El resto de Lagrange para el Maclaurin de grado 3 es
+\[
+\boxed{\;
+R_3(x)=\frac{f^{(4)}(\xi)}{4!}\,x^{4}
+=\frac{x^{4}}{24}\left[-\frac{96}{(1+2\xi)^4}+4c^{2}\cos(c\xi)-c^{3}\xi\sin(c\xi)\right],
+\quad \xi\in(0,x).
+\;}
+\]
+
+\section*{Ejercicio 5}
+
+Queremos
+\[
+L=\lim_{x\to 0}\frac{\Big(\ln(1+x)+\frac{x^{2}}{2}-x\Big)^{10}}{\big(e^{x}-x-1\big)^{15}}.
+\]
+
+\subsection*{Maclaurin necesarios}
+\[
+\ln(1+x)=x-\frac{x^{2}}{2}+\frac{x^{3}}{3}-\frac{x^{4}}{4}+O(x^{5}),
+\qquad
+e^{x}=1+x+\frac{x^{2}}{2}+\frac{x^{3}}{6}+O(x^{4}).
+\]
+
+Por tanto
+\[
+\ln(1+x)+\frac{x^{2}}{2}-x=\frac{x^{3}}{3}-\frac{x^{4}}{4}+O(x^{5})
+=x^{3}\Big(\frac{1}{3}-\frac{x}{4}+O(x^{2})\Big),
+\]
+y
+\[
+e^{x}-x-1=\frac{x^{2}}{2}+\frac{x^{3}}{6}+O(x^{4})
+=x^{2}\Big(\frac{1}{2}+\frac{x}{6}+O(x^{2})\Big).
+\]
+
+\subsection*{Cálculo del límite}
+\[
+\begin{aligned}
+L
+&=\lim_{x\to 0}\frac{\left(x^{3}\right)^{10}\!\!\Big(\frac{1}{3}-\frac{x}{4}+O(x^{2})\Big)^{10}}
+{\left(x^{2}\right)^{15}\!\!\Big(\frac{1}{2}+\frac{x}{6}+O(x^{2})\Big)^{15}}\\[4pt]
+&=\frac{1/3^{10}}{1/2^{15}}
+=\boxed{\frac{2^{15}}{3^{10}}}.
+\end{aligned}
+\]
+
+\end{document}

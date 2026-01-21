@@ -1,0 +1,60 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\title{Ejercicios de Interpolación de Funciones (Taylor, Maclaurin y Lagrange)}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Ejercicio 1}
+Obtén el polinomio de Maclaurin de cuarto grado que permita aproximar el valor de
+\[
+\sqrt{1{,}2}.
+\]
+Calcula también una cota del error cometido en dicha aproximación.
+
+\section*{Ejercicio 2}
+Sea
+\[
+f(x)=x^{5}-3x^{4}-x^{3}+76x^{2}-78x+11.
+\]
+Usando el desarrollo de Taylor, expresa \(f(x)\) en potencias de \((x-1)\).
+
+\section*{Ejercicio 3}
+Dados los puntos
+\[
+(1,1),\quad (2,6),\quad (4,4),\quad (5,-1),
+\]
+considera el polinomio interpolador de Lagrange que pasa por ellos. Calcula el valor de dicho polinomio en
+\[
+x=3.
+\]
+
+\section*{Ejercicio 4}
+Sabiendo que
+\[
+f(x)=\ln(1+ax)+b\,x\sin(cx)+d
+\]
+y que su polinomio de Maclaurin de tercer orden es
+\[
+P_3(x)=2x-3x^2+\frac{8}{3}\,x^3,
+\]
+completar:
+\begin{enumerate}
+  \item Determinar, de forma razonada, los valores de los parámetros \(a,b,c,d\in\mathbb{R}\).
+  \item Obtener la expresión del resto de Lagrange asociado a \(P_3(x)\).
+\end{enumerate}
+
+\section*{Ejercicio 5}
+Calcula el siguiente límite usando polinomios de Maclaurin:
+\[
+\lim_{x\to 0}\frac{\Big(\ln(1+x)+\frac{x^{2}}{2}-x\Big)^{10}}{\big(e^{x}-x-1\big)^{15}}.
+\]
+
+\end{document}

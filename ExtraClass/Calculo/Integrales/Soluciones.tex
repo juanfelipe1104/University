@@ -1,0 +1,560 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\title{Soluciones de Integrales Indefinidas y Definidas}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\section*{Solución Ejercicio 1}
+Observamos que
+\[
+f(t-1)=e^{2(t-1)}-1 = e^{2t-2}-1.
+\]
+Por tanto,
+\[
+F(x)=\int_{1}^{x^2} \left(e^{2t-2}-1\right)dt.
+\]
+
+Aplicando el Teorema Fundamental del Cálculo junto a la regla de la cadena obtenemos
+\[
+F'(x) = \left(e^{2x^2-2}-1\right)\cdot 2x.
+\]
+
+Para estudiar dónde se anula la derivada resolvemos $F'(x)=0$:
+\[
+\left(e^{2x^2-2}-1\right)\cdot 2x = 0.
+\]
+
+Luego:
+\[
+2x=0 \quad \text{o} \quad e^{2x^2-2}-1=0.
+\]
+
+El primer caso no da soluciones en $[1,\infty)$, y en el segundo tenemos:
+\[
+e^{2x^2-2}=1 \quad \Longrightarrow\quad 2x^2-2=0 \quad \Longrightarrow\quad x=1.
+\]
+
+\[
+\boxed{F'(x)=0 \ \text{únicamente en } x=1.}
+\]
+
+\section*{Solución Ejercicio 2}
+Igualamos ambas curvas para hallar los extremos de la región:
+\[
+\sqrt{\frac{x}{2}} = 2x^2
+\quad\Longrightarrow\quad
+\frac{x}{2} = 4x^4
+\quad\Longrightarrow\quad
+8x^4 - x = 0
+\quad\Longrightarrow\quad
+x(8x^3-1)=0.
+\]
+Como $x\geq0$, se obtiene
+\[
+x= 0 \quad x = \frac{1}{2}.
+\]
+
+Sea ahora la recta $y=ax$. Se exige que el área superior $A_1$ sea el doble del área inferior $A_2$:
+\[
+A_1 = 2A_2.
+\]
+
+Dividimos las áreas en función de $x$ según la posición relativa de las curvas:
+
+\[
+A_1 = \int_{0}^{b} \left(ax - 2x^2\right)\,dx
+\;+\;
+\int_{b}^{1/2} \left(\sqrt{\frac{x}{2}} - 2x^2\right)\,dx,
+\]
+
+\[
+A_2 = \int_{0}^{b} \left(\sqrt{\frac{x}{2}} - ax\right)\,dx.
+\]
+
+Calculamos:
+
+\[
+A_1
+=
+\left[
+\frac{2x\sqrt{x}}{3\sqrt{2}} - \frac{2x^3}{3}
+\right]_{b}^{1/2}
++
+\left[
+\frac{a x^2}{2} - \frac{2x^3}{3}
+\right]_{0}^{b},
+\]
+
+\[
+A_2
+=
+\left[
+\frac{2x\sqrt{x}}{3\sqrt{2}} - \frac{a x^2}{2}
+\right]_{0}^{b}.
+\]
+
+Imponiendo $A_1 = 2A_2$ se obtiene la ecuación
+\[
+\frac{1}{12}
+ - \frac{2b\sqrt{b}}{3\sqrt{2}}
+ + \frac{ab^2}{2}
+=
+\frac{4b\sqrt{b}}{3\sqrt{2}}
+ - ab^2.
+\]
+
+De aquí resulta
+\[
+\frac{3ab^2}{2}
+=
+\frac{2b\sqrt{b}}{\sqrt{2}}
+ - \frac{1}{12}.
+\quad\Longrightarrow\quad a = \frac{4\sqrt{b}}{3b\sqrt{2}}
+ - \frac{1}{18b^2}.
+\]
+
+Aplicamos que $y(b) = f(b)$:
+\[
+\frac{4\sqrt{b}}{3\sqrt{2}}
+ - \frac{1}{18b} = \sqrt{\frac{b}{2}}.
+\qquad\Longrightarrow\quad b = \sqrt[3]{\frac{1}{18}}
+\]
+
+Finalmente:
+\[
+a = \frac{4\sqrt{b}}{3b\sqrt{2}}
+ - \frac{1}{18b^2}
+\approx 1.1447.
+\]
+
+\[
+\boxed{a \approx 1.1447}
+\]
+
+\section*{Solución Ejercicio 3}
+Consideramos la diferencia
+\[
+A=\int_1^4\left(\frac{1}{x}-\frac{3x}{3x^2+6x+10}\right)\,dx.
+\]
+
+Sea
+\[
+I=\int\frac{3x}{3x^2+6x+10}\,dx.
+\]
+
+Escribimos
+\[
+3x = \frac{1}{2}(6x+6) - \frac{1}{2}\cdot 6.
+\]
+
+Así,
+\[
+I=\frac12\int\frac{6x+6}{3x^2+6x+10}\,dx - \frac12\int\frac{6}{3x^2+6x+10}\,dx.
+\]
+
+Observamos que
+\[
+3x^2+6x+10 = 3(x+1)^2+7.
+\]
+
+Luego,
+\[
+I=\frac12\ln|3x^2+6x+10|
+-3\int \frac{1}{7+3(x+1)^2}\,dx.
+\]
+
+\[
+I=
+\frac12\ln|3x^2+6x+10|
+-\frac{3\sqrt{7}}{\sqrt{3}\cdot 7}\arctan\!\left(\frac{\sqrt{3}(x+1)}{\sqrt{7}}\right).
+\]
+
+
+\[
+A=\left[\ln|x|
+-\frac12\ln|3x^2+6x+10|
++\frac{3\sqrt{7}}{\sqrt{3}\cdot 7}
+\arctan\!\left(\frac{\sqrt{3}(x+1)}{\sqrt{7}}\right)
+\right]_{1}^{4}.
+\]
+
+Finalmente: 
+\[
+A=
+\ln 4 - \frac12\ln 82
++\frac{3\sqrt{7}}{\sqrt{3}\cdot 7}\arctan\!\left(\frac{5\sqrt{3}}{\sqrt{7}}\right)
++\ln 1 - \frac12\ln 19
+-\frac{3\sqrt{7}}{\sqrt{3}\cdot 7}\arctan\!\left(\frac{\sqrt{3}\cdot 2}{\sqrt{7}}\right),
+\]
+
+\[
+\boxed{A\approx 0.888}
+\]
+
+\section*{Solución Ejercicio 4}
+Consideramos
+\[
+I=\int \frac{x\cos(x)-\sen(x)}{2x^2+\sen^2(x)}\,dx.
+\]
+
+Dividimos numerador y denominador entre \(2x^2\):
+\[
+I=\int \frac{\dfrac{x\cos x}{2x^2}-\dfrac{\sen x}{2x^2}}
+              {1+\dfrac{\sen^2 x}{2x^2}}\,dx
+   = \int \frac{\dfrac{\cos x}{2x}-\dfrac{\sen x}{2x^2}}
+              {1+\left(\dfrac{\sen x}{\sqrt{2}\,x}\right)^2}\,dx.
+\]
+
+Observamos que
+\[
+\frac{d}{dx}\left(\frac{\sen x}{\sqrt{2}\,x}\right)
+= \frac{x\cos x-\sen x}{\sqrt{2}\,x^2}
+= \sqrt{2}\left(\frac{\cos x}{2x}-\frac{\sen x}{2x^2}\right).
+\]
+
+Por tanto,
+\[
+\frac{\cos x}{2x}-\frac{\sen x}{2x^2}
+= \frac{1}{\sqrt{2}}\,
+\frac{d}{dx}\left(\frac{\sen x}{\sqrt{2}\,x}\right),
+\]
+
+\[
+I=\frac{1}{\sqrt{2}}\int 
+   \frac{\left(\dfrac{\sen x}{\sqrt{2}\,x}\right)'}
+        {1+\left(\dfrac{\sen x}{\sqrt{2}\,x}\right)^2}\,dx,
+\]
+que es directamente una arctangente:
+\[
+I=\frac{1}{\sqrt{2}}\arctan\!\left(\frac{\sen x}{\sqrt{2}\,x}\right)+C.
+\]
+
+\[
+\boxed{\displaystyle
+\int \frac{x\cos(x)-\sen(x)}{2x^2+\sen^2(x)}\,dx
+= \frac{1}{\sqrt{2}}\arctan\!\left(\frac{\sen x}{\sqrt{2}\,x}\right)+C.}
+\]
+
+\section*{Solución Ejercicio 5}
+El área pedida viene dada por
+\[
+A=\int_{-1}^{1} x^{3}\arctan(x)\,dx.
+\]
+
+Para ello calculamos primero
+\[
+I=\int x^{3}\arctan(x)\,dx.
+\]
+
+Integramos por partes, tomando
+\[
+u=\arctan(x),\qquad dv=x^{3}\,dx,
+\]
+\[
+du=\frac{1}{1+x^{2}}\,dx,\qquad v=\frac{x^{4}}{4}.
+\]
+
+Entonces
+\[
+I=\frac{x^{4}}{4}\arctan(x)-\frac{1}{4}\int\frac{x^{4}}{1+x^{2}}\,dx.
+\]
+
+\[
+\frac{x^{4}}{1+x^{2}} = x^{2}-1+\frac{1}{1+x^{2}},
+\]
+
+\[
+I=\frac{x^{4}}{4}\arctan(x)-\frac{1}{4}\int\left(x^{2}-1+\frac{1}{1+x^{2}}\right)\!dx.
+\]
+
+Así obtenemos
+\[
+I=\frac{x^{4}}{4}\arctan(x)
+-\frac{1}{4}\left(\frac{x^{3}}{3}-x+\arctan(x)\right)+C,
+\]
+
+\[
+I=\frac{x^{4}}{4}\arctan(x)-\frac{x^{3}}{12}+\frac{x}{4}-\frac{1}{4}\arctan(x)+C.
+\]
+
+Luego el área es
+\[
+A=\left[\frac{x^{4}}{4}\arctan(x)-\frac{x^{3}}{12}+\frac{x}{4}
+-\frac{1}{4}\arctan(x)\right]_{-1}^{1}.
+\]
+
+\[
+\boxed{A=\dfrac{1}{3}}
+\]
+
+\section*{Solución Ejercicio 6}
+Aplicamos la formula del volumen de revolución:
+\[
+V=\pi\int_{0}^{2}\frac{1}{(x-3)^2(x+2)}\,dx.
+\]
+
+Descomponemos en fracciones simples:
+\[
+\frac{1}{(x-3)^2(x+2)}
+=\frac{A}{x-3}+\frac{B}{(x-3)^2}+\frac{C}{x+2}.
+\]
+
+Denominador común:
+
+\[
+\frac{A(x-3)(x+2)+B(x+2)+C(x-3)^2}{(x-3)^2(x+2)}
+\]
+
+\[
+A(x-3)(x+2)+B(x+2)+C(x-3)^2=1.
+\]
+
+\[
+A = -\frac{1}{25} \quad B=\frac{1}{5} \quad C=\frac{1}{25}.
+\]
+
+Por tanto:
+\[
+\frac{1}{(x-3)^2(x+2)}
+= -\frac{1}{25}\frac{1}{x-3}
++ \frac{1}{5}\frac{1}{(x-3)^2}
++ \frac{1}{25}\frac{1}{x+2}.
+\]
+
+Integramos:
+\[
+\int -\frac{1}{25}\frac{dx}{x-3}
+= -\frac{1}{25}\ln|x-3|,
+\]
+
+\[
+\int \frac{1}{5}\frac{dx}{(x-3)^2}
+= -\frac{1}{5(x-3)},
+\]
+
+\[
+\int \frac{1}{25}\frac{dx}{x+2}
+= \frac{1}{25}\ln|x+2|.
+\]
+
+Por lo que el volumen es: 
+\[
+V = \pi\left[
+\frac{1}{25}\ln|x+2| - \frac{1}{5(x-3)}
+- \frac{1}{25}\ln|x-3|
+\right]_{0}^{2}.
+\]
+
+
+\[
+V=\pi\left(
+\frac{1}{25}\ln 6 + \frac{2}{15}
+\right).
+\]
+
+\[
+\boxed{V\approx 0.644}
+\]
+\section*{Solución Ejercicio 7}
+Sea
+\[
+I=\int_{e}^{e^{2}} \frac{\ln(\ln(x))}{x}\,dx
+= \int_{e}^{e^{2}} \ln(\ln(x))\;\frac{1}{x}\,dx.
+\]
+
+Integramos por partes:
+\[
+u=\ln(\ln(x)), \qquad dv=\frac{1}{x}\,dx,
+\]
+\[
+du=\frac{1}{x\ln(x)}\,dx, \qquad v=\ln(x).
+\]
+
+Así,
+\[
+I=\left.\ln(\ln(x))\,\ln(x)\right|_{e}^{e^{2}}
+-\int_{e}^{e^{2}} \ln(x)\,\frac{1}{x\ln(x)}\,dx
+= \left.\ln(\ln(x))\,\ln(x)\right|_{e}^{e^{2}}
+-\int_{e}^{e^{2}} \frac{1}{x}\,dx.
+\]
+
+\[
+I=\left.\ln(x)\bigl(\ln(\ln(x))-1\bigr)\right|_{e}^{e^{2}}.
+\]
+
+Evaluamos en los extremos:
+\[
+I=\ln(e^{2})\bigl(\ln(\ln(e^{2}))-1\bigr)
+-\ln(e)\bigl(\ln(\ln(e))-1\bigr)
+=2(\ln 2-1)-1.
+\]
+
+Por tanto,
+\[
+\boxed{
+\int_{e}^{e^{2}} \frac{\ln(\ln(x))}{x}\,dx
+=2\ln(2)-1
+}.
+\]
+
+\section*{Solución Ejercicio 8}
+Derivamos las funciones paramétricas:
+\[
+x'(t)=t^2,\qquad y'(t)=t.
+\]
+
+Por tanto, la longitud buscada es
+\[
+L=\int_0^1 \sqrt{(x'(t))^2+(y'(t))^2}\,dt
+  =\int_0^1 \sqrt{t^4+t^2}\,dt
+  =\int_0^1 t\sqrt{t^2+1}\,dt.
+\]
+
+\[
+L=\frac{1}{2}\int_{0}^{1} 2t\sqrt{t^{2}+1}\,dt
+=\frac{1}{2}\left[\frac{2}{3}(t^{2}+1)^{3/2}\right]_{0}^{1}
+  =\frac{1}{3}\left((1^{2}+1)^{3/2}-(0^{2}+1)^{3/2}\right)
+\]
+
+\[
+\boxed{L=\dfrac{\sqrt{8}-1}{3}\approx 0{,}609}
+\]
+
+\section*{Solución Ejercicio 9}
+Consideramos
+\[
+I=\int_{\pi/4}^{\pi/2}\frac{2\sen(x)}{\cos^{2}(x)-3\cos(x)+2}\,dx.
+\]
+
+Hacemos el cambio
+\[
+t=\cos(x)\quad\Rightarrow\quad dt=-\sen(x)\,dx,
+\]
+
+Además, cuando \(x=\pi/4\), \(t=\cos(\pi/4)=\dfrac{\sqrt{2}}{2}\) y cuando \(x=\pi/2\),
+\(t=\cos(\pi/2)=0\). Entonces
+\[
+I=\int_{\pi/4}^{\pi/2}\frac{2\sen(x)}{\cos^{2}(x)-3\cos(x)+2}\,dx
+   =\int_{\sqrt{2}/2}^{0}\frac{-2}{t^{2}-3t+2}\,dt
+   =\int_{0}^{\sqrt{2}/2}\frac{2}{t^{2}-3t+2}\,dt.
+\]
+
+Factorizamos el denominador:
+\[
+t^{2}-3t+2=(t-1)(t-2),
+\]
+y descomponemos en fracciones simples:
+\[
+\frac{2}{(t-1)(t-2)}=\frac{A}{t-1}+\frac{B}{t-2}.
+\]
+
+De
+\[
+2=A(t-2)+B(t-1)
+\]
+tomando \(t=1\) se obtiene \(-B=2\Rightarrow B=-2\), y tomando \(t=2\) se obtiene
+\(A=2\). Así,
+\[
+\frac{2}{(t-1)(t-2)}=\frac{2}{t-1}-\frac{2}{t-2},
+\]
+Por tanto:
+\[
+I=\int_{0}^{\sqrt{2}/2}\left(\frac{2}{t-1}-\frac{2}{t-2}\right)dt
+  =\left[2\ln|t-1|-2\ln|t-2|\right]_{0}^{\sqrt{2}/2}.
+\]
+
+\[
+I=
+2\ln\left(\frac{1}{2}\right) - 2\ln\left|\frac{\frac{\sqrt{2}}{2}-1}{\frac{\sqrt{2}}{2}-2}\right|.
+\]
+
+Una forma equivalente y algo más simple es
+\[
+\boxed{\displaystyle
+I
+=2\ln\left(\frac12\right)
+-2\ln\left|\frac{\sqrt{2}-2}{\sqrt{2}-4}\right|
+}
+\]
+
+\[
+\boxed{I \approx 1.58}
+\]
+
+\section*{Solución Ejercicio 10}
+Aplicamos la fórmula del volumen de revolución:
+\[
+V=\pi\int_{0}^{2\pi} \bigl(f(x)\bigr)^2\,dx
+  =\pi\int_{0}^{2\pi} \sen^2(x)\,dx.
+\]
+Sabemos que
+\[
+\int_{0}^{2\pi} \sen^2(x)\,dx = \pi,
+\]
+pues el valor medio de $\sen^2(x)$ en un período es $\tfrac12$.
+Por tanto:
+\[
+\boxed{V=\pi^2}.
+\]
+
+\section*{Solución Ejercicio 11}
+La masa total es
+\[
+M = \int_{0}^{4} \lambda(x)\,dx
+   = \int_{0}^{4} \left(2+\frac{x}{2}+\frac{1}{\sqrt{x+1}}\right)dx.
+\]
+
+Calculamos:
+\[
+\int 2\,dx = 2x,\qquad
+\int \frac{x}{2}\,dx = \frac{x^{2}}{4},\qquad
+\int \frac{1}{\sqrt{x+1}}\,dx = 2\sqrt{x+1}.
+\]
+
+Por tanto:
+\[
+M=\left[2x+\frac{x^{2}}{4}+2\sqrt{x+1}\right]_{0}^{4}
+  =\bigl(8+4+2\sqrt{5}\bigr)-\bigl(0+0+2\bigr)
+  =10+2\sqrt{5}.
+\]
+
+\[
+\boxed{M=10+2\sqrt{5}\ \text{kg}}.
+\]
+
+\section*{Solución Ejercicio 12}
+La función $F$ es derivable y
+\[
+F'(x)=e^{x^{2}}>0\quad\forall x\in\mathbb{R}.
+\]
+Luego $F$ es estrictamente creciente en todo $\mathbb{R}$, por lo que
+\emph{a lo sumo} puede tener una única raíz.
+
+Además,
+\[
+F(0)=-1+\int_{0}^{0} e^{t^{2}}\,dt=-1<0.
+\]
+
+Para $x=1$:
+\[
+\int_{0}^{1} e^{t^{2}}\,dt > \int_{0}^{1} 1\,dt = 1
+\quad\Longrightarrow\quad
+F(1)=-1+\int_{0}^{1}e^{t^{2}}\,dt>0.
+\]
+
+Como $F$ es continua, por el Teorema del Valor Intermedio existe
+$c\in(0,1)$ tal que $F(c)=0$.
+
+Al ser $F$ estrictamente creciente, esa raíz es única.
+
+\[
+\boxed{\text{La ecuación }F(x)=0\text{ tiene una única solución }c\in(0,1).}
+\]
+\end{document}
