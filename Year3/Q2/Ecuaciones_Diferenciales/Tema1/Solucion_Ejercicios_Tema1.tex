@@ -1,0 +1,463 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\usepackage{hyperref}
+
+\begin{document}
+\section*{Ejercicio 1}
+
+Indica el orden y el grado de las siguientes ecuaciones diferenciales:
+
+\begin{enumerate}[a)]
+\item $(y'')^2 \sen(x) + 3x\,y\,y' + y^2 e^x = 0$
+\item $y'' + 5x^2 (y')^3 + 6y = 0$
+\item $x^2 \sqrt{y''} + 3x - 2y^2 = 3\sen(x)$
+\end{enumerate}
+
+\subsection*{Solucion Ejercicio 1}
+
+\begin{enumerate}[a)]
+\item Orden: 2, Grado: 2
+\item Orden: 2, Grado: 1
+\item Orden: 2, Grado: No definido (debido a la raíz cuadrada)
+\end{enumerate}
+
+\section*{Ejercicio 2}
+
+Justifica cuáles de las siguientes ecuaciones diferenciales son lineales:
+
+\begin{enumerate}[a)]
+\item $y' + x^2 - 1 = y$
+\item $3x\,y'' - 4y\,y' + y\sen(x) = 4x$
+\item $y\,dx + (xy + x - 3y)\,dy = 0$
+\item $y'' - 2y + 3 = e^x$
+\item $4xy + \cos(y) = 5x$
+\end{enumerate}
+
+\subsection*{Solucion Ejercicio 2}
+\begin{enumerate}[a)]
+\item Lineal
+\item No lineal (término $-4y\,y'$)
+\item No lineal (término $xy\,dy$)
+\item Lineal
+\item No lineal (término $\cos(y)$)
+\end{enumerate}
+
+\section*{Ejercicio 3}
+
+Comprueba que las funciones dadas son solución de sus correspondientes ecuaciones diferenciales:
+
+\begin{enumerate}[a)]
+\item $y = x + e^{-x}$ para la ecuación $y' + y = x + 1$
+\item $y = 2e^{3x} - 5e^{4x}$ para la ecuación $y'' - 7y' + 12y = 0$
+\item $y = e^x(2x + 1)$ para la ecuación $y'' = 2y' - y$
+\item $x(t) = \sen(t) + \cos(t)$ para la ecuación $\dot{x}\cos(t) + x\sen(t) = 1$
+\end{enumerate}
+
+\subsection*{Solucion Ejercicio 3}
+\begin{enumerate}[a)]
+\item Derivando $y$ obtenemos $y' = 1 - e^{-x}$. Sustituyendo en la ecuación:
+\[(1 - e^{-x}) + (x + e^{-x}) = x + 1.\] 
+Por lo tanto, es solución.
+\item Derivando $y$ obtenemos $y' = 6e^{3x} - 20e^{4x}$ y $y'' = 18e^{3x} - 80e^{4x}$. Sustituyendo en la ecuación:
+\[(18e^{3x} - 80e^{4x}) - 7(6e^{3x} - 20e^{4x}) + 12(2e^{3x} - 5e^{4x}) = 0.\] 
+Por lo tanto, es solución.
+\item Derivando $y$ obtenemos $y' = e^x(2x + 3)$ y $y'' = e^x(2x + 5)$. Sustituyendo en la ecuación:
+\[e^x(2x + 5) = 2e^x(2x + 3) - e^x(2x + 1).\] 
+Por lo tanto, es solución.
+\item Derivando $x(t)$ obtenemos $\dot{x}(t) = \cos(t) - \sen(t)$. Sustituyendo en la ecuación:
+\[(\cos(t) - \sen(t))\cos(t) + (\sen(t) + \cos(t))\sen(t) = 1.\] 
+Por lo tanto, es solución.
+\end{enumerate}
+
+\section*{Ejercicio 4}
+
+Determina los valores de $m$ para los que la función
+\[
+f(x) = e^{mx}
+\]
+es solución de la ecuación
+\[
+y''' - 3y'' + 4y' - 2y = 0.
+\]
+
+\subsection*{Solucion Ejercicio 4}
+
+
+Sea $f(x)=e^{mx}$.
+
+\[
+f'=me^{mx},\quad f''=m^2e^{mx},\quad f'''=m^3e^{mx}
+\]
+
+Sustituyendo:
+
+\[
+e^{mx}(m^3-3m^2+4m-2)=0
+\]
+
+\[
+m^3-3m^2+4m-2=0
+\]
+
+\[
+(m-1)(m^2-2m+2)=0
+\]
+
+\[
+\boxed{m=1,\quad m=1\pm i}
+\]
+\section*{Ejercicio 5}
+
+Verifica que la expresión paramétrica
+\[
+x(t) = \cos(t), \qquad y(t) = \sen(t)
+\]
+es solución de la ecuación
+\[
+x + y\,y' = 0.
+\]
+
+\subsection*{Solucion Ejercicio 5}
+\[
+x(t)=\cos t,\quad y(t)=\sen t
+\]
+
+\[
+\frac{dy}{dx}=\frac{dy/dt}{dx/dt}=\frac{\cos t}{-\sen t}
+\]
+
+\[
+x + yy' = \cos t + \sen t\left(\frac{\cos t}{-\sen t}\right)=0
+\]
+Por lo tanto, es solución.
+
+\section*{Ejercicio 6}
+
+Verifica que las siguientes expresiones implícitas son soluciones de las ecuaciones diferenciales asociadas:
+
+\begin{enumerate}[a)]
+\item $x^2 + y^2 - 4 = 0$ para la ecuación
+\[
+y' = -\frac{x}{y}.
+\]
+
+\item $\displaystyle \frac{y^2}{2} = \ln(1 + e^x) + C$ para la ecuación
+\[
+(1 + e^x)\, y\, y' = e^x.
+\]
+\end{enumerate}
+
+\subsection*{Solucion Ejercicio 6}
+
+\begin{enumerate}[a)]
+\item Derivando implícitamente $x^2 + y^2 - 4 = 0$:
+\[
+2x + 2y y' = 0 \Rightarrow y' = -\frac{x}{y}
+\]
+Por lo tanto, es solución.
+
+\item Derivando implícitamente $\displaystyle \frac{y^2}{2} = \ln(1 + e^x) + C$:
+\[
+y y' = \frac{e^x}{1 + e^x} \Rightarrow (1 + e^x) y y' = e^x
+\]
+Por lo tanto, es solución.
+\end{enumerate}
+
+\section*{Ejercicio 7}
+
+Verifica que la función definida a trozos
+\[
+f(x) =
+\begin{cases}
+- x^2, & x < 0, \\
+x^2, & x \ge 0,
+\end{cases}
+\]
+es una solución de la ecuación diferencial
+\[
+x y' - 2y = 0.
+\]
+
+\subsection*{Solucion Ejercicio 7}
+
+Para $\boxed{x < 0}$, $f(x) = -x^2$, por lo que $f'(x) = -2x$. Sustituyendo en la ecuación:
+\[
+x(-2x) - 2(-x^2) = -2x^2 + 2x^2 = 0.
+\]
+Para $\boxed{x \geq 0}$, $f(x) = x^2$, por lo que $f'(x) = 2x$. Sustituyendo en la ecuación:
+\[
+x(2x) - 2(x^2) = 2x^2 - 2x^2 = 0.
+\]
+Por lo tanto, es solución.
+
+\section*{Ejercicio 8}
+
+Dada la ecuación diferencial
+\[
+x^2 y'' - 4x y' + 6y = 0,
+\]
+completa los siguientes apartados:
+
+\begin{enumerate}[a)]
+\item Demuestra que tanto $y_1(x) = x^2$ como $y_2(x) = x^3$ son soluciones de la ecuación.
+\item ¿Es $y(x) = y_1(x) + y_2(x)$ también solución de la ecuación?
+\end{enumerate}
+
+\subsection*{Solucion Ejercicio 8}
+\begin{enumerate}[a)]
+\item Para $y_1(x) = x^2$:
+\[y_1' = 2x, \quad y_1'' = 2. \]
+Sustituyendo en la ecuación:
+\[x^2(2) - 4x(2x) + 6(x^2) = 2x^2 - 8x^2 + 6x^2 = 0.\]
+Por lo tanto, $y_1(x)$ es solución.
+
+Para $y_2(x) = x^3$:
+\[y_2' = 3x^2, \quad y_2'' = 6x. \]
+Sustituyendo en la ecuación:
+\[x^2(6x) - 4x(3x^2) + 6(x^3) = 6x^3 - 12x^3 + 6x^3 = 0.\]
+Por lo tanto, $y_2(x)$ es solución.
+\item Sea $y(x) = y_1(x) + y_2(x) = x^2 + x^3$:
+\[y' = 2x + 3x^2, \quad y'' = 2 + 6x. \]
+Sustituyendo en la ecuación:
+\[x^2(2 + 6x) - 4x(2x + 3x^2) + 6(x^2 + x^3) = 2x^2 + 6x^3 - 8x^2 - 12x^3 + 6x^2 + 6x^3 = 0.\]
+Por lo tanto, $y(x)$ es también solución.
+\end{enumerate}
+
+\section*{Ejercicio 9}
+
+Comprueba que la familia de funciones
+\[
+y = Cx + C^2
+\]
+es la solución general de la ecuación diferencial
+\[
+y = x y' + (y')^2.
+\]
+A continuación, determina el valor de $K$ para el que la función
+\[
+y = Kx^2
+\]
+sea una solución singular de la misma ecuación.
+
+\subsection*{Solucion Ejercicio 9}
+Derivando $y = Cx + C^2$:
+\[y' = C. \]
+Sustituyendo en la ecuación:
+\[Cx + C^2 = x(C) + (C)^2.\]
+Por lo tanto, es solución general.
+Para $y = Kx^2$:
+\[y' = 2Kx. \]
+Sustituyendo en la ecuación:
+\[Kx^2 = x(2Kx) + (2Kx)^2 \Rightarrow Kx^2 = 2Kx^2 + 4K^2x^2.\]
+Igualando los coeficientes:
+\[K = 2K + 4K^2 \Rightarrow 4K^2 + K = 0 \Rightarrow K(4K + 1) = 0.\]
+Por lo tanto, $K = 0$ o $K = -\frac{1}{4}$. La solución singular es $K = -\frac{1}{4}$.
+
+Nota: $K=0$ corresponde a una solución particular, que no es singular.
+
+\section*{Ejercicio 10}
+
+Sabiendo que la solución general de la ecuación diferencial
+\[
+x^2 y' \sen(y) = 1
+\]
+está dada por la relación
+\[
+\cos(y) = \frac{1}{x} + C,
+\]
+calcula la solución particular que tiende al valor $\displaystyle \frac{\pi}{2}$ cuando $x$ tiende a infinito.
+
+\subsection*{Solucion Ejercicio 10}
+Para que la solución particular tienda a $\frac{\pi}{2}$ cuando $x$ tiende a infinito, debemos tener:
+\[\cos\left(\frac{\pi}{2}\right) = \frac{1}{\infty} + C \Rightarrow 0 = 0 + C \Rightarrow C = 0.\]
+Por lo tanto, la solución particular es:
+\[\cos(y) = \frac{1}{x} \Rightarrow y = \arccos\left(\frac{1}{x}\right).\]
+
+\section*{Ejercicio 11}
+
+Aplica el teorema de existencia y unicidad a la ecuación diferencial
+\[
+y' = y^{1/3},
+\]
+determinando los recintos del plano donde se puede asegurar que por cada punto pasa una única solución.
+
+\subsection*{Solucion Ejercicio 11}
+
+\[
+\frac{\partial f}{\partial y}=\frac{1}{3}y^{-2/3}
+\]
+
+No es continua en $y=0$.
+
+\[
+\boxed{\text{El teorema de existencia y unicidad no se cumple en } y=0}
+\]
+
+\section*{Ejercicio 12}
+
+Dado el problema de valor inicial
+\[
+\begin{cases}
+y' - x\, y^{1/2} = 0 \\
+y(0) = 0
+\end{cases}
+\]
+comprueba que tanto $y = 0$ como $y = \dfrac{x^4}{16}$ son soluciones.  
+¿Contradice este resultado el teorema de existencia y unicidad de soluciones en el origen de coordenadas?
+
+\subsection*{Solucion Ejercicio 12}
+
+Dos soluciones:
+
+\[
+y=0,\qquad y=\frac{x^4}{16}
+\]
+
+Ambas verifican la ecuación y pasan por $(0,0)$.
+
+No contradice el teorema porque:
+
+\[
+\frac{\partial f}{\partial y}=\frac{x}{2\sqrt{y}}
+\]
+
+no es continua en $(0,0)$.
+
+\section*{Ejercicio 13}
+
+Determina la ecuación diferencial asociada a las siguientes soluciones generales:
+
+\begin{enumerate}[a)]
+\item $y - 4x - C = 0$
+\item $y = C_1 e^x + C_2 e^{-x}$
+\item $x^2 + C_1 y^2 = C_2 \quad ( \text{donde } C_1, C_2 > 0 )$
+\end{enumerate}
+
+\subsection*{Solucion Ejercicio 13}
+\section*{Ejercicio 13}
+
+Determina la ecuación diferencial asociada a las siguientes soluciones generales.
+
+\begin{itemize}
+\item[\textbf{a)}] $y - 4x - C = 0$
+
+\[
+y = 4x + C
+\]
+
+Derivando respecto de $x$:
+\[
+y' = 4
+\]
+
+Por tanto, la ecuación diferencial asociada es:
+\[
+\boxed{y' - 4 = 0}
+\]
+
+\item[\textbf{b)}] $y = C_1 e^x + C_2 e^{-x}$
+
+Derivamos una primera vez:
+\[
+y' = C_1 e^x - C_2 e^{-x}
+\]
+
+Derivamos una segunda vez:
+\[
+y'' = C_1 e^x + C_2 e^{-x}
+\]
+
+Observamos que:
+\[
+y'' = y
+\]
+
+Luego, la ecuación diferencial asociada es:
+\[
+\boxed{y'' - y = 0}
+\]
+
+\item[\textbf{c)}] $x^2 + C_1 y^2 = C_2 \quad (C_1, C_2 > 0)$
+
+Derivamos respecto de $x$:
+\[
+2x + 2C_1 y y' = 0
+\]
+
+Dividiendo entre 2:
+\[
+x + C_1 y y' = 0
+\]
+
+Despejamos $C_1$:
+\[
+C_1 = -\frac{x}{y y'}
+\tag{1}
+\]
+
+Derivamos nuevamente la ecuación $x + C_1 y y' = 0$:
+\[
+1 + C_1 \frac{d}{dx}(y y') = 0
+\]
+
+Derivando el producto:
+\[
+\frac{d}{dx}(y y') = (y')^2 + y y''
+\]
+
+Sustituyendo:
+\[
+1 + C_1\left((y')^2 + y y''\right) = 0
+\]
+
+Despejamos $C_1$:
+\[
+C_1 = -\frac{1}{(y')^2 + y y''}
+\tag{2}
+\]
+
+Igualando $C_1$ de ambas ecuaciones:
+\[
+-\frac{x}{y y'} = -\frac{1}{(y')^2 + y y''}
+\]
+
+Simplificando:
+\[
+\frac{x}{y y'} = \frac{1}{(y')^2 + y y''}
+\]
+
+\[
+x\left((y')^2 + y y''\right) = y y'
+\]
+
+\[
+x (y')^2 + x y y'' = y y'
+\]
+
+\[
+\boxed{x y y'' + x (y')^2 - y y' = 0}
+\]
+
+\end{itemize}
+
+\section*{Ejercicio 14}
+
+Escribe la ecuación diferencial asociada a una solución general representada por una familia de curvas para la que se verifica que, en todo punto, la pendiente de la recta tangente a cada curva es igual a la distancia de dicho punto al origen de coordenadas.
+
+\subsection*{Solucion Ejercicio 14}
+
+Sea $y = f(x)$ una curva de la familia. La pendiente de la recta tangente en un punto $(x, y)$ es $f'(x)$. La distancia del punto al origen es $\sqrt{x^2 + y^2}$. Por lo tanto, la ecuación diferencial asociada es:
+\[y' = \sqrt{x^2 + y^2}.\]
+
+\end{document}
