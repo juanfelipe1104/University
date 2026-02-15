@@ -1,20 +1,627 @@
 \documentclass[12pt]{article}
 
 \usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel}
+\usepackage[spanish, es-noshorthands]{babel}
 
 \usepackage{mathtools}
 \usepackage{amssymb}
 \usepackage{amsthm}
 
+% --- Resultados (cursiva)
+\theoremstyle{plain}
+\newtheorem{theorem}{Teorema}
+\newtheorem{lemma}{Lema}
+\newtheorem{proposition}{Proposición}
+\newtheorem{corollary}{Corolario}
+
+% --- Definiciones / ejemplos (texto normal)
+\theoremstyle{definition}
+\newtheorem*{definition}{Definición}
+\newtheorem*{example}{Ejemplo}
+\newtheorem{algorithmthm}{Algoritmo}
+
+% --- Observaciones (remark)
+\theoremstyle{remark}
+\newtheorem{remark}{Observación}
+\newtheorem{note}{Nota}
+
 \usepackage{geometry}
 \geometry{margin=2.5cm}
 
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta, positioning}
+\usetikzlibrary{arrows.meta, positioning, calc, decorations.markings}
+\tikzset{
+  v/.style={circle, draw, fill=black, inner sep=1.6pt},
+  every edge/.style={draw, thick}
+}
 
 \usepackage{hyperref}
 
+\title{Teoría de Grafos}
+\author{Juan Felipe Rodríguez Córdoba}
+\date{}
+
 \begin{document}
 
+\maketitle
+\section*{Grafo}
+\subsection*{Definiciones}
+    \begin{itemize}
+        \item Un grafo es una pareja de conjuntos $G = (V, A)$ donde $V = \{a, b, c, \dots\}$ es el conjunto de vértices y $A = \{(a, c), (a, b), \dots\}$ es el conjunto de aristas; parejas no ordenadas de vértices.
+        \item Si dos vertices $a$ y $b$ están unidos por multiples aristas, se dice que el grafo es multigrafo.
+        \item Si el grafo tiene una arista que une un vértice consigo mismo, esta arista se llama lazo y el grafo se llama pseudografo.
+        \item Un grafo es simple si no tiene lazos ni aristas múltiples.
+    \end{itemize}
+
+\subsection*{Tipos de grafos}
+
+\begin{itemize}
+    \item \textbf{Grafo simple}: no tiene lazos ni aristas múltiples.
+    \item \textbf{Multigrafo}: puede tener aristas paralelas (varias aristas entre dos vértices).
+    \item \textbf{Pseudografo}: puede tener lazos.
+    \item \textbf{Grafo dirigido (digrafo)}: las aristas tienen orientación.
+    \item \textbf{Grafo ponderado}: las aristas tienen pesos asociados (distancia, coste, etc.).
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1]
+% --- Simple ---
+\node at (-3.2,1.4) {\small Simple};
+\node[v] (a1) at (-4,0) {};
+\node[v] (b1) at (-2.4,0.6) {};
+\node[v] (c1) at (-2.4,-0.6) {};
+\draw (a1)--(b1)--(c1)--(a1);
+
+% --- Multigrafo ---
+\node at (0,1.4) {\small Multigrafo};
+\node[v] (a2) at (-0.8,0) {};
+\node[v] (b2) at (0.8,0) {};
+\draw (a2) .. controls (0,0.8) .. (b2);
+\draw (a2) -- (b2);
+\draw (a2) .. controls (0,-0.8) .. (b2);
+
+% --- Pseudografo ---
+\node at (3.2,1.4) {\small Pseudografo};
+\node[v] (a3) at (2.4,0) {};
+\node[v] (b3) at (4.0,0) {};
+\draw (a3) -- (b3);
+\draw (a3) .. controls (2.0,0.6) and (2.0,-0.6) .. (a3); % lazo
+\end{tikzpicture}
+\caption{Ejemplos: grafo simple, multigrafo (aristas paralelas) y pseudografo (lazo).}
+\end{figure}
+
+\subsection*{Representaciones de un grafo}
+
+Un mismo grafo puede representarse de muchas formas distintas sin cambiar su estructura.
+
+Dos representaciones se llaman \textbf{equivalentes} o \textbf{isomorfas} si describen el mismo conjunto de vértices y aristas.
+
+\subsection*{Isomorfismo de grafos}
+
+Dos grafos son isomorfos si existe una biyección entre sus conjuntos de vértices que preserva las aristas.
+
+Es decir, si dos vértices están conectados en un grafo, sus correspondientes también lo están en el otro.
+
+Para verificar si dos grafos son isomorfos se suelen comparar:
+
+\begin{itemize}
+    \item Número de vértices.
+    \item Número de aristas.
+    \item Grados de los vértices.
+    \item Existencia de ciclos.
+    \item Cantidad de caminos de cierta longitud.
+\end{itemize}
+
+\subsection*{Grafo completo}
+
+Un grafo con $n$ vértices se llama \textbf{completo} (denotado $K_n$) si cada pareja de vértices está conectada por una arista.
+
+El número de aristas de $K_n$ es:
+
+\[
+\binom{n}{2} = \frac{n(n-1)}{2}
+\]
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1.2]
+\node[v] (1) at (90:1.4) {};
+\node[v] (2) at (18:1.4) {};
+\node[v] (3) at (-54:1.4) {};
+\node[v] (4) at (-126:1.4) {};
+\node[v] (5) at (162:1.4) {};
+\foreach \i in {1,2,3,4,5}{
+  \foreach \j in {1,2,3,4,5}{
+    \ifnum\i<\j
+      \draw (\i)--(\j);
+    \fi
+  }
+}
+\node at (0,-2.0) {\small $K_5$};
+\end{tikzpicture}
+\caption{Grafo completo $K_5$: cada pareja de vértices está conectada.}
+\end{figure}
+
+\subsection*{Grafo bipartito}
+
+Un grafo es \textbf{bipartito} si su conjunto de vértices puede dividirse en dos subconjuntos disjuntos $V_1$ y $V_2$ tales que no hay aristas entre vértices del mismo subconjunto.
+
+El grafo bipartito completo se denota $K_{n,m}$ y conecta todos los vértices de $V_1$ con todos los de $V_2$.
+
+Su número de aristas es:
+
+\[
+|A| = n \cdot m
+\]
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1]
+\node[v,label=left:$u_1$] (u1) at (0,1) {};
+\node[v,label=left:$u_2$] (u2) at (0,0) {};
+\node[v,label=left:$u_3$] (u3) at (0,-1) {};
+
+\node[v,label=right:$v_1$] (v1) at (3,1) {};
+\node[v,label=right:$v_2$] (v2) at (3,0) {};
+\node[v,label=right:$v_3$] (v3) at (3,-1) {};
+
+\foreach \u in {u1,u2,u3}{
+  \foreach \v in {v1,v2,v3}{
+    \draw (\u)--(\v);
+  }
+}
+\node at (1.5,-1.7) {\small $K_{3,3}$};
+\end{tikzpicture}
+\caption{Bipartito completo $K_{3,3}$: todas las conexiones entre dos partes.}
+\end{figure}
+
+\subsection*{Grado de un vértice}
+
+El grado de un vértice es el número de aristas incidentes en él.
+
+En grafos con lazos, cada lazo cuenta como dos unidades de grado.
+
+Para un grafo simple se cumple:
+
+\[
+2|A| = \sum_{v \in V} \mathrm{gr}(v)
+\]
+
+Es decir, la suma de los grados de todos los vértices es el doble del número de aristas.
+
+\subsection*{Caminos y conectividad}
+
+\begin{itemize}
+    \item \textbf{Camino}: sucesión de vértices consecutivos conectados por aristas.
+    \item \textbf{Camino simple}: no repite vértices.
+    \item \textbf{Recorrido}: no repite aristas.
+    \item \textbf{Circuito}: recorrido cerrado.
+    \item \textbf{Ciclo}: circuito que no repite vértices.
+    \item \textbf{Grafo conexo}: existe un camino entre cualquier par de vértices.
+\end{itemize}
+
+\subsection*{Árboles}
+
+Un árbol es un grafo conexo sin ciclos.
+
+Equivalentemente, es un grafo en el que entre cualquier par de vértices existe un único camino.
+
+Para un árbol se cumple:
+
+\[
+|A| = |V| - 1
+\]
+
+\subsection*{Grafos planares}
+
+Un grafo es \textbf{planar} si puede dibujarse en el plano sin que sus aristas se crucen, excepto en los vértices.
+
+Un dibujo de un grafo planar sin cruces se llama \textbf{representación plana} o \textbf{incrustación plana}.
+
+Las regiones del plano delimitadas por las aristas se llaman \textbf{caras}.  
+Existe siempre una cara exterior no acotada.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1]
+\node[v] (A) at (0,0) {};
+\node[v] (B) at (2,0) {};
+\node[v] (C) at (2,2) {};
+\node[v] (D) at (0,2) {};
+\draw (A)--(B)--(C)--(D)--(A);
+\draw (A)--(C);
+\draw (B)--(D);
+\node at (1,-0.6) {\small Representación planar de $K_4$};
+\end{tikzpicture}
+\caption{Ejemplo de grafo planar (se puede dibujar sin cruces).}
+\end{figure}
+
+\subsection*{Característica de Euler}
+
+Para todo grafo planar conexo se cumple:
+
+\[
+|V| - |A| + |F| = 2
+\]
+
+donde:
+
+\begin{itemize}
+    \item $|V|$ = número de vértices
+    \item $|A|$ = número de aristas
+    \item $|F|$ = número de caras
+\end{itemize}
+
+Esta relación se conoce como \textbf{característica de Euler}.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1]
+\node[v] (A) at (0,0) {};
+\node[v] (B) at (3,0) {};
+\node[v] (C) at (3,2) {};
+\node[v] (D) at (0,2) {};
+\node[v] (E) at (1.5,1) {};
+
+\draw (A)--(B)--(C)--(D)--(A);
+\draw (A)--(E)--(B);
+\draw (B)--(E)--(C);
+\draw (C)--(E)--(D);
+\draw (D)--(E)--(A);
+
+% Etiquetas opcionales de caras (solo ilustrativo)
+\node at (1.5,1.65) {\tiny $F_1$};
+\node at (2.35,1.0) {\tiny $F_2$};
+\node at (1.5,0.35) {\tiny $F_3$};
+\node at (0.65,1.0) {\tiny $F_4$};
+\node at (1.5,-0.35) {\tiny exterior};
+
+\end{tikzpicture}
+\caption{Ejemplo planar con varias caras (incluida la exterior) para ilustrar $|V|-|A|+|F|=2$.}
+\end{figure}
+
+\subsection*{Consecuencias de la característica de Euler}
+
+Para grafos planares simples con $|V| \ge 3$ se cumple:
+
+\[
+|A| \le 3|V| - 6
+\]
+
+Si además el grafo es bipartito (no tiene ciclos de longitud impar):
+
+\[
+|A| \le 2|V| - 4
+\]
+
+Estas desigualdades permiten demostrar que ciertos grafos no son planares.
+
+\subsection*{Grafos no planares fundamentales}
+
+Dos grafos son especialmente importantes:
+
+\begin{itemize}
+    \item El grafo completo $K_5$.
+    \item El grafo bipartito completo $K_{3,3}$.
+\end{itemize}
+
+Ninguno de ellos es planar.
+
+El teorema de Kuratowski establece que un grafo es no planar si y solo si contiene una subdivisión de $K_5$ o $K_{3,3}$.
+
+\subsection*{Subdivisión de una arista}
+
+Una subdivisión consiste en sustituir una arista por un camino formado por nuevos vértices de grado 2.
+
+Dos grafos se consideran equivalentes respecto a planaridad si uno puede obtenerse del otro mediante subdivisiones.
+
+\subsection*{Dual de un grafo planar}
+
+Dado un grafo planar conexo, se puede construir su \textbf{grafo dual}:
+
+\begin{itemize}
+    \item Se coloca un vértice en cada cara del grafo original.
+    \item Se unen dos vértices del dual si sus caras correspondientes comparten una arista.
+\end{itemize}
+
+Cada arista del grafo original corresponde a una arista del dual.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1]
+% Grafo primal: cuadrado con diagonal
+\node[v,label=below left:$a$] (a) at (0,0) {};
+\node[v,label=below right:$b$] (b) at (3,0) {};
+\node[v,label=above right:$c$] (c) at (3,2) {};
+\node[v,label=above left:$d$] (d) at (0,2) {};
+\draw (a)--(b)--(c)--(d)--(a);
+\draw (a)--(c);
+
+% "Centros" de caras (dual)
+\node[v,fill=white] (f1) at (1.1,0.7) {}; % cara triángulo abc
+\node[v,fill=white] (f2) at (1.9,1.3) {}; % cara triángulo acd
+\node[v,fill=white] (fext) at (1.5,2.8) {}; % exterior (simplificado)
+
+% Aristas del dual (en gris)
+\begin{scope}[every edge/.style={draw, thick, dashed}]
+\draw (f1)--(f2);     % cruzando diagonal a-c
+\draw (f1)--(fext);   % una conexión hacia exterior
+\draw (f2)--(fext);   % otra hacia exterior
+\end{scope}
+
+\node at (1.5,-0.6) {\small Primal (negro) y dual (trazado)};
+\end{tikzpicture}
+\caption{Idea de dualidad: un vértice por cara y una arista por cada arista compartida entre caras.}
+\end{figure}
+
+\subsection*{Coloración de grafos}
+
+Una \textbf{coloración} asigna colores a los vértices de un grafo de forma que vértices adyacentes tengan colores distintos.
+
+El número mínimo de colores necesarios se llama \textbf{número cromático} y se denota $\chi(G)$.
+
+\subsection*{Teorema de los cuatro colores}
+
+Todo grafo planar puede colorearse con a lo sumo cuatro colores.
+
+Equivalentemente, cualquier mapa plano puede colorearse con cuatro colores sin que regiones adyacentes compartan color.
+
+\subsection*{Coloración de aristas}
+
+También se pueden colorear aristas de modo que aristas incidentes en un mismo vértice tengan colores distintos.
+
+El mínimo número de colores necesarios se denomina \textbf{índice cromático}.
+
+\subsection*{Grafos dirigidos}
+
+Un grafo dirigido o \textbf{digrafo} es un grafo cuyas aristas tienen orientación.
+
+Se representan mediante pares ordenados $(u,v)$.
+
+En un digrafo se distinguen:
+
+\begin{itemize}
+    \item \textbf{Grado de entrada} de un vértice: número de aristas que llegan a él.
+    \item \textbf{Grado de salida}: número de aristas que parten de él.
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=Latex, scale=1]
+
+\node[v,label=left:$u$] (u) at (0,1) {};
+\node[v,label=right:$v$] (v) at (2,1) {};
+\node[v,label=below:$w$] (w) at (1,-0.5) {};
+
+\draw[->] (u)--(v);
+\draw[->] (u)--(w);
+\draw[->] (w)--(v);
+
+% Lazo dirigido en v (corregido)
+\draw[->] (v) to[out=45,in=-45,looseness=8] (v);
+
+\node at (1,-1.2) {\small Ejemplo de digrafo};
+
+\end{tikzpicture}
+\caption{En digrafos: grado de salida (aristas que salen) y de entrada (aristas que entran).}
+\end{figure}
+
+\subsection*{Caminos en digrafos}
+
+Un camino dirigido es una sucesión de vértices tal que cada arista se recorre en el sentido indicado.
+
+Un digrafo es \textbf{fuertemente conexo} si existe un camino dirigido entre cualquier par ordenado de vértices.
+
+\subsection*{Matrices asociadas a grafos}
+
+\textbf{Matriz de adyacencia:}
+
+Es una matriz $A = (a_{ij})$ donde
+
+\[
+a_{ij} =
+\begin{cases}
+1 & \text{si existe arista entre } v_i \text{ y } v_j, \\
+0 & \text{en caso contrario.}
+\end{cases}
+\]
+
+En grafos no dirigidos simples es simétrica.
+
+\textbf{Matriz de incidencia:}
+
+Es una matriz que relaciona vértices y aristas.  
+Cada columna representa una arista y cada fila un vértice.
+
+\subsection*{Componentes conexas}
+
+Una componente conexa es un subgrafo maximal conexo.
+
+Todo grafo puede descomponerse como unión disjunta de sus componentes conexas.
+
+\subsection*{Subgrafos}
+
+Un subgrafo de $G=(V,A)$ es un grafo $H=(V',A')$ tal que:
+
+\[
+V' \subseteq V, \qquad A' \subseteq A.
+\]
+
+Si contiene todas las aristas entre los vértices de $V'$ presentes en $G$, se denomina \textbf{subgrafo inducido}.
+
+\section*{Algoritmos de grafos}
+
+\subsection*{Árbol recubridor}
+
+Un \textbf{árbol recubridor} de un grafo $G$ es un subgrafo que:
+
+\begin{itemize}
+    \item Contiene todos los vértices de $G$
+    \item Es conexo
+    \item No tiene ciclos (es un árbol)
+\end{itemize}
+
+Un mismo grafo puede tener múltiples árboles recubridores.
+
+\subsection*{Búsqueda en profundidad (DFS)}
+
+La \textbf{Depth First Search (DFS)} recorre el grafo explorando lo más profundo posible antes de retroceder.
+
+\subsubsection*{Idea del algoritmo}
+
+\begin{enumerate}
+    \item Elegir un vértice inicial.
+    \item Marcarlo como visitado.
+    \item Ir a un vértice adyacente no visitado.
+    \item Repetir hasta no poder avanzar.
+    \item Retroceder al último vértice con vecinos no visitados.
+\end{enumerate}
+
+\textbf{Propiedades:}
+
+\begin{itemize}
+    \item Genera un árbol recubridor.
+    \item Depende del vértice inicial y del orden de los vecinos.
+    \item Útil para detectar componentes conexas, ciclos y puentes.
+    \item Complejidad: $O(|V| + |A|)$
+\end{itemize}
+
+\subsection*{Búsqueda en anchura (BFS)}
+
+La \textbf{Breadth First Search (BFS)} recorre el grafo por niveles.
+
+\subsubsection*{Idea del algoritmo}
+
+\begin{enumerate}
+    \item Elegir un vértice inicial.
+    \item Marcarlo como visitado.
+    \item Visitar todos sus vecinos.
+    \item Después los vecinos de esos vecinos.
+\end{enumerate}
+
+Se implementa con una cola.
+
+\textbf{Propiedades:}
+
+\begin{itemize}
+    \item Genera un árbol recubridor por niveles.
+    \item Permite calcular distancias mínimas en grafos no ponderados.
+    \item Complejidad: $O(|V| + |A|)$
+\end{itemize}
+
+\subsection*{DFS vs BFS}
+
+\begin{itemize}
+    \item DFS: busca caminos profundos (``autopista larga'').
+    \item BFS: explora uniformemente por niveles.
+\end{itemize}
+
+Aplicaciones principales:
+
+\begin{itemize}
+    \item DFS: componentes conexas, ciclos, puentes.
+    \item BFS: caminos mínimos en grafos no ponderados.
+\end{itemize}
+
+\subsection*{Componentes conexas}
+
+Un grafo es conexo si existe un camino entre cualquier par de vértices.
+
+Para hallar las componentes conexas:
+
+\begin{enumerate}
+    \item Ejecutar DFS o BFS desde un vértice no visitado.
+    \item Marcar todos los vértices alcanzados.
+    \item Repetir con otro vértice no visitado.
+\end{enumerate}
+
+Cada ejecución produce una componente conexa.
+
+\subsection*{Puentes y vértices de corte}
+
+\textbf{Puente:} arista cuya eliminación aumenta el número de componentes conexas.
+
+\textbf{Vértice de corte:} vértice cuya eliminación aumenta el número de componentes conexas.
+
+Son elementos críticos para la conectividad del grafo.
+
+\subsection*{Distancias en grafos}
+
+\begin{itemize}
+    \item Distancia entre dos vértices: longitud del camino más corto entre ellos.
+    \item Excentricidad de un vértice: mayor distancia a cualquier otro vértice.
+    \item Radio del grafo: mínimo de las excentricidades.
+    \item Diámetro del grafo: máximo de las excentricidades.
+\end{itemize}
+
+Se calculan mediante BFS en grafos no ponderados.
+
+\subsection*{Árbol recubridor mínimo}
+
+En un grafo ponderado, es un árbol recubridor con peso total mínimo.
+
+\subsubsection*{Algoritmo de Kruskal}
+
+\begin{enumerate}
+    \item Ordenar las aristas por peso creciente.
+    \item Añadir la arista más ligera que no forme ciclo.
+    \item Repetir hasta obtener $|V|-1$ aristas.
+\end{enumerate}
+
+\subsubsection*{Algoritmo de Prim}
+
+\begin{enumerate}
+    \item Elegir un vértice inicial.
+    \item Añadir la arista de menor peso que conecte el árbol con un vértice externo.
+    \item Repetir hasta cubrir todos los vértices.
+\end{enumerate}
+
+\subsection*{Caminos mínimos — Algoritmo de Dijkstra}
+
+Permite encontrar la distancia mínima desde un vértice origen a todos los demás en grafos con pesos no negativos.
+
+\subsubsection*{Idea del algoritmo}
+
+\begin{enumerate}
+    \item Inicializar todas las distancias a $\infty$, excepto el origen ($0$).
+    \item Seleccionar el vértice no visitado con menor distancia.
+    \item Actualizar las distancias a sus vecinos.
+    \item Marcar el vértice como visitado.
+    \item Repetir hasta visitar todos.
+\end{enumerate}
+
+\textbf{Complejidad:} $O(|V|^2)$ (implementación básica).
+
+\subsection*{Flujo máximo}
+
+Se modela el grafo como una red donde cada arista tiene capacidad.
+
+Objetivo: hallar el flujo máximo entre un origen $s$ y un destino $t$.
+
+\subsection*{Corte mínimo}
+
+Un \textbf{corte} es un conjunto de aristas cuya eliminación desconecta $s$ de $t$.
+
+El peso del corte es la suma de capacidades de dichas aristas.
+
+\textbf{Teorema max-flow min-cut:}
+
+\[
+\text{Flujo máximo} = \text{peso del corte mínimo}
+\]
+
+\subsection*{Algoritmo de Ford–Fulkerson}
+
+Método para calcular el flujo máximo.
+
+\subsubsection*{Idea}
+
+\begin{enumerate}
+    \item Inicializar flujo cero.
+    \item Buscar un camino aumentante de $s$ a $t$.
+    \item Aumentar el flujo según la capacidad mínima del camino.
+    \item Actualizar el grafo residual.
+    \item Repetir hasta que no existan más caminos.
+\end{enumerate}
 \end{document}
