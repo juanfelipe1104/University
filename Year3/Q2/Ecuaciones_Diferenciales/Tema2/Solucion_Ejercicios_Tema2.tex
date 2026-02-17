@@ -1,0 +1,518 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\usepackage{hyperref}
+
+\begin{document}
+\section*{Ejercicio 1}
+Dada la ecuación $x\,y' = y\,y' + x^2 + y^2$, expresa la ecuación en forma normal, implícita y diferencial.
+
+\section*{Ejercicio 2}
+Resuelve las siguientes ecuaciones diferenciales:
+
+a) $y' = \cos(3x) + 5$
+
+b) $\dfrac{1}{x}\,y' = e^x$
+
+\section*{Ejercicio 3}
+Resuelve la ecuación $(1 + e^x)\,y\,y' = e^x$.
+
+\section*{Ejercicio 4}
+Resuelve el problema de valor inicial
+\[
+\begin{cases}
+(x - 4)y^4\,dx - x^3(y^2 - 3)\,dy = 0, \\
+y(1) = 1.
+\end{cases}
+\]
+
+\section*{Ejercicio 5}
+Encuentra la solución general de la ecuación $(1 + y^2) + x\,y\,y' = 0$.
+
+\section*{Ejercicio 6}
+Halla la solución general de la ecuación $(y^2 + x\,y^2)\,y' + x - yx = 0$.
+
+\section*{Ejercicio 7}
+Resuelve la ecuación $(x^2 - 3y^2)\,dx + 2xy\,dy = 0$.
+
+\section*{Ejercicio 8}
+Resuelve la ecuación $4x - 3y + y'(2y - 3x) = 0$.
+
+\section*{Ejercicio 9}
+Resuelve la ecuación $(x + y - 2)\,dx + (x - y + 4)\,dy = 0$.
+
+\section*{Ejercicio 10}
+Resuelve la ecuación $(x + y - 1)\,dx + (2x + 2y - 1)\,dy = 0$.
+
+\section*{Ejercicio 11}
+Determina la solución general de la ecuación $(3x^2 + 4xy)\,dx + (2x^2 + 2y)\,dy = 0$.
+
+\section*{Ejercicio 12}
+Resuelve la ecuación diferencial $(y^3 - kxy^4 - 2x)\,dx + (3xy^2 + 20x^2y^3)\,dy = 0$ eligiendo un valor de $k$ para que la ecuación sea exacta.
+
+\section*{Ejercicio 13}
+Resuelve la ecuación diferencial $x(2x^2 + y^2)\,dx + y(x^2 + 2y^2)\,dy = 0$.
+
+\section*{Ejercicio 14}
+Resuelve la ecuación $(1 - x^2y)\,dx + x^2(y - x)\,dy = 0$ sabiendo que admite un factor integrante de la forma $\mu = \mu(x)$.
+
+\section*{Ejercicio 15}
+Resuelve la ecuación $y\,dx + 2x\,dy = 0$ encontrando el factor integrante adecuado.
+
+\section*{Ejercicio 16}
+Resuelve $(e^{x+y} - y)\,dx + (x e^{x+y} + 1)\,dy = 0$ encontrando el factor integrante adecuado.
+
+\section*{Ejercicio 17}
+Resuelve la ecuación $y^2 + (xy + 1)\,y' = 0$ sabiendo que admite un factor integrante que es función de $xy$.
+
+\section*{Ejercicio 18}
+Resuelve la ecuación $(x^2 + 1)\,y' + 4xy = 0$.
+
+\subsection*{Solución Ejercicio 18}
+
+\[
+(x^2+1)y' + 4xy = 0
+\]
+
+Ecuacion lineal homogenea. Resolvemos mediante variables separadas:
+
+\[
+y' + \frac{4x}{x^2+1}\,y = 0
+\]
+
+\[
+\frac{y'}{y} = -\frac{4x}{x^2+1}
+\quad\Rightarrow\quad
+\ln|y| = -2\ln(x^2+1) + C
+\]
+
+\[
+\boxed{y(x) = \frac{C}{(x^2+1)^2}}
+\]
+
+\section*{Ejercicio 19}
+Resuelve la ecuación $y' + 2xy = 4x$.
+
+\subsection*{Solución Ejercicio 19}
+
+\[
+y' + 2xy = 4x
+\]
+
+Ecuacion lineal completa. Resolvemos mediante variación de constantes:
+
+\textbf{SGEH}
+
+\[
+y' + 2xy = 0
+\Rightarrow
+\frac{y'}{y} = -2x
+\Rightarrow
+\ln|y| = -x^2 + C
+\]
+
+\[
+y_h = C e^{-x^2}
+\]
+
+\textbf{Variación de constantes}
+
+\[
+y = k(x)e^{-x^2}
+\]
+
+\[
+y' = k'(x)e^{-x^2} - 2xk(x)e^{-x^2}
+\]
+
+Sustituyendo:
+
+\[
+k'(x)e^{-x^2} = 4x
+\Rightarrow
+k'(x) = 4x e^{x^2}
+\]
+
+\[
+k(x) = \int 4x e^{x^2} dx = 2 e^{x^2} + C
+\]
+
+\[
+y = (2e^{x^2}+C)e^{-x^2} = 2 + C e^{-x^2}
+\]
+
+\[
+\boxed{\,y(x) = 2 + C e^{-x^2}\,}
+\]
+
+\section*{Ejercicio 20}
+Resuelve el problema de valor inicial
+\[
+\begin{cases}
+(x^2 + 1)\,y' + 4xy = x, \\
+y(2) = 1.
+\end{cases}
+\]
+
+\subsection*{Solución Ejercicio 20}
+
+\[
+(x^2+1)y' + 4xy = x,
+\qquad y(2)=1
+\]
+
+\[
+y' + \frac{4x}{x^2+1}y = \frac{x}{x^2+1}
+\]
+
+\textbf{SGEH}
+
+\[
+y_h = \frac{C}{(x^2+1)^2}
+\]
+
+\textbf{Variación de constantes}
+
+\[
+y = \frac{k(x)}{(x^2+1)^2}
+\]
+
+\[
+y' = \frac{k'}{(x^2+1)^2} - \frac{4xk}{(x^2+1)^3}
+\]
+
+Sustituyendo:
+
+\[
+\frac{k'}{(x^2+1)^2} = \frac{x}{x^2+1}
+\Rightarrow
+k' = x(x^2+1)
+\]
+
+\[
+k = \frac{x^4}{4} + \frac{x^2}{2} + C
+\]
+
+\[
+y(x) = \frac{\frac{x^4}{4}+\frac{x^2}{2}+C}{(x^2+1)^2}
+\]
+
+Aplicando \(y(2)=1\):
+
+\[
+C = 19
+\]
+
+\[
+\boxed{
+y(x) =
+\dfrac{\frac{x^4}{4}+\frac{x^2}{2}+19}{(x^2+1)^2}
+}
+\]
+
+\section*{Ejercicio 21}
+Halla la solución general de la ecuación $y' - y \tan(x) = \cos(x)$.
+
+\subsection*{Solución Ejercicio 21}
+
+\[
+y' - y\tan(x) = \cos(x)
+\]
+
+\textbf{SGEH}
+
+\[
+\frac{y'}{y} = \tan(x)
+\Rightarrow
+\ln|y| = -\ln|\cos x| + C
+\]
+
+\[
+y_h = \frac{C}{\cos x}
+\]
+
+\textbf{Variación de constantes}
+
+\[
+y = \frac{k(x)}{\cos x}
+\]
+
+\[
+y' = \frac{k'}{\cos x} + k\frac{\tan x}{\cos x}
+\]
+
+Sustituyendo:
+
+\[
+\frac{k'}{\cos x} = \cos x
+\Rightarrow
+k' = \cos^2 x
+\]
+
+\[
+k = \int \cos^2 x\,dx
+= \frac{x}{2} + \frac{\sin 2x}{4} + C
+\]
+
+\[
+y = \frac{k}{\cos x}
+= \frac{x}{2\cos x} + \frac{1}{2}\sin x + \frac{C}{\cos x}
+\]
+
+\[
+\boxed{
+y(x) =
+\frac{x}{2\cos x}
++ \frac{1}{2}\sin x
++ \frac{C}{\cos x}
+}
+\]
+
+\section*{Ejercicio 22}
+Resuelve la ecuación $y' + y = x\,y^3$.
+
+\subsection*{Solución Ejercicio 22}
+
+\[
+y' + y = xy^3
+\]
+
+Bernoulli con \(n=3\).
+
+\textbf{Cambio de variable}
+
+\[
+v = y^{-2}
+\quad\Rightarrow\quad
+v' = -2y^{-3}y'
+\Rightarrow
+y' = -\frac{1}{2}y^3 v'
+\]
+
+Sustituyendo:
+
+\[
+v' - 2v = -2x
+\]
+
+\textbf{SGEH}
+
+\[
+v_h = C e^{2x}
+\]
+
+\textbf{Variación de constantes}
+
+\[
+v = k(x)e^{2x}
+\Rightarrow
+k' = -2x e^{-2x}
+\]
+
+\[
+k = e^{-2x}\left(x+\frac{1}{2}\right) + C
+\]
+
+\[
+v = x + \frac{1}{2} + C e^{2x}
+\]
+
+\[
+\boxed{y^{-2} = x + \frac{1}{2} + C e^{2x}}
+\]
+
+\section*{Ejercicio 23}
+Resuelve la ecuación
+\[
+\left(\dfrac{y}{3x} + y^4 \ln(x)\right)\,dx - dy = 0.
+\]
+
+\subsection*{Solución Ejercicio 23}
+
+\[
+\left(\frac{y}{3x} + y^4 \ln x\right) dx - dy = 0
+\]
+
+\[
+y' - \frac{1}{3x}y = (\ln x)\,y^4
+\quad (x>0)
+\]
+
+Bernoulli con \(n=4\).
+
+\textbf{Cambio de variable}
+
+\[
+v = y^{-3}
+\Rightarrow
+v' = -3y^{-4}y'
+\]
+
+Se obtiene la ecuación lineal:
+
+\[
+v' + \frac{1}{x}v = -3\ln x
+\]
+
+\textbf{SGEH}
+
+\[
+v_h = \frac{C}{x}
+\]
+
+\textbf{Variación de constantes}
+
+\[
+v = \frac{k(x)}{x}
+\Rightarrow
+k' = -3x\ln x
+\]
+
+\[
+k = -\frac{3}{2}x^2\ln x + \frac{3}{4}x^2 + C
+\]
+
+\[
+v = -\frac{3}{2}x\ln x + \frac{3}{4}x + \frac{C}{x}
+\]
+
+\[
+\boxed{y^{-3} = -\frac{3}{2}x\ln x + \frac{3}{4}x + \frac{C}{x}}
+\]
+
+\section*{Ejercicio 24}
+Resuelve la ecuación
+\[
+y' + \dfrac{y}{x + 1} = \dfrac{1}{2}(x + 1)^3 y^2.
+\]
+
+\subsection*{Solución Ejercicio 24}
+
+\[
+y' + \frac{y}{x+1} = \frac{1}{2}(x+1)^3 y^2,
+\qquad x \neq -1
+\]
+
+Bernoulli con \(n=2\).
+
+\textbf{Cambio de variable}
+
+\[
+v = y^{-1}
+\Rightarrow
+v' = -y^{-2}y'
+\]
+
+Se obtiene:
+
+\[
+v' - \frac{1}{x+1}v
+= -\frac{1}{2}(x+1)^3
+\]
+
+\textbf{SGEH}
+
+\[
+v_h = C(x+1)
+\]
+
+\textbf{Variación de constantes}
+
+\[
+v = k(x)(x+1)
+\Rightarrow
+k' = -\frac{1}{2}(x+1)^2
+\]
+
+\[
+k = -\frac{(x+1)^3}{6} + C
+\]
+
+\[
+v = -\frac{(x+1)^4}{6} + C(x+1)
+\]
+
+\[
+\boxed{y^{-1} = -\frac{(x+1)^4}{6} + C(x+1)}
+\]
+
+\section*{Ejercicio 25}
+Resuelve la ecuación
+\[
+y' = y^2 - 2xy + 1 + x^2.
+\]
+
+\section*{Ejercicio 26}
+Resuelve la ecuación
+\[
+y' = y^2 - \dfrac{1}{x}y - \dfrac{1}{x^2}
+\]
+sabiendo que tiene una solución particular del tipo $y = x^m$ con $m \in \mathbb{R}$.
+
+\section*{Ejercicio 27}
+Resuelve la ecuación
+\[
+(y')^2 + x y' - y = 0.
+\]
+
+\section*{Ejercicio 28}
+Resuelve la ecuación
+\[
+y = x y' - \dfrac{1}{y'}.
+\]
+
+\section*{Ejercicio 29}
+Resuelve la ecuación
+\[
+y = x + (y')^2 - \dfrac{2}{3}(y')^3.
+\]
+
+\section*{Ejercicio 30}
+Resuelve la ecuación
+\[
+y = (1 + y')x + (y')^2.
+\]
+
+\section*{Ejercicio 31}
+Obtén la expresión de la familia de trayectorias ortogonales a la familia de curvas $y = Cx^3$.
+
+\section*{Ejercicio 32}
+Halla las trayectorias ortogonales a la familia de circunferencias cuyo centro está situado en el eje $OX$ y son tangentes al eje $OY$ en el origen.
+
+\section*{Ejercicio 33}
+Determina el valor de $\alpha \in \mathbb{R}$ para que las siguientes familias de curvas sean ortogonales:
+\[
+x^\alpha + y^\alpha = c^\alpha, 
+\qquad
+y = x + \beta.
+\]
+
+\section*{Ejercicio 34}
+Halla la familia de curvas que corta a la familia de circunferencias $x^2 + y^2 = C$ ($C > 0$) con un ángulo de $\pi/4$.
+
+\section*{Ejercicio 35}
+Dada la familia $y = -Cx$, encuentra la familia de trayectorias isogonales que forman con dichas rectas un ángulo de $\pi/4$.
+
+\section*{Ejercicio 36}
+La velocidad de enfriamiento (o calentamiento) de un cuerpo es proporcional a la diferencia de temperaturas del cuerpo y del medio ambiente. La temperatura del aire que rodea el cuerpo se mantiene constante e igual a $T = 20^\circ\mathrm{C}$. ¿En cuánto tiempo el cuerpo se enfriará hasta $25^\circ\mathrm{C}$, si en $10$ minutos su temperatura disminuye desde $100^\circ\mathrm{C}$ hasta $60^\circ\mathrm{C}$?
+
+\section*{Ejercicio 37}
+Supongamos que una gota esférica se evapora a una velocidad proporcional a su superficie. Si al principio el radio de la gota es $2$ milímetros y al cabo de $10$ minutos es de $1$ milímetro, halla una función que relacione el radio con el tiempo $t$.
+
+\section*{Ejercicio 38}
+El modelo de crecimiento de poblaciones de Verhulst dice que la variación de una población $P(t)$ está determinada por
+\[
+\frac{dP}{dt} = KP\left(1 - \frac{P}{L}\right),
+\]
+donde $K$ y $L$ son constantes positivas. Suponiendo que la población inicial es $P_0$, determina la expresión de $P(t)$.
+\end{document}
