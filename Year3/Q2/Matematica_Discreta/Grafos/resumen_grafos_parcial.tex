@@ -1,0 +1,716 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{array}
+\usepackage{booktabs}
+\geometry{margin=2.2cm}
+\setlist[itemize]{topsep=3pt,itemsep=2pt}
+\setlist[enumerate]{topsep=3pt,itemsep=2pt}
+\hypersetup{colorlinks=true, linkcolor=blue!60!black, urlcolor=blue!60!black}
+
+\title{Resumen de Grafos para el Parcial\\\large Temas 1--5}
+\author{}
+\date{}
+
+\newtheorem*{prop}{Proposición}
+\newtheorem*{obs}{Observación}
+\newtheorem*{ej}{Ejemplo}
+\newtheorem*{dem}{Demostración}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\bigskip
+
+\section{Definiciones y herramientas básicas}
+
+Un \textbf{grafo no dirigido} es un par $G=(V,E)$ donde $V$ es el conjunto de vértices y $E$ el conjunto de aristas. Si las aristas tienen orientación, hablamos de \textbf{dígrafo}. Si tienen peso, de \textbf{grafo ponderado}.
+
+\subsection*{Conceptos básicos}
+\begin{itemize}
+    \item \textbf{Grado} de un vértice $v$: número de aristas incidentes en $v$. Se denota $\deg(v)$.
+    \item \textbf{Recorrido}: sucesión de vértices adyacentes. Puede repetir vértices y aristas.
+    \item \textbf{Camino simple}: recorrido sin repetir vértices.
+    \item \textbf{Ciclo}: camino cerrado de longitud al menos 3 sin repetir vértices salvo el primero y el último.
+    \item \textbf{Conexo}: entre cualquier par de vértices existe un camino.
+    \item \textbf{Componente conexa}: subgrafo conexo maximal.
+    \item \textbf{Bipartito}: $V$ se puede partir en dos clases $V_1,V_2$ de forma que toda arista une un vértice de $V_1$ con uno de $V_2$.
+\end{itemize}
+
+\subsection*{Lema del apretón de manos}
+\[
+\sum_{v\in V} \deg(v)=2|E|.
+\]
+En particular, la suma de grados siempre es par.
+
+\begin{dem}
+Cada arista contribuye exactamente $2$ a la suma de grados: una vez en cada extremo.
+\end{dem}
+
+\subsection*{Consecuencias rápidas}
+\begin{itemize}
+    \item Un grafo simple con $n$ vértices tiene a lo sumo $\binom{n}{2}$ aristas.
+    \item No puede haber un número impar de vértices de grado impar.
+\end{itemize}
+
+\subsection*{Isomorfismo: invariantes útiles}
+Si dos grafos son isomorfos, entonces tienen:
+\begin{itemize}
+    \item el mismo número de vértices y aristas,
+    \item la misma multiconjunto de grados,
+    \item la misma cantidad de ciclos de cada longitud,
+    \item la misma cantidad de recorridos de longitud fija,
+    \item la misma conectividad y la misma bipartición, si aplica.
+\end{itemize}
+Estos criterios no siempre prueban isomorfismo, pero sí permiten descartar muchos casos.
+
+\section{Matrices del grafo}
+
+\subsection{Matriz de adyacencia}
+Para un grafo simple no dirigido de $n$ vértices,
+\[
+A=(a_{ij}),\qquad a_{ij}=\begin{cases}
+1,&\text{si } i\sim j,\\
+0,&\text{si no.}
+\end{cases}
+\]
+En grafos simples, $A$ es simétrica y su diagonal es nula.
+
+\subsection{Matriz de incidencia}
+Si el grafo tiene vértices $v_1,\dots,v_n$ y aristas $e_1,\dots,e_m$, la matriz de incidencia es
+\[
+M=(m_{ij}),\qquad m_{ij}=\begin{cases}
+1,&\text{si } v_i \text{ incide en } e_j,\\
+0,&\text{si no.}
+\end{cases}
+\]
+En un grafo simple no dirigido, cada columna tiene exactamente dos unos.
+
+\subsection{Relación entre ambas}
+Si $D=\operatorname{diag}(\deg(v_1),\dots,\deg(v_n))$, entonces
+\[
+MM^T=A+D.
+\]
+
+\begin{dem}
+La entrada $(i,j)$ de $MM^T$ es el producto escalar de la fila $i$ con la fila $j$ de $M$.
+\begin{itemize}
+    \item Si $i\neq j$, cuenta cuántas aristas unen $v_i$ con $v_j$: eso es $a_{ij}$.
+    \item Si $i=j$, cuenta cuántas aristas inciden en $v_i$: eso es $\deg(v_i)$.
+\end{itemize}
+Luego $MM^T$ coincide con $A$ fuera de la diagonal y con $D$ en la diagonal.
+\end{dem}
+
+\subsection{Potencias de la matriz de adyacencia}
+La entrada $(i,j)$ de $A^k$ da el número de \textbf{recorridos} de longitud $k$ entre $i$ y $j$.
+
+\begin{ej}
+Si
+\[
+A=\begin{pmatrix}0&1\\1&0\end{pmatrix},\qquad
+A^2=\begin{pmatrix}1&0\\0&1\end{pmatrix},
+\]
+entonces hay un recorrido de longitud $2$ que empieza y acaba en cada vértice: ir y volver por la única arista.
+\end{ej}
+
+Consecuencias importantes:
+\begin{itemize}
+    \item $\operatorname{tr}(A^2)=2|E|$.
+    \item $\operatorname{tr}(A^3)=6\cdot$(número de triángulos).
+    \item Si $A+A^2+\cdots +A^{n-1}$ no tiene entradas nulas, el grafo es conexo.
+\end{itemize}
+
+\section{Árboles}
+
+\subsection{Caracterizaciones}
+Un \textbf{árbol} es un grafo conexo sin ciclos. Equivalentemente:
+\begin{itemize}
+    \item entre cada pareja de vértices hay un único camino simple,
+    \item es conexo y tiene $|E|=|V|-1$,
+    \item es acíclico y tiene $|E|=|V|-1$.
+\end{itemize}
+
+\subsection{Propiedad fundamental}
+Si $T$ es un árbol con $n$ vértices, entonces
+\[
+|E(T)|=n-1.
+\]
+
+\begin{dem}
+Por inducción en $n$. Para $n=1$ es trivial. Si $n\ge 2$, un árbol tiene una hoja. Al eliminarla se obtiene un árbol con $n-1$ vértices y una arista menos. Por hipótesis inductiva, el árbol reducido tiene $(n-1)-1=n-2$ aristas, así que el original tiene $n-1$.
+\end{dem}
+
+\subsection{Todo árbol con $n\ge 2$ tiene al menos dos hojas}
+
+\begin{dem}
+Tomemos un camino simple de longitud máxima
+\[
+v_0,v_1,\dots,v_k.
+\]
+Si $v_0$ tuviera otro vecino distinto de $v_1$, o bien ese vecino ya está en el camino y se formaría un ciclo, o bien no está y podríamos alargar el camino. Ambas cosas contradicen la definición de árbol o la maximalidad del camino. Luego $\deg(v_0)=1$. Igual para $v_k$.
+\end{dem}
+
+\subsection{Puentes en árboles}
+Toda arista de un árbol es un puente: si eliminas una arista, el árbol deja de ser conexo.
+
+\subsection{Árboles enraizados}
+Un árbol enraizado es un árbol con un vértice distinguido como \textbf{raíz}. Para listarlos con pocos vértices:
+\begin{enumerate}
+    \item enumera primero los árboles no isomorfos,
+    \item luego coloca la raíz en vértices no equivalentes por simetría.
+\end{enumerate}
+
+\begin{ej}
+Con $5$ vértices solo hay dos árboles no isomorfos: la estrella $K_{1,4}$ y el árbol con sucesión de grados $(1,1,1,2,3)$. Enraizando en vértices no equivalentes se obtienen $6$ árboles enraizados no isomorfos.
+\end{ej}
+
+\subsection{Código de Prüfer}
+Para un árbol etiquetado con vértices $\{1,\dots,n\}$, el \textbf{código de Prüfer} es una secuencia de longitud $n-2$ construida así:
+\begin{enumerate}
+    \item toma la hoja de menor etiqueta,
+    \item escribe la etiqueta de su vecino,
+    \item elimina la hoja,
+    \item repite hasta que queden dos vértices.
+\end{enumerate}
+
+\begin{ej}
+Para el árbol con aristas
+\[
+1-3,\;2-3,\;3-4,\;4-5,\;4-6,
+\]
+el código es
+\[
+(3,3,4,4).
+\]
+\end{ej}
+
+Propiedad útil:
+\[
+\text{un vértice } v \text{ aparece } \deg(v)-1 \text{ veces en el código de Prüfer.}
+\]
+
+\section{Planaridad y fórmula de Euler}
+
+Un grafo es \textbf{plano} si puede dibujarse en el plano sin cruces de aristas, y \textbf{planar} si admite algún dibujo plano.
+
+\subsection{Fórmula de Euler}
+Si $G$ es plano y conexo, entonces
+\[
+|V|-|E|+|F|=2,
+\]
+donde $F$ es el número de caras, incluyendo la exterior.
+
+\begin{ej}
+Si un grafo plano conexo tiene $11$ aristas y $8$ caras, entonces
+\[
+|V|=2+|E|-|F|=2+11-8=5.
+\]
+Si además fuera simple, sería imposible, porque un grafo simple con $5$ vértices tiene como máximo $10$ aristas.
+\end{ej}
+
+\subsection{Cota planar simple}
+Si $G$ es planar simple y tiene $n\ge 3$ vértices, entonces
+\[
+|E|\le 3n-6.
+\]
+Si además no tiene triángulos, entonces
+\[
+|E|\le 2n-4.
+\]
+
+\begin{dem}
+En un grafo plano simple cada cara tiene longitud al menos $3$, así que
+\[
+3|F|\le 2|E|,
+\]
+porque cada arista cuenta dos veces al recorrer las caras. Sustituyendo en Euler:
+\[
+2=|V|-|E|+|F|\le |V|-|E|+\frac{2|E|}{3}=|V|-\frac{|E|}{3}.
+\]
+Reordenando,
+\[
+|E|\le 3|V|-6.
+\]
+\end{dem}
+
+\section{Recorridos del grafo: DFS y BFS}
+
+\subsection{DFS (Depth First Search)}
+Explora ``en profundidad'': desde un vértice, va al vecino no visitado de menor etiqueta (si se fija ese criterio), y retrocede cuando no puede seguir.
+
+Usos principales:
+\begin{itemize}
+    \item construir un árbol recubridor,
+    \item comprobar conectividad,
+    \item contar componentes conexas,
+    \item detectar ciclos,
+    \item buscar puentes y vértices de corte.
+\end{itemize}
+
+\subsection{BFS (Breadth First Search)}
+Explora ``por niveles'': primero todos los vecinos del origen, luego los vecinos de éstos, etc.
+
+Usos principales:
+\begin{itemize}
+    \item distancias mínimas en grafos no ponderados,
+    \item excentricidad, radio y diámetro,
+    \item caminos más cortos en número de aristas.
+\end{itemize}
+
+\subsection{Comparación}
+\begin{center}
+\begin{tabular}{>{\bfseries}p{3cm}p{5.3cm}p{5.3cm}}
+\toprule
+ & DFS & BFS\\
+\midrule
+Idea & Baja por una rama y retrocede & Explora por capas\\
+Estructura & Muy bueno para puentes, ciclos, componentes & Muy bueno para distancias\\
+Distancias mínimas & No en general & Sí, si no hay pesos\\
+Estructura de datos & Pila / recursión & Cola\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Puentes con DFS}
+Una arista es un \textbf{puente} si al eliminarla aumenta el número de componentes conexas.
+
+Con DFS se usan tiempos de entrada $tin[v]$ y valores $low[v]$:
+\begin{itemize}
+    \item $tin[v]$: instante en que visitamos $v$ por primera vez,
+    \item $low[v]$: menor tiempo de entrada accesible desde el subárbol de $v$ usando aristas del árbol DFS y, como mucho, una arista de retroceso.
+\end{itemize}
+
+La arista del árbol DFS $(v,to)$ es puente si y solo si
+\[
+low[to]>tin[v].
+\]
+
+\begin{dem}
+Si $low[to]\le tin[v]$, desde el subárbol de $to$ se puede volver a $v$ o a un antepasado suyo por otro camino; por tanto, al quitar $(v,to)$ el grafo sigue conectado en esa zona. Si $low[to]>tin[v]$, no hay vuelta hacia arriba y el subárbol de $to$ queda colgando únicamente de esa arista.
+\end{dem}
+
+\section{Distancias, excentricidad, radio y diámetro}
+
+La \textbf{distancia} $d(u,v)$ es la longitud del camino más corto entre $u$ y $v$.
+
+La \textbf{excentricidad} de $v$ es
+\[
+e(v)=\max_{u\in V} d(v,u).
+\]
+El \textbf{radio} es
+\[
+\operatorname{rad}(G)=\min_{v\in V} e(v),
+\]
+y el \textbf{diámetro}
+\[
+\operatorname{diam}(G)=\max_{v\in V} e(v).
+\]
+
+En grafos no ponderados se calculan con BFS:
+\begin{itemize}
+    \item distancia entre dos vértices: BFS desde uno de ellos,
+    \item excentricidad de $v$: BFS desde $v$ y tomar la mayor distancia,
+    \item radio y diámetro: BFS desde todos los vértices.
+\end{itemize}
+
+\section{Árboles recubridores mínimos}
+
+En un grafo ponderado, un \textbf{árbol recubridor mínimo} (MST) es un árbol recubridor cuya suma de pesos es mínima.
+
+\subsection{Kruskal}
+Idea: ordenar aristas por peso creciente e ir añadiendo la menor que no forme ciclo.
+
+\textbf{Esquema:}
+\begin{enumerate}
+    \item Ordena las aristas por peso.
+    \item Recorre la lista de menor a mayor.
+    \item Añade una arista si conecta dos componentes distintas.
+    \item Para cuando tengas $n-1$ aristas.
+\end{enumerate}
+
+\subsection{Prim}
+Idea: empezar en un vértice y crecer siempre por la arista más barata que conecta el árbol actual con un vértice nuevo.
+
+\textbf{Esquema:}
+\begin{enumerate}
+    \item Empieza en cualquier vértice.
+    \item Entre las aristas que salen del árbol actual, escoge la de menor peso que no forme ciclo.
+    \item Repite hasta tener todos los vértices.
+\end{enumerate}
+
+\subsection{Cuándo usar cada uno}
+\begin{itemize}
+    \item \textbf{Kruskal}: muy natural cuando te dan una tabla o lista de aristas.
+    \item \textbf{Prim}: muy cómodo cuando el grafo ya está dibujado y quieres crecer desde una zona.
+\end{itemize}
+
+\section{Dijkstra}
+
+Sirve para hallar distancias mínimas desde un origen en grafos con pesos \textbf{no negativos}.
+
+\subsection*{Idea}
+Mantiene un conjunto de vértices cuya distancia definitiva ya se conoce. En cada paso fija el vértice no procesado con menor distancia provisional y relaja sus vecinos.
+
+\textbf{Esquema:}
+\begin{enumerate}
+    \item Inicializa $dist(s)=0$ y $dist(v)=\infty$ para $v\neq s$.
+    \item Elige el vértice no fijado de distancia mínima.
+    \item Actualiza a sus vecinos con la regla
+    \[
+    dist(v)\leftarrow \min\{dist(v),dist(u)+w(u,v)\}.
+    \]
+    \item Repite.
+\end{enumerate}
+
+\begin{obs}
+Dijkstra no sirve con pesos negativos.
+\end{obs}
+
+\section{Tema 3: ALT}
+
+\subsection{A* y heurísticas}
+A* selecciona el vértice con menor valor
+\[
+f(n)=g(n)+h(n),
+\]
+donde $g(n)$ es el coste ya recorrido y $h(n)$ es una estimación del coste restante.
+
+Para garantizar optimalidad, la heurística debe ser \textbf{admisible}:
+\[
+h(n)\le d(n,\text{goal}).
+\]
+
+\subsection{Heurística ALT}
+ALT significa \textit{A*, Landmarks, Triangle inequality}. Se eligen landmarks $\ell_1,\dots,\ell_k$ y se precomputan distancias. La heurística es
+\[
+h(n)=\max_{\ell\in L} \bigl|dist(\ell,goal)-dist(\ell,n)\bigr|.
+\]
+
+\textbf{Por qué es admisible:} por desigualdad triangular,
+\[
+|d(\ell,g)-d(\ell,n)|\le d(n,g).
+\]
+Tomar el máximo de cotas inferiores sigue dando una cota inferior.
+
+\section{Ford--Fulkerson, flujo máximo y corte mínimo}
+
+\subsection{Conceptos}
+En una red dirigida con fuente $s$ y sumidero $t$:
+\begin{itemize}
+    \item cada arista $(u,v)$ tiene una capacidad $c(u,v)$,
+    \item un flujo $f(u,v)$ cumple $0\le f(u,v)\le c(u,v)$,
+    \item en los vértices intermedios se conserva el flujo.
+\end{itemize}
+
+\subsection{Ford--Fulkerson}
+Busca \textbf{caminos aumentantes} en la red residual y aumenta el flujo tanto como permita el cuello de botella del camino.
+
+\textbf{Esquema:}
+\begin{enumerate}
+    \item Empieza con flujo $0$.
+    \item Construye la red residual.
+    \item Busca un camino $s\leadsto t$.
+    \item Aumenta el flujo en el mínimo residual del camino.
+    \item Repite hasta que no haya camino aumentante.
+\end{enumerate}
+
+\subsection{Teorema max-flow = min-cut}
+El valor del flujo máximo es igual a la capacidad del corte mínimo.
+
+\textbf{Cómo sacar el corte mínimo al final del algoritmo:}
+\begin{enumerate}
+    \item en la red residual final, toma $S$ = vértices alcanzables desde $s$,
+    \item toma $T=V\setminus S$,
+    \item las aristas del grafo original que van de $S$ a $T$ forman un corte mínimo.
+\end{enumerate}
+
+\textbf{Idea intuitiva:} si ya no hay camino aumentante, las aristas que separan la parte alcanzable de la no alcanzable están saturadas y forman el cuello de botella definitivo.
+
+\subsection{Grafos no dirigidos}
+También puede aplicarse a grafos no dirigidos interpretando cada arista como un canal por el que el flujo puede circular en ambos sentidos, o modelando adecuadamente su versión dirigida con red residual.
+
+\section{Teoría espectral de grafos}
+
+\subsection{Espectro de un grafo}
+El \textbf{espectro} de $G$ es el conjunto de autovalores de su matriz de adyacencia $A$, contando multiplicidades.
+
+\subsection{Espectros conocidos}
+\begin{itemize}
+    \item Para el grafo completo $K_n$:
+    \[
+    \operatorname{Spec}(K_n)=\{n-1,-1,\dots,-1\}.
+    \]
+    \item Para el ciclo $C_n$:
+    \[
+    \lambda_k=2\cos\left(\frac{2\pi k}{n}\right),\qquad k=0,1,\dots,n-1.
+    \]
+\end{itemize}
+
+\subsection{Bipartición y simetría del espectro}
+Un grafo es bipartito si y solo si su espectro es \textbf{simétrico respecto a $0$}. Esto significa:
+\[
+\lambda\in \operatorname{Spec}(G) \Longrightarrow -\lambda\in \operatorname{Spec}(G)
+\]
+con la misma multiplicidad.
+
+\textbf{Ojo:} esto \emph{no} significa que $0$ tenga que ser autovalor. Solo significa que los autovalores aparecen en parejas opuestas.
+
+\begin{ej}
+$C_6$ es bipartito y su espectro es simétrico: $\{2,1,1,-1,-1,-2\}$.
+\end{ej}
+
+\subsection{Laplaciana}
+La matriz laplaciana es
+\[
+L=D-A,
+\]
+donde $D$ es la matriz diagonal de grados.
+
+Propiedades básicas:
+\begin{itemize}
+    \item $L$ es simétrica.
+    \item $0$ siempre es autovalor de $L$ con autovector $\mathbf{1}$.
+    \item La multiplicidad de $0$ coincide con el número de componentes conexas.
+\end{itemize}
+
+\subsection{Autovalor y autovector de Fiedler}
+Se llama \textbf{valor de Fiedler} a $\lambda_2$, el segundo menor autovalor de la laplaciana. Su autovector asociado se llama \textbf{vector de Fiedler}.
+
+Interpretación:
+\begin{itemize}
+    \item si $\lambda_2$ es pequeño, el grafo tiene un cuello de botella y está cerca de desconectarse,
+    \item el signo del vector de Fiedler sugiere una partición natural en comunidades,
+    \item valores cercanos a $0$ en el autovector suelen corresponder a nodos frontera o puente.
+\end{itemize}
+
+\subsection{Conductancia}
+La conductancia de un subconjunto $S$ es, intuitivamente, la cantidad de aristas que salen de $S$ relativa al volumen de $S$. Una formulación típica es
+\[
+h(S)=\frac{|\partial S|}{\min\{\operatorname{vol}(S),\operatorname{vol}(\overline{S})\}}.
+\]
+La conductancia del grafo es el mínimo sobre cortes no triviales.
+
+\subsection{Cota de Cheeger}
+Para la laplaciana normalizada,
+\[
+\frac{h(G)^2}{2}\le \mu_2\le 2h(G).
+\]
+Interpretación práctica:
+\begin{itemize}
+    \item $\mu_2$ pequeño $\Rightarrow$ existe un corte bueno que casi separa el grafo,
+    \item $\mu_2$ grande $\Rightarrow$ el grafo está bien mezclado y no tiene cuellos de botella claros.
+\end{itemize}
+
+\subsection{Centralidad de intermediación (betweenness)}
+La \textbf{betweenness centrality} de un vértice mide cuántos caminos mínimos entre otros pares de vértices pasan por él. Intuitivamente detecta nodos ``intermediarios'' o puentes funcionales.
+
+\section{Coloración de grafos}
+
+\subsection{Número cromático}
+El \textbf{número cromático} $\chi(G)$ es el mínimo número de colores necesarios para colorear los vértices de modo que vértices adyacentes tengan colores distintos.
+
+\subsection{Casos clásicos}
+\begin{itemize}
+    \item Grafo completo:
+    \[
+    \chi(K_n)=n.
+    \]
+    \item Ciclo:
+    \[
+    \chi(C_n)=\begin{cases}
+    2,& n \text{ par},\\
+    3,& n \text{ impar}.
+    \end{cases}
+    \]
+    \item Rueda $W_n$ (ciclo $C_n$ más centro unido a todos):
+    \[
+    \chi(W_n)=\begin{cases}
+    3,& n \text{ par},\\
+    4,& n \text{ impar}.
+    \end{cases}
+    \]
+    \item Árbol con al menos una arista: $\chi(T)=2$.
+\end{itemize}
+
+\begin{dem}[Por qué $\chi(C_n)$ vale $2$ o $3$]
+Si $n$ es par, se colorea alternando dos colores. Si $n$ es impar, al alternar dos colores el último vértice queda adyacente al primero con el mismo color, así que hacen falta al menos $3$. Con tres colores sí se puede.
+\end{dem}
+
+\subsection{Teorema de Brooks}
+Sea $\Delta$ el grado máximo de un grafo conexo $G$. Entonces:
+\[
+\chi(G)\le \Delta,
+\]
+salvo cuando $G$ es un grafo completo o un ciclo impar, en cuyo caso
+\[
+\chi(G)=\Delta+1.
+\]
+
+\textbf{Idea de uso en examen:} no suele dar el número cromático exacto, pero sí muy buenas cotas.
+
+\subsection{Algoritmos de coloración}
+\begin{itemize}
+    \item \textbf{Voraz}: recorre vértices en cierto orden y asigna a cada uno el menor color disponible.
+    \item \textbf{Welsh--Powell}: ordena por grado decreciente y luego aplica voraz.
+    \item \textbf{Brélaz / DSATUR}: en cada paso elige el vértice con mayor saturación, es decir, el que ``ve'' más colores distintos entre sus vecinos ya coloreados.
+\end{itemize}
+
+\textbf{Idea práctica:} DSATUR suele dar muy buenas coloraciones y es exacto en ciertos casos como bipartitos y ciclos.
+
+\subsection{Índice cromático}
+El \textbf{índice cromático} es el mínimo número de colores para colorear las \textbf{aristas}, de modo que aristas adyacentes tengan colores distintos.
+
+\section{Polinomio cromático}
+
+El polinomio cromático $P_G(k)$ cuenta el número de coloraciones propias de $G$ usando $k$ colores.
+
+\subsection{Ejemplos básicos}
+\begin{itemize}
+    \item Grafo vacío con $n$ vértices:
+    \[
+    P_G(k)=k^n.
+    \]
+    \item Grafo completo $K_n$:
+    \[
+    P_{K_n}(k)=k(k-1)(k-2)\cdots (k-n+1).
+    \]
+    \item Árbol con $n$ vértices:
+    \[
+    P_T(k)=k(k-1)^{n-1}.
+    \]
+\end{itemize}
+
+\begin{dem}[Polinomio cromático de un árbol]
+Elegimos el color de la raíz: $k$ posibilidades. Cada nuevo vértice solo debe evitar el color de su padre, así que tiene $k-1$ opciones. Como un árbol con $n$ vértices tiene $n-1$ aristas,
+\[
+P_T(k)=k(k-1)^{n-1}.
+\]
+\end{dem}
+
+\subsection{Propiedades importantes}
+Si $P_G(k)$ es de grado $n$, entonces:
+\begin{itemize}
+    \item el grado es $n=|V|$,
+    \item el término independiente es $0$,
+    \item los signos de los coeficientes alternan,
+    \item el coeficiente de $k^{n-1}$ cambiado de signo es $|E|$,
+    \item el grado del último término no nulo es el número de componentes conexas.
+\end{itemize}
+
+\subsection{Deleción--contracción}
+Si $e$ es una arista de $G$, entonces
+\[
+P_G(k)=P_{G-e}(k)-P_{G/e}(k).
+\]
+Aquí:
+\begin{itemize}
+    \item $G-e$ es el grafo al eliminar la arista $e$,
+    \item $G/e$ es el grafo al contraer $e$, identificando sus extremos.
+\end{itemize}
+
+\begin{dem}
+En $G-e$, los extremos de $e$ o bien reciben colores distintos, y entonces la coloración es válida en $G$, o bien reciben el mismo color, y entonces corresponde a una coloración de $G/e$. Por tanto,
+\[
+P_{G-e}(k)=P_G(k)+P_{G/e}(k).
+\]
+Reordenando,
+\[
+P_G(k)=P_{G-e}(k)-P_{G/e}(k).
+\]
+\end{dem}
+
+\section{Plantilla mental para resolver ejercicios}
+
+\subsection*{Existencia de grafos}
+\begin{itemize}
+    \item Usa suma de grados $=2|E|$.
+    \item Si es simple, recuerda $|E|\le \binom{n}{2}$.
+    \item Si es planar, prueba Euler y las cotas $|E|\le 3n-6$ o $2n-4$.
+\end{itemize}
+
+\subsection*{Árboles}
+\begin{itemize}
+    \item Piensa siempre en $|E|=|V|-1$.
+    \item Si el enunciado dice ``ruta única entre cada pareja'', es un árbol.
+    \item Un árbol con $n\ge 2$ tiene al menos dos hojas.
+\end{itemize}
+
+\subsection*{DFS / BFS}
+\begin{itemize}
+    \item DFS para estructura: ciclos, puentes, componentes.
+    \item BFS para distancias, radio, diámetro, excentricidad.
+\end{itemize}
+
+\subsection*{MST}
+\begin{itemize}
+    \item Kruskal: ordena aristas.
+    \item Prim: crece desde un árbol parcial.
+\end{itemize}
+
+\subsection*{Coloración}
+\begin{itemize}
+    \item Busca cliques para cotas inferiores.
+    \item Usa bipartición si no hay ciclos impares.
+    \item Usa Brooks para cotas superiores.
+\end{itemize}
+
+\subsection*{Espectral}
+\begin{itemize}
+    \item En bipartitos, el espectro es simétrico respecto a $0$.
+    \item El segundo autovalor laplaciano detecta conectividad fina y comunidades.
+\end{itemize}
+
+\section{Errores típicos}
+\begin{itemize}
+    \item Confundir ``camino'' con ``recorrido'' al interpretar $A^k$.
+    \item Pensar que DFS siempre da distancias mínimas: no, eso lo hace BFS.
+    \item Aplicar Dijkstra con pesos negativos.
+    \item Creer que ``espectro simétrico respecto a 0'' significa que $0$ es autovalor: no necesariamente.
+    \item En polinomio cromático, olvidar que se cuentan coloraciones con vértices etiquetados.
+    \item En planaridad, usar Euler sin comprobar conectividad o sin contar la cara exterior.
+\end{itemize}
+
+\section{Mini lista de resultados para memorizar}
+\[
+\sum \deg(v)=2|E|,
+\qquad
+|E(T)|=|V(T)|-1,
+\qquad
+|V|-|E|+|F|=2.
+\]
+\[
+MM^T=A+D,
+\qquad
+(A^k)_{ij}=\#\{\text{recorridos de longitud }k\text{ de }i\text{ a }j\}.
+\]
+\[
+\chi(C_n)=\begin{cases}2,&n\text{ par}\\3,&n\text{ impar}\end{cases}
+\qquad
+\chi(W_n)=\begin{cases}3,&n\text{ par}\\4,&n\text{ impar}\end{cases}
+\]
+\[
+P_T(k)=k(k-1)^{n-1},
+\qquad
+P_{K_n}(k)=k(k-1)\cdots(k-n+1).
+\]
+\[
+\text{Puente }(v,to) \iff low[to]>tin[v].
+\]
+\[
+\text{bipartito }\iff \text{espectro simétrico respecto a }0.
+\]
+
+\bigskip
+\begin{center}
+\Large\textbf{Suerte en el parcial.}
+\end{center}
+
+\end{document}

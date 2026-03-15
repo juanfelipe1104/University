@@ -1,0 +1,317 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-noshorthands]{babel}
+
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\usepackage{hyperref}
+
+\title{Hoja 1. Problema de Grafos}
+\author{Juan Felipe Rodríguez Córdoba}
+\date{}
+
+\begin{document}
+\maketitle
+\section*{Ejercicio 1}
+
+Busca el número de vértices de los siguientes grafos:
+\begin{enumerate}
+    \item $G$ tiene $9$ aristas y todos sus vértices son de grado $3$.
+    \item $G$ es un grafo completo con $36$ aristas.
+    \item $G$ tiene $13$ aristas, dos de sus vértices son de grado $4$, y los restantes de grado $3$.
+\end{enumerate}
+
+\vspace{15cm}
+
+\section*{Ejercicio 2}
+Describe (es decir, nombra, dibuja, \dots) o explica por qué no puede existir:
+\begin{enumerate}
+    \item un grafo simple con $7$ vértices, todos de grado $3$;
+    \item un grafo simple con $15$ vértices y $110$ aristas;
+    \item dos grafos simples no isomorfos, cada uno con $6$ vértices, todos de grado $2$.
+\end{enumerate}
+
+\vspace{20cm}
+
+\section*{Ejercicio 3}
+Describe (es decir, nombra, dibuja, \dots) o explica por qué no puede existir:
+\begin{enumerate}
+    \item un grafo conexo con $8$ vértices y cuya sucesión de grados sea
+    \[
+    (1,1,1,2,3,4,5,7).
+    \]
+
+    \item un grafo con $20$ vértices y sucesión de grados
+    \[
+    (1,1,1,2,2,2,2,2,2,2,2,2,3,3,3,3,3,4,4,5).
+    \]
+
+    \item un grafo conexo con $25$ vértices y sucesión de grados
+    \[
+    (1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,3,3,4,4).
+    \]
+\end{enumerate}
+
+\vspace{15cm}
+
+\section*{Ejercicio 4}
+Demuéstrese que los dos siguientes grafos son isomorfos. ¿Cuántos isomorfismos distintos hay entre ellos?
+
+\begin{center}
+\begin{tikzpicture}[scale=1.1,
+    every node/.style={circle, fill=black, inner sep=1.8pt},
+    lab/.style={fill=none, inner sep=0pt, font=\small}]
+
+    % Grafo izquierdo
+    \begin{scope}[xshift=0cm]
+        \node (1) at (0,2) {};
+        \node (2) at (1.6,2) {};
+        \node (3) at (3.2,2) {};
+        \node (4) at (0,0) {};
+        \node (5) at (1.6,0) {};
+        \node (6) at (3.2,0) {};
+        \node (7) at (1.6,1) {};
+
+        % aristas exteriores
+        \draw (1)--(4);
+        \draw (2)--(5);
+        \draw (3)--(6);
+
+        % diagonales / interiores
+        \draw (1)--(5);
+        \draw (4)--(2);
+        \draw (2)--(6);
+        \draw (5)--(3);
+
+        \draw (1)--(7);
+        \draw (4)--(7);
+        \draw (7)--(3);
+        \draw (7)--(6);
+        \draw (7)--(5);
+
+        % etiquetas
+        \node[lab, above=2pt of 1] {1};
+        \node[lab, above=2pt of 2] {2};
+        \node[lab, above=2pt of 3] {3};
+        \node[lab, below=2pt of 4] {4};
+        \node[lab, below=2pt of 5] {5};
+        \node[lab, below=2pt of 6] {6};
+        \node[lab, right=2pt of 7] {7};
+    \end{scope}
+
+    % Grafo derecho
+    \begin{scope}[xshift=6.5cm]
+        \node (a) at (1.5,2.2) {};
+        \node (b) at (2.5,1.4) {};
+        \node (c) at (2.5,0.2) {};
+        \node (d) at (1.5,-0.6) {};
+        \node (e) at (0.5,0.2) {};
+        \node (f) at (0.5,1.4) {};
+        \node (h) at (1.5,0.8) {};
+
+        % hexágono exterior
+        \draw (a)--(b)--(c)--(d)--(e)--(f)--(a);
+
+        % conexiones al centro
+        \draw (f)--(h)--(b);
+        \draw (e)--(h)--(c);
+        \draw (a)--(h);
+        \draw (d)--(h);
+
+        % etiquetas
+        \node[lab, above=2pt of a] {$a$};
+        \node[lab, right=3pt of b] {$b$};
+        \node[lab, right=3pt of c] {$c$};
+        \node[lab, below=2pt of d] {$d$};
+        \node[lab, below left=1pt and 2pt of e] {$e$};
+        \node[lab, left=3pt of f] {$f$};
+        \node[lab, left=1pt of h] {$h$};
+    \end{scope}
+
+\end{tikzpicture}
+\end{center}
+
+\vspace{15cm}
+
+\section*{Ejercicio 5}
+Estudia si son isomorfos los siguientes grafos:
+
+\begin{center}
+\begin{tikzpicture}[scale=1.05,
+    every node/.style={circle, fill=black, inner sep=1.8pt},
+    tit/.style={fill=none, inner sep=0pt, font=\normalsize},
+    lab/.style={fill=none, inner sep=0pt, font=\large}]
+
+    % =========================
+    % a)  G1
+    % =========================
+    \begin{scope}[xshift=0cm]
+        \node[tit] at (1.4,2.9) {$G_1$};
+
+        \node (A1) at (0,2.2) {};
+        \node (B1) at (2.8,2.2) {};
+        \node (C1) at (0,0)   {};
+        \node (D1) at (2.8,0)   {};
+        \node (E1) at (1.4,1.5) {};
+        \node (F1) at (0.8,0.9) {};
+        \node (G1) at (1.4,0.5) {};
+        \node (H1) at (2.0,0.9) {};
+
+        \draw (A1)--(B1);
+        \draw (C1)--(D1);
+
+        \draw (B1)--(H1);
+
+        \draw (A1)--(E1);
+        \draw (B1)--(E1);
+
+        \draw (E1)--(F1);
+        \draw (E1)--(H1);
+
+        \draw (F1)--(G1);
+        \draw (H1)--(G1);
+
+        \draw (C1)--(F1);
+        \draw (C1)--(G1);
+        
+        \draw (G1)--(D1);
+    \end{scope}
+
+    % =========================
+    % a)  G2
+    % =========================
+    \begin{scope}[xshift=4.6cm]
+        \node[tit] at (1.4,2.9) {$G_2$};
+
+        \node (A2) at (0,2.2) {};
+        \node (B2) at (2.8,2.2) {};
+        \node (C2) at (0,0)   {};
+        \node (D2) at (2.8,0)   {};
+        \node (E2) at (1.4,1.5) {};
+        \node (F2) at (0.8,0.9) {};
+        \node (G2) at (1.4,0.5) {};
+        \node (H2) at (2.0,0.9) {};
+
+        \draw (A2)--(B2);
+        \draw (C2)--(D2);
+
+        \draw (A2)--(E2);
+        \draw (B2)--(E2);
+
+        \draw (E2)--(F2);
+        \draw (E2)--(H2);
+
+        \draw (F2)--(G2);
+        \draw (H2)--(G2);
+
+        \draw (C2)--(F2);
+        \draw (G2)--(D2);
+        \draw (B2)--(H2);
+        \draw (H2)--(D2);
+    \end{scope}
+
+    \node[lab] at (-0.6,0.45) {a)};
+
+% =========================
+% b)  G3
+% =========================
+\begin{scope}[xshift=10.2cm]
+    \node[tit] at (1.2,2.9) {$G_3$};
+
+    \node (p1) at (0,1.35) {};
+    \node (p2) at (1.0,1.8) {};
+    \node (p3) at (2.1,1.35) {};
+    \node (p4) at (2.1,0.7) {};
+    \node (p5) at (1.35,0) {};
+    \node (p6) at (0.75,0) {};
+    \node (p7) at (0,0.7) {};
+
+    % ciclo exterior
+    \draw (p1)--(p2)--(p3)--(p4)--(p5)--(p6)--(p7)--(p1);
+
+    % cuerdas interiores
+    \draw (p1)--(p4);
+    \draw (p1)--(p5);
+    \draw (p2)--(p5);
+    \draw (p2)--(p6);
+    \draw (p3)--(p6);
+    \draw (p3)--(p7);
+\end{scope}
+
+% =========================
+% b)  G4
+% =========================
+\begin{scope}[xshift=14.1cm]
+    \node[tit] at (1.2,2.9) {$G_4$};
+
+    \node (q1) at (0,1.35) {};
+    \node (q2) at (1.0,1.8) {};
+    \node (q3) at (2.1,1.35) {};
+    \node (q4) at (2.2,0.8) {};
+    \node (q5) at (1.35,0) {};
+    \node (q6) at (0.75,0) {};
+    \node (q7) at (0,0.7) {};
+
+    % ciclo exterior
+    \draw (q1)--(q2)--(q3)--(q4)--(q5)--(q6)--(q7)--(q1);
+
+    % cuerdas interiores
+    \draw (q1)--(q3);
+    \draw (q2)--(q4);
+    \draw (q2)--(q7);
+    \draw (q3)--(q5);
+    \draw (q4)--(q6);
+    \draw (q5)--(q7);
+\end{scope}
+
+    \node[lab] at (9.5,0.45) {b)};
+
+\end{tikzpicture}
+\end{center}
+
+\vspace{15cm}
+
+\section*{Ejercicio 6}
+Sea un grafo $G$ con $n$ vértices y $2$ componentes conexas. En estas condiciones:
+\begin{enumerate}
+    \item ¿cuál es el número máximo y mínimo de aristas que puede tener?
+    \item Comprueba que si $G$ tiene $n$ vértices y $p$ componentes conexas, entonces el número de aristas debe cumplir que
+    \[
+    n-p \le |A(G)| \le \frac{1}{2}(n-p)(n-p+1).
+    \]
+\end{enumerate}
+
+\vspace{20cm}
+
+\section*{Ejercicio 7}
+Dentro de un cuadrado han pintado $20$ puntos y los han unido entre ellos y con los vértices del cuadrado de modo que éste se ha dividido en triángulos (en el dibujo hay un punto marcado a modo de ejemplo). ¿Cuántos triángulos son? Demuéstralo.
+
+\vspace{10cm}
+
+\section*{Ejercicio 8}
+En una reunión de $20$ personas hay, en total, $48$ pares de personas que se conocen.
+\begin{enumerate}
+    \item Justifica por qué hay, al menos, una persona que como mucho conoce a otras cuatro.
+    \item Supongamos que sólo hay una persona que conoce como mucho a cuatro personas. ¿A cuántas personas conoce exactamente?
+\end{enumerate}
+
+\vspace{10cm}
+
+\section*{Ejercicio 11}
+Si $G$ es un árbol con $p$ vértices de grado $1$ y $q$ vértices de grado $4$, y ningún otro vértice, ¿qué relación hay entre $p$ y $q$? Dibuja un árbol que cumpla estas condiciones con $q$ arbitrario.
+
+\vspace{10cm}
+
+\section*{Ejercicio 12}
+Consideremos el grafo que se obtiene al tomar $n$ triángulos con exactamente un vértice común (el número total de vértices es $2n+1$ y el número de aristas es $3n$). ¿Cuántos árboles recubridores tiene?
+
+\end{document}

@@ -17,6 +17,31 @@
 \section*{Ejercicio 1}
 Dada la ecuación $x\,y' = y\,y' + x^2 + y^2$, expresa la ecuación en forma normal, implícita y diferencial.
 
+\subsection*{Solución Ejercicio 1}
+
+Dada
+\[
+x\,y' = y\,y' + x^2 + y^2.
+\]
+
+\textbf{Forma implícita:}
+\[
+xy' - yy' - (x^2+y^2)=0
+\quad\Rightarrow\quad
+(x-y)y'-(x^2+y^2)=0.
+\]
+
+\textbf{Forma normal:}
+\[
+y'=\frac{x^2+y^2}{x-y}.
+\]
+
+\textbf{Forma diferencial:}
+\[
+(x-y)\,dy-(x^2+y^2)\,dx=0
+\quad\Leftrightarrow\quad
+(x^2+y^2)\,dx+(y-x)\,dy=0.
+\]
 \section*{Ejercicio 2}
 Resuelve las siguientes ecuaciones diferenciales:
 
@@ -24,8 +49,60 @@ a) $y' = \cos(3x) + 5$
 
 b) $\dfrac{1}{x}\,y' = e^x$
 
+\subsection*{Solución Ejercicio 2}
+
+\textbf{a)} \(\;y'=\cos(3x)+5\).
+
+\[
+\frac{dy}{dx}=\cos(3x)+5
+\quad\Rightarrow\quad
+y=\int(\cos(3x)+5)\,dx
+=\frac{1}{3}\sin(3x)+5x+C.
+\]
+
+\[
+\boxed{\,y(x)=\frac{1}{3}\sin(3x)+5x+C\,}
+\]
+
+\textbf{b)} \(\;\frac1x\,y'=e^x\).
+
+\[
+y'=x e^x
+\quad\Rightarrow\quad
+y=\int x e^x\,dx.
+\]
+Integración por partes:
+\[
+\int x e^x\,dx = x e^x-\int e^x\,dx=(x-1)e^x+C.
+\]
+
+\[
+\boxed{\,y(x)=(x-1)e^x+C\,}
+\]
+
 \section*{Ejercicio 3}
 Resuelve la ecuación $(1 + e^x)\,y\,y' = e^x$.
+
+\subsection*{Solución Ejercicio 3}
+
+\[
+(1+e^x)\,y\,y'=e^x.
+\]
+
+\[
+y\,dy=\frac{e^x}{1+e^x}\,dx.
+\]
+
+\[
+\int y\,dy=\int\frac{e^x}{1+e^x}\,dx
+\quad\Rightarrow\quad
+\frac{y^2}{2}=\ln(1+e^x)+C.
+\]
+
+Equivalente:
+\[
+\boxed{\,y^2=2\ln(1+e^x)+K\,}
+\]
 
 \section*{Ejercicio 4}
 Resuelve el problema de valor inicial
@@ -36,44 +113,448 @@ y(1) = 1.
 \end{cases}
 \]
 
+\subsection*{Solución Ejercicio 4}
+
+PVI:
+\[
+\begin{cases}
+(x-4)y^4\,dx - x^3(y^2-3)\,dy=0,\\
+y(1)=1.
+\end{cases}
+\]
+
+Separando variables:
+\[
+(x-4)y^4\,dx=x^3(y^2-3)\,dy
+\quad\Rightarrow\quad
+\left(\frac{x-4}{x^3}\right)\,dx=\left(\frac{y^2-3}{y^4}\right)\,dy.
+\]
+
+tal que $x \neq 0$ e $y \neq 0$
+
+Integramos:
+\[
+\int\left(x^{-2}-4x^{-3}\right)\,dx=\int\left(y^{-2}-3y^{-4}\right)\,dy.
+\]
+
+\[
+-\frac{1}{x}+\frac{2}{x^2}=-\frac{1}{y}+\frac{1}{y^3}+C
+\quad\Leftrightarrow\quad
+\frac{1}{y}-\frac{1}{y^3}-\frac{1}{x}+\frac{2}{x^2}=C.
+\]
+
+Comprobamos el caso $y = 0$
+
+\(y=0\) es solución. Además, es solución singular
+
+Aplicando \(y(1)=1\):
+\[
+C=\frac{1}{1}-\frac{1}{1}-\frac{1}{1}+\frac{2}{1}= 1.
+\]
+
+Por tanto, la solución del PVI queda:
+\[
+\boxed{\;\frac{1}{y}-\frac{1}{y^3}-\frac{1}{x}+\frac{2}{x^2}=1\;}
+\]
+
 \section*{Ejercicio 5}
 Encuentra la solución general de la ecuación $(1 + y^2) + x\,y\,y' = 0$.
+
+\subsection*{Solución Ejercicio 5}
+
+\[
+(1+y^2)+x y y'=0
+\quad\Rightarrow\quad
+x y \,y'=-(1+y^2).
+\]
+
+\[
+\frac{y}{1+y^2}\,dy=-\frac{1}{x}\,dx.
+\]
+
+\[
+\int \frac{y}{1+y^2}\,dy=\int -\frac{1}{x}\,dx
+\quad\Rightarrow\quad
+\frac12\ln(1+y^2)=-\ln|x|+C.
+\]
+
+\[
+\ln\!\left(|x|\sqrt{1+y^2}\right)=C
+\quad\Rightarrow\quad
+x^2(1+y^2)=C.
+\]
+
+\[
+\boxed{\,x^2(1+y^2)=C\,}
+\]
 
 \section*{Ejercicio 6}
 Halla la solución general de la ecuación $(y^2 + x\,y^2)\,y' + x - yx = 0$.
 
+\subsection*{Solución Ejercicio 6}
+
+\[
+(y^2+xy^2)y' + x-yx=0
+\quad\Rightarrow\quad
+y^2(1+x)y'=x(y-1).
+\]
+
+Separación:
+\[
+\frac{y^2}{y-1}\,dy=\frac{x}{x+1}\,dx.
+\]
+
+tal que $x + 1 \neq 0$ e $y - 1 \neq 0$
+
+Integramos:
+\[
+\int\left(y+1+\frac{1}{y-1}\right)\,dy=\int\left(1-\frac{1}{x+1}\right)\,dx.
+\]
+
+\[
+\frac{y^2}{2}+y+\ln|y-1|=x-\ln|x+1|+C.
+\]
+
+Comprobamos el caso $y = 1$
+
+\(y=1\) es solución. Además es solución singular.
+
+\[
+\boxed{\,y^2+2y-2x+\ln((y-1)^2(x+1)^2)=C\,}
+\]
+
 \section*{Ejercicio 7}
 Resuelve la ecuación $(x^2 - 3y^2)\,dx + 2xy\,dy = 0$.
+
+\subsection*{Solución Ejercicio 7}
+
+\[
+(x^2-3y^2)\,dx+2xy\,dy=0.
+\]
+
+Comprobamos que es homogénea:
+
+\[
+M(x,y) = x^2-3y^2 \rightarrow M(\lambda x, \lambda y) = (x\lambda)^2 - 3(y\lambda)^2 = \lambda^2M(x,y)
+\]
+
+Es homogénea (grado 2). Por lo que usamos el cambio \(y=ux\) tal que (\(u=u(x)\)):
+\[
+y'=u+xu'.
+\]
+
+\[
+y' = \frac{3y^2-x^2}{2xy} \rightarrow u + xu' = \frac{3(ux)^2 - x^2}{2ux^2}\rightarrow u + xu' = \frac{3u^2-1}{2u} \rightarrow xu' = \frac{u^2-1}{2u} \rightarrow \frac{1}{x}dx = \frac{2u}{u^2-1}
+\]
+
+tal que $x \neq 0$ y $u^2 \neq 1$
+
+\[
+\int\frac{1}{x}dx = \int\frac{2u}{u^2-1}du
+\]
+
+\[
+
+\]
+
+La resolución lleva a la relación implícita:
+\[
+\boxed{\,x^3=C\,(y^2-x^2)\,}
+\]
+
+Además, aparecen soluciones singulares:
+\[
+y=x,\qquad y=-x.
+\]
 
 \section*{Ejercicio 8}
 Resuelve la ecuación $4x - 3y + y'(2y - 3x) = 0$.
 
+\subsection*{Solución Ejercicio 8}
+
+\[
+4x-3y+y'(2y-3x)=0
+\quad\Rightarrow\quad
+(4x-3y)\,dx+(2y-3x)\,dy=0.
+\]
+
+Es homogénea. La solución implícita queda:
+\[
+\boxed{\,y^2-3xy+2x^2=C\,}
+\]
+
+Soluciones singulares:
+\[
+y=x,\qquad y=2x.
+\]
+
 \section*{Ejercicio 9}
 Resuelve la ecuación $(x + y - 2)\,dx + (x - y + 4)\,dy = 0$.
+
+\subsection*{Solución Ejercicio 9}
+
+\[
+(x+y-2)\,dx+(x-y+4)\,dy=0.
+\]
+
+Tras trasladar al punto de intersección \((x_0,y_0)=(-1,3)\):
+\[
+X=x+1,\qquad Y=y-3,
+\]
+se obtiene una ecuación homogénea en \(X,Y\) cuya integración conduce a:
+
+\[
+\boxed{\,x^2-4x+2xy-y^2+8y-14=C\,}
+\]
 
 \section*{Ejercicio 10}
 Resuelve la ecuación $(x + y - 1)\,dx + (2x + 2y - 1)\,dy = 0$.
 
+\subsection*{Solución Ejercicio 10}
+
+\[
+(x+y-1)\,dx+(2x+2y-1)\,dy=0.
+\]
+
+Se reduce a homogénea con \(u=x+y\). La integración da:
+\[
+\boxed{\,x=2(x+y)-\ln|x+y|+C\,}
+\]
+
+Además, \(y=-x\) es solución singular.
+
 \section*{Ejercicio 11}
 Determina la solución general de la ecuación $(3x^2 + 4xy)\,dx + (2x^2 + 2y)\,dy = 0$.
+
+\subsection*{Solución Ejercicio 11}
+
+\[
+(3x^2+4xy)\,dx+(2x^2+2y)\,dy=0.
+\]
+
+Sea \(M(x,y)=3x^2+4xy\), \(N(x,y)=2x^2+2y\).
+\[
+\frac{\partial M}{\partial y}=4x
+\quad\text{y}\quad
+\frac{\partial N}{\partial x}=4x
+\Rightarrow\text{ exacta.}
+\]
+
+Potencial:
+\[
+F(x,y)=\int M\,dx=\int(3x^2+4xy)\,dx=x^3+2x^2y+C(y).
+\]
+
+Derivando respecto de \(y\):
+\[
+\frac{\partial F}{\partial y}=2x^2+C'(y)=N=2x^2+2y
+\Rightarrow C'(y)=2y \Rightarrow C(y)=y^2.
+\]
+
+\[
+\boxed{\,x^3+2x^2y+y^2+C=0\,}
+\]
 
 \section*{Ejercicio 12}
 Resuelve la ecuación diferencial $(y^3 - kxy^4 - 2x)\,dx + (3xy^2 + 20x^2y^3)\,dy = 0$ eligiendo un valor de $k$ para que la ecuación sea exacta.
 
+\subsection*{Solución Ejercicio 12}
+
+\[
+(y^3-kxy^4-2x)\,dx+(3xy^2+20x^2y^3)\,dy=0.
+\]
+
+\(M=y^3-kxy^4-2x\), \(N=3xy^2+20x^2y^3\).
+Condición de exactitud:
+\[
+\frac{\partial M}{\partial y}=3y^2-4kxy^3,
+\qquad
+\frac{\partial N}{\partial x}=3y^2+40xy^3.
+\]
+Igualando:
+\[
+3y^2-4kxy^3=3y^2+40xy^3
+\Rightarrow -4k=40 \Rightarrow \boxed{k=-10}.
+\]
+
+Con \(k=-10\), se integra:
+\[
+F(x,y)=\int M\,dx=\int(y^3+10xy^4-2x)\,dx
+=xy^3+5x^2y^4-x^2+C(y).
+\]
+\[
+\frac{\partial F}{\partial y}=3xy^2+20x^2y^3 + C'(y)=N
+\Rightarrow C'(y)=0.
+\]
+
+\[
+\boxed{\,xy^3+5x^2y^4-x^2+C=0\,}
+\]
+
 \section*{Ejercicio 13}
 Resuelve la ecuación diferencial $x(2x^2 + y^2)\,dx + y(x^2 + 2y^2)\,dy = 0$.
+
+\subsection*{Solución Ejercicio 13}
+
+\[
+x(2x^2+y^2)\,dx+y(x^2+2y^2)\,dy=0.
+\]
+
+\(M=2x^3+xy^2\), \(N=x^2y+2y^3\).
+\[
+\frac{\partial M}{\partial y}=2xy=\frac{\partial N}{\partial x}
+\Rightarrow\text{ exacta.}
+\]
+
+Potencial:
+\[
+F(x,y)=\int M\,dx=\int(2x^3+xy^2)\,dx=\frac12x^4+\frac12x^2y^2+C(y).
+\]
+
+\[
+\frac{\partial F}{\partial y}=x^2y+C'(y)=N=x^2y+2y^3
+\Rightarrow C'(y)=2y^3 \Rightarrow C(y)=\frac12y^4.
+\]
+
+\[
+\boxed{\,x^4+x^2y^2+y^4+C=0\,}
+\]
 
 \section*{Ejercicio 14}
 Resuelve la ecuación $(1 - x^2y)\,dx + x^2(y - x)\,dy = 0$ sabiendo que admite un factor integrante de la forma $\mu = \mu(x)$.
 
+\subsection*{Solución Ejercicio 14}
+
+\[
+(1-x^2y)\,dx+x^2(y-x)\,dy=0,
+\qquad \mu=\mu(x).
+\]
+
+\(M=1-x^2y\), \(N=x^2(y-x)\).
+Se busca \(\mu(x)\) tal que \(\mu M\,dx+\mu N\,dy\) sea exacta.
+Se obtiene:
+\[
+\frac{\mu'}{\mu}=-\frac{2}{x}
+\Rightarrow
+\mu(x)=x^{-2}.
+\]
+
+Multiplicando:
+\[
+\left(\frac{1}{x^2}-y\right)\,dx+(y-x)\,dy=0.
+\]
+
+Ahora es exacta y un potencial es:
+\[
+F(x,y)=\int (y-x)\,dy=\frac{y^2}{2}-xy+C(x).
+\]
+\[
+\frac{\partial F}{\partial x}=-y+C'(x)=\frac{1}{x^2}-y
+\Rightarrow C'(x)=\frac{1}{x^2}\Rightarrow C(x)=-\frac{1}{x}.
+\]
+
+\[
+\boxed{\,\frac{y^2}{2}-xy-\frac{1}{x}+C=0\,}
+\]
+
 \section*{Ejercicio 15}
 Resuelve la ecuación $y\,dx + 2x\,dy = 0$ encontrando el factor integrante adecuado.
+
+\subsection*{Solución Ejercicio 15}
+
+\[
+y\,dx+2x\,dy=0.
+\]
+
+No es exacta. Un factor integrante posible es \(\mu(y)=y\).
+Multiplicando por \(y\):
+\[
+y^2\,dx+2xy\,dy=0.
+\]
+
+Ahora es exacta:
+\[
+F(x,y)=\int y^2\,dx=xy^2+C(y),
+\quad
+\frac{\partial F}{\partial y}=2xy+C'(y)=2xy
+\Rightarrow C'(y)=0.
+\]
+
+\[
+\boxed{\,xy^2+C=0\,}
+\]
 
 \section*{Ejercicio 16}
 Resuelve $(e^{x+y} - y)\,dx + (x e^{x+y} + 1)\,dy = 0$ encontrando el factor integrante adecuado.
 
+\subsection*{Solución Ejercicio 16}
+
+\[
+(e^{x+y}-y)\,dx+(xe^{x+y}+1)\,dy=0.
+\]
+
+No es exacta. Se comprueba que admite factor integrante \(\mu(x)\) y resulta:
+\[
+\boxed{\mu(x)=e^{-x}}.
+\]
+
+Multiplicando:
+\[
+e^{-x}(e^{x+y}-y)\,dx+e^{-x}(xe^{x+y}+1)\,dy=0
+\]
+\[
+(e^y-ye^{-x})\,dx+(xe^y+e^{-x})\,dy=0.
+\]
+
+Es exacta. Un potencial:
+\[
+F(x,y)=\int (xe^y+e^{-x})\,dy=xe^y+ye^{-x}+C(x).
+\]
+\[
+\frac{\partial F}{\partial x}=e^y-ye^{-x}+C'(x)=e^y-ye^{-x}
+\Rightarrow C'(x)=0.
+\]
+
+\[
+\boxed{\,xe^y+ye^{-x}+C=0\,}
+\]
+
 \section*{Ejercicio 17}
 Resuelve la ecuación $y^2 + (xy + 1)\,y' = 0$ sabiendo que admite un factor integrante que es función de $xy$.
+
+\subsection*{Solución Ejercicio 17}
+
+\[
+y^2+(xy+1)y'=0.
+\]
+
+En forma diferencial:
+\[
+y^2\,dx+(xy+1)\,dy=0.
+\]
+No es exacta. Se indica que existe un factor integrante \(\mu=\mu(xy)\).
+Tomando \(z=xy\), se obtiene:
+\[
+\boxed{\mu(z)=e^{z}=e^{xy}}.
+\]
+
+Multiplicando:
+\[
+e^{xy}y^2\,dx+e^{xy}(xy+1)\,dy=0.
+\]
+
+Es exacta. Un potencial:
+\[
+F(x,y)=\int e^{xy}y^2\,dx=ye^{xy}+C(y).
+\]
+\[
+\frac{\partial F}{\partial y}=e^{xy}+xye^{xy}+C'(y)=e^{xy}(xy+1)
+\Rightarrow C'(y)=0.
+\]
+
+\[
+\boxed{\,y e^{xy}+C=0\,}
+\]
 
 \section*{Ejercicio 18}
 Resuelve la ecuación $(x^2 + 1)\,y' + 4xy = 0$.

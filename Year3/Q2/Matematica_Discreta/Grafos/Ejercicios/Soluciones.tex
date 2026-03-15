@@ -1,0 +1,1241 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-noshorthands]{babel}
+
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\usepackage{hyperref}
+
+\title{Hoja 1. Solucion Problema de Grafos}
+\author{Juan Felipe Rodríguez Córdoba}
+\date{}
+
+\begin{document}
+\maketitle
+\section*{Solucion Ejercicio 1}
+Usaremos en todos los apartados el \textbf{lema del apretón de manos}, que dice que
+\[
+\sum_{v \in V(G)} \deg(v)=2|A(G)|.
+\]
+
+\begin{enumerate}
+    \item Si $G$ tiene $9$ aristas, entonces
+    \[
+    2|A(G)|=2\cdot 9=18.
+    \]
+    Como todos los vértices tienen grado $3$, si $n$ es el número de vértices, se cumple
+    \[
+    3n=18.
+    \]
+    Por tanto,
+    \[
+    n=6.
+    \]
+
+    Luego el grafo tiene \boxed{6 \text{ vértices}}.
+
+    \item Si $G$ es un grafo completo con $n$ vértices, entonces su número de aristas es
+    \[
+    |A(G)|=\binom{n}{2}=\frac{n(n-1)}{2}.
+    \]
+    Como tiene $36$ aristas,
+    \[
+    \frac{n(n-1)}{2}=36.
+    \]
+    Multiplicando por $2$:
+    \[
+    n(n-1)=72.
+    \]
+    Entonces
+    \[
+    n^2-n-72=0.
+    \]
+    Factorizando:
+    \[
+    (n-9)(n+8)=0.
+    \]
+    Como $n>0$, se obtiene
+    \[
+    n=9.
+    \]
+
+    Luego el grafo tiene \boxed{9 \text{ vértices}}.
+
+    \item Sea $n$ el número de vértices. Sabemos que hay $13$ aristas, así que
+    \[
+    2|A(G)|=2\cdot 13=26.
+    \]
+    Además, dos vértices tienen grado $4$ y los restantes $n-2$ vértices tienen grado $3$. Por tanto,
+    \[
+    2\cdot 4+(n-2)\cdot 3=26.
+    \]
+    Es decir,
+    \[
+    8+3n-6=26,
+    \]
+    \[
+    3n+2=26,
+    \]
+    \[
+    3n=24,
+    \]
+    \[
+    n=8.
+    \]
+
+    Luego el grafo tiene \boxed{8 \text{ vértices}}.
+\end{enumerate}
+
+Por tanto, las respuestas son:
+\[
+\boxed{6,\ 9,\ 8.}
+\]
+
+\section*{Solución Ejercicio 2}
+
+\begin{enumerate}
+    \item Queremos estudiar si puede existir un grafo simple con $7$ vértices, todos de grado $3$.
+
+    Por el lema del apretón de manos,
+    \[
+    \sum_{v\in V(G)} \deg(v)=2|A(G)|.
+    \]
+    Si los $7$ vértices tienen grado $3$, entonces
+    \[
+    \sum_{v\in V(G)} \deg(v)=7\cdot 3=21.
+    \]
+    Pero esto es imposible, porque $2|A(G)|$ siempre es un número par.
+
+    Por tanto, \textbf{no puede existir} un grafo simple con $7$ vértices, todos de grado $3$.
+
+    \item Queremos estudiar si puede existir un grafo simple con $15$ vértices y $110$ aristas.
+
+    En un grafo simple con $n$ vértices, el número máximo de aristas es el del grafo completo $K_n$, es decir,
+    \[
+    \binom{n}{2}=\frac{n(n-1)}{2}.
+    \]
+    Para $n=15$,
+    \[
+    \binom{15}{2}=\frac{15\cdot 14}{2}=105.
+    \]
+    Luego cualquier grafo simple con $15$ vértices tiene como máximo $105$ aristas.
+
+    Como
+    \[
+    110>105,
+    \]
+    \textbf{no puede existir} un grafo simple con $15$ vértices y $110$ aristas.
+
+    \item Queremos saber si pueden existir dos grafos simples no isomorfos, cada uno con $6$ vértices, todos de grado $2$.
+
+    Si todos los vértices tienen grado $2$, entonces cada componente conexa del grafo debe ser un ciclo. Por tanto, un grafo simple con $6$ vértices, todos de grado $2$, tiene que ser una unión disjunta de ciclos cuya suma de longitudes sea $6$.
+
+    Como en un grafo simple los ciclos tienen longitud al menos $3$, las únicas posibilidades son:
+    \[
+    6=6
+    \qquad \text{o} \qquad
+    6=3+3.
+    \]
+    Es decir, los únicos tipos posibles son:
+    \begin{itemize}
+        \item un ciclo de longitud $6$, esto es, $C_6$;
+        \item la unión disjunta de dos triángulos, esto es, $C_3\cup C_3$.
+    \end{itemize}
+
+    Estos dos grafos no son isomorfos, porque uno es conexo y el otro no.
+
+    Por tanto, \textbf{sí existen} dos grafos simples no isomorfos con $6$ vértices, todos de grado $2$. Un ejemplo es:
+    \[
+    C_6
+    \qquad \text{y} \qquad
+    C_3\cup C_3.
+    \]
+\end{enumerate}
+
+\section*{Solución Ejercicio 3}
+
+\begin{enumerate}
+    \item Queremos estudiar si puede existir un grafo conexo con sucesión de grados
+    \[
+    (1,1,1,2,3,4,5,7).
+    \]
+
+    Observemos primero que la suma de los grados es
+    \[
+    1+1+1+2+3+4+5+7=24,
+    \]
+    que es par. Por tanto, el lema del apretón de manos no impide su existencia.
+
+    Ahora bien, como hay un vértice de grado $7$ y el grafo tiene $8$ vértices, ese vértice debe estar unido a todos los demás.
+
+    En particular, cada vértice de grado $1$ debe estar unido a ese vértice de grado $7$. Pero entonces no puede estar unido a ningún otro vértice.
+
+    Consideremos ahora el vértice de grado $5$. Como no puede estar unido a ninguno de los tres vértices de grado $1$ (pues éstos ya han agotado su único enlace con el vértice de grado $7$), tampoco puede estar unido a sí mismo. Por tanto, aparte del vértice de grado $7$, sólo podría unirse a los vértices de grados
+    \[
+    2,\ 3,\ 4,
+    \]
+    es decir, a sólo $4$ vértices en total:
+    \[
+    7,\ 2,\ 3,\ 4.
+    \]
+    Pero eso contradice que tenga grado $5$.
+
+    Luego \textbf{no puede existir} un grafo conexo con esa sucesión de grados.
+
+    \item Queremos estudiar si puede existir un grafo con sucesión de grados
+    \[
+    (1,1,1,2,2,2,2,2,2,2,2,2,3,3,3,3,3,4,4,5).
+    \]
+
+    La suma de los grados es
+    \[
+    3\cdot 1+10\cdot 2+5\cdot 3+2\cdot 4+5
+    =3+20+15+8+5=51.
+    \]
+    Pero por el lema del apretón de manos, la suma de los grados de un grafo debe ser igual a $2|A(G)|$, y por tanto debe ser par.
+
+    Como $51$ es impar, \textbf{no puede existir} un grafo con esa sucesión de grados.
+
+    \item Queremos estudiar si puede existir un grafo conexo con sucesión de grados
+    \[
+    (1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,3,3,4,4).
+    \]
+
+    Contemos cuántos vértices hay de cada grado:
+    \begin{itemize}
+        \item $12$ vértices de grado $1$,
+        \item $9$ vértices de grado $2$,
+        \item $2$ vértices de grado $3$,
+        \item $2$ vértices de grado $4$.
+    \end{itemize}
+
+    La suma de los grados es
+    \[
+    12\cdot 1+9\cdot 2+2\cdot 3+2\cdot 4
+    =12+18+6+8=44,
+    \]
+    luego el número de aristas sería
+    \[
+    |A(G)|=\frac{44}{2}=22.
+    \]
+
+    Pero un grafo conexo con $25$ vértices debe tener al menos
+    \[
+    25-1=24
+    \]
+    aristas.
+
+    Aquí tendríamos sólo $22$ aristas, lo cual es imposible para un grafo conexo.
+
+    Por tanto, \textbf{no puede existir} un grafo conexo con esa sucesión de grados.
+\end{enumerate}
+
+\subsection*{Solución Ejercicio 4}
+
+Observemos que en ambos grafos hay un único vértice de grado $6$:
+\[
+7 \quad \text{en el primer grafo}, \qquad h \quad \text{en el segundo.}
+\]
+Por tanto, cualquier isomorfismo debe enviar necesariamente
+\[
+7 \longmapsto h.
+\]
+
+Además, si eliminamos esos vértices, en ambos casos los seis vértices restantes forman un ciclo de longitud $6$:
+\[
+1-5-3-6-2-4-1
+\]
+en el primer grafo, y
+\[
+a-b-c-d-e-f-a
+\]
+en el segundo.
+
+Así pues, los dos grafos son dos representaciones del mismo grafo: una rueda con $6$ vértices en el borde y un vértice central.
+
+Un isomorfismo concreto es
+\[
+\varphi(7)=h,
+\]
+y sobre el ciclo exterior, por ejemplo,
+\[
+\varphi(1)=a,\qquad
+\varphi(5)=b,\qquad
+\varphi(3)=c,\qquad
+\varphi(6)=d,\qquad
+\varphi(2)=e,\qquad
+\varphi(4)=f.
+\]
+
+Comprobamos que esta aplicación preserva adyacencias:
+\begin{itemize}
+    \item el ciclo exterior
+    \[
+    1-5-3-6-2-4-1
+    \]
+    se transforma en
+    \[
+    a-b-c-d-e-f-a;
+    \]
+    \item y como $7$ está unido a todos los vértices del ciclo exterior, y $h$ también, las aristas incidentes en el centro también se preservan.
+\end{itemize}
+Por tanto, $\varphi$ es un isomorfismo.
+
+\medskip
+
+Para contar cuántos isomorfismos distintos hay, basta contar los automorfismos del ciclo exterior $C_6$, ya que el vértice central queda forzado:
+\[
+7 \mapsto h.
+\]
+En un ciclo de longitud $6$, un isomorfismo queda determinado por:
+\begin{itemize}
+    \item la imagen de un vértice del ciclo exterior ($6$ posibilidades),
+    \item y el sentido en que se recorre el ciclo (horario o antihorario, $2$ posibilidades).
+\end{itemize}
+Por tanto, el número total de isomorfismos es
+\[
+6\cdot 2 = 12.
+\]
+
+En conclusión, los dos grafos son isomorfos y el número de isomorfismos distintos entre ellos es
+\[
+\boxed{12}.
+\]
+
+\section*{Solución Ejercicio 5}
+
+\subsection*{a) Comparación entre \(G_1\) y \(G_2\)}
+
+Comparamos primero las sucesiones de grados.
+
+En \(G_1\), la sucesión de grados es
+\[
+(2,2,3,3,3,3,4,4).
+\]
+En efecto, hay dos vértices de grado \(2\), cuatro vértices de grado \(3\) y dos vértices de grado \(4\).
+
+En \(G_2\), la sucesión de grados es también
+\[
+(2,2,3,3,3,3,4,4).
+\]
+
+Por tanto, la sucesión de grados no basta para decidir si los grafos son isomorfos.
+
+Consideremos ahora los vértices de grado \(4\). En \(G_1\), los dos vértices de grado \(4\) no son adyacentes. En cambio, en \(G_2\), los dos vértices de grado \(4\) sí son adyacentes.
+
+Esta propiedad se preserva por isomorfismos: si dos grafos fueran isomorfos, la imagen de un vértice de grado \(4\) tendría que ser un vértice de grado \(4\), y además la adyacencia entre tales vértices tendría que conservarse.
+
+Como en un grafo los dos vértices de grado \(4\) son adyacentes y en el otro no, concluimos que los grafos no pueden ser isomorfos. Por tanto,
+\[
+\boxed{G_1 \not\cong G_2.}
+\]
+
+\subsubsection*{b) Comparación entre \(G_3\) y \(G_4\)}
+
+Comparamos primero las sucesiones de grados.
+
+En \(G_3\), los grados son
+\[
+g(a)=4,\quad g(b)=4,\quad g(c)=3,\quad g(d)=4,\quad g(e)=4,\quad g(f)=3,\quad g(g)=4,
+\]
+por lo que su sucesión de grados es
+\[
+(3,3,4,4,4,4,4).
+\]
+
+En \(G_4\), los grados son
+\[
+g(a')=4,\quad g(b')=3,\quad g(c')=4,\quad g(d')=3,\quad g(e')=4,\quad g(f')=4,\quad g(g')=4,
+\]
+y por tanto su sucesión de grados es también
+\[
+(3,3,4,4,4,4,4).
+\]
+
+Luego la sucesión de grados no basta para decidir si los grafos son isomorfos.
+
+Vamos ahora a contar los ciclos de longitud \(3\), es decir, los triángulos.
+
+En \(G_3\) aparecen los siguientes \(5\) ciclos \(C_3\):
+\[
+a b e,\qquad a d e,\qquad a d g,\qquad b e f,\qquad c d g.
+\]
+Por tanto, \(G_3\) contiene exactamente \(5\) triángulos.
+
+En \(G_4\) aparecen los siguientes \(6\) ciclos \(C_3\):
+\[
+a'b'c',\qquad a'b'g',\qquad a'f'g',\qquad c'd'e',\qquad d'e'f',\qquad e'f'g'.
+\]
+Por tanto, \(G_4\) contiene exactamente \(6\) triángulos.
+
+Pero el número de ciclos de longitud \(3\) se preserva por isomorfismos. Como
+\[
+G_3 \text{ tiene } 5 \text{ triángulos}
+\qquad \text{y} \qquad
+G_4 \text{ tiene } 6 \text{ triángulos},
+\]
+los dos grafos no pueden ser isomorfos.
+
+En consecuencia,
+\[
+\boxed{G_3 \not\cong G_4.}
+\]
+
+\subsection*{Conclusión}
+
+La respuesta final es
+\[
+\boxed{G_1 \not\cong G_2 \qquad \text{y} \qquad G_3 \not\cong G_4.}
+\]
+
+\section*{Solución Ejercicio 6}
+
+\begin{enumerate}
+    \item Supongamos que \(G\) tiene \(n\) vértices y exactamente \(2\) componentes conexas.
+
+    \paragraph{Número mínimo de aristas.}
+    Para que una componente conexa con \(k\) vértices sea conexa, debe tener al menos \(k-1\) aristas. Por tanto, si las dos componentes tienen \(n_1\) y \(n_2\) vértices, con
+    \[
+    n_1+n_2=n,
+    \]
+    el número total de aristas verifica
+    \[
+    |A(G)|\ge (n_1-1)+(n_2-1)=n-2.
+    \]
+    Este mínimo se alcanza cuando ambas componentes son árboles.
+
+    Luego el número mínimo de aristas es
+    \[
+    \boxed{n-2.}
+    \]
+
+    \paragraph{Número máximo de aristas.}
+    Para maximizar el número de aristas, cada componente debe ser completa. Si las componentes tienen \(n_1\) y \(n_2\) vértices, entonces
+    \[
+    |A(G)|\le \binom{n_1}{2}+\binom{n_2}{2}.
+    \]
+    Como \(n_1+n_2=n\), queremos maximizar esta suma.
+
+    Observemos que
+    \[
+    \binom{n_1}{2}+\binom{n_2}{2}
+    =\frac{n_1(n_1-1)}{2}+\frac{n_2(n_2-1)}{2}.
+    \]
+    Esta cantidad es máxima cuando una componente tiene el mayor número posible de vértices y la otra el menor posible, es decir, cuando
+    \[
+    n_1=n-1,\qquad n_2=1.
+    \]
+    En ese caso,
+    \[
+    |A(G)|=\binom{n-1}{2}+\binom{1}{2}=\binom{n-1}{2}.
+    \]
+    Por tanto, el número máximo de aristas es
+    \[
+    \boxed{\binom{n-1}{2}=\frac{(n-1)(n-2)}{2}.}
+    \]
+
+    \item Sea ahora \(G\) un grafo con \(n\) vértices y \(p\) componentes conexas.
+
+    \paragraph{Cota inferior.}
+    Supongamos que las componentes conexas tienen \(n_1,n_2,\dots,n_p\) vértices, con
+    \[
+    n_1+n_2+\cdots+n_p=n.
+    \]
+    Como cada componente conexa con \(n_i\) vértices tiene al menos \(n_i-1\) aristas, se obtiene
+    \[
+    |A(G)|\ge \sum_{i=1}^p (n_i-1).
+    \]
+    Entonces
+    \[
+    |A(G)|\ge \sum_{i=1}^p n_i-\sum_{i=1}^p 1
+    =n-p.
+    \]
+    Luego
+    \[
+    \boxed{|A(G)|\ge n-p.}
+    \]
+
+    \paragraph{Cota superior.}
+    Para maximizar el número de aristas, cada componente debe ser completa. Así,
+    \[
+    |A(G)|\le \sum_{i=1}^p \binom{n_i}{2}.
+    \]
+    Esta suma es máxima cuando una componente contiene el mayor número posible de vértices y las otras \(p-1\) componentes contienen un solo vértice cada una. Es decir,
+    \[
+    n_1=n-p+1,\qquad n_2=\cdots=n_p=1.
+    \]
+    Entonces
+    \[
+    |A(G)|\le \binom{n-p+1}{2}+(p-1)\binom{1}{2}.
+    \]
+    Como
+    \[
+    \binom{1}{2}=0,
+    \]
+    resulta
+    \[
+    |A(G)|\le \binom{n-p+1}{2}.
+    \]
+    Por tanto,
+    \[
+    |A(G)|\le \frac{(n-p+1)(n-p)}{2}.
+    \]
+
+    En consecuencia,
+    \[
+    \boxed{n-p \le |A(G)| \le \frac{1}{2}(n-p)(n-p+1).}
+    \]
+\end{enumerate}
+
+\section*{Solución Ejercicio 7}
+
+Consideremos el grafo plano obtenido al dividir el cuadrado en triángulos.
+
+\medskip
+
+Los vértices de este grafo son:
+\begin{itemize}
+    \item los \(20\) puntos interiores,
+    \item los \(4\) vértices del cuadrado.
+\end{itemize}
+Por tanto, el número total de vértices es
+\[
+V=20+4=24.
+\]
+
+Sea \(E\) el número de aristas y sea \(F\) el número de caras del grafo plano. Como el grafo está dibujado dentro del cuadrado, las caras interiores son exactamente los triángulos en que queda dividido el cuadrado, y además hay una cara exterior. Si llamamos \(T\) al número de triángulos, entonces
+\[
+F=T+1.
+\]
+
+Ahora aplicamos la fórmula de Euler para grafos planos conexos:
+\[
+V-E+F=2.
+\]
+Sustituyendo \(V=24\) y \(F=T+1\), obtenemos
+\[
+24-E+(T+1)=2,
+\]
+es decir,
+\[
+T=E-23.
+\]
+
+Nos falta relacionar \(E\) y \(T\). Para ello contamos incidencias arista-cara.
+
+Cada triángulo tiene \(3\) lados, luego la suma de lados de todas las caras triangulares es
+\[
+3T.
+\]
+Pero en esa cuenta:
+\begin{itemize}
+    \item cada arista interior se cuenta dos veces, porque separa dos triángulos;
+    \item cada lado del cuadrado se cuenta una sola vez, porque pertenece a un único triángulo interior.
+\end{itemize}
+
+Como el cuadrado tiene \(4\) lados, resulta
+\[
+3T = 2(E-4)+4 = 2E-4.
+\]
+Por tanto,
+\[
+2E=3T+4.
+\]
+
+Sustituyendo ahora \(T=E-23\):
+\[
+2E=3(E-23)+4.
+\]
+Entonces
+\[
+2E=3E-69+4=3E-65,
+\]
+y de aquí
+\[
+E=65.
+\]
+Finalmente,
+\[
+T=E-23=65-23=42.
+\]
+
+Por tanto, el número de triángulos es
+\[
+\boxed{42}.
+\]
+
+\subsection*{Observación}
+
+En general, si un polígono de \(m\) lados contiene \(n\) puntos interiores y se triangula sin cruces, el número de triángulos es
+\[
+m+2n-2.
+\]
+En este ejercicio, \(m=4\) y \(n=20\), luego
+\[
+4+2\cdot 20-2=42.
+\]
+
+\section*{Solución Ejercicio 8}
+
+Representamos la situación mediante un grafo simple \(G\) con \(20\) vértices, donde dos vértices están unidos por una arista si las dos personas se conocen.
+
+Como hay \(48\) pares de personas que se conocen, el número de aristas es
+\[
+|A(G)|=48.
+\]
+Por el lema del apretón de manos,
+\[
+\sum_{v\in V(G)} \deg(v)=2|A(G)|=96.
+\]
+
+\begin{enumerate}
+    \item Queremos probar que existe al menos una persona que conoce como mucho a \(4\) personas.
+
+    Supongamos, por reducción al absurdo, que todas las personas conocen al menos a \(5\) personas. Entonces
+    \[
+    \deg(v)\ge 5 \qquad \text{para todo } v\in V(G).
+    \]
+    Sumando en los \(20\) vértices,
+    \[
+    \sum_{v\in V(G)} \deg(v)\ge 20\cdot 5=100.
+    \]
+    Pero esto contradice que
+    \[
+    \sum_{v\in V(G)} \deg(v)=96.
+    \]
+    Por tanto, existe al menos una persona que conoce como mucho a \(4\) personas.
+
+    \item Supongamos ahora que sólo hay una persona que conoce como mucho a \(4\) personas.
+
+    Sea \(x\) esa persona, y sea
+    \[
+    d=\deg(x).
+    \]
+    Entonces
+    \[
+    d\le 4,
+    \]
+    mientras que las otras \(19\) personas conocen al menos a \(5\) personas, es decir, tienen grado al menos \(5\).
+
+    Por tanto,
+    \[
+    96=\sum_{v\in V(G)} \deg(v)\ge d+19\cdot 5=d+95.
+    \]
+    De aquí se obtiene
+    \[
+    d\le 1.
+    \]
+    Como además \(d\ge 0\), concluimos que
+    \[
+    d\in\{0,1\}.
+    \]
+
+    Luego, del enunciado sólo se puede deducir que esa persona conoce exactamente a
+    \[
+    \boxed{0 \text{ o } 1 \text{ personas}.}
+    \]
+
+    \medskip
+
+    Observemos que ambos casos son posibles:
+    \begin{itemize}
+        \item si \(d=1\), entonces las otras \(19\) personas tendrían suma de grados
+        \[
+        96-1=95,
+        \]
+        y como cada una tiene grado al menos \(5\), necesariamente todas tendrían grado exactamente \(5\);
+
+        \item si \(d=0\), entonces las otras \(19\) personas tendrían suma de grados
+        \[
+        96,
+        \]
+        lo cual también es compatible con que todas tengan grado al menos \(5\).
+    \end{itemize}
+
+    Por tanto, con los datos del problema no se puede determinar un único valor.
+\end{enumerate}
+
+\section*{Solución Ejercicio 9}
+
+\begin{enumerate}
+    \item Probemos que
+    \[
+    G \cong G' \iff G^c \cong (G')^c.
+    \]
+
+    Supongamos primero que \(G\cong G'\). Entonces existe una biyección
+    \[
+    \varphi:V\to V'
+    \]
+    tal que para cualesquiera \(u,v\in V\),
+    \[
+    \{u,v\}\in A \iff \{\varphi(u),\varphi(v)\}\in A'.
+    \]
+
+    Queremos ver que la misma aplicación \(\varphi\) es un isomorfismo entre \(G^c\) y \((G')^c\).
+
+    Tomemos dos vértices distintos \(u,v\in V\). Entonces
+    \[
+    \{u,v\}\in A(G^c)
+    \iff
+    \{u,v\}\notin A(G).
+    \]
+    Como \(\varphi\) preserva adyacencia en \(G\) y \(G'\), se tiene
+    \[
+    \{u,v\}\notin A(G)
+    \iff
+    \{\varphi(u),\varphi(v)\}\notin A(G').
+    \]
+    Por tanto,
+    \[
+    \{\varphi(u),\varphi(v)\}\in A((G')^c).
+    \]
+    Luego
+    \[
+    \{u,v\}\in A(G^c)
+    \iff
+    \{\varphi(u),\varphi(v)\}\in A((G')^c),
+    \]
+    y así \(\varphi\) es un isomorfismo entre \(G^c\) y \((G')^c\).
+
+    Recíprocamente, si
+    \[
+    G^c \cong (G')^c,
+    \]
+    aplicando el mismo razonamiento a los complementarios, obtenemos
+    \[
+    (G^c)^c \cong ((G')^c)^c.
+    \]
+    Pero el complementario del complementario es el grafo original, es decir,
+    \[
+    (G^c)^c=G, \qquad ((G')^c)^c=G'.
+    \]
+    Luego
+    \[
+    G\cong G'.
+    \]
+
+    En conclusión,
+    \[
+    \boxed{G\cong G' \iff G^c\cong (G')^c.}
+    \]
+
+    \item Buscamos un grafo con \(5\) vértices isomorfo a su complementario.
+
+    Un ejemplo clásico es el ciclo de longitud \(5\), \(C_5\).
+
+    En efecto, \(C_5\) tiene \(5\) vértices y \(5\) aristas. Como
+    \[
+    |A(K_5)|=\binom{5}{2}=10,
+    \]
+    su complementario también tiene
+    \[
+    10-5=5
+    \]
+    aristas.
+
+    Además, cada vértice de \(C_5\) tiene grado \(2\). En el complementario, cada vértice también tiene grado
+    \[
+    4-2=2.
+    \]
+    Por tanto, el complementario de \(C_5\) es también un ciclo de longitud \(5\). Luego
+    \[
+    C_5 \cong C_5^c.
+    \]
+
+    Así pues, un ejemplo es
+    \[
+    \boxed{C_5.}
+    \]
+
+    \item Estudiamos ahora si existen grafos con \(3\) o con \(6\) vértices que sean isomorfos a su complementario.
+
+    Si un grafo \(G\) es isomorfo a su complementario, entonces \(G\) y \(G^c\) tienen el mismo número de aristas. Como entre ambos reparten todas las aristas de \(K_n\), debe cumplirse
+    \[
+    2|A(G)|=\binom{n}{2}=\frac{n(n-1)}{2}.
+    \]
+    Por tanto,
+    \[
+    |A(G)|=\frac{n(n-1)}{4}.
+    \]
+    Luego es necesario que
+    \[
+    \frac{n(n-1)}{4}
+    \]
+    sea un número entero.
+
+    \paragraph{Caso \(n=3\).}
+    Tendríamos
+    \[
+    |A(G)|=\frac{3\cdot 2}{4}=\frac{3}{2},
+    \]
+    que no es entero.
+
+    Por tanto, \textbf{no existe} ningún grafo con \(3\) vértices isomorfo a su complementario.
+
+    \paragraph{Caso \(n=6\).}
+    Tendríamos
+    \[
+    |A(G)|=\frac{6\cdot 5}{4}=\frac{15}{2},
+    \]
+    que tampoco es entero.
+
+    Por tanto, \textbf{no existe} ningún grafo con \(6\) vértices isomorfo a su complementario.
+
+    En conclusión:
+    \[
+    \boxed{\text{No existe ni para } n=3 \text{ ni para } n=6.}
+    \]
+\end{enumerate}
+
+\subsection*{Observación}
+
+La condición necesaria
+\[
+\frac{n(n-1)}{4}\in \mathbb{Z}
+\]
+equivale a que \(n(n-1)\) sea múltiplo de \(4\). Esto ocurre exactamente cuando
+\[
+n\equiv 0 \pmod{4}
+\qquad \text{o} \qquad
+n\equiv 1 \pmod{4}.
+\]
+Por eso sí puede haber grafos isomorfos a su complementario para \(n=5\), pero no para \(n=3\) ni para \(n=6\).
+
+\section*{Solución Ejercicio 10}
+
+Usaremos los \textbf{códigos de Prüfer}. Recordemos que si \(T\) es un árbol etiquetado con \(n\) vértices, entonces su código de Prüfer tiene longitud \(n-2\), y además cada vértice \(v\) aparece en dicho código exactamente
+\[
+\deg(v)-1
+\]
+veces.
+
+Por tanto, para contar árboles con una determinada distribución de grados basta contar cuántos códigos de Prüfer tienen las multiplicidades correspondientes.
+
+\begin{enumerate}
+    \item \textbf{Caso \(n=6\) y cuatro vértices de grado \(2\).}
+
+    En un árbol con \(6\) vértices, la suma de grados es
+    \[
+    2(6-1)=10.
+    \]
+    Si cuatro vértices tienen grado \(2\), aportan
+    \[
+    4\cdot 2=8.
+    \]
+    Por tanto, los otros dos vértices deben tener grados cuya suma sea \(2\). Como en un árbol todo vértice tiene grado al menos \(1\), necesariamente ambos tienen grado \(1\).
+
+    Luego la sucesión de grados es
+    \[
+    (2,2,2,2,1,1).
+    \]
+
+    El código de Prüfer tiene longitud
+    \[
+    6-2=4.
+    \]
+    Como un vértice de grado \(2\) aparece exactamente una vez en el código, y un vértice de grado \(1\) no aparece, el código de Prüfer debe estar formado exactamente por los cuatro vértices de grado \(2\), cada uno una sola vez.
+
+    Por tanto:
+    \begin{itemize}
+        \item elegimos cuáles son los \(4\) vértices de grado \(2\):
+        \[
+        \binom{6}{4};
+        \]
+        \item una vez elegidos, los ordenamos en el código de Prüfer:
+        \[
+        4!.
+        \]
+    \end{itemize}
+
+    Así, el número total de árboles es
+    \[
+    \binom{6}{4}\,4!=15\cdot 24=360.
+    \]
+
+    Por tanto,
+    \[
+    \boxed{360}.
+    \]
+
+    \item \textbf{Caso \(n=5\) y exactamente tres vértices de grado \(1\).}
+
+    En un árbol con \(5\) vértices, la suma de grados es
+    \[
+    2(5-1)=8.
+    \]
+    Si tres vértices tienen grado \(1\), aportan
+    \[
+    3.
+    \]
+    Los otros dos vértices deben sumar entonces
+    \[
+    8-3=5.
+    \]
+    Como no pueden tener grado \(1\), la única posibilidad es que sus grados sean \(3\) y \(2\).
+
+    Luego la sucesión de grados es
+    \[
+    (3,2,1,1,1).
+    \]
+
+    El código de Prüfer tiene longitud
+    \[
+    5-2=3.
+    \]
+    El vértice de grado \(3\) aparece
+    \[
+    3-1=2
+    \]
+    veces, y el de grado \(2\) aparece
+    \[
+    2-1=1
+    \]
+    vez. Las hojas no aparecen.
+
+    Así, el código tiene la forma
+    \[
+    (a,a,b)
+    \]
+    en algún orden, con \(a\neq b\).
+
+    Por tanto:
+    \begin{itemize}
+        \item elegimos el vértice de grado \(3\): \(5\) posibilidades;
+        \item elegimos el vértice de grado \(2\): \(4\) posibilidades;
+        \item contamos las formas de ordenar dos \(a\)'s y una \(b\):
+        \[
+        \frac{3!}{2!}=3.
+        \]
+    \end{itemize}
+
+    Luego el número total de árboles es
+    \[
+    5\cdot 4\cdot 3=60.
+    \]
+
+    Por tanto,
+    \[
+    \boxed{60}.
+    \]
+
+    \item \textbf{Caso \(n=8\), dos vértices de grado \(4\) y los seis restantes de grado \(1\).}
+
+    En un árbol con \(8\) vértices, la suma de grados es
+    \[
+    2(8-1)=14.
+    \]
+    La condición dada es compatible con ello, pues
+    \[
+    4+4+6\cdot 1=14.
+    \]
+
+    El código de Prüfer tiene longitud
+    \[
+    8-2=6.
+    \]
+    Cada uno de los dos vértices de grado \(4\) aparece
+    \[
+    4-1=3
+    \]
+    veces en el código, mientras que los seis vértices de grado \(1\) no aparecen.
+
+    Por tanto, el código de Prüfer está formado por exactamente dos etiquetas, digamos \(a\) y \(b\), cada una repetida \(3\) veces.
+
+    Contemos:
+    \begin{itemize}
+        \item elegimos cuáles son los dos vértices de grado \(4\):
+        \[
+        \binom{8}{2};
+        \]
+        \item una vez elegidos, contamos cuántos códigos de longitud \(6\) contienen tres veces a \(a\) y tres veces a \(b\):
+        \[
+        \frac{6!}{3!\,3!}=20.
+        \]
+    \end{itemize}
+
+    Así, el número total de árboles es
+    \[
+    \binom{8}{2}\frac{6!}{3!\,3!}
+    =28\cdot 20
+    =560.
+    \]
+
+    Por tanto,
+    \[
+    \boxed{560}.
+    \]
+\end{enumerate}
+
+\subsection*{Conclusión}
+
+El número de árboles distintos en cada caso es
+\[
+\boxed{360,\qquad 60,\qquad 560.}
+\]
+
+\section*{Solución Ejercicio 11}
+
+Como \(G\) es un árbol y sólo tiene vértices de grado \(1\) y de grado \(4\), el número total de vértices es
+\[
+n=p+q.
+\]
+
+Además, en un árbol con \(n\) vértices se cumple que la suma de los grados es
+\[
+2(n-1).
+\]
+Por tanto,
+\[
+p+4q=2\bigl((p+q)-1\bigr).
+\]
+Desarrollando,
+\[
+p+4q=2p+2q-2.
+\]
+Reordenando,
+\[
+2q-p+2=0,
+\]
+y por tanto
+\[
+\boxed{p=2q+2.}
+\]
+
+\subsection*{Ejemplo de dibujo}
+
+Tomemos \(q=1\). Entonces, por la relación obtenida antes,
+\[
+p=2q+2=4.
+\]
+Por tanto, el árbol debe tener un único vértice de grado \(4\) y cuatro vértices de grado \(1\). Un ejemplo es el siguiente:
+
+\begin{center}
+\begin{tikzpicture}[
+    every node/.style={circle, fill=black, inner sep=1.8pt}
+]
+    \node (v) at (0,0) {};
+    \node (a) at (0,1.5) {};
+    \node (b) at (1.5,0) {};
+    \node (c) at (0,-1.5) {};
+    \node (d) at (-1.5,0) {};
+
+    \draw (v)--(a);
+    \draw (v)--(b);
+    \draw (v)--(c);
+    \draw (v)--(d);
+\end{tikzpicture}
+\end{center}
+
+En este árbol, el vértice central tiene grado \(4\) y los otros cuatro vértices tienen grado \(1\), luego cumple exactamente las condiciones pedidas.
+
+\section*{Solución Ejercicio 12}
+
+Llamemos \(v\) al vértice común a todos los triángulos. Cada triángulo está formado por \(v\) y otros dos vértices exclusivos de ese triángulo.
+
+Por tanto, el grafo puede describirse así:
+\begin{itemize}
+    \item hay un vértice central \(v\),
+    \item para cada \(i=1,\dots,n\), hay dos vértices \(a_i\) y \(b_i\),
+    \item las aristas del triángulo \(i\)-ésimo son
+    \[
+    va_i,\quad vb_i,\quad a_ib_i.
+    \]
+\end{itemize}
+
+Queremos contar sus árboles recubridores.
+
+\medskip
+
+Recordemos que un árbol recubridor debe:
+\begin{itemize}
+    \item contener todos los vértices,
+    \item ser conexo,
+    \item no tener ciclos.
+\end{itemize}
+
+Ahora bien, cada uno de los \(n\) triángulos aporta un ciclo de longitud \(3\). Para obtener un árbol recubridor, en cada triángulo debemos romper ese ciclo eliminando exactamente una de sus tres aristas.
+
+En efecto:
+\begin{itemize}
+    \item si en un triángulo dejáramos sus tres aristas, quedaría un ciclo y no sería árbol;
+    \item si elimináramos dos aristas de un mismo triángulo, uno de los dos vértices \(a_i,b_i\) quedaría desconectado del resto del grafo.
+\end{itemize}
+
+Así pues, en cada triángulo hay exactamente \(3\) maneras válidas de elegir qué arista eliminar:
+\[
+va_i, \qquad vb_i, \qquad a_ib_i.
+\]
+
+Como las elecciones en triángulos distintos son independientes entre sí, el número total de árboles recubridores es
+\[
+3\cdot 3\cdots 3 = 3^n.
+\]
+
+Por tanto, el número de árboles recubridores del grafo es
+\[
+\boxed{3^n.}
+\]
+
+\section*{Solución Ejercicio 13}
+
+Vamos a demostrar primero una fórmula general para el número de árboles recubridores de un grafo bipartito completo \(K_{m,n}\), y después la aplicaremos a los casos \(m=2\) y \(m=3\).
+
+\subsection*{1. Fórmula general para \(K_{m,n}\)}
+
+Sea
+\[
+K_{m,n}=(U\cup V, A),
+\]
+donde
+\[
+U=\{u_1,\dots,u_m\}, \qquad V=\{v_1,\dots,v_n\},
+\]
+y cada vértice de \(U\) está unido con todos los vértices de \(V\).
+
+Queremos calcular \(\tau(K_{m,n})\), el número de árboles recubridores de \(K_{m,n}\).
+
+\medskip
+
+Usaremos el \textbf{teorema de Matrix-Tree de Kirchhoff}: el número de árboles recubridores de un grafo es igual a cualquier cofactor de su matriz laplaciana.
+
+\paragraph{Matriz laplaciana de \(K_{m,n}\).}
+En \(K_{m,n}\),
+\begin{itemize}
+    \item cada vértice de \(U\) tiene grado \(n\),
+    \item cada vértice de \(V\) tiene grado \(m\).
+\end{itemize}
+Por tanto, la matriz laplaciana \(L\) de \(K_{m,n}\), ordenando primero los vértices de \(U\) y luego los de \(V\), es
+\[
+L=
+\begin{pmatrix}
+nI_m & -J_{m\times n}\\[1mm]
+-J_{n\times m} & mI_n
+\end{pmatrix},
+\]
+donde \(I_k\) es la matriz identidad de tamaño \(k\) y \(J\) es la matriz cuyas entradas son todas \(1\).
+
+Para calcular \(\tau(K_{m,n})\), eliminamos una fila y una columna de \(L\). Por comodidad, eliminamos una fila y una columna correspondientes a un vértice de la parte \(V\). Entonces obtenemos la matriz
+\[
+M=
+\begin{pmatrix}
+nI_m & -J_{m\times (n-1)}\\[1mm]
+-J_{(n-1)\times m} & mI_{n-1}
+\end{pmatrix}.
+\]
+
+Por el teorema de Kirchhoff,
+\[
+\tau(K_{m,n})=\det(M).
+\]
+
+\paragraph{Cálculo del determinante.}
+Aplicamos la fórmula del complemento de Schur. Como \(nI_m\) es invertible,
+\[
+\det(M)=\det(nI_m)\,
+\det\!\left(mI_{n-1}-(-J)(nI_m)^{-1}(-J)\right).
+\]
+Como
+\[
+(nI_m)^{-1}=\frac1n I_m,
+\]
+se obtiene
+\[
+(-J)(nI_m)^{-1}(-J)
+=
+J_{(n-1)\times m}\,\frac1n I_m\,J_{m\times(n-1)}
+=
+\frac1n\,J_{(n-1)\times m}J_{m\times(n-1)}.
+\]
+Pero
+\[
+J_{(n-1)\times m}J_{m\times(n-1)}=m\,J_{n-1},
+\]
+luego
+\[
+(-J)(nI_m)^{-1}(-J)=\frac{m}{n}J_{n-1}.
+\]
+Por tanto,
+\[
+\det(M)=n^m\det\!\left(mI_{n-1}-\frac{m}{n}J_{n-1}\right).
+\]
+
+Sacamos factor \(m\):
+\[
+\det(M)=n^m\,m^{\,n-1}\det\!\left(I_{n-1}-\frac1n J_{n-1}\right).
+\]
+
+Ahora usamos que la matriz \(J_{n-1}\) tiene:
+\begin{itemize}
+    \item un autovalor \(n-1\),
+    \item y \(n-2\) autovalores iguales a \(0\).
+\end{itemize}
+Por tanto,
+\[
+I_{n-1}-\frac1n J_{n-1}
+\]
+tiene:
+\begin{itemize}
+    \item un autovalor \(1-\frac{n-1}{n}=\frac1n\),
+    \item y \(n-2\) autovalores iguales a \(1\).
+\end{itemize}
+Así,
+\[
+\det\!\left(I_{n-1}-\frac1n J_{n-1}\right)=\frac1n.
+\]
+
+Sustituyendo,
+\[
+\tau(K_{m,n})
+=
+n^m\,m^{\,n-1}\cdot \frac1n
+=
+n^{m-1}m^{n-1}.
+\]
+
+Hemos probado la fórmula general:
+\[
+\boxed{\tau(K_{m,n})=m^{\,n-1}n^{\,m-1}.}
+\]
+
+\subsection*{2. Aplicación a \(K_{2,r}\)}
+
+Tomamos \(m=2\) y \(n=r\). Entonces
+\[
+\tau(K_{2,r})=2^{\,r-1}r^{\,2-1}=r\,2^{\,r-1}.
+\]
+
+Por tanto, el número de árboles recubridores de \(K_{2,r}\) es
+\[
+\boxed{r\,2^{\,r-1}.}
+\]
+
+\subsection*{3. Aplicación a \(K_{3,r}\)}
+
+Ahora tomamos \(m=3\) y \(n=r\). Entonces
+\[
+\tau(K_{3,r})=3^{\,r-1}r^{\,3-1}=r^2\,3^{\,r-1}.
+\]
+
+Por tanto, el número de árboles recubridores de \(K_{3,r}\) es
+\[
+\boxed{r^2\,3^{\,r-1}.}
+\]
+
+\subsection*{Conclusión}
+
+En consecuencia,
+\[
+\boxed{\tau(K_{2,r})=r\,2^{\,r-1}}, \qquad
+\boxed{\tau(K_{3,r})=r^2\,3^{\,r-1}}.
+\]
+\end{document}

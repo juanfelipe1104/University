@@ -1,0 +1,579 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\usepackage{hyperref}
+
+\begin{document}
+
+\section*{Solución Ejercicio 1}
+Calcula las siguientes derivadas usando la regla de la cadena:
+
+\begin{enumerate}[label=\alph*)]
+\item \(f(x)=\sin(\ln(4x+5))\)
+
+Para aplicar la regla de la cadena, iremos dividiendo la función en varias partes:
+\[
+y=\sin(\ln(4x+5))
+\]
+A todo lo que hay dentro de la función seno lo llamaremos \(u\):
+\[
+u=\ln(4x+5)\qquad \Rightarrow \qquad y=\sin(u)
+\]
+De la misma forma, vamos a llamar \(v\) a lo que hay dentro del logaritmo:
+\[
+v=4x+5 \qquad \Rightarrow \qquad u=\ln(v)
+\]
+Ahora podemos calcular la derivada de \(y\) derivando en cadena:
+\[
+\frac{dy}{dx}=\frac{dy}{du}\cdot \frac{du}{dv}\cdot \frac{dv}{dx}
+= \cos(u)\cdot \frac{1}{v}\cdot 4
+= \frac{4\cos(\ln(4x+5))}{4x+5}
+\]
+
+\item \(g(x)=\arctan\big((4x^2+7x+1)^6\big)\)
+
+Igual que en el apartado anterior, vamos dividiendo la función en partes para derivar en cadena:
+\[
+u=(4x^2+7x+1)^6 \qquad \Rightarrow \qquad y=\arctan(u)
+\]
+\[
+v=4x^2+7x+1 \qquad \Rightarrow \qquad u=v^6
+\]
+\[
+\frac{dy}{dx}=\frac{dy}{du}\cdot \frac{du}{dv}\cdot \frac{dv}{dx}
+=\frac{1}{1+u^2}\cdot 6v^5\cdot (8x+7)
+\]
+\[
+\frac{dy}{dx}
+=\frac{6(8x+7)(4x^2+7x+1)^5}{1+(4x^2+7x+1)^{12}}
+\]
+\end{enumerate}
+
+\section*{Solución Ejercicio 2}
+Obtén la ecuación de la recta tangente a \(f(x)=\ln((x^2-3)^4)\) en \(x=2\).
+
+La ecuación de la recta será de forma \(y=mx+n\), donde \(m\) es la pendiente y
+\(n\) la ordenada en el origen.
+
+La pendiente de la recta tangente a \(f(x)\) en \(x=2\) es la derivada de la función
+para \(x=2\).
+\[
+f'(x)=\frac{4(x^2-3)^3\cdot 2x}{(x^2-3)^4}
+=\frac{8x}{x^2-3}
+\qquad \Rightarrow \qquad
+f'(2)=16
+\]
+
+Además, sabemos que la recta tangente pasará por el punto \((2,f(2))\).
+\[
+f(2)=\ln(1)=0
+\]
+
+Sabiendo la pendiente y un punto de la recta, despejamos la ordenada en el
+origen:
+\[
+y=mx+n \qquad \Rightarrow \qquad 0=16\cdot 2+n \qquad \Rightarrow \qquad n=-32
+\]
+
+Por lo tanto ecuación de la recta es la siguiente:
+\[
+y=16x-32
+\]
+
+\section*{Solución Ejercicio 3}
+Estudia la presencia de asíntotas, el crecimiento y la curvatura en la función
+\[
+f(x)=x+\frac{1}{x}.
+\]
+
+Primero miraremos si hay asíntotas:
+
+\textbf{Asíntotas verticales:}
+\[
+\operatorname{Dom}(f)=\mathbb{R}\setminus\{0\}
+\]
+\[
+\lim_{x\to 0^-} f(x)=-\infty,
+\qquad
+\lim_{x\to 0^+} f(x)=+\infty
+\]
+Como la función tiende a infinito cuando \(x\) tiende a \(0\), concluimos en que
+\(x=0\) es asíntota vertical.
+
+\textbf{Asíntotas horizontales:}
+\[
+\lim_{x\to \pm\infty} f(x)=\pm\infty
+\]
+Como la función tiende a infinito cuando \(x\) tiende a infinito, no hay asíntotas
+horizontales.
+
+\textbf{Asíntotas oblicuas:}
+
+Las asíntotas oblicuas son rectas, por lo que siguen la ecuación \(y=mx+n\).
+\[
+m=\lim_{x\to \pm\infty}\frac{f(x)}{x}
+=\lim_{x\to \pm\infty}\frac{x+\frac{1}{x}}{x}
+=\lim_{x\to \pm\infty}\left(1+\frac{1}{x^2}\right)=1
+\]
+\[
+n=\lim_{x\to \pm\infty}(f(x)-mx)
+=\lim_{x\to \pm\infty}\left(x+\frac{1}{x}-x\right)=0
+\]
+
+Como \(m\) y \(n\) son números finitos, \(y=x\) es asíntota oblicua, además en
+ambos semiplanos (ya que los límites son iguales cuando \(x\to -\infty\) y cuando
+\(x\to +\infty\)).
+
+Ahora estudiaremos el crecimiento/decrecimiento, para lo que usaremos la primera
+derivada:
+\[
+f'(x)=1-\frac{1}{x^2}
+\]
+
+Los posibles extremos relativos son los puntos en los que \(f'(x)\) se anula, y
+también debemos estudiar el signo de la función antes y después de las \(x\) en las
+que no existe \(f(x)\) o \(f'(x)\) (en este caso \(x=0\)).
+\[
+f'(x)=0 \Rightarrow 1-\frac{1}{x^2}=0 \Rightarrow x^2=1 \Rightarrow x=\pm 1
+\]
+
+Después de estudiar el signo de \(f'(x)\) en los distintos intervalos, concluimos que
+\(f(x)\) crece en \((-\infty,-1)\cup(1,+\infty)\) y decrece en \((-1,0)\cup(0,1)\).
+Además, hay un máximo relativo en \(x=-1\) y un mínimo relativo en \(x=1\).
+
+Para la curvatura usaremos la segunda derivada:
+\[
+f''(x)=\frac{2}{x^3}
+\]
+
+Esta función no se anula, por lo que solo estudiaremos su signo alrededor de
+\(x=0\).
+
+La función es convexa en \((-\infty,0)\) y cóncava en \((0,+\infty)\).
+
+\section*{Solución Ejercicio 4}
+Estudia la derivabilidad de la función
+\[
+f(x)=
+\begin{cases}
+x^2\sin\left(\frac{1}{x}\right), & x\neq 0,\\
+0, & x=0
+\end{cases}
+\]
+en \(x=0\).
+
+Primero comprobaremos si la función es continua en \(x=0\), ya que si no lo es
+tampoco será derivable.
+\[
+\lim_{x\to 0} x^2\sin\left(\frac{1}{x}\right)=0=f(0)
+\]
+Aunque no sepamos el seno de infinito, sabemos que va a estar entre \(-1\) y \(1\),
+por lo que multiplicado por \(x^2\), que tiende a \(0\), quedará \(0\).
+
+Ahora que sabemos que la función es continua en \(x=0\), veamos si es derivable:
+\[
+f'(0)=\lim_{h\to 0}\frac{f(0+h)-f(0)}{h}
+=\lim_{h\to 0}\frac{h^2\sin\left(\frac{1}{h}\right)}{h}
+=\lim_{h\to 0} h\sin\left(\frac{1}{h}\right)=0
+\]
+
+Luego la función es derivable en \(x=0\).
+
+\section*{Solución Ejercicio 5}
+Calcula la quinta derivada de \(f(x)=\sin(x)\cdot \cos(x)\).
+
+Aunque podríamos hacer la derivada de esta expresión, conviene usar las igualdades
+trigonométricas para hacerla más sencilla.
+\[
+\sin(2x)=2\sin(x)\cos(x)
+\qquad \Rightarrow \qquad
+\sin(x)\cos(x)=\frac{\sin(2x)}{2}
+\]
+
+Con esta expresión será más fácil llegar a la quinta derivada:
+\[
+f(x)=\frac{\sin(2x)}{2}
+\]
+\[
+f'(x)=\cos(2x)
+\]
+\[
+f''(x)=-2\sin(2x)
+\]
+\[
+f^{(3)}(x)=-4\cos(2x)
+\]
+\[
+f^{(4)}(x)=8\sin(2x)
+\]
+\[
+f^{(5)}(x)=16\cos(2x)
+\]
+
+\section*{Solución Ejercicio 6}
+Hallar \(a\), \(b\) y \(c\) para que la función \(f(x)=ax^2+bx+c\) pase por
+el punto \((1,3)\) y sea tangente a la recta \(x-y+1=0\) en el punto \((2,3)\).
+
+Sabemos que la función pasa por los puntos \((1,3)\) y \((2,3)\), y también tenemos la
+ecuación de la recta tangente en \(x=2\), que es
+\[
+x-y+1=0 \Rightarrow y=x+1,
+\]
+luego
+\[
+f'(2)=1,
+\]
+que es la pendiente de la recta.
+
+\[
+f(x)=ax^2+bx+c \qquad \Rightarrow \qquad f'(x)=2ax+b
+\]
+
+Al sustituir nos sale este sistema:
+\[
+\begin{cases}
+a+b+c=3\\
+4a+2b+c=3\\
+4a+b=1
+\end{cases}
+\]
+
+Resolvemos y queda lo siguiente:
+\[
+\begin{cases}
+a=1\\
+b=-3\\
+c=5
+\end{cases}
+\]
+
+\section*{Solución Ejercicio 7}
+Un coche circula por la noche por un camino dado por la curva
+\[
+y=-x^2+4x+5
+\]
+de tal forma que el sentido de circulación viene definido por los valores crecientes de la variable \(x\). ¿En qué punto del camino iluminará con sus faros el objeto situado en el punto \((5,4)\)? Repite el problema suponiendo que el sentido de circulación está definido por los valores decrecientes de la variable \(x\).
+
+Lo que nos está pidiendo el enunciado es que calculemos los puntos de
+\[
+f(x)=-x^2+4x+5
+\]
+en los que su recta tangente pasa por el punto \((5,4)\).
+
+La ecuación de la recta tangente a \(f(x)\) viene dada por \(y=mx+n\), donde \(m\)
+es la pendiente \((f'(x))\) y \(n\) es la ordenada en el origen.
+\[
+f'(x)=-2x+4
+\]
+
+Supongamos que el punto en el que la recta tangente a \(f(x)\) pasa por el punto
+\((5,4)\) es \((a,f(a))\), es decir, \((a,-a^2+4a+5)\). Sabemos que la recta tangente va
+a pasar por este punto y por el punto \((5,4)\), por lo que podemos sustituir la \(x\)
+y la \(y\) de su ecuación por las de estos puntos.
+\[
+\begin{cases}
+(a,f(a)) \Rightarrow -a^2+4a+5=a(-2a+4)+n\\
+(5,4) \Rightarrow 4=5(-2a+4)+n
+\end{cases}
+\]
+
+Restamos las ecuaciones:
+\[
+-a^2+4a+1=-2a^2+14a-20
+\]
+\[
+a^2-10a+21=0
+\]
+\[
+a=\frac{10\pm \sqrt{100-84}}{2}
+\]
+\[
+\begin{cases}
+a=3\\
+a=7
+\end{cases}
+\]
+
+Por lo tanto los puntos son \((3,8)\) y \((7,-16)\).
+
+Ahora que tenemos estos dos puntos, tenemos que saber cuál es el que nos sirve
+para cuando el coche se mueve por los valores crecientes de \(x\) (hacia la derecha).
+Para esto, debemos coger el que tiene una \(x\) menor que la del punto \((5,4)\), es
+decir, el punto \((3,8)\). Para cuando se mueve por los valores decrecientes de \(x\)
+(hacia la izquierda), será el otro punto, el \((7,-16)\).
+
+\section*{Solución Ejercicio 8}
+Calcula la derivada de las siguientes funciones:
+
+\begin{enumerate}[label=\alph*)]
+\item \(f(x)=x^x\)
+
+Para calcular esta derivada vamos a usar logaritmos, así podemos quitar el
+exponente aplicando propiedades:
+\[
+y=x^x \Rightarrow \ln(y)=\ln(x^x)=x\ln(x)
+\]
+
+Derivamos en ambos lados:
+\[
+\frac{y'}{y}=\ln(x)+\frac{x}{x}=\ln(x)+1
+\]
+\[
+y'=y(\ln(x)+1)=x^x(\ln(x)+1)
+\]
+
+\item \(g(x)=(x^2+3)^{6x}\)
+
+Esta derivada la haremos de la misma forma que la anterior:
+\[
+y=(x^2+3)^{6x} \Rightarrow \ln(y)=\ln\big((x^2+3)^{6x}\big)=6x\ln(x^2+3)
+\]
+
+\[
+\frac{y'}{y}
+=6\ln(x^2+3)+6x\cdot \frac{2x}{x^2+3}
+=6\ln(x^2+3)+\frac{12x^2}{x^2+3}
+\]
+
+\[
+y'
+=y\left(6\ln(x^2+3)+\frac{12x^2}{x^2+3}\right)
+=(x^2+3)^{6x}\left(6\ln(x^2+3)+\frac{12x^2}{x^2+3}\right)
+\]
+\end{enumerate}
+
+\section*{Solución Ejercicio 9}
+Consideramos una caja de cartón sin tapa superior y de base cuadrada. Si la suma del área de todas las caras de la caja es \(c^2\) (con \(c>0\)), calcula el volumen máximo de la caja.
+
+Supongamos que \(x\) es el lado de la base e \(y\) es la altura.
+
+La caja tiene un total de \(5\) caras, \(4\) laterales y la base. El área de las caras
+laterales es \(x\cdot y\), mientras que en la base es \(x^2\).
+
+Por lo tanto, tenemos que
+\[
+x^2+4xy=c^2
+\]
+
+Lo que queremos optimizar es el volumen de la caja, que se calcula multiplicando
+el área de la base por la altura.
+\[
+V(x,y)=x^2\cdot y
+\]
+
+Para poder estudiar el crecimiento del volumen, necesitamos que esté solo en
+función de una variable, por eso vamos a usar la relación entre \(x\) e \(y\) para que
+esté solo en función de \(x\).
+\[
+x^2+4xy=c^2 \Rightarrow y=\frac{c^2-x^2}{4x}
+\]
+
+\[
+V(x,y)=x^2\cdot y \Rightarrow V(x)=x^2\cdot \frac{c^2-x^2}{4x}
+=\frac{c^2x-x^3}{4}
+\]
+
+Si queremos saber cuándo el volumen va a ser el máximo, necesitamos buscar
+el máximo de \(V(x)\), y para ello debemos derivar. Ojo: derivamos en función de
+\(x\), y \(c^2\) es una constante.
+\[
+V'(x)=\frac{c^2-3x^2}{4}
+\]
+
+\[
+V'(x)=0 \Rightarrow c^2-3x^2=0 \Rightarrow c^2=3x^2 \Rightarrow x=\pm \frac{c}{\sqrt{3}}
+\]
+
+Estudiamos el crecimiento de \(V\) alrededor de \(x=\frac{c}{\sqrt{3}}\), ya que el valor negativo
+no tendría sentido.
+
+Como \(V\) crece hasta llegar a \(x=\frac{c}{\sqrt{3}}\) y es continua, el volumen llega a su
+máximo en \(x=\frac{c}{\sqrt{3}}\). Faltaría calcular el volumen:
+\[
+V\left(\frac{c}{\sqrt{3}}\right)
+=
+\frac{c^2\cdot \frac{c}{\sqrt{3}}-\left(\frac{c}{\sqrt{3}}\right)^3}{4}
+=
+\frac{c^3}{6\sqrt{3}}
+\]
+
+Este es el volumen máximo de la caja.
+
+\section*{Solución Ejercicio 10}
+Utiliza el teorema de Rolle para demostrar que la ecuación \(2x^5+x+5=0\) no puede tener más de una solución real.
+
+Consideramos la función
+\[
+f(x)=2x^5+x+5 \Rightarrow f'(x)=10x^4+1
+\]
+
+Según el teorema de Rolle, si una función es continua en un intervalo \([a,b]\) y
+derivable en \((a,b)\), entonces existe un punto \(c\) en el intervalo \([a,b]\) en el que la
+recta tangente tiene pendiente \(0\), es decir,
+\[
+f'(c)=0.
+\]
+
+Esta función es continua y derivable en \(\mathbb{R}\), por lo que podemos aplicar el teorema.
+
+Que la ecuación tenga más de una solución significaría que existen \(a\) y \(b\) tales que
+\[
+f(a)=f(b)=0,
+\]
+por lo que se tendría que cumplir el teorema de Rolle. Sin
+embargo, al buscar las \(x\) en las que se anula la derivada nos encontramos con
+que no hay ninguna real, lo que significa que la condición del teorema no se
+cumple: no existen \(a\) y \(b\) tales que \(f(a)=f(b)\), por lo que la ecuación no puede
+tener más de una solución real.
+
+\section*{Solución Ejercicio 11}
+Sin calcular la derivada de la función
+\[
+f(x)=(x-1)(x-2)(x-3)(x-4),
+\]
+determina cuántas raíces tiene \(f'(x)\) e indica en qué intervalos están.
+
+A simple vista podemos ver las \(x\) para las que se anula \(f(x)\):
+\[
+f(1)=f(2)=f(3)=f(4)=0
+\]
+
+Como tenemos cuatro \(x\) con el mismo valor de \(f\), se debe cumplir el teorema
+de Rolle tres veces, es decir, \(f'(x)\) se anula al menos tres veces: una en \((1,2)\),
+otra en \((2,3)\) y otra en \((3,4)\). Además, como \(f(x)\) es un polinomio de grado \(4\),
+la derivada será de grado \(3\), por lo que tendrá como máximo tres raíces, las que
+hemos indicado antes.
+
+\section*{Solución Ejercicio 12}
+Calcula la ecuación de la recta tangente a \(f(x)=\sin(x/2)\) para
+\[
+x=\frac{2\pi}{3}
+\]
+
+La recta va a tener una expresión de tipo \(y=mx+n\), donde \(m\) es la derivada
+de la función en el punto en el que es tangente \(\left(x=\frac{2\pi}{3}\right)\).
+
+Calculamos la derivada:
+\[
+f'(x)=\frac{1}{2}\cos\left(\frac{x}{2}\right)
+\]
+\[
+f'\left(\frac{2\pi}{3}\right)=\frac{1}{2}\cos\left(\frac{\pi}{3}\right)=\frac{1}{2}\cdot \frac{1}{2}=\frac{1}{4}=m
+\]
+
+Ahora que tenemos la pendiente, solo falta exigir que la recta pase por la curva
+de la función en \(x=\frac{2\pi}{3}\), es decir, que pase por
+\[
+\left(\frac{2\pi}{3},f\left(\frac{2\pi}{3}\right)\right)
+\]
+\[
+f\left(\frac{2\pi}{3}\right)=\sin\left(\frac{\pi}{3}\right)=\frac{\sqrt{3}}{2}
+\]
+
+Ahora sustituimos \(x\) e \(y\) en la expresión de la recta para sacar \(n\):
+\[
+y=mx+n=\frac{x}{4}+n
+\]
+
+Como la recta pasa por \(\left(\frac{2\pi}{3},\frac{\sqrt{3}}{2}\right)\),
+\[
+\frac{\sqrt{3}}{2}=\frac{1}{4}\cdot \frac{2\pi}{3}+n
+\]
+
+Despejamos \(n\):
+\[
+n=\frac{\sqrt{3}}{2}-\frac{\pi}{6}
+\]
+
+Por lo tanto, la expresión de la recta es:
+\[
+y=\frac{x}{4}+\frac{\sqrt{3}}{2}-\frac{\pi}{6}
+\]
+
+\section*{Solución Ejercicio 13}
+Dada la función \(f(x)=ax^2+2x+1\), hallar el valor de \(a\) para que la recta tangente a \(f(x)\) en \(x=-1\) sea horizontal.
+
+Que la recta tangente sea horizontal significa que tiene pendiente \(0\), por lo tanto
+buscamos que
+\[
+f'(-1)=0
+\]
+
+\[
+f'(x)=2ax+2
+\]
+\[
+f'(-1)=-2a+2=0
+\]
+\[
+a=1
+\]
+
+\section*{Solución Ejercicio 14}
+Estudia la continuidad y la derivabilidad de la función
+\[
+f(x)=
+\begin{cases}
+-x^2+2, & x<1,\\
+-2\ln(x)+1, & x\geq 1
+\end{cases}
+\]
+en \(x=1\).
+
+Primero vemos si es continua:
+\[
+f(1)=-2\ln(1)+1=1
+\]
+
+Hacemos los límites:
+\[
+\lim_{x\to 1^-} f(x)=\lim_{x\to 1^-}(-x^2+2)=1
+\]
+\[
+\lim_{x\to 1^+} f(x)=\lim_{x\to 1^+}(-2\ln x+1)=1
+\]
+
+Como existe el límite y es igual a \(f(1)\), la función es continua en \(x=1\).
+
+Ahora estudiaremos la derivabilidad usando la definición del cociente incremental:
+\[
+f'(1)=\lim_{h\to 0}\frac{f(1+h)-f(1)}{h}
+\]
+
+Dependiendo de si \(h\) es positiva o negativa, tenemos que coger una expresión u
+otra, por lo que haremos los límites laterales:
+
+\[
+\lim_{h\to 0^-}\frac{f(1+h)-f(1)}{h}
+=
+\lim_{h\to 0^-}\frac{-(1+h)^2+2-1}{h}
+=
+\lim_{h\to 0^-}\frac{-h^2-2h}{h}
+=-2
+\]
+
+\[
+\lim_{h\to 0^+}\frac{f(1+h)-f(1)}{h}
+=
+\lim_{h\to 0^+}\frac{-2\ln(1+h)+1-1}{h}
+=
+\lim_{h\to 0^+}\frac{-2\ln(1+h)}{h}
+=-2
+\]
+
+El límite existe y es igual a \(-2\), por lo tanto la función es derivable en \(x=1\) con
+\[
+f'(1)=-2
+\]
+
+\end{document}
