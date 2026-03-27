@@ -1,0 +1,62 @@
+[
+  {
+    "name": "The Silent Path",
+    "genre": "Drama",
+    "timesRented": 12,
+    "isAvailable": true
+  },
+  {
+    "name": "Laugh Out Loud",
+    "genre": "Comedy",
+    "timesRented": 34,
+    "isAvailable": false
+  },
+  {
+    "name": "Broken Promises",
+    "genre": "Drama",
+    "timesRented": 7,
+    "isAvailable": true
+  },
+  {
+    "name": "Weekend Chaos",
+    "genre": "Comedy",
+    "timesRented": 21,
+    "isAvailable": true
+  },
+  {
+    "name": "Echoes of Yesterday",
+    "genre": "Drama",
+    "timesRented": 3,
+    "isAvailable": false
+  },
+  {
+    "name": "Office Mayhem",
+    "genre": "Comedy",
+    "timesRented": 15,
+    "isAvailable": true
+  },
+  {
+    "name": "The Last Letter",
+    "genre": "Drama",
+    "timesRented": 9,
+    "isAvailable": true
+  },
+  {
+    "name": "Family Reunion Disaster",
+    "genre": "Comedy",
+    "timesRented": 27,
+    "isAvailable": false
+  },
+  {
+    "name": "Shadows in the Rain",
+    "genre": "Drama",
+    "timesRented": 5,
+    "isAvailable": true
+  },
+  {
+    "name": "The Great Prank",
+    "genre": "Comedy",
+    "timesRented": 18,
+    "isAvailable": true
+  }
+]

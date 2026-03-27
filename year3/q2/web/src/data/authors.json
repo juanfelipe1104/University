@@ -1,0 +1,72 @@
+[
+  {
+    "_id": "65a000000000000000000001",
+    "name": "J.R.R. Tolkien",
+    "nationality": "Británica",
+    "birthDate": "1892-01-03T00:00:00.000Z",
+    "bio": "Autor de El Señor de los Anillos y pionero de la fantasía moderna."
+  },
+  {
+    "_id": "65a000000000000000000002",
+    "name": "George R.R. Martin",
+    "nationality": "Estadounidense",
+    "birthDate": "1948-09-20T00:00:00.000Z",
+    "bio": "Autor de Canción de Hielo y Fuego."
+  },
+  {
+    "_id": "65a000000000000000000003",
+    "name": "J.K. Rowling",
+    "nationality": "Británica",
+    "birthDate": "1965-07-31T00:00:00.000Z",
+    "bio": "Creadora de la saga Harry Potter."
+  },
+  {
+    "_id": "65a000000000000000000004",
+    "name": "C.S. Lewis",
+    "nationality": "Británica",
+    "birthDate": "1898-11-29T00:00:00.000Z",
+    "bio": "Autor de Las Crónicas de Narnia."
+  },
+  {
+    "_id": "65a000000000000000000005",
+    "name": "Brandon Sanderson",
+    "nationality": "Estadounidense",
+    "birthDate": "1975-12-19T00:00:00.000Z",
+    "bio": "Autor de Mistborn y El Archivo de las Tormentas."
+  },
+  {
+    "_id": "65a000000000000000000006",
+    "name": "Patrick Rothfuss",
+    "nationality": "Estadounidense",
+    "birthDate": "1973-06-06T00:00:00.000Z",
+    "bio": "Autor de El Nombre del Viento."
+  },
+  {
+    "_id": "65a000000000000000000007",
+    "name": "Robin Hobb",
+    "nationality": "Estadounidense",
+    "birthDate": "1952-03-05T00:00:00.000Z",
+    "bio": "Autora de la saga del Vatídico."
+  },
+  {
+    "_id": "65a000000000000000000008",
+    "name": "Ursula K. Le Guin",
+    "nationality": "Estadounidense",
+    "birthDate": "1929-10-21T00:00:00.000Z",
+    "bio": "Autora de Terramar."
+  },
+  {
+    "_id": "65a000000000000000000009",
+    "name": "Terry Pratchett",
+    "nationality": "Británica",
+    "birthDate": "1948-04-28T00:00:00.000Z",
+    "bio": "Creador del Mundodisco."
+  },
+  {
+    "_id": "65a000000000000000000010",
+    "name": "Andrzej Sapkowski",
+    "nationality": "Polaca",
+    "birthDate": "1948-06-21T00:00:00.000Z",
+    "bio": "Autor de The Witcher."
+  }
+]

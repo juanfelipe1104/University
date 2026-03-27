@@ -1,0 +1,9 @@
+POST http://localhost:3000/storage
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="file"; filename="imagen.png"
+Content-Type: image/jpeg
+
+< /home/juan/Web/Express/public/assets/imagen.png
+--boundary--

@@ -1,0 +1,92 @@
+[
+  {
+    "title": "El Señor de los Anillos",
+    "isbn": 1111111111,
+    "author": "65a000000000000000000001",
+    "genre": "fantasy",
+    "publishedYear": "1954-07-29T00:00:00.000Z",
+    "pages": 1216,
+    "available": true
+  },
+  {
+    "title": "Juego de Tronos",
+    "isbn": 2222222222,
+    "author": "65a000000000000000000002",
+    "genre": "fantasy",
+    "publishedYear": "1996-08-06T00:00:00.000Z",
+    "pages": 694,
+    "available": true
+  },
+  {
+    "title": "Harry Potter y la piedra filosofal",
+    "isbn": 3333333333,
+    "author": "65a000000000000000000003",
+    "genre": "fantasy",
+    "publishedYear": "1997-06-26T00:00:00.000Z",
+    "pages": 223,
+    "available": true
+  },
+  {
+    "title": "El león, la bruja y el armario",
+    "isbn": 4444444444,
+    "author": "65a000000000000000000004",
+    "genre": "fantasy",
+    "publishedYear": "1950-10-16T00:00:00.000Z",
+    "pages": 206,
+    "available": true
+  },
+  {
+    "title": "El imperio final",
+    "isbn": 5555555555,
+    "author": "65a000000000000000000005",
+    "genre": "fantasy",
+    "publishedYear": "2006-07-17T00:00:00.000Z",
+    "pages": 541,
+    "available": true
+  },
+  {
+    "title": "El nombre del viento",
+    "isbn": 6666666666,
+    "author": "65a000000000000000000006",
+    "genre": "fantasy",
+    "publishedYear": "2007-03-27T00:00:00.000Z",
+    "pages": 662,
+    "available": true
+  },
+  {
+    "title": "Aprendiz de asesino",
+    "isbn": 7777777777,
+    "author": "65a000000000000000000007",
+    "genre": "fantasy",
+    "publishedYear": "1995-03-01T00:00:00.000Z",
+    "pages": 435,
+    "available": true
+  },
+  {
+    "title": "Un mago de Terramar",
+    "isbn": 8888888888,
+    "author": "65a000000000000000000008",
+    "genre": "fantasy",
+    "publishedYear": "1968-09-01T00:00:00.000Z",
+    "pages": 205,
+    "available": true
+  },
+  {
+    "title": "El color de la magia",
+    "isbn": 9999999999,
+    "author": "65a000000000000000000009",
+    "genre": "fantasy",
+    "publishedYear": "1983-01-01T00:00:00.000Z",
+    "pages": 210,
+    "available": true
+  },
+  {
+    "title": "El último deseo",
+    "isbn": 1010101010,
+    "author": "65a000000000000000000010",
+    "genre": "fantasy",
+    "publishedYear": "1993-01-01T00:00:00.000Z",
+    "pages": 288,
+    "available": true
+  }
+]

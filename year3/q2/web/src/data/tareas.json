@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Comprar víveres",
+        "description": "Leche, huevos, pan y fruta",
+        "completed": false,
+        "priority": "medium"
+    },
+    {
+        "title": "Terminar informe de proyecto",
+        "description": "Revisar conclusiones y formato APA",
+        "completed": true,
+        "priority": "high"
+    },
+    {
+        "title": "Llamar al dentista",
+        "description": "Pedir cita para revisión anual",
+        "completed": false,
+        "priority": "low"
+    },
+    {
+        "title": "Estudiar Express y Zod",
+        "description": "Repasar validación y middlewares",
+        "completed": true,
+        "priority": "medium"
+    },
+    {
+        "title": "Hacer ejercicio",
+        "description": "30 minutos de cardio",
+        "completed": false,
+        "priority": "high"
+    }
+]

@@ -1,0 +1,82 @@
+[
+    {
+        "name": "Carlos Martínez",
+        "email": "carlos.martinez@example.com",
+        "password": "Password123",
+        "role": "admin",
+        "avatar": null,
+        "isActive": true
+    },
+    {
+        "name": "Lucía Fernández",
+        "email": "lucia.fernandez@example.com",
+        "password": "LuciaPass9",
+        "role": "user",
+        "avatar": null,
+        "isActive": true
+    },
+    {
+        "name": "Alejandro Gómez",
+        "email": "alejandro.gomez@example.com",
+        "password": "AlejoSecure1",
+        "role": "user",
+        "avatar": null,
+        "isActive": true
+    },
+    {
+        "name": "María López",
+        "email": "maria.lopez@example.com",
+        "password": "MariaStrong8",
+        "role": "user",
+        "avatar": null,
+        "isActive": false
+    },
+    {
+        "name": "Javier Sánchez",
+        "email": "javier.sanchez@example.com",
+        "password": "JavierPass22",
+        "role": "admin",
+        "avatar": null,
+        "isActive": true
+    },
+    {
+        "name": "Elena Torres",
+        "email": "elena.torres@example.com",
+        "password": "ElenaClave7",
+        "role": "user",
+        "avatar": null,
+        "isActive": true
+    },
+    {
+        "name": "Pablo Ruiz",
+        "email": "pablo.ruiz@example.com",
+        "password": "PabloSafe11",
+        "role": "user",
+        "avatar": null,
+        "isActive": true
+    },
+    {
+        "name": "Sofía Navarro",
+        "email": "sofia.navarro@example.com",
+        "password": "SofiaPass88",
+        "role": "user",
+        "avatar": null,
+        "isActive": true
+    },
+    {
+        "name": "Diego Herrera",
+        "email": "diego.herrera@example.com",
+        "password": "DiegoStrong3",
+        "role": "user",
+        "avatar": null,
+        "isActive": false
+    },
+    {
+        "name": "Laura Castillo",
+        "email": "laura.castillo@example.com",
+        "password": "LauraClave55",
+        "role": "user",
+        "avatar": null,
+        "isActive": true
+    }
+]
