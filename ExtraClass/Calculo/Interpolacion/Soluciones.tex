@@ -12,7 +12,6 @@
 \begin{document}
 \maketitle
 
-\tableofcontents
 \bigskip
 
 \section*{Ejercicio 1}
@@ -250,6 +249,300 @@ L
 &=\frac{1/3^{10}}{1/2^{15}}
 =\boxed{\frac{2^{15}}{3^{10}}}.
 \end{aligned}
+\]
+
+\section*{Solución Ejercicio 6}
+
+Queremos aproximar \(\sqrt[3]{30}\) mediante un desarrollo de Taylor centrado en un punto conveniente.
+
+Observamos que
+\[
+30 = 27\cdot \frac{10}{9} = 27\left(1+\frac{1}{9}\right),
+\]
+por tanto
+\[
+\sqrt[3]{30}
+= \sqrt[3]{27\left(1+\frac{1}{9}\right)}
+= 3\sqrt[3]{1+\frac{1}{9}}.
+\]
+
+Así, definimos
+\[
+f(x)=3\sqrt[3]{1+x}=3(1+x)^{1/3},
+\]
+y queremos aproximar
+\[
+f\left(\frac{1}{9}\right)=\sqrt[3]{30}.
+\]
+
+Desarrollaremos \(f\) en Taylor alrededor de \(x=0\), ya que \(\frac{1}{9}\) es un valor pequeño.
+
+\subsection*{1. Derivadas de la función}
+
+Calculamos las primeras derivadas de \(f\):
+\[
+f(x)=3(1+x)^{1/3},
+\]
+\[
+f'(x)=3\cdot \frac{1}{3}(1+x)^{-2/3}=(1+x)^{-2/3},
+\]
+\[
+f''(x)=-\frac{2}{3}(1+x)^{-5/3},
+\]
+\[
+f'''(x)=\frac{10}{9}(1+x)^{-8/3},
+\]
+\[
+f^{(4)}(x)=-\frac{80}{27}(1+x)^{-11/3},
+\]
+\[
+f^{(5)}(x)=\frac{880}{81}(1+x)^{-14/3}.
+\]
+
+Evaluando en \(x=0\):
+\[
+f(0)=3,\qquad f'(0)=1,\qquad f''(0)=-\frac{2}{3},
+\]
+\[
+f'''(0)=\frac{10}{9},\qquad f^{(4)}(0)=-\frac{80}{27}.
+\]
+
+\subsection*{2. Polinomio de Taylor de grado 4}
+
+El polinomio de Taylor de grado \(4\) centrado en \(0\) es
+\[
+P_4(x)=f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+\frac{f'''(0)}{3!}x^3+\frac{f^{(4)}(0)}{4!}x^4.
+\]
+
+Sustituyendo:
+\[
+P_4(x)
+=3+x+\frac{-2/3}{2}x^2+\frac{10/9}{6}x^3+\frac{-80/27}{24}x^4.
+\]
+
+Simplificando:
+\[
+P_4(x)=3+x-\frac{1}{3}x^2+\frac{5}{27}x^3-\frac{10}{81}x^4.
+\]
+
+\subsection*{3. Cota del error}
+
+El resto de Lagrange asociado a \(P_4\) es
+\[
+R_4(x)=\frac{f^{(5)}(z)}{5!}x^5,
+\qquad z\in(0,x).
+\]
+
+Para \(x=\frac{1}{9}\),
+\[
+\left|R_4\!\left(\frac{1}{9}\right)\right|
+=
+\left|
+\frac{f^{(5)}(z)}{5!}\left(\frac{1}{9}\right)^5
+\right|
+=
+\left|
+\frac{1}{120}\cdot \frac{880}{81}(1+z)^{-14/3}\left(\frac{1}{9}\right)^5
+\right|.
+\]
+
+Como \(z\in\left(0,\frac{1}{9}\right)\), se tiene \(1+z>1\), luego
+\[
+(1+z)^{-14/3}<1.
+\]
+Por tanto,
+\[
+\left|R_4\!\left(\frac{1}{9}\right)\right|
+<
+\frac{880}{120\cdot 81}\left(\frac{1}{9}\right)^5.
+\]
+
+Calculamos:
+\[
+\frac{880}{120\cdot 81}\left(\frac{1}{9}\right)^5
+\approx 1.53\cdot 10^{-6}<10^{-5}.
+\]
+
+Así, el polinomio \(P_4\) aproxima \(\sqrt[3]{30}\) con un error menor que \(10^{-5}\).
+
+\subsection*{4. Aproximación numérica}
+
+Evaluamos \(P_4\left(\frac{1}{9}\right)\):
+\[
+\sqrt[3]{30}=f\left(\frac{1}{9}\right)\approx P_4\left(\frac{1}{9}\right),
+\]
+\[
+P_4\left(\frac{1}{9}\right)
+=
+3+\frac{1}{9}-\frac{1}{3}\left(\frac{1}{9}\right)^2+\frac{5}{27}\left(\frac{1}{9}\right)^3-\frac{10}{81}\left(\frac{1}{9}\right)^4.
+\]
+
+Por tanto,
+\[
+\sqrt[3]{30}\approx 3.10723109.
+\]
+
+\subsection*{Conclusión}
+
+Hemos obtenido la aproximación
+\[
+\boxed{\sqrt[3]{30}\approx 3.10723109}
+\]
+con un error acotado por
+\[
+\left|\sqrt[3]{30}-3.10723109\right|<10^{-5}.
+\]
+
+\section*{Solución Ejercicio 7}
+
+Queremos aproximar \(\ln(1.2)\) mediante un desarrollo de Taylor centrado en un punto conveniente.
+
+Observamos que
+\[
+\ln(1.2)=\ln\left(1+\frac{1}{5}\right).
+\]
+
+Por tanto, definimos
+\[
+f(x)=\ln(1+x),
+\]
+y queremos aproximar
+\[
+f\left(\frac{1}{5}\right)=\ln(1.2).
+\]
+
+Desarrollaremos \(f\) en Taylor alrededor de \(x=0\), ya que \(\frac{1}{5}\) es un valor pequeño.
+
+\subsection*{1. Derivadas de la función}
+
+Tenemos
+\[
+f(x)=\ln(1+x),
+\]
+\[
+f'(x)=\frac{1}{1+x},
+\qquad
+f''(x)=-\frac{1}{(1+x)^2},
+\qquad
+f'''(x)=\frac{2}{(1+x)^3},
+\]
+\[
+f^{(4)}(x)=-\frac{6}{(1+x)^4},
+\qquad
+f^{(5)}(x)=\frac{24}{(1+x)^5}.
+\]
+
+Evaluando en \(x=0\):
+\[
+f(0)=0,\qquad f'(0)=1,\qquad f''(0)=-1,\qquad f'''(0)=2,\qquad f^{(4)}(0)=-6.
+\]
+
+\subsection*{2. Polinomio de Taylor de grado 4}
+
+El polinomio de Taylor de grado \(4\) centrado en \(0\) es
+\[
+P_4(x)=f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+\frac{f'''(0)}{3!}x^3+\frac{f^{(4)}(0)}{4!}x^4.
+\]
+
+Sustituyendo:
+\[
+P_4(x)=x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}.
+\]
+
+\subsection*{3. Cota del error}
+
+El resto de Lagrange asociado es
+\[
+R_4(x)=\frac{f^{(5)}(z)}{5!}x^5,
+\qquad z\in(0,x).
+\]
+
+Para \(x=\frac{1}{5}\),
+\[
+\left|R_4\left(\frac{1}{5}\right)\right|
+=
+\left|
+\frac{24}{120(1+z)^5}\left(\frac{1}{5}\right)^5
+\right|.
+\]
+
+Como \(z\in\left(0,\frac{1}{5}\right)\), se tiene \((1+z)^5>1\), luego
+\[
+\frac{1}{(1+z)^5}<1.
+\]
+
+Por tanto,
+\[
+\left|R_4\left(\frac{1}{5}\right)\right|
+<
+\frac{24}{120}\left(\frac{1}{5}\right)^5
+=
+\frac{1}{5^6}
+=
+\frac{1}{15625}
+\approx 6.4\cdot 10^{-5}.
+\]
+
+Esta cota no es todavía menor que \(10^{-5}\), así que necesitamos un grado más.
+
+Tomamos el polinomio de Taylor de grado \(5\):
+\[
+P_5(x)=x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\frac{x^5}{5}.
+\]
+
+El resto será ahora
+\[
+R_5(x)=\frac{f^{(6)}(z)}{6!}x^6,
+\qquad z\in(0,x).
+\]
+
+Como
+\[
+f^{(6)}(x)=-\frac{120}{(1+x)^6},
+\]
+obtenemos
+\[
+\left|R_5\left(\frac{1}{5}\right)\right|
+=
+\left|
+\frac{-120}{720(1+z)^6}\left(\frac{1}{5}\right)^6
+\right|
+<
+\frac{120}{720}\left(\frac{1}{5}\right)^6
+=
+\frac{1}{6\cdot 5^6}
+\approx 2.67\cdot 10^{-6}<10^{-5}.
+\]
+
+Luego \(P_5\) proporciona la precisión pedida.
+
+\subsection*{4. Aproximación numérica}
+
+Evaluamos en \(x=\frac{1}{5}\):
+\[
+\ln(1.2)\approx P_5\left(\frac{1}{5}\right)
+=
+\frac{1}{5}
+-\frac{1}{2}\left(\frac{1}{5}\right)^2
++\frac{1}{3}\left(\frac{1}{5}\right)^3
+-\frac{1}{4}\left(\frac{1}{5}\right)^4
++\frac{1}{5}\left(\frac{1}{5}\right)^5.
+\]
+
+Esto da
+\[
+\ln(1.2)\approx 0.18233067.
+\]
+
+\subsection*{Conclusión}
+
+Por tanto,
+\[
+\boxed{\ln(1.2)\approx 0.18233067}
+\]
+con un error menor que
+\[
+10^{-5}.
 \]
 
 \end{document}

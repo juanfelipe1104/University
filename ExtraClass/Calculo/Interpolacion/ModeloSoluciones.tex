@@ -1,0 +1,548 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\title{Soluciones Modelo Examen Primer Parcial}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Solución Ejercicio 1}
+
+Queremos calcular
+\[
+\lim_{x\to 0}\frac{\sqrt{1+\sen x}-e^{x/2}}{x^2}.
+\]
+
+La idea es desarrollar en serie de Taylor numerador y denominador alrededor de \(x=0\).
+
+Recordemos los desarrollos de Maclaurin:
+\[
+\sen x = x-\frac{x^3}{6}+o(x^3),
+\]
+\[
+e^{x/2}=1+\frac{x}{2}+\frac{x^2}{8}+o(x^2),
+\]
+y también, para \(|u|\) pequeño,
+\[
+\sqrt{1+u}=1+\frac{u}{2}-\frac{u^2}{8}+o(u^2).
+\]
+
+Tomamos \(u=\sen x\). Como
+\[
+\sen x = x+o(x),
+\]
+se tiene
+\[
+(\sen x)^2=x^2+o(x^2).
+\]
+
+Por tanto,
+\[
+\sqrt{1+\sen x}
+=
+1+\frac{\sen x}{2}-\frac{(\sen x)^2}{8}+o(x^2).
+\]
+
+Sustituyendo:
+\[
+\sqrt{1+\sen x}
+=
+1+\frac{1}{2}\left(x-\frac{x^3}{6}+o(x^3)\right)-\frac{1}{8}\left(x^2+o(x^2)\right)+o(x^2).
+\]
+
+Como solo necesitamos términos hasta orden \(2\),
+\[
+\sqrt{1+\sen x}
+=
+1+\frac{x}{2}-\frac{x^2}{8}+o(x^2).
+\]
+
+Entonces el numerador queda:
+\[
+\sqrt{1+\sen x}-e^{x/2}
+=
+\left(1+\frac{x}{2}-\frac{x^2}{8}+o(x^2)\right)
+-
+\left(1+\frac{x}{2}+\frac{x^2}{8}+o(x^2)\right).
+\]
+
+Simplificando:
+\[
+\sqrt{1+\sen x}-e^{x/2}
+=
+-\frac{x^2}{4}+o(x^2).
+\]
+
+Por tanto,
+\[
+\frac{\sqrt{1+\sen x}-e^{x/2}}{x^2}
+=
+\frac{-\frac{x^2}{4}+o(x^2)}{x^2}.
+\]
+
+Ahora sacamos factor común \(x^2\) en el numerador:
+\[
+-\frac{x^2}{4}+o(x^2)=x^2\left(-\frac14+o(1)\right).
+\]
+
+Así,
+\[
+\frac{\sqrt{1+\sen x}-e^{x/2}}{x^2}
+=
+\frac{x^2\left(-\frac14+o(1)\right)}{x^2}
+=
+-\frac14+o(1).
+\]
+
+Finalmente,
+\[
+\lim_{x\to 0}\frac{\sqrt{1+\sen x}-e^{x/2}}{x^2}
+=
+-\frac{1}{4}.
+\]
+
+\[
+\boxed{
+\lim_{x\to 0}\frac{\sqrt{1+\sen x}-e^{x/2}}{x^2}
+=
+-\frac{1}{4}
+}
+\]
+
+\section*{Solución Ejercicio 2}
+
+Se considera la función
+\[
+f(x)=
+\begin{cases}
+\dfrac{e^x-1}{x}, & x<0,\\[8pt]
+a, & x=0,\\[8pt]
+\dfrac{\sqrt{1+2x}-1}{x}+bx, & x>0,
+\end{cases}
+\qquad a,b\in\mathbb{R}.
+\]
+
+Queremos determinar los valores de \(a\) y \(b\) para que la función sea continua y derivable en \(x=0\).
+
+\subsection*{1. Continuidad en \(x=0\)}
+
+Para que \(f\) sea continua en \(x=0\), debe cumplirse
+\[
+\lim_{x\to 0^-}f(x)=f(0)=\lim_{x\to 0^+}f(x).
+\]
+
+\subsubsection*{Límite por la izquierda}
+
+Si \(x<0\),
+\[
+f(x)=\frac{e^x-1}{x}.
+\]
+
+Usando el desarrollo
+\[
+e^x=1+x+\frac{x^2}{2}+o(x^2),
+\]
+obtenemos
+\[
+e^x-1=x+\frac{x^2}{2}+o(x^2).
+\]
+
+Luego
+\[
+\frac{e^x-1}{x}
+=
+1+\frac{x}{2}+o(x).
+\]
+
+Así,
+\[
+\lim_{x\to 0^-}f(x)=1.
+\]
+
+\subsubsection*{Límite por la derecha}
+
+Si \(x>0\),
+\[
+f(x)=\frac{\sqrt{1+2x}-1}{x}+bx.
+\]
+
+Racionalizamos:
+\[
+\frac{\sqrt{1+2x}-1}{x}
+=
+\frac{(\sqrt{1+2x}-1)(\sqrt{1+2x}+1)}{x(\sqrt{1+2x}+1)}
+=
+\frac{2x}{x(\sqrt{1+2x}+1)}
+=
+\frac{2}{\sqrt{1+2x}+1}.
+\]
+
+Por tanto,
+\[
+f(x)=\frac{2}{\sqrt{1+2x}+1}+bx.
+\]
+
+Al hacer \(x\to 0^+\),
+\[
+\lim_{x\to 0^+}f(x)=\frac{2}{1+1}+0=1.
+\]
+
+Para que haya continuidad, debe ser
+\[
+a=1.
+\]
+
+\[
+\boxed{a=1}
+\]
+
+\subsection*{2. Derivabilidad en \(x=0\)}
+
+Suponiendo ya \(a=1\), estudiamos la derivabilidad en \(x=0\).
+
+La función será derivable en \(0\) si existen las derivadas laterales y coinciden:
+\[
+f'_-(0)=f'_+(0).
+\]
+
+\subsubsection*{Derivada lateral izquierda}
+
+Por definición,
+\[
+f'_-(0)=\lim_{h\to 0^-}\frac{f(h)-f(0)}{h}.
+\]
+
+Como para \(h<0\),
+\[
+f(h)=\frac{e^h-1}{h},
+\qquad f(0)=1,
+\]
+tenemos
+\[
+f'_-(0)=\lim_{h\to 0^-}\frac{\frac{e^h-1}{h}-1}{h}.
+\]
+
+Usando el desarrollo
+\[
+\frac{e^h-1}{h}=1+\frac{h}{2}+o(h),
+\]
+resulta
+\[
+f'_-(0)
+=
+\lim_{h\to 0^-}\frac{1+\frac{h}{2}+o(h)-1}{h}
+=
+\lim_{h\to 0^-}\left(\frac12+\frac{o(h)}{h}\right)
+=
+\frac12.
+\]
+
+\subsubsection*{Derivada lateral derecha}
+
+Por definición,
+\[
+f'_+(0)=\lim_{h\to 0^+}\frac{f(h)-f(0)}{h}.
+\]
+
+Para \(h>0\),
+\[
+f(h)=\frac{\sqrt{1+2h}-1}{h}+bh.
+\]
+
+Por tanto,
+\[
+f'_+(0)=\lim_{h\to 0^+}\frac{\frac{\sqrt{1+2h}-1}{h}+bh-1}{h}.
+\]
+
+Desarrollamos:
+\[
+\sqrt{1+2h}=1+h-\frac{h^2}{2}+o(h^2).
+\]
+
+Entonces
+\[
+\sqrt{1+2h}-1=h-\frac{h^2}{2}+o(h^2),
+\]
+y dividiendo entre \(h\),
+\[
+\frac{\sqrt{1+2h}-1}{h}=1-\frac{h}{2}+o(h).
+\]
+
+Sustituyendo en el cociente incremental:
+\[
+f'_+(0)
+=
+\lim_{h\to 0^+}
+\frac{\left(1-\frac{h}{2}+o(h)\right)+bh-1}{h}.
+\]
+
+Simplificando el numerador:
+\[
+\left(1-\frac{h}{2}+o(h)\right)+bh-1
+=
+\left(b-\frac12\right)h+o(h).
+\]
+
+Por tanto,
+\[
+f'_+(0)
+=
+\lim_{h\to 0^+}
+\frac{\left(b-\frac12\right)h+o(h)}{h}
+=
+\lim_{h\to 0^+}
+\left(b-\frac12+\frac{o(h)}{h}\right)
+=
+b-\frac12.
+\]
+
+Para que \(f\) sea derivable en \(0\), debe cumplirse
+\[
+f'_-(0)=f'_+(0),
+\]
+es decir,
+\[
+\frac12=b-\frac12.
+\]
+
+De aquí:
+\[
+b=1.
+\]
+
+\[
+\boxed{b=1}
+\]
+
+\subsection*{3. Valor de la derivada}
+
+Con \(a=1\) y \(b=1\), la función es derivable en \(x=0\) y
+\[
+f'(0)=\frac12.
+\]
+
+\[
+\boxed{f'(0)=\frac12}
+\]
+
+\subsection*{Conclusión}
+
+La función es continua en \(x=0\) si y solo si
+\[
+\boxed{a=1}.
+\]
+
+La función es derivable en \(x=0\) si y solo si
+\[
+\boxed{a=1,\qquad b=1}.
+\]
+
+En ese caso,
+\[
+\boxed{f'(0)=\frac12}.
+\]
+
+\newpage
+
+\section*{Solución Ejercicio 3}
+
+Queremos calcular
+\[
+\sqrt[5]{34}
+\]
+con un error menor que \(10^{-5}\), utilizando un desarrollo de Taylor adecuado.
+
+\subsection*{1. Reescritura conveniente}
+
+Buscamos un número próximo cuya raíz quinta sea fácil de calcular. Observamos que
+\[
+32=2^5,
+\]
+y además
+\[
+34=32\left(1+\frac{2}{32}\right)=32\left(1+\frac{1}{16}\right).
+\]
+
+Por tanto,
+\[
+\sqrt[5]{34}
+=
+\sqrt[5]{32\left(1+\frac{1}{16}\right)}
+=
+2\sqrt[5]{1+\frac{1}{16}}.
+\]
+
+Definimos
+\[
+f(x)=2(1+x)^{1/5},
+\]
+de modo que
+\[
+f\left(\frac{1}{16}\right)=\sqrt[5]{34}.
+\]
+
+Desarrollaremos \(f\) en Taylor alrededor de \(x=0\).
+
+\subsection*{2. Derivadas}
+
+Tenemos
+\[
+f(x)=2(1+x)^{1/5}.
+\]
+
+Derivando sucesivamente:
+\[
+f'(x)=\frac{2}{5}(1+x)^{-4/5},
+\]
+\[
+f''(x)=\frac{2}{5}\left(-\frac{4}{5}\right)(1+x)^{-9/5}
+=
+-\frac{8}{25}(1+x)^{-9/5},
+\]
+\[
+f^{(3)}(x)
+=
+-\frac{8}{25}\left(-\frac{9}{5}\right)(1+x)^{-14/5}
+=
+\frac{72}{125}(1+x)^{-14/5},
+\]
+\[
+f^{(4)}(x)
+=
+\frac{72}{125}\left(-\frac{14}{5}\right)(1+x)^{-19/5}
+=
+-\frac{1008}{625}(1+x)^{-19/5},
+\]
+\[
+f^{(5)}(x)
+=
+-\frac{1008}{625}\left(-\frac{19}{5}\right)(1+x)^{-24/5}
+=
+\frac{19152}{3125}(1+x)^{-24/5}.
+\]
+
+Evaluando en \(x=0\):
+\[
+f(0)=2,
+\qquad
+f'(0)=\frac{2}{5},
+\qquad
+f''(0)=-\frac{8}{25},
+\]
+\[
+f^{(3)}(0)=\frac{72}{125},
+\qquad
+f^{(4)}(0)=-\frac{1008}{625}.
+\]
+
+\subsection*{3. Polinomio de Taylor de grado 4}
+
+El polinomio de Taylor de grado \(4\) centrado en \(0\) es
+\[
+P_4(x)
+=
+f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+\frac{f^{(3)}(0)}{3!}x^3+\frac{f^{(4)}(0)}{4!}x^4.
+\]
+
+Sustituyendo:
+\[
+P_4(x)
+=
+2+\frac{2}{5}x-\frac{8}{25}\frac{x^2}{2}+\frac{72}{125}\frac{x^3}{6}-\frac{1008}{625}\frac{x^4}{24}.
+\]
+
+Simplificando:
+\[
+P_4(x)
+=
+2+\frac{2}{5}x-\frac{4}{25}x^2+\frac{12}{125}x^3-\frac{42}{625}x^4.
+\]
+
+\subsection*{4. Cota del error}
+
+El resto de Lagrange es
+\[
+R_4(x)=\frac{f^{(5)}(z)}{5!}x^5,
+\qquad z\in(0,x).
+\]
+
+Para \(x=\frac{1}{16}\),
+\[
+\left|R_4\left(\frac{1}{16}\right)\right|
+=
+\left|
+\frac{1}{120}\cdot \frac{19152}{3125}(1+z)^{-24/5}\left(\frac{1}{16}\right)^5
+\right|.
+\]
+
+Como \(z\in\left(0,\frac{1}{16}\right)\), se cumple \(1+z>1\), luego
+\[
+(1+z)^{-24/5}<1.
+\]
+
+Así,
+\[
+\left|R_4\left(\frac{1}{16}\right)\right|
+<
+\frac{19152}{3125\cdot 120}\left(\frac{1}{16}\right)^5.
+\]
+
+Calculamos:
+\[
+\frac{19152}{3125\cdot 120}\left(\frac{1}{16}\right)^5
+\approx 1.56\cdot 10^{-7}<10^{-5}.
+\]
+
+Por tanto, el polinomio \(P_4\) aproxima \(\sqrt[5]{34}\) con error menor que \(10^{-5}\).
+
+\subsection*{5. Aproximación numérica}
+
+Evaluamos en \(x=\frac{1}{16}\):
+\[
+\sqrt[5]{34}=f\left(\frac{1}{16}\right)\approx P_4\left(\frac{1}{16}\right).
+\]
+
+Entonces
+\[
+P_4\left(\frac{1}{16}\right)
+=
+2+\frac{2}{5}\cdot\frac{1}{16}
+-\frac{4}{25}\left(\frac{1}{16}\right)^2
++\frac{12}{125}\left(\frac{1}{16}\right)^3
+-\frac{42}{625}\left(\frac{1}{16}\right)^4.
+\]
+
+Calculando:
+\[
+P_4\left(\frac{1}{16}\right)
+=
+2+0.025-0.000625+0.0000234375-0.000001640625.
+\]
+
+Por tanto,
+\[
+\sqrt[5]{34}\approx 2.024396796875.
+\]
+
+Redondeando,
+\[
+\boxed{\sqrt[5]{34}\approx 2.02439680}.
+\]
+
+\subsection*{Conclusión}
+
+Hemos obtenido la aproximación
+\[
+\boxed{\sqrt[5]{34}\approx 2.02439680}
+\]
+con un error menor que
+\[
+\boxed{10^{-5}}.
+\]
+\end{document}
