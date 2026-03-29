@@ -1,5 +1,5 @@
 package com.juan.procesamientodatos
-package classes
+package scalaClase.classes
 
 class Box[T](content: T) {
   def getContent: T = content

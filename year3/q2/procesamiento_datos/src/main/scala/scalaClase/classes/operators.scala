@@ -1,5 +1,5 @@
 package com.juan.procesamientodatos
-package classes
+package scalaClase.classes
 
 // Definimos la clase base
 abstract class Expr

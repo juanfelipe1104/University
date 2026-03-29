@@ -1,8 +1,7 @@
 package com.juan.procesamientodatos
+package scalaClase
 
-import classes.Stack
-import classes.Box
-import classes.Caja
+import classes.{Box, Caja, Stack}
 
 object generic extends App {
   // Crear una pila de enteros

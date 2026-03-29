@@ -1,5 +1,5 @@
 package com.juan.procesamientodatos
-package classes
+package scalaClase.classes
 
 class Caja[T](private var valor: T) {
 

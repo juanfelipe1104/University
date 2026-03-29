@@ -1,0 +1,7 @@
+Juan Perez,25,juan.perez@gmail.com
+Carlos Gomez,30,carlos.gomez@hotmail.com
+Ana Martinez,19,ana.martinez@outlook.com
+Luisa Fernandez,22,luisa.fernandez@gmail.com
+Ricardo Diaz,35,ricardo.diaz@empresa.com
+Esteban Castro,40,esteban.castro@yahoo.com
+Laura Ramos,28,laura.ramos@dominio.com

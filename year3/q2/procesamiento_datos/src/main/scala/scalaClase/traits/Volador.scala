@@ -1,5 +1,5 @@
 package com.juan.procesamientodatos
-package traits
+package scalaClase.traits
 
 trait Volador {
   def volar(): Unit = println("Estoy volando")

@@ -1,5 +1,5 @@
 package com.juan.procesamientodatos
-package classes
+package scalaClase.classes
 
 class Stack[T] {
   private var elems: List[T] = Nil

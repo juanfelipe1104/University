@@ -1,5 +1,7 @@
 package com.juan.procesamientodatos
-import classes.{Expr, BinOp, Number, UnOp, Var, Persona}
+package scalaClase
+
+import classes.{BinOp, Expr, Number, Persona, UnOp, Var}
 
 
 
@@ -38,13 +40,13 @@ Requerimientos:
 
 object pattern2 extends App {
   private def describirPersona(p: Persona): String = p match {
-    case Persona(nombre, edad) if edad < 18  => s"$nombre es menor de edad."
-    case Persona(nombre, edad) if edad <= 65 => s"$nombre es adulto."
+    case Persona(nombre, edad, "") if edad < 18  => s"$nombre es menor de edad."
+    case Persona(nombre, edad, "") if edad <= 65 => s"$nombre es adulto."
     case other => s"${other.nombre} es adulto mayor."
   }
-  private val p1 = Persona("Juan", 16)
-  private val p2 = Persona("Ana", 25)
-  private val p3 = Persona("Sara", 70)
+  private val p1 = Persona("Juan", 16, "")
+  private val p2 = Persona("Ana", 25, "")
+  private val p3 = Persona("Sara", 70, "")
   println(describirPersona(p1)) // Salida: Juan es menor de edad.
   println(describirPersona(p2)) // Salida: Ana es adulto.
   println(describirPersona(p3)) // Salida: Sara es adulto mayor.
