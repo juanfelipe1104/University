@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  spark-master:
+    image: mafernandezd/spark:3.5.7-scala2.12-java17-r-ubuntu
+    container_name: spark-master
+    ports:
+      - "8080:8080"
+    networks:
+      - spark-cluster-net
+    tty: true
+    stdin_open: true
+
+  spark-worker1:
+    image: mafernandezd/spark:3.5.7-scala2.12-java17-r-ubuntu
+    container_name: spark-worker1
+    networks:
+      - spark-cluster-net
+    tty: true
+    stdin_open: true
+
+  spark-worker2:
+    image: mafernandezd/spark:3.5.7-scala2.12-java17-r-ubuntu
+    container_name: spark-worker2
+    networks:
+      - spark-cluster-net
+    tty: true
+    stdin_open: true
+
+  spark-app:
+    image: mafernandezd/spark:3.5.7-scala2.12-java17-r-ubuntu
+    container_name: spark-app
+    ports:
+      - "4040:4040"
+    networks:
+      - spark-cluster-net
+    tty: true
+    stdin_open: true
+
+networks:
+  spark-cluster-net:
+    name: spark-cluster-net

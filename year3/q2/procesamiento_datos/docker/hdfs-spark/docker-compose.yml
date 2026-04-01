@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  hdfs:
+    image: mafernandezd/hdfs:2.7.2
+    container_name: hdfs
+    ports:
+      - "8020:8020"
+      - "50070:50070"
+    networks:
+      - bigdata-net
+
+  spark:
+    image: mafernandezd/spark:3.5.7-scala2.12-java17-r-ubuntu
+    container_name: spark
+    ports:
+      - "4040:4040"
+    networks:
+      - bigdata-net
+    tty: true
+    stdin_open: true
+
+networks:
+  bigdata-net:
+    name: bigdata-net
