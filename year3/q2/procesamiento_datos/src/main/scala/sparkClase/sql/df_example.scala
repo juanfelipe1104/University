@@ -41,15 +41,16 @@ object df_example extends App {
   data.toDF("alumno", "asignatura", "calificacion")
 
   // 1.3. Read data from csv file
-  spark.read.format("csv").load("/src/main/scala/files/winequality-red-white.txt").show()
-  spark.read.csv("/src/main/scala/files/winequality-red-white.txt").show()
-  val tmp1df = spark.read.format("csv").option("header", "true").load("/src/main/scala/files/winequality-red-white.txt")
+  val filename = "src/main/scala/files/winequality-red-white.txt"
+  spark.read.format("csv").load(filename).show()
+  spark.read.csv(filename).show()
+  val tmp1df = spark.read.format("csv").option("header", "true").load(filename)
 
   // Problem? Delimiter is not a comma, but a pipe --> Specify "delimiter" option
-  val tmp2df = spark.read.format("csv").option("header", "true").option("delimiter", "|").load("/src/main/scala/files/winequality-red-white.txt")
+  val tmp2df = spark.read.format("csv").option("header", "true").option("delimiter", "|").load(filename)
 
   // Problem? All the columns as string, but they represent figures. --> Specify "inferSchema" option
-  val winesdf = spark.read.format("csv").option("header", "true").option("delimiter", "|").option("inferSchema", "true").load("/src/main/scala/files/winequality-red-white.txt")
+  val winesdf = spark.read.format("csv").option("header", "true").option("delimiter", "|").option("inferSchema", "true").load(filename)
 
   // 2. DF STRUCTURE (METADATA)
   // 2.1. Método printSchema
@@ -90,4 +91,6 @@ object df_example extends App {
 
   // 5.3. Esta misma query podemos llevarla a cabo mediante la API de Spark
   winesdf.select("fixed_acidity", "density").show
+
+  spark.stop()
 }
