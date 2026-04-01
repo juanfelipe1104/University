@@ -1,8 +1,8 @@
 package com.juan.procesamientodatos
 package scalaClase
 
-import scala.io.Source
 import java.io.PrintWriter
+import scala.io.Source
 
 /*
 En este ejercicio, trabajarás con lectura y escritura de archivos en Scala utilizando la biblioteca scala.io.Source y la clase PrintWriter.
@@ -24,9 +24,9 @@ Tareas:
  */
 
 object files extends App {
-  private val filenameInput = "src/main/scala/files/microcuento.txt"
-  private val fileReader = Source.fromFile(filenameInput)
-  private val lines = fileReader.getLines().toList
+  val filenameInput = "src/main/scala/files/microcuento.txt"
+  val fileReader = Source.fromFile(filenameInput)
+  val lines = fileReader.getLines().toList
   fileReader.close()
   println(lines.size)
   println(lines.forall(_.length > 50))
@@ -41,14 +41,14 @@ object files extends App {
 
   println(lines.mkString(System.lineSeparator()))
 
-  println(Range.inclusive(1,10).zip(lines).mkString(System.lineSeparator()))
+  println(Range.inclusive(1, 10).zip(lines).mkString(System.lineSeparator()))
 
-  println(Range.inclusive(1,10).zip(lines).mkString(System.lineSeparator()))
+  println(Range.inclusive(1, 10).zip(lines).mkString(System.lineSeparator()))
 
   // Escritura de ficheros
 
-  private val filenameOutput = "src/main/scala/files/microcuento_uppercase.txt"
-  private val printWriter = new PrintWriter(filenameOutput)
+  val filenameOutput = "src/main/scala/files/microcuento_uppercase.txt"
+  val printWriter = new PrintWriter(filenameOutput)
 
   lines.foreach(line => printWriter.println(line.toUpperCase))
 

@@ -1,24 +1,24 @@
 package com.juan.procesamientodatos
 package scalaClase
 
-import classes.{BinOp, Expr, Number, Persona, UnOp, Var}
-
+import scalaClase.classes.{BinOp, Expr, Number, Persona, UnOp, Var}
 
 
 object pattern extends App {
-  private val expr1 = UnOp("-", UnOp("-", Number(5)))
-  private val expr2 = BinOp("+", Var("x"), Number(0))
-  private val expr3 = BinOp("*", Var("y"), Number(1))
-  private val expr4 = BinOp("+", Number(3), Number(4))
+  val expr1 = UnOp("-", UnOp("-", Number(5)))
+  val expr2 = BinOp("+", Var("x"), Number(0))
+  val expr3 = BinOp("*", Var("y"), Number(1))
+  val expr4 = BinOp("+", Number(3), Number(4))
 
-  private def simplifyTop(expr: Expr): Expr = expr match {
-    case UnOp("-", UnOp("-", e))  => e
+  def simplifyTop(expr: Expr): Expr = expr match {
+    case UnOp("-", UnOp("-", e)) => e
     case BinOp("+", e, Number(0)) => e
     case BinOp("+", Number(0), e) => e
     case BinOp("*", e, Number(1)) => e
     case BinOp("*", Number(1), e) => e
-    case _                        => expr
+    case _ => expr
   }
+
   println(simplifyTop(expr1))
   println(simplifyTop(expr2))
   println(simplifyTop(expr3))
@@ -39,14 +39,15 @@ Requerimientos:
  */
 
 object pattern2 extends App {
-  private def describirPersona(p: Persona): String = p match {
-    case Persona(nombre, edad, "") if edad < 18  => s"$nombre es menor de edad."
+  def describirPersona(p: Persona): String = p match {
+    case Persona(nombre, edad, "") if edad < 18 => s"$nombre es menor de edad."
     case Persona(nombre, edad, "") if edad <= 65 => s"$nombre es adulto."
     case other => s"${other.nombre} es adulto mayor."
   }
-  private val p1 = Persona("Juan", 16, "")
-  private val p2 = Persona("Ana", 25, "")
-  private val p3 = Persona("Sara", 70, "")
+
+  val p1 = Persona("Juan", 16, "")
+  val p2 = Persona("Ana", 25, "")
+  val p3 = Persona("Sara", 70, "")
   println(describirPersona(p1)) // Salida: Juan es menor de edad.
   println(describirPersona(p2)) // Salida: Ana es adulto.
   println(describirPersona(p3)) // Salida: Sara es adulto mayor.

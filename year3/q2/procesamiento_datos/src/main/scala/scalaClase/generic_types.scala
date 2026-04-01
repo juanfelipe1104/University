@@ -1,11 +1,11 @@
 package com.juan.procesamientodatos
 package scalaClase
 
-import classes.{Box, Caja, Stack}
+import scalaClase.classes.{Box, Caja, Stack}
 
 object generic extends App {
   // Crear una pila de enteros
-  private val pila = new Stack[Int]
+  val pila = new Stack[Int]
   // Agregar elementos a la pila
   pila.push(10)
   pila.push(20)
@@ -24,7 +24,7 @@ object generic extends App {
 
 object generic2 extends App {
   // Crear la pila para trabajar con Strings
-  private val pilaDeStrings = new Stack[String]
+  val pilaDeStrings = new Stack[String]
   // Agregar elementos a la pila
   pilaDeStrings.push("Hola")
   pilaDeStrings.push("Mundo")
@@ -49,29 +49,30 @@ Explicación:
 
 object generic3 extends App {
   // Función genérica para intercambiar dos valores
-  private def intercambiar[A, B](valor1: A, valor2: B): (B, A) = {
+  def intercambiar[A, B](valor1: A, valor2: B): (B, A) = {
     (valor2, valor1)
   }
+
   // Intercambiamos dos enteros
-  private val resultado1 = intercambiar(1, 2)
+  val resultado1 = intercambiar(1, 2)
   println(resultado1) // Imprime: (2,1)
 
   // Intercambiamos un string y un entero
-  private val resultado2 = intercambiar("Scala", 42)
+  val resultado2 = intercambiar("Scala", 42)
   println(resultado2) // Imprime: (42,Scala)
 }
 
 object generic4 extends App {
-  private val intBox = new Box(10)
+  val intBox = new Box(10)
   println(intBox.getContent) // Imprime: 10
 
-  private val stringBox = new Box("Scala")
+  val stringBox = new Box("Scala")
   println(stringBox.getContent)
 
-  private val newStrBox = intBox.map((x: Int) => "a" * x)
+  val newStrBox = intBox.map((x: Int) => "a" * x)
   println(newStrBox.getContent)
 
-  private val newIntBox = stringBox.map((s: String) => s.length)
+  val newIntBox = stringBox.map((s: String) => s.length)
   println(newIntBox.getContent)
 }
 
@@ -85,10 +86,10 @@ Vas a crear una clase genérica Caja[T] que pueda almacenar cualquier tipo de da
 
 object generic5 extends App {
   // Caja de enteros
-  private val cajaEntero = new Caja(5)
+  val cajaEntero = new Caja(5)
 
   // Caja de cadenas
-  private val cajaTexto = new Caja[String]("¡Hola, mundo!")
+  val cajaTexto = new Caja[String]("¡Hola, mundo!")
   println(cajaTexto)
 
   // Actualización de valores

@@ -1,13 +1,13 @@
 package com.juan.procesamientodatos
 package scalaClase
 
-import scala.util.{Try, Success, Failure}
+import scala.util.{Failure, Success, Try}
 
 
 object try_option extends App {
-  private def divisionWithException(x: Int, y: Int): Int = {
+  def divisionWithException(x: Int, y: Int): Int = {
     try {
-      x/y
+      x / y
     } catch {
       case e: Exception =>
         println("division entre 0")
@@ -17,8 +17,8 @@ object try_option extends App {
 
   divisionWithException(9, 0)
 
-  private def divisionwithTryPM(x: Int, y: Int): Int = {
-    Try(x/y) match {
+  def divisionwithTryPM(x: Int, y: Int): Int = {
+    Try(x / y) match {
       case Success(resultado) =>
         resultado
       case Failure(error) =>
@@ -29,14 +29,14 @@ object try_option extends App {
 
   divisionwithTryPM(9, 0)
 
-  private def divisionwithTry(x: Int, y: Int): Try[Int] = {
-    Try(x/y)
+  def divisionwithTry(x: Int, y: Int): Try[Int] = {
+    Try(x / y)
   }
 
   divisionwithTry(9, 0)
 
-  private def divisionwithOption(x: Int, y: Int): Option[Int] = {
-    Try(x/y) match {
+  def divisionwithOption(x: Int, y: Int): Option[Int] = {
+    Try(x / y) match {
       case Success(resultado) =>
         Some(resultado)
       case _ =>
@@ -61,7 +61,7 @@ Pista: Try captura excepciones automáticamente. Usa Success y Failure con patte
  */
 
 object try_option2 extends App {
-  private def safeParseInt(str: String): String = {
+  def safeParseInt(str: String): String = {
     Try(str.toInt) match {
       case Success(value) => s"Conversión exitosa: $value"
       case Failure(exception) => s"Error: No se pudo convertir '$str' a un número."
@@ -69,7 +69,7 @@ object try_option2 extends App {
   }
 
   // Pruebas
-  println(safeParseInt("123"))  // Salida: Conversión exitosa: 123
-  println(safeParseInt("abc"))  // Salida: Error: No se pudo convertir 'abc' a un número.
-  println(safeParseInt("42a"))  // Salida: Error: No se pudo convertir '42a' a un número.
+  println(safeParseInt("123")) // Salida: Conversión exitosa: 123
+  println(safeParseInt("abc")) // Salida: Error: No se pudo convertir 'abc' a un número.
+  println(safeParseInt("42a")) // Salida: Error: No se pudo convertir '42a' a un número.
 }

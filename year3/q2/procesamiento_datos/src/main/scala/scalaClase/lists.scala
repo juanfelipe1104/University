@@ -4,7 +4,7 @@ package scalaClase
 object lists extends App {
   // Append
 
-  private def addAtTheEnd(list: List[Int], elem: Int): List[Int] = list :+ elem
+  def addAtTheEnd(list: List[Int], elem: Int): List[Int] = list :+ elem
 
   addAtTheEnd(List(1, 2), 3)
 
@@ -14,11 +14,11 @@ object lists extends App {
 
   // Prepend
 
-  private def addAtTheBegin(list: List[Int], elem: Int): List[Int] = elem :: list
+  def addAtTheBegin(list: List[Int], elem: Int): List[Int] = elem :: list
 
-  private val myList = List(1, 2)
+  val myList = List(1, 2)
 
-  private val myListUpdated = addAtTheBegin(myList, 0)
+  val myListUpdated = addAtTheBegin(myList, 0)
 
   println(myListUpdated)
 }
@@ -36,7 +36,7 @@ Requisitos:
  */
 
 object lists2 extends App {
-  private def addAtTheEndIfNotExists(list: List[Int], elem: Int): List[Int] = {
+  def addAtTheEndIfNotExists(list: List[Int], elem: Int): List[Int] = {
     if (list.contains(elem))
       list
     else
@@ -49,23 +49,23 @@ object lists2 extends App {
 
   // Merge
 
-  private def mergeAtTheEnd(listA: List[Int], listB: List[Int]): List[Int] = listA ++ listB
+  def mergeAtTheEnd(listA: List[Int], listB: List[Int]): List[Int] = listA ++ listB
 
-  private val listA = List(1, 2)
+  val listA = List(1, 2)
 
-  private val result = mergeAtTheEnd(listA, List(3, 4))
+  val result = mergeAtTheEnd(listA, List(3, 4))
 
   // Filter
 
   Range(1, 10).foreach(println)
 
-  private def doubleIfOdd(list: List[Int]): List[Int] = list.filter(_ % 2 != 0).map(_ * 2)
+  def doubleIfOdd(list: List[Int]): List[Int] = list.filter(_ % 2 != 0).map(_ * 2)
 
   doubleIfOdd(Range(1, 10).toList)
 
   // map
 
-  def doubleIfOddComplete(list: List[Int]): List[Int] = list.map(e => if (e%2 == 0) e else e * 2)
+  def doubleIfOddComplete(list: List[Int]): List[Int] = list.map(e => if (e % 2 == 0) e else e * 2)
 
   doubleIfOdd(Range.inclusive(1, 11).toList)
 
@@ -81,24 +81,25 @@ object lists2 extends App {
 
   // flatMap + Option
 
-  private def dividir(a: Double, b: Int): Option[Double] = {
+  def dividir(a: Double, b: Int): Option[Double] = {
     if (b != 0) Some(a / b)
     else None
   }
 
   println(Range.inclusive(0, 100, 10).size)
-  private val divisiones = Range.inclusive(0, 100, 10).reverse flatMap(dividir(100.0, _))
+  val divisiones = Range.inclusive(0, 100, 10).reverse flatMap (dividir(100.0, _))
   println(divisiones.size)
 
   // Collections and pattern matching
 
-  private def sum(ints: List[Int]): Int = {
+  def sum(ints: List[Int]): Int = {
     ints match {
       case Nil => 0
       case h :: Nil => h
       case h :: t => h + sum(t)
     }
   }
+
   sum(List())
   sum(List(16))
   sum(List(1, 2, 3))
@@ -124,12 +125,13 @@ Pista: Usa pattern matching para descomponer la lista en cabeza (h) y cola (t), 
  */
 
 object lists3 extends App {
-  private def drop[A](list: List[A], n: Int): List[A] = {
+  def drop[A](list: List[A], n: Int): List[A] = {
     list match {
       case h :: t if n > 0 => drop(t, n - 1)
       case _ => list
     }
   }
+
   drop(List(), 0)
   drop(List(1), 5)
   drop(List(1, 2, 5, 7), 3)

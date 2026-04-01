@@ -8,7 +8,7 @@ import scalaClase.classes.Persona
 object TransformacionConFoldLeft extends App {
 
   // Función que realiza las operaciones especificadas utilizando foldLeft
-  private def transformarLista[A, B](lista: List[A], funcion: A => B): Map[A, B] = {
+  def transformarLista[A, B](lista: List[A], funcion: A => B): Map[A, B] = {
     val resultado = lista
       .reverse // Invertir el orden de la lista
       .foldLeft(Map.empty[A, B]) { (acumulador, elemento) =>
@@ -18,13 +18,13 @@ object TransformacionConFoldLeft extends App {
   }
 
   // Lista de ejemplo
-  private val listaNumeros = List(1, 2, 3, 4, 5)
+  val listaNumeros = List(1, 2, 3, 4, 5)
 
   // Función de ejemplo: elevar al cuadrado
-  private def elevarAlCuadrado(numero: Int): Int = numero * numero
+  def elevarAlCuadrado(numero: Int): Int = numero * numero
 
   // Aplicar la transformación y mostrar el resultado
-  private val resultadoTransformacion = transformarLista(listaNumeros, elevarAlCuadrado)
+  val resultadoTransformacion = transformarLista(listaNumeros, elevarAlCuadrado)
   println(s"Resultado de la transformación: $resultadoTransformacion")
 }
 
@@ -32,15 +32,15 @@ object TransformacionConFoldLeft extends App {
 object AgrupacionPersonasPorEdad extends App {
 
   // Generación automática de 10 instancias de Persona con nombres consecutivos
-  private val personas: List[Persona] = (1 to 10).map(i => Persona(s"Persona $i", i % 5 + 20, s"email$i@example.com")).toList
+  val personas: List[Persona] = (1 to 10).map(i => Persona(s"Persona $i", i % 5 + 20, s"email$i@example.com")).toList
 
   // Implementación 1: Utilizando groupBy
-  private def agruparPersonasPorEdad(personas: List[Persona]): Map[Int, List[Persona]] = {
+  def agruparPersonasPorEdad(personas: List[Persona]): Map[Int, List[Persona]] = {
     personas.groupBy(_.edad)
   }
 
   // Implementación 2: Utilizando foldLeft de manera funcional
-  private def agruparPersonasPorEdadFuncional(personas: List[Persona]): Map[Int, List[Persona]] = {
+  def agruparPersonasPorEdadFuncional(personas: List[Persona]): Map[Int, List[Persona]] = {
     personas.foldLeft(Map.empty[Int, List[Persona]]) { (acumulador, persona) =>
       val edad = persona.edad
       acumulador + (edad -> (acumulador.getOrElse(edad, List()) :+ persona))
@@ -48,8 +48,8 @@ object AgrupacionPersonasPorEdad extends App {
   }
 
   // Mostrar el resultado de ambas implementaciones
-  private val resultadoGroupBy = agruparPersonasPorEdad(personas)
-  private val resultadoFuncional = agruparPersonasPorEdadFuncional(personas)
+  val resultadoGroupBy = agruparPersonasPorEdad(personas)
+  val resultadoFuncional = agruparPersonasPorEdadFuncional(personas)
 
   println("Resultado utilizando groupBy:")
   println(resultadoGroupBy)

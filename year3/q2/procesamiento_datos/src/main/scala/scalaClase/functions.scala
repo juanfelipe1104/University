@@ -9,14 +9,15 @@ Luego, usa esta función para filtrar los números pares y los mayores que un ci
  */
 
 object functions extends App {
-  private def filtrarLista(lista: List[Int], criterio: Int => Boolean): List[Int] = {
+  def filtrarLista(lista: List[Int], criterio: Int => Boolean): List[Int] = {
     lista.filter(criterio)
   }
+
   // Definir funciones de filtrado
-  private val esPar: Int => Boolean = x => x % 2 == 0
-  private val mayorQueCinco: Int => Boolean = x => x > 5
+  val esPar: Int => Boolean = x => x % 2 == 0
+  val mayorQueCinco: Int => Boolean = x => x > 5
   // Uso de la función con distintos criterios
-  private val numeros = List(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+  val numeros = List(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
   println(filtrarLista(numeros, esPar))
   // Salida esperada: List(2, 4, 6, 8, 10)
   println(filtrarLista(numeros, mayorQueCinco))
@@ -31,33 +32,34 @@ Luego, usa esta función para realizar distintas operaciones matemáticas: suma 
  */
 
 object functions2 extends App {
-  private def operar(a: Int, b: Int, f: (Int, Int) => Int): Int = {
+  def operar(a: Int, b: Int, f: (Int, Int) => Int): Int = {
     f(a, b)
   }
+
   // Definir funciones de suma y multiplicación
-  private val suma = (x: Int, y: Int) => x + y
-  private val multiplicacion = (x: Int, y: Int) => x * y
+  val suma = (x: Int, y: Int) => x + y
+  val multiplicacion = (x: Int, y: Int) => x * y
   // Uso de la función operar con distintas funciones
   println(operar(5, 3, suma)) // Salida esperada: 8
   println(operar(5, 3, multiplicacion)) // Salida esperada: 15
 }
 
 object functions3 extends App {
-    // Lista de frases
-    private val frases = List("Hola mundo", "Scala es genial", "La programación funcional es poderosa")
+  // Lista de frases
+  val frases = List("Hola mundo", "Scala es genial", "La programación funcional es poderosa")
 
-    // Map: Usando map para transformar cada frase en una lista de palabras
-    private val palabrasConMap = frases.map(frase => frase.split(" "))
+  // Map: Usando map para transformar cada frase en una lista de palabras
+  val palabrasConMap = frases.map(frase => frase.split(" "))
 
-    // FlatMap: Usando flatMap para obtener una lista de todas las palabras
-    private val palabrasConFlatMap = frases.flatMap(frase => frase.split(" "))
+  // FlatMap: Usando flatMap para obtener una lista de todas las palabras
+  val palabrasConFlatMap = frases.flatMap(frase => frase.split(" "))
 
-    // Imprimir resultados
-    println("Resultado usando map:")
-    println(palabrasConMap)
+  // Imprimir resultados
+  println("Resultado usando map:")
+  println(palabrasConMap)
 
-    println("\nResultado usando flatMap:")
-    println(palabrasConFlatMap)
+  println("\nResultado usando flatMap:")
+  println(palabrasConFlatMap)
 }
 
 /*
@@ -68,12 +70,12 @@ object functions3 extends App {
  */
 
 object functions4 extends App {
-  private val numeros = List(1, 2, 3, 4, 5)
+  val numeros = List(1, 2, 3, 4, 5)
   // Usando map para crear listas con el número y su doble
-  private val resultadoMap = numeros.map(n => List(n, n * 2))
+  val resultadoMap = numeros.map(n => List(n, n * 2))
 
   // Usando flatMap para obtener una única lista con todos los números y sus dobles
-  private val resultadoFlatMap = numeros.flatMap(n => List(n, n * 2))
+  val resultadoFlatMap = numeros.flatMap(n => List(n, n * 2))
 
   // Imprimir resultados
   println("Resultado usando map:")
@@ -85,14 +87,14 @@ object functions4 extends App {
 
 object functions5 extends App {
   // Obten el número impar más alto de esta lista:
-  private val numeros = List(23, 44, 33, 87, 98)
+  val numeros = List(23, 44, 33, 87, 98)
   // Filtrar los números impares:
-  private val numerosImpares = numeros.filter(_ % 2 != 0)
-  println(s"Números impares: $numerosImpares")  // Salida: List(23, 33, 87)
+  val numerosImpares = numeros.filter(_ % 2 != 0)
+  println(s"Números impares: $numerosImpares") // Salida: List(23, 33, 87)
 
   // Encontrar el número impar más alto utilizando reduce:
-  private val maxImpar = numerosImpares.reduce((a, b) => if (a > b) a else b)
-  println(s"El número impar más alto es: $maxImpar")  // Salida: 87
+  val maxImpar = numerosImpares.reduce((a, b) => if (a > b) a else b)
+  println(s"El número impar más alto es: $maxImpar") // Salida: 87
 }
 
 /*
@@ -101,14 +103,14 @@ Si todos los valores son None, el resultado debe ser 0.
  */
 
 object functions6 extends App {
-  private val numeros: List[Option[Int]] = List(Option(5), None, Option(10), Option(3), None, Option(7))
+  val numeros: List[Option[Int]] = List(Option(5), None, Option(10), Option(3), None, Option(7))
 
-  private val sumaTotal = numeros.foldLeft(0) { (acumulador, numeroOpt) =>
+  val sumaTotal = numeros.foldLeft(0) { (acumulador, numeroOpt) =>
     numeroOpt match {
       case Some(valor) => acumulador + valor
-      case None        => acumulador  // No sumamos nada si es None
+      case None => acumulador // No sumamos nada si es None
     }
   }
 
-  println(s"La suma total es: $sumaTotal")  // Salida esperada: 25
+  println(s"La suma total es: $sumaTotal") // Salida esperada: 25
 }
