@@ -1,14 +1,14 @@
 package com.juan.procesamientodatos
-package spark
+package sparkClase
 
 object transformation_action extends App {
-  private val spark = SparkProvider.spark
-  private val sc = SparkProvider.sc
-  private val rdd_range = sc.parallelize(Range(1, 5000))
+  val spark = SparkProvider.spark
+  val sc = SparkProvider.sc
+  val rdd_range = sc.parallelize(Range(1, 5000))
   rdd_range.count()
   rdd_range.take(10)
-  private val rdd_lines = sc.parallelize(Seq("linea 1 Scala", "linea 2 Scala", "linea 3 Spark"))
-  private val rdd_numbers = sc.parallelize(Seq(1, 2, 3, 3))
+  val rdd_lines = sc.parallelize(Seq("linea 1 Scala", "linea 2 Scala", "linea 3 Spark"))
+  val rdd_numbers = sc.parallelize(Seq(1, 2, 3, 3))
 
   // Map vs FlatMap
   rdd_lines.map(_.split(" ")).collect()
@@ -37,7 +37,7 @@ object transformation_action extends App {
   rdd_numbers.takeSample(true, 3) // Con reemplazo
 
   // Union
-  private val rdd_more_numbers = sc.parallelize(Seq(3, 4, 2, 5))
+  val rdd_more_numbers = sc.parallelize(Seq(3, 4, 2, 5))
   rdd_numbers.union(rdd_more_numbers).collect()
 
   // Intersection
@@ -56,7 +56,7 @@ object transformation_action extends App {
   rdd_more_numbers.cartesian(rdd_numbers).sortByKey(false).collect()
 
   // CountByValue
-  private val rdd_many_numbers = rdd_numbers.union(rdd_more_numbers)
+  val rdd_many_numbers = rdd_numbers.union(rdd_more_numbers)
   rdd_many_numbers.collect()
   rdd_many_numbers.countByValue()
 
@@ -86,15 +86,15 @@ object transformation_action extends App {
 
   // Aggregate
   // Función de agregación por partición
-  private val seqOp = (acc: Int, elem: Int) => acc + elem
+  val seqOp = (acc: Int, elem: Int) => acc + elem
   // Función de combinación
-  private val combOp = (acc1: Int, acc2: Int) => acc1 + acc2
+  val combOp = (acc1: Int, acc2: Int) => acc1 + acc2
   // Aplicar función aggregate
   rdd_more_numbers.aggregate(0)(seqOp, combOp)
 
   // ReduceByKey
   rdd_numbers.cartesian(rdd_more_numbers).collect()
-  private val reducedRDD = rdd_numbers.cartesian(rdd_more_numbers).reduceByKey(_ + _)
+  val reducedRDD = rdd_numbers.cartesian(rdd_more_numbers).reduceByKey(_ + _)
   spark.time(reducedRDD.collect())
 
   // Scala: String interpolation
@@ -106,10 +106,10 @@ object transformation_action extends App {
   rdd_numbers.getNumPartitions
   rdd_more_numbers.getNumPartitions
 
-  private val reducedRDD2 = rdd_numbers.repartition(2).cartesian(rdd_more_numbers.repartition(2)).reduceByKey(_ + _)
+  val reducedRDD2 = rdd_numbers.repartition(2).cartesian(rdd_more_numbers.repartition(2)).reduceByKey(_ + _)
   reducedRDD2.toDebugString
 
-  private val reducedRDD3 = rdd_numbers.coalesce(2).cartesian(rdd_more_numbers.coalesce(2)).reduceByKey(_ + _)
+  val reducedRDD3 = rdd_numbers.coalesce(2).cartesian(rdd_more_numbers.coalesce(2)).reduceByKey(_ + _)
   reducedRDD3.toDebugString
 
   // EJERCICIO 3:
