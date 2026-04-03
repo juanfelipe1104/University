@@ -19,99 +19,102 @@ Queremos calcular
 \lim_{x\to 0}\frac{\sqrt{1+\sen x}-e^{x/2}}{x^2}.
 \]
 
-La idea es desarrollar en serie de Taylor numerador y denominador alrededor de \(x=0\).
-
-Recordemos los desarrollos de Maclaurin:
+Al sustituir \(x=0\), obtenemos una indeterminación del tipo
 \[
-\sen x = x-\frac{x^3}{6}+o(x^3),
+\frac{0}{0},
 \]
+pues
 \[
-e^{x/2}=1+\frac{x}{2}+\frac{x^2}{8}+o(x^2),
-\]
-y también, para \(|u|\) pequeño,
-\[
-\sqrt{1+u}=1+\frac{u}{2}-\frac{u^2}{8}+o(u^2).
+\sqrt{1+\sen 0}-e^{0/2}=\sqrt{1}-1=0.
 \]
 
-Tomamos \(u=\sen x\). Como
-\[
-\sen x = x+o(x),
-\]
-se tiene
-\[
-(\sen x)^2=x^2+o(x^2).
-\]
-
-Por tanto,
-\[
-\sqrt{1+\sen x}
-=
-1+\frac{\sen x}{2}-\frac{(\sen x)^2}{8}+o(x^2).
-\]
-
-Sustituyendo:
-\[
-\sqrt{1+\sen x}
-=
-1+\frac{1}{2}\left(x-\frac{x^3}{6}+o(x^3)\right)-\frac{1}{8}\left(x^2+o(x^2)\right)+o(x^2).
-\]
-
-Como solo necesitamos términos hasta orden \(2\),
-\[
-\sqrt{1+\sen x}
-=
-1+\frac{x}{2}-\frac{x^2}{8}+o(x^2).
-\]
-
-Entonces el numerador queda:
-\[
-\sqrt{1+\sen x}-e^{x/2}
-=
-\left(1+\frac{x}{2}-\frac{x^2}{8}+o(x^2)\right)
--
-\left(1+\frac{x}{2}+\frac{x^2}{8}+o(x^2)\right).
-\]
-
-Simplificando:
-\[
-\sqrt{1+\sen x}-e^{x/2}
-=
--\frac{x^2}{4}+o(x^2).
-\]
-
-Por tanto,
-\[
-\frac{\sqrt{1+\sen x}-e^{x/2}}{x^2}
-=
-\frac{-\frac{x^2}{4}+o(x^2)}{x^2}.
-\]
-
-Ahora sacamos factor común \(x^2\) en el numerador:
-\[
--\frac{x^2}{4}+o(x^2)=x^2\left(-\frac14+o(1)\right).
-\]
-
-Así,
-\[
-\frac{\sqrt{1+\sen x}-e^{x/2}}{x^2}
-=
-\frac{x^2\left(-\frac14+o(1)\right)}{x^2}
-=
--\frac14+o(1).
-\]
-
-Finalmente,
+Aplicamos la regla de L'Hôpital:
 \[
 \lim_{x\to 0}\frac{\sqrt{1+\sen x}-e^{x/2}}{x^2}
 =
--\frac{1}{4}.
+\lim_{x\to 0}
+\frac{\dfrac{\cos x}{2\sqrt{1+\sen x}}-\dfrac12 e^{x/2}}{2x}.
+\]
+
+Sustituyendo de nuevo \(x=0\), sigue apareciendo una indeterminación:
+\[
+\frac{\frac12-\frac12}{0}=\frac00.
+\]
+
+Aplicamos L'Hôpital por segunda vez:
+\[
+\lim_{x\to 0}
+\frac{\dfrac{\cos x}{2\sqrt{1+\sen x}}-\dfrac12 e^{x/2}}{2x}
+=
+\lim_{x\to 0}
+\frac{
+\left(\dfrac{\cos x}{2\sqrt{1+\sen x}}\right)' - \dfrac14 e^{x/2}
+}{2}.
+\]
+
+Calculamos la derivada del primer término:
+\[
+\frac{\cos x}{2\sqrt{1+\sen x}}
+=
+\frac12 \cos x \,(1+\sen x)^{-1/2}.
+\]
+
+Entonces
+\[
+\left(\frac{\cos x}{2\sqrt{1+\sen x}}\right)'
+=
+\frac12\left[
+-\sen x\,(1+\sen x)^{-1/2}
++
+\cos x\left(-\frac12\right)(1+\sen x)^{-3/2}\cos x
+\right].
+\]
+
+Es decir,
+\[
+\left(\frac{\cos x}{2\sqrt{1+\sen x}}\right)'
+=
+-\frac{\sen x}{2\sqrt{1+\sen x}}
+-\frac{\cos^2 x}{4(1+\sen x)^{3/2}}.
+\]
+
+Por tanto,
+\[
+\lim_{x\to 0}\frac{\sqrt{1+\sen x}-e^{x/2}}{x^2}
+=
+\lim_{x\to 0}
+\frac{
+-\dfrac{\sen x}{2\sqrt{1+\sen x}}
+-\dfrac{\cos^2 x}{4(1+\sen x)^{3/2}}
+-\dfrac14 e^{x/2}
+}{2}.
+\]
+
+Ahora ya podemos sustituir \(x=0\):
+\[
+-\frac{\sen 0}{2\sqrt{1+\sen 0}}=0,
+\qquad
+-\frac{\cos^2 0}{4(1+\sen 0)^{3/2}}=-\frac14,
+\qquad
+-\frac14 e^{0}=-\frac14.
+\]
+
+Luego
+\[
+\lim_{x\to 0}\frac{\sqrt{1+\sen x}-e^{x/2}}{x^2}
+=
+\frac{-\frac14-\frac14}{2}
+=
+\frac{-\frac12}{2}
+=
+-\frac14.
 \]
 
 \[
 \boxed{
 \lim_{x\to 0}\frac{\sqrt{1+\sen x}-e^{x/2}}{x^2}
 =
--\frac{1}{4}
+-\frac14
 }
 \]
 
@@ -144,23 +147,12 @@ Si \(x<0\),
 f(x)=\frac{e^x-1}{x}.
 \]
 
-Usando el desarrollo
+Usamos el infinitesimo $e^x-1 \sim x$
 \[
-e^x=1+x+\frac{x^2}{2}+o(x^2),
-\]
-obtenemos
-\[
-e^x-1=x+\frac{x^2}{2}+o(x^2).
+\lim_{x\to 0}\frac{e^x-1}{x}=1.
 \]
 
-Luego
-\[
-\frac{e^x-1}{x}
-=
-1+\frac{x}{2}+o(x).
-\]
-
-Así,
+Por tanto,
 \[
 \lim_{x\to 0^-}f(x)=1.
 \]
@@ -183,17 +175,21 @@ Racionalizamos:
 \frac{2}{\sqrt{1+2x}+1}.
 \]
 
-Por tanto,
+Así,
 \[
 f(x)=\frac{2}{\sqrt{1+2x}+1}+bx.
 \]
 
-Al hacer \(x\to 0^+\),
+Entonces
 \[
-\lim_{x\to 0^+}f(x)=\frac{2}{1+1}+0=1.
+\lim_{x\to 0^+}f(x)
+=
+\frac{2}{1+1}+0
+=
+1.
 \]
 
-Para que haya continuidad, debe ser
+Para que la función sea continua en \(x=0\), debe ser
 \[
 a=1.
 \]
@@ -221,26 +217,37 @@ f'_-(0)=\lim_{h\to 0^-}\frac{f(h)-f(0)}{h}.
 Como para \(h<0\),
 \[
 f(h)=\frac{e^h-1}{h},
-\qquad f(0)=1,
+\qquad
+f(0)=1,
 \]
 tenemos
 \[
-f'_-(0)=\lim_{h\to 0^-}\frac{\frac{e^h-1}{h}-1}{h}.
-\]
-
-Usando el desarrollo
-\[
-\frac{e^h-1}{h}=1+\frac{h}{2}+o(h),
-\]
-resulta
-\[
 f'_-(0)
 =
-\lim_{h\to 0^-}\frac{1+\frac{h}{2}+o(h)-1}{h}
+\lim_{h\to 0^-}\frac{\dfrac{e^h-1}{h}-1}{h}
 =
-\lim_{h\to 0^-}\left(\frac12+\frac{o(h)}{h}\right)
+\lim_{h\to 0^-}\frac{e^h-1-h}{h^2}.
+\]
+
+Aparece una indeterminación \(\frac00\), así que aplicamos L'Hôpital:
+\[
+\lim_{h\to 0^-}\frac{e^h-1-h}{h^2}
+=
+\lim_{h\to 0^-}\frac{e^h-1}{2h}.
+\]
+
+Sigue siendo una indeterminación \(\frac00\), así que aplicamos L'Hôpital otra vez:
+\[
+\lim_{h\to 0^-}\frac{e^h-1}{2h}
+=
+\lim_{h\to 0^-}\frac{e^h}{2}
 =
 \frac12.
+\]
+
+Por tanto,
+\[
+f'_-(0)=\frac12.
 \]
 
 \subsubsection*{Derivada lateral derecha}
@@ -250,54 +257,114 @@ Por definición,
 f'_+(0)=\lim_{h\to 0^+}\frac{f(h)-f(0)}{h}.
 \]
 
-Para \(h>0\),
+Como para \(h>0\),
 \[
-f(h)=\frac{\sqrt{1+2h}-1}{h}+bh.
+f(h)=\frac{\sqrt{1+2h}-1}{h}+bh,
+\qquad
+f(0)=1,
+\]
+resulta
+\[
+f'_+(0)
+=
+\lim_{h\to 0^+}\frac{\dfrac{\sqrt{1+2h}-1}{h}+bh-1}{h}.
 \]
 
-Por tanto,
+Reordenamos:
 \[
-f'_+(0)=\lim_{h\to 0^+}\frac{\frac{\sqrt{1+2h}-1}{h}+bh-1}{h}.
+f'_+(0)
+=
+\lim_{h\to 0^+}
+\left(
+\frac{\dfrac{\sqrt{1+2h}-1}{h}-1}{h}
++
+b
+\right).
 \]
 
-Desarrollamos:
+Así,
 \[
-\sqrt{1+2h}=1+h-\frac{h^2}{2}+o(h^2).
+f'_+(0)
+=
+\lim_{h\to 0^+}
+\frac{\sqrt{1+2h}-1-h}{h^2}
++b.
+\]
+
+Ahora racionalizamos el término
+\[
+\sqrt{1+2h}-1.
+\]
+Como
+\[
+\sqrt{1+2h}-1=\frac{2h}{\sqrt{1+2h}+1},
+\]
+se tiene
+\[
+\frac{\sqrt{1+2h}-1}{h}
+=
+\frac{2}{\sqrt{1+2h}+1}.
 \]
 
 Entonces
 \[
-\sqrt{1+2h}-1=h-\frac{h^2}{2}+o(h^2),
-\]
-y dividiendo entre \(h\),
-\[
-\frac{\sqrt{1+2h}-1}{h}=1-\frac{h}{2}+o(h).
+\frac{\dfrac{\sqrt{1+2h}-1}{h}-1}{h}
+=
+\frac{\dfrac{2}{\sqrt{1+2h}+1}-1}{h}.
 \]
 
-Sustituyendo en el cociente incremental:
+Operamos en el numerador:
 \[
-f'_+(0)
+\frac{2}{\sqrt{1+2h}+1}-1
 =
-\lim_{h\to 0^+}
-\frac{\left(1-\frac{h}{2}+o(h)\right)+bh-1}{h}.
-\]
-
-Simplificando el numerador:
-\[
-\left(1-\frac{h}{2}+o(h)\right)+bh-1
+\frac{2-(\sqrt{1+2h}+1)}{\sqrt{1+2h}+1}
 =
-\left(b-\frac12\right)h+o(h).
+\frac{1-\sqrt{1+2h}}{\sqrt{1+2h}+1}.
 \]
 
 Por tanto,
 \[
+\frac{\dfrac{\sqrt{1+2h}-1}{h}-1}{h}
+=
+\frac{1-\sqrt{1+2h}}{h(\sqrt{1+2h}+1)}.
+\]
+
+Sacamos signo menos:
+\[
+=
+-\frac{\sqrt{1+2h}-1}{h(\sqrt{1+2h}+1)}.
+\]
+
+Y usando otra vez que
+\[
+\sqrt{1+2h}-1=\frac{2h}{\sqrt{1+2h}+1},
+\]
+obtenemos
+\[
+-\frac{\sqrt{1+2h}-1}{h(\sqrt{1+2h}+1)}
+=
+-\frac{2h}{h(\sqrt{1+2h}+1)^2}
+=
+-\frac{2}{(\sqrt{1+2h}+1)^2}.
+\]
+
+Así,
+\[
 f'_+(0)
 =
 \lim_{h\to 0^+}
-\frac{\left(b-\frac12\right)h+o(h)}{h}
+\left(
+-\frac{2}{(\sqrt{1+2h}+1)^2}+b
+\right).
+\]
+
+Sustituyendo \(h=0\),
+\[
+f'_+(0)
 =
-\lim_{h\to 0^+}
-\left(b-\frac12+\frac{o(h)}{h}\right)
+-\frac{2}{(1+1)^2}+b
+=
+-\frac{2}{4}+b
 =
 b-\frac12.
 \]
@@ -311,7 +378,7 @@ es decir,
 \frac12=b-\frac12.
 \]
 
-De aquí:
+De aquí,
 \[
 b=1.
 \]
