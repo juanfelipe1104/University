@@ -18,6 +18,21 @@ services:
       - bigdata-net
     tty: true
     stdin_open: true
+  
+  confluent:
+    image: mafernandezd/confluent:7.5.1
+    container_name: confluent
+    ports:
+      - "9092:9092"
+      - "2181:2181"
+      - "8081:8081"
+      - "8082:8082"
+      - "8083:8083"
+      - "9021:9021"
+    networks:
+      - bigdata-net
+    tty: true
+    stdin_open: true
 
 networks:
   bigdata-net:
