@@ -1,0 +1,1209 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\usepackage{hyperref}
+
+\title{Soluciones Ejercicios Espacios Vectoriales}
+\author{}
+
+\begin{document}
+
+\section*{Solución Ejercicio 1}
+
+Consideremos un polinomio arbitrario de \(P_3(x)\):
+\[
+p(x)=a+bx+cx^2+dx^3.
+\]
+
+Definimos el isomorfismo
+\[
+\varphi:P_3(x)\longrightarrow \mathbb{R}^4,
+\qquad
+\varphi(a+bx+cx^2+dx^3)=(a,b,c,d).
+\]
+
+Este isomorfismo nos permite estudiar los subespacios de \(P_3(x)\) como subespacios de \(\mathbb{R}^4\).
+
+\subsubsection*{1. Estudio de \(S_1\)}
+
+Por definición,
+\[
+S_1=\{p(x)\in P_3(x): p(0)=0 \text{ y } p'(1)=p'(-1)\}.
+\]
+
+\paragraph{Primera condición: \(p(0)=0\).}
+
+Como
+\[
+p(0)=a,
+\]
+esta condición equivale a
+\[
+a=0.
+\]
+
+\paragraph{Segunda condición: tangentes paralelas en \(x=1\) y \(x=-1\).}
+
+Que las tangentes sean paralelas significa que tienen la misma pendiente, es decir,
+\[
+p'(1)=p'(-1).
+\]
+Derivando,
+\[
+p'(x)=b+2cx+3dx^2.
+\]
+Entonces
+\[
+p'(1)=b+2c+3d,
+\qquad
+p'(-1)=b-2c+3d.
+\]
+Igualando:
+\[
+b+2c+3d=b-2c+3d
+\quad\Longrightarrow\quad
+4c=0
+\quad\Longrightarrow\quad
+c=0.
+\]
+
+Por tanto, las condiciones que definen \(S_1\) son
+\[
+a=0,\qquad c=0.
+\]
+
+Bajo el isomorfismo \(\varphi\), resulta
+\[
+\varphi(S_1)=\{(a,b,c,d)\in\mathbb{R}^4:\ a=0,\ c=0\}
+=\{(0,b,0,d): b,d\in\mathbb{R}\}.
+\]
+
+Este subespacio de \(\mathbb{R}^4\) está generado por
+\[
+(0,1,0,0),\qquad (0,0,0,1).
+\]
+Volviendo a \(P_3(x)\), esos vectores corresponden a
+\[
+x,\qquad x^3.
+\]
+
+Por tanto,
+\[
+S_1=L<\{x,x^3\}>,
+\qquad
+\dim S_1=2.
+\]
+
+\subsubsection*{2. Estudio de \(S_2\)}
+
+Por definición,
+\[
+S_2=\{p(x)\in P_3(x): p(2)=0\}.
+\]
+Calculamos:
+\[
+p(2)=a+2b+4c+8d.
+\]
+Luego la condición es
+\[
+a+2b+4c+8d=0.
+\]
+
+Bajo el isomorfismo \(\varphi\),
+\[
+\varphi(S_2)=\{(a,b,c,d)\in\mathbb{R}^4:\ a+2b+4c+8d=0\}.
+\]
+
+Se trata de un subespacio de \(\mathbb{R}^4\) definido por una sola ecuación lineal, así que
+\[
+\dim S_2=3.
+\]
+
+Para obtener una base, despejamos \(a\):
+\[
+a=-2b-4c-8d.
+\]
+Así, todo vector de \(\varphi(S_2)\) puede escribirse como
+\[
+(a,b,c,d)=(-2b-4c-8d,\; b,\; c,\; d).
+\]
+Separando parámetros,
+\[
+(a,b,c,d)
+=
+b(-2,1,0,0)+c(-4,0,1,0)+d(-8,0,0,1).
+\]
+
+Por tanto, una base de \(\varphi(S_2)\) es
+\[
+\{(-2,1,0,0),\;(-4,0,1,0),\;(-8,0,0,1)\}.
+\]
+Volviendo a polinomios, obtenemos la base
+\[
+\{-2+x,\;-4+x^2,\;-8+x^3\}.
+\]
+
+Así,
+\[
+S_2=L<\{-2+x,\;-4+x^2,\;-8+x^3\}>,
+\qquad
+\dim S_2=3.
+\]
+
+\subsubsection*{3. Cálculo de \(S_1\cap S_2\)}
+
+Un polinomio \(p(x)\in S_1\cap S_2\) debe verificar simultáneamente:
+\[
+a=0,\qquad c=0,\qquad a+2b+4c+8d=0.
+\]
+Sustituyendo \(a=0\) y \(c=0\) en la tercera ecuación:
+\[
+2b+8d=0
+\quad\Longrightarrow\quad
+b+4d=0
+\quad\Longrightarrow\quad
+b=-4d.
+\]
+
+Luego
+\[
+\varphi(S_1\cap S_2)=\{(0,b,0,d)\in\mathbb{R}^4:\ b=-4d\}
+=\{(0,-4d,0,d): d\in\mathbb{R}\}.
+\]
+Es decir,
+\[
+\varphi(S_1\cap S_2)=L <\{(0,-4,0,1)\}>.
+\]
+Volviendo a \(P_3(x)\),
+\[
+S_1\cap S_2=L<\{x^3-4x\}>.
+\]
+
+Por tanto,
+\[
+\dim(S_1\cap S_2)=1.
+\]
+
+Una base es
+\[
+\{x^3-4x\}.
+\]
+
+\subsubsection*{4. ¿Es \(S_1+S_2\) suma directa?}
+
+La suma \(S_1+S_2\) es directa si y solo si
+\[
+S_1\cap S_2=\{0\}.
+\]
+Pero hemos obtenido
+\[
+S_1\cap S_2=L<\{x^3-4x\}\neq\{0\}>.
+\]
+Por tanto,
+\[
+S_1+S_2 \text{ no es suma directa.}
+\]
+
+Además, por la fórmula de Grassmann,
+\[
+\dim(S_1+S_2)=\dim S_1+\dim S_2-\dim(S_1\cap S_2)=2+3-1=4.
+\]
+Como \(\dim P_3(x)=4\), se sigue que
+\[
+S_1+S_2=P_3(x).
+\]
+
+\subsubsection*{5. Coordenadas de un vector de \(S_1\cap S_2\) en la base \(B\)}
+
+Sea
+\[
+p(x)\in S_1\cap S_2.
+\]
+Entonces existe \(\lambda\in\mathbb{R}\) tal que
+\[
+p(x)=\lambda(x^3-4x).
+\]
+
+Queremos expresar \(p(x)\) en la base
+\[
+B=\{1+x,\;x+x^2,\;x^2+x^3,\;x^3\}.
+\]
+Buscamos \(\alpha,\beta,\gamma,\delta\in\mathbb{R}\) tales que
+\[
+p(x)=\alpha(1+x)+\beta(x+x^2)+\gamma(x^2+x^3)+\delta x^3.
+\]
+Desarrollando el segundo miembro:
+\[
+\alpha(1+x)+\beta(x+x^2)+\gamma(x^2+x^3)+\delta x^3
+=
+\alpha+(\alpha+\beta)x+(\beta+\gamma)x^2+(\gamma+\delta)x^3.
+\]
+
+Como
+\[
+p(x)=0+(-4\lambda)x+0x^2+\lambda x^3,
+\]
+igualamos coeficientes:
+\[
+\alpha=0,
+\]
+\[
+\alpha+\beta=-4\lambda,
+\]
+\[
+\beta+\gamma=0,
+\]
+\[
+\gamma+\delta=\lambda.
+\]
+
+De aquí:
+\[
+\alpha=0,\qquad \beta=-4\lambda,\qquad \gamma=4\lambda,\qquad \delta=-3\lambda.
+\]
+
+Por tanto,
+\[
+[p(x)]_B=
+\begin{pmatrix}
+0\\
+-4\lambda\\
+4\lambda\\
+-3\lambda
+\end{pmatrix}.
+\]
+
+En particular, para el generador \(x^3-4x\),
+\[
+[x^3-4x]_B=
+\begin{pmatrix}
+0\\
+-4\\
+4\\
+-3
+\end{pmatrix}.
+\]
+
+\subsubsection*{6. Comprobación mediante matriz de cambio de base}
+
+Consideramos la base canónica
+\[
+\mathcal{C}=\{1,x,x^2,x^3\}.
+\]
+La matriz de cambio de base de \(B\) a \(\mathcal{C}\) se construye colocando como columnas las coordenadas en la base canónica de los vectores de \(B\):
+\[
+1+x \leftrightarrow
+\begin{pmatrix}
+1\\1\\0\\0
+\end{pmatrix},
+\qquad
+x+x^2 \leftrightarrow
+\begin{pmatrix}
+0\\1\\1\\0
+\end{pmatrix},
+\qquad
+x^2+x^3 \leftrightarrow
+\begin{pmatrix}
+0\\0\\1\\1
+\end{pmatrix},
+\qquad
+x^3 \leftrightarrow
+\begin{pmatrix}
+0\\0\\0\\1
+\end{pmatrix}.
+\]
+Por tanto,
+\[
+P_{\mathcal{C}\leftarrow B}
+=
+\begin{pmatrix}
+1&0&0&0\\
+1&1&0&0\\
+0&1&1&0\\
+0&0&1&1
+\end{pmatrix}.
+\]
+
+Si tomamos el vector de coordenadas en \(B\):
+\[
+[p(x)]_B=
+\begin{pmatrix}
+0\\
+-4\lambda\\
+4\lambda\\
+-3\lambda
+\end{pmatrix},
+\]
+sus coordenadas en la base canónica son
+\[
+[p(x)]_{\mathcal{C}}
+=
+P_{\mathcal{C}\leftarrow B}[p(x)]_B.
+\]
+
+Calculando:
+\[
+[p(x)]_{\mathcal{C}}
+=
+\begin{pmatrix}
+1&0&0&0\\
+1&1&0&0\\
+0&1&1&0\\
+0&0&1&1
+\end{pmatrix}
+\begin{pmatrix}
+0\\
+-4\lambda\\
+4\lambda\\
+-3\lambda
+\end{pmatrix}
+=
+\begin{pmatrix}
+0\\
+-4\lambda\\
+0\\
+\lambda
+\end{pmatrix}.
+\]
+
+Pero
+\[
+\begin{pmatrix}
+0\\
+-4\lambda\\
+0\\
+\lambda
+\end{pmatrix}
+\]
+son exactamente las coordenadas canónicas del polinomio
+\[
+p(x)=\lambda x^3-4\lambda x.
+\]
+
+Así queda comprobado que el vector obtenido en el apartado anterior es correcto.
+
+\subsubsection*{Conclusión}
+
+Se tiene:
+\[
+S_1=L<\{x,x^3\}>,\qquad \dim S_1=2,
+\]
+\[
+S_2=L<\{-2+x,\,-4+x^2,\,-8+x^3\}>,\qquad \dim S_2=3,
+\]
+\[
+S_1\cap S_2=L<\{x^3-4x\}>,\qquad \dim(S_1\cap S_2)=1.
+\]
+Además,
+\[
+S_1+S_2 \text{ no es suma directa},
+\qquad
+S_1+S_2=P_3(x).
+\]
+Y si
+\[
+p(x)=\lambda(x^3-4x),
+\]
+entonces
+\[
+[p(x)]_B=
+\begin{pmatrix}
+0\\
+-4\lambda\\
+4\lambda\\
+-3\lambda
+\end{pmatrix}.
+\]
+
+\section*{Solución Ejercicio 2}
+
+Sea
+\[
+X=
+\begin{pmatrix}
+a & b\\
+c & d
+\end{pmatrix}
+\in M_{2\times 2}(\mathbb{R}).
+\]
+
+La condición que define el subespacio es
+\[
+\operatorname{Traza}(MX)=0.
+\]
+
+Primero calculamos \(MX\):
+\[
+MX=
+\begin{pmatrix}
+1 & -1\\
+-1 & 1
+\end{pmatrix}
+\begin{pmatrix}
+a & b\\
+c & d
+\end{pmatrix}
+=
+\begin{pmatrix}
+a-c & b-d\\
+-a+c & -b+d
+\end{pmatrix}.
+\]
+
+Por tanto,
+\[
+\operatorname{Traza}(MX)=(a-c)+(-b+d)=a-b-c+d.
+\]
+
+Así, la condición del subespacio queda reducida a
+\[
+a-b-c+d=0.
+\]
+
+Ahora aplicamos el isomorfismo natural
+\[
+\varphi:M_{2\times 2}(\mathbb{R})\longrightarrow \mathbb{R}^4,
+\qquad
+\varphi\left(
+\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix}
+\right)=(a,b,c,d).
+\]
+
+Bajo este isomorfismo, el subespacio \(U\) se transforma en
+\[
+\varphi(U)=\left\{(a,b,c,d)\in\mathbb{R}^4:\ a-b-c+d=0\right\}.
+\]
+
+Por tanto, estudiar \(U\) equivale a estudiar ese subespacio de \(\mathbb{R}^4\).
+
+\subsubsection*{Dimensión de \(U\)}
+
+La ecuación
+\[
+a-b-c+d=0
+\]
+es una única ecuación lineal homogénea en \(\mathbb{R}^4\). Por ello, el subespacio solución tiene dimensión
+\[
+4-1=3.
+\]
+
+Luego
+\[
+\dim U=3.
+\]
+
+\subsubsection*{Base de \(U\)}
+
+Despejamos una de las variables, por ejemplo \(a\):
+\[
+a=b+c-d.
+\]
+
+Entonces todo vector de \(\varphi(U)\) se puede escribir como
+\[
+(a,b,c,d)=(b+c-d,\;b,\;c,\;d).
+\]
+
+Separando por parámetros,
+\[
+(a,b,c,d)
+=
+b(1,1,0,0)+c(1,0,1,0)+d(-1,0,0,1).
+\]
+
+Por tanto,
+\[
+\varphi(U)=L<\{(1,1,0,0),\,(1,0,1,0),\,(-1,0,0,1)\}>.
+\]
+
+Como esos tres vectores son linealmente independientes, forman una base de \(\varphi(U)\). Volviendo al espacio de matrices mediante \(\varphi^{-1}\), obtenemos la base
+\[
+\left\{
+\begin{pmatrix}
+1&1\\
+0&0
+\end{pmatrix},
+\begin{pmatrix}
+1&0\\
+1&0
+\end{pmatrix},
+\begin{pmatrix}
+-1&0\\
+0&1
+\end{pmatrix}
+\right\}.
+\]
+
+Así pues, una base de \(U\) es
+\[
+\boxed{
+\left\{
+\begin{pmatrix}
+1&1\\
+0&0
+\end{pmatrix},
+\begin{pmatrix}
+1&0\\
+1&0
+\end{pmatrix},
+\begin{pmatrix}
+-1&0\\
+0&1
+\end{pmatrix}
+\right\}}
+\]
+y su dimensión es
+\[
+\boxed{\dim U=3.}
+\]
+
+\subsubsection*{Conclusión}
+
+Después de imponer la condición \(\operatorname{Traza}(MX)=0\), se obtiene la ecuación
+\[
+a-b-c+d=0.
+\]
+Mediante el isomorfismo
+\[
+M_{2\times 2}(\mathbb{R})\simeq \mathbb{R}^4,
+\qquad
+\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix}
+\mapsto (a,b,c,d),
+\]
+el subespacio queda identificado con
+\[
+\{(a,b,c,d)\in\mathbb{R}^4:\ a-b-c+d=0\},
+\]
+que tiene dimensión \(3\). En consecuencia,
+\[
+\boxed{\dim U=3}
+\]
+y una base es
+\[
+\boxed{
+\left\{
+\begin{pmatrix}
+1&1\\
+0&0
+\end{pmatrix},
+\begin{pmatrix}
+1&0\\
+1&0
+\end{pmatrix},
+\begin{pmatrix}
+-1&0\\
+0&1
+\end{pmatrix}
+\right\}.}
+\]
+
+\section*{Solución Ejercicio 3}
+
+Recordemos que la suma \(U+W\) es directa si y solo si
+\[
+U\cap W=\{0\}.
+\]
+Por tanto, basta estudiar la intersección de ambos subespacios.
+
+\subsubsection*{1. Descripción paramétrica de \(U\)}
+
+Sea
+\[
+u_1=(1,0,0,1),\qquad
+u_2=(1,1,1,1),\qquad
+u_3=(0,2,2,0).
+\]
+Entonces
+\[
+U=\langle u_1,u_2,u_3\rangle.
+\]
+
+Observamos que
+\[
+u_3=2(u_2-u_1),
+\]
+pues
+\[
+2\bigl((1,1,1,1)-(1,0,0,1)\bigr)=2(0,1,1,0)=(0,2,2,0).
+\]
+Por tanto, el tercer vector es combinación lineal de los dos primeros y se tiene
+\[
+U=\langle u_1,u_2\rangle.
+\]
+
+Así, todo vector de \(U\) puede escribirse como
+\[
+(x,y,z,t)=\alpha(1,0,0,1)+\beta(1,1,1,1).
+\]
+Desarrollando,
+\[
+(x,y,z,t)=(\alpha+\beta,\beta,\beta,\alpha+\beta).
+\]
+
+Luego una descripción paramétrica de \(U\) es
+\[
+U=\{(\alpha+\beta,\beta,\beta,\alpha+\beta):\alpha,\beta\in\mathbb{R}\}.
+\]
+
+\subsubsection*{2. Descripción de \(W\)}
+
+Por definición,
+\[
+W=\{(x,y,z,t)\in\mathbb{R}^4:\ 3x+y-z-3t=0,\ y-t=0\}.
+\]
+
+La segunda ecuación da
+\[
+y=t.
+\]
+Sustituyendo en la primera:
+\[
+3x+t-z-3t=0
+\quad\Longrightarrow\quad
+3x-z-2t=0
+\quad\Longrightarrow\quad
+z=3x-2t.
+\]
+
+Por tanto,
+\[
+W=\{(x,t,3x-2t,t):x,t\in\mathbb{R}\}.
+\]
+
+\subsubsection*{3. Cálculo de \(U\cap W\)}
+
+Tomemos un vector de \(U\):
+\[
+(\alpha+\beta,\beta,\beta,\alpha+\beta).
+\]
+Para que además pertenezca a \(W\), debe verificar las ecuaciones que definen \(W\).
+
+Usamos primero la condición
+\[
+y-t=0.
+\]
+En nuestro vector, esto significa
+\[
+\beta-(\alpha+\beta)=0
+\quad\Longrightarrow\quad
+-\alpha=0
+\quad\Longrightarrow\quad
+\alpha=0.
+\]
+
+Sustituyendo en la otra ecuación:
+\[
+3x+y-z-3t=0.
+\]
+Como
+\[
+x=\alpha+\beta,\quad y=\beta,\quad z=\beta,\quad t=\alpha+\beta,
+\]
+se obtiene
+\[
+3(\alpha+\beta)+\beta-\beta-3(\alpha+\beta)=0,
+\]
+que se cumple automáticamente. Es decir, la única restricción es
+\[
+\alpha=0.
+\]
+
+Luego los vectores de la intersección son
+\[
+(\alpha+\beta,\beta,\beta,\alpha+\beta)=(\beta,\beta,\beta,\beta)=\beta(1,1,1,1).
+\]
+
+Así,
+\[
+U\cap W=\langle(1,1,1,1)\rangle.
+\]
+
+En particular,
+\[
+U\cap W\neq \{0\}.
+\]
+
+\subsubsection*{4. Conclusión}
+
+Como
+\[
+U\cap W\neq\{0\},
+\]
+se concluye que la suma \(U+W\) \textbf{no es directa}.
+
+En efecto,
+\[
+\boxed{U+W \text{ no es una suma directa}.}
+\]
+
+Además,
+\[
+\boxed{U\cap W=\langle(1,1,1,1)\rangle.}
+\]
+
+\section*{Solución Ejercicio 4}
+
+Para estudiar la dimensión de \(U\cap V\), usamos la fórmula de Grassmann:
+\[
+\dim(U+V)=\dim U+\dim V-\dim(U\cap V).
+\]
+Como \(U+V\subseteq \mathbb{R}^{100}\), se tiene
+\[
+\dim(U+V)\leq 100.
+\]
+Sustituyendo \(\dim U=60\) y \(\dim V=50\), obtenemos
+\[
+60+50-\dim(U\cap V)\leq 100.
+\]
+Por tanto,
+\[
+110-\dim(U\cap V)\leq 100,
+\]
+y de aquí
+\[
+\dim(U\cap V)\geq 10.
+\]
+
+Además, como \(U\cap V\subseteq V\), su dimensión puede ser como mucho \(50\), pero lo importante aquí es que siempre se cumple
+\[
+\dim(U\cap V)\geq 10.
+\]
+
+\subsubsection*{1) ``Un sistema generador de \(U\cap V\) puede estar formado por 9 vectores''}
+
+La afirmación es \textbf{falsa}.
+
+En efecto, acabamos de ver que
+\[
+\dim(U\cap V)\geq 10.
+\]
+Pero un subespacio de dimensión al menos \(10\) no puede ser generado por solo \(9\) vectores, ya que el número mínimo de vectores necesarios para generar un espacio vectorial es su dimensión.
+
+Por tanto, \(U\cap V\) no puede tener un sistema generador de \(9\) vectores.
+
+Luego la afirmación es
+\[
+\boxed{\text{Falsa}.}
+\]
+
+\subsubsection*{2) ``El espacio vectorial \(V\) puede generarse con 55 vectores''}
+
+La afirmación es \textbf{verdadera}.
+
+Sabemos que
+\[
+\dim V=50.
+\]
+Eso significa que existe una base de \(V\) formada por \(50\) vectores:
+\[
+\mathcal{B}=\{v_1,\dots,v_{50}\}.
+\]
+Como toda base es, en particular, un sistema generador, \(V\) se genera con \(50\) vectores.
+
+Pero también puede generarse con más de \(50\) vectores, siempre que esos vectores sigan perteneciendo a \(V\) y el conjunto generado no cambie. Por ejemplo, basta añadir \(5\) vectores de \(V\) que sean combinación lineal de los anteriores, o incluso repetir algunos de la base. Así, el conjunto
+\[
+\{v_1,\dots,v_{50},v_1,v_2,v_3,v_4,v_5\}
+\]
+tiene \(55\) vectores y sigue generando \(V\).
+
+Por tanto, la afirmación es
+\[
+\boxed{\text{Verdadera}.}
+\]
+
+\subsubsection*{Conclusión}
+
+\begin{enumerate}
+    \item \(\boxed{\text{Falsa}}\), porque \(\dim(U\cap V)\geq 10\), luego \(U\cap V\) no puede generarse con solo \(9\) vectores.
+    \item \(\boxed{\text{Verdadera}}\), porque si una base de \(V\) tiene \(50\) vectores, siempre se pueden añadir \(5\) vectores dependientes y seguir obteniendo un sistema generador de \(55\) vectores.
+\end{enumerate}
+
+\subsection*{Solución Ejercicio 5}
+
+\subsubsection*{a) Demostrar que \(B\) y \(B'\) son bases de \(P_2(x)\)}
+
+Como \(p(x)\) es de grado exactamente \(2\), podemos escribir
+\[
+p(x)=ax^2+bx+c,
+\qquad a\neq 0.
+\]
+Entonces
+\[
+p'(x)=2ax+b,
+\qquad
+p''(x)=2a.
+\]
+
+Tomamos la base canónica de \(P_2(x)\):
+\[
+\mathcal{C}=\{1,x,x^2\}.
+\]
+
+\paragraph{La familia \(B=\{p(x),p'(x),p''(x)\}\).}
+
+Las coordenadas de estos polinomios en la base canónica son
+\[
+[p(x)]_{\mathcal C}=
+\begin{pmatrix}
+c\\ b\\ a
+\end{pmatrix},
+\qquad
+[p'(x)]_{\mathcal C}=
+\begin{pmatrix}
+b\\ 2a\\ 0
+\end{pmatrix},
+\qquad
+[p''(x)]_{\mathcal C}=
+\begin{pmatrix}
+2a\\ 0\\ 0
+\end{pmatrix}.
+\]
+
+Por tanto, la matriz que tiene por columnas esas coordenadas es
+\[
+M=
+\begin{pmatrix}
+c & b & 2a\\
+b & 2a & 0\\
+a & 0 & 0
+\end{pmatrix}.
+\]
+
+Calculamos su determinante:
+\[
+\det(M)
+=
+2a
+\begin{vmatrix}
+b & 2a\\
+a & 0
+\end{vmatrix}
+=
+2a(0-2a^2)
+=
+-4a^3.
+\]
+Como \(a\neq 0\), se tiene
+\[
+\det(M)\neq 0.
+\]
+Luego los tres polinomios son linealmente independientes. Como \(P_2(x)\) tiene dimensión \(3\), concluimos que
+\[
+B=\{p(x),p'(x),p''(x)\}
+\]
+es una base de \(P_2(x)\).
+
+\paragraph{La familia \(B'=\{p(x),\,p(x)+p'(x),\,p'(x)+p''(x)\}\).}
+
+Observemos que los vectores de \(B'\) se expresan en la base \(B\) como
+\[
+p(x)=1\cdot p(x)+0\cdot p'(x)+0\cdot p''(x),
+\]
+\[
+p(x)+p'(x)=1\cdot p(x)+1\cdot p'(x)+0\cdot p''(x),
+\]
+\[
+p'(x)+p''(x)=0\cdot p(x)+1\cdot p'(x)+1\cdot p''(x).
+\]
+
+Por tanto, la matriz de paso de \(B'\) a \(B\) es
+\[
+P_{B\leftarrow B'}=
+\begin{pmatrix}
+1 & 1 & 0\\
+0 & 1 & 1\\
+0 & 0 & 1
+\end{pmatrix}.
+\]
+Su determinante es
+\[
+\det(P_{B\leftarrow B'})=1\neq 0.
+\]
+Luego esta matriz es invertible, y por tanto \(B'\) también es una base de \(P_2(x)\).
+
+En consecuencia,
+\[
+\boxed{B \text{ y } B' \text{ son bases de } P_2(x).}
+\]
+
+\subsubsection*{b) Analizar si \(S=\{x(x-a):a\in\mathbb{R}\}\) es subespacio vectorial de \(P_2(x)\)}
+
+Desarrollando,
+\[
+x(x-a)=x^2-ax.
+\]
+Luego
+\[
+S=\{x^2-ax:\ a\in\mathbb{R}\}.
+\]
+
+Todos los polinomios de \(S\) tienen coeficiente de \(x^2\) igual a \(1\). En particular, el polinomio nulo
+\[
+0
+\]
+no pertenece a \(S\), pues su coeficiente de \(x^2\) es \(0\).
+
+Como un subespacio vectorial debe contener siempre al vector nulo, se concluye que
+\[
+\boxed{S \text{ no es un subespacio vectorial de } P_2(x).}
+\]
+
+\subsubsection*{c) Coordenadas de \(q(x)=x^2+x+2\) en la base \(B'\)}
+
+Nos dicen que \(p(x)\in S\) y que tiene raíz \(-1\).
+
+Como \(p(x)\in S\), existe \(a\in\mathbb{R}\) tal que
+\[
+p(x)=x(x-a).
+\]
+Además, \(-1\) es raíz de \(p(x)\), así que
+\[
+p(-1)=0.
+\]
+Sustituyendo:
+\[
+(-1)(-1-a)=0.
+\]
+Como \(-1\neq 0\), debe cumplirse
+\[
+-1-a=0
+\quad\Longrightarrow\quad
+a=-1.
+\]
+Por tanto,
+\[
+p(x)=x(x+1)=x^2+x.
+\]
+
+Ahora calculamos:
+\[
+p'(x)=2x+1,
+\qquad
+p''(x)=2.
+\]
+Entonces la base \(B'\) queda
+\[
+B'=\{x^2+x,\ x^2+3x+1,\ 2x+3\}.
+\]
+
+Buscamos \(\alpha,\beta,\gamma\in\mathbb{R}\) tales que
+\[
+q(x)=\alpha(x^2+x)+\beta(x^2+3x+1)+\gamma(2x+3).
+\]
+Como
+\[
+q(x)=x^2+x+2,
+\]
+igualamos coeficientes:
+\[
+\alpha+\beta=1,
+\]
+\[
+\alpha+3\beta+2\gamma=1,
+\]
+\[
+\beta+3\gamma=2.
+\]
+
+Resolvemos el sistema. De la primera ecuación,
+\[
+\alpha=1-\beta.
+\]
+Sustituyendo en la segunda:
+\[
+1-\beta+3\beta+2\gamma=1
+\quad\Longrightarrow\quad
+2\beta+2\gamma=0
+\quad\Longrightarrow\quad
+\beta=-\gamma.
+\]
+Sustituyendo en la tercera:
+\[
+-\gamma+3\gamma=2
+\quad\Longrightarrow\quad
+2\gamma=2
+\quad\Longrightarrow\quad
+\gamma=1.
+\]
+Entonces
+\[
+\beta=-1,
+\qquad
+\alpha=2.
+\]
+
+Por tanto,
+\[
+[q(x)]_{B'}=
+\begin{pmatrix}
+2\\
+-1\\
+1
+\end{pmatrix}.
+\]
+
+Es decir,
+\[
+\boxed{
+[q(x)]_{B'}=
+\begin{pmatrix}
+2\\
+-1\\
+1
+\end{pmatrix}.}
+\]
+
+\subsubsection*{d) Comprobación mediante matriz de cambio de base}
+
+Queremos comprobar que las coordenadas obtenidas en el apartado anterior representan efectivamente al polinomio
+\[
+q(x)=x^2+x+2.
+\]
+
+Tomamos como base canónica
+\[
+\mathcal C=\{1,x,x^2\}.
+\]
+Las coordenadas de los vectores de \(B'\) en la base canónica son
+\[
+[x^2+x]_{\mathcal C}=
+\begin{pmatrix}
+0\\1\\1
+\end{pmatrix},
+\qquad
+[x^2+3x+1]_{\mathcal C}=
+\begin{pmatrix}
+1\\3\\1
+\end{pmatrix},
+\qquad
+[2x+3]_{\mathcal C}=
+\begin{pmatrix}
+3\\2\\0
+\end{pmatrix}.
+\]
+
+Así, la matriz de cambio de base de \(B'\) a \(\mathcal C\) es
+\[
+P_{\mathcal C\leftarrow B'}=
+\begin{pmatrix}
+0 & 1 & 3\\
+1 & 3 & 2\\
+1 & 1 & 0
+\end{pmatrix}.
+\]
+
+Multiplicamos por el vector de coordenadas hallado en c):
+\[
+[q(x)]_{\mathcal C}
+=
+P_{\mathcal C\leftarrow B'}
+\begin{pmatrix}
+2\\
+-1\\
+1
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 & 1 & 3\\
+1 & 3 & 2\\
+1 & 1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+2\\
+-1\\
+1
+\end{pmatrix}.
+\]
+
+Calculando,
+\[
+[q(x)]_{\mathcal C}
+=
+\begin{pmatrix}
+0\cdot 2+1\cdot(-1)+3\cdot 1\\
+1\cdot 2+3\cdot(-1)+2\cdot 1\\
+1\cdot 2+1\cdot(-1)+0\cdot 1
+\end{pmatrix}
+=
+\begin{pmatrix}
+2\\
+1\\
+1
+\end{pmatrix}.
+\]
+
+Estas son precisamente las coordenadas canónicas del polinomio
+\[
+2+x+x^2=x^2+x+2=q(x).
+\]
+
+Luego queda demostrado que el vector obtenido en c) representa exactamente a \(q(x)\).
+
+\subsubsection*{Conclusión}
+
+Se ha probado que:
+
+\[
+\boxed{B=\{p(x),p'(x),p''(x)\}\text{ es una base de }P_2(x)}
+\]
+y
+\[
+\boxed{B'=\{p(x),p(x)+p'(x),p'(x)+p''(x)\}\text{ es una base de }P_2(x).}
+\]
+
+Además,
+\[
+\boxed{S=\{x(x-a):a\in\mathbb{R}\}\text{ no es un subespacio de }P_2(x),}
+\]
+y si \(p(x)\in S\) tiene raíz \(-1\), entonces
+\[
+p(x)=x^2+x.
+\]
+
+Finalmente, para
+\[
+q(x)=x^2+x+2,
+\]
+sus coordenadas en la base \(B'\) son
+\[
+\boxed{
+[q(x)]_{B'}=
+\begin{pmatrix}
+2\\
+-1\\
+1
+\end{pmatrix},}
+\]
+y la matriz de cambio de base confirma que ese vector representa efectivamente a \(q(x)\).
+
+\section*{Solución Ejercicio 6}
+\begin{enumerate}
+    \item \textbf{Verdadera.}  
+    Es un resultado básico: de todo sistema generador finito se puede extraer una base.
+
+    \item \textbf{Verdadera.}  
+    Si \(A\) generase \(E\), entonces de \(A\) podría extraerse una base de \(E\) formada por \(4\) vectores. Pero eso contradice que todo subconjunto de \(4\) vectores de \(A\) sea linealmente dependiente. Luego \(A\) no genera \(E\).
+
+    \item \textbf{Verdadera.}  
+    Si \(A\) contiene una base de \(E\), entonces contiene un sistema generador de \(E\), y por tanto \(A\) genera \(E\).
+
+    \item \textbf{Falsa.}  
+    Un conjunto linealmente dependiente sí puede contener una base. Por ejemplo, en un espacio de dimensión \(4\), un conjunto de \(5\) vectores puede ser dependiente y aun así contener \(4\) vectores que formen una base.
+\end{enumerate}
+\end{document}

@@ -7,10 +7,12 @@ import { logger } from './middleware/logger.js';
 import { notFoundHandler, errorHandler } from './middleware/errorHandler.js';
 import swaggerUi from 'swagger-ui-express';
 import swaggerSpecs from './docs/swagger.js';
+import { io } from './socket/server.js';
 
 const app = express();
 
-// Middleware
+app.set('io', io);
+
 app.use(express.json());
 
 app.use(helmet());
@@ -27,7 +29,6 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
 app.use(notFoundHandler);
 
-// Middleware de error (4 parámetros)
 app.use(errorHandler);
 
 export default app;

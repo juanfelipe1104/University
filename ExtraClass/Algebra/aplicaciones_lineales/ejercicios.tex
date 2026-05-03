@@ -1,0 +1,179 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\usepackage{hyperref}
+
+\title{Ejercicios Aplicaciones Lineales}
+\author{}
+
+\begin{document}
+\maketitle
+
+\section*{Ejercicio 1}
+
+Dado el endomorfismo de \(\mathbb{R}^3\) definido por las ecuaciones
+\[
+(y_1,y_2,y_3)=(x_1+x_2+x_3,\;x_1+x_2-x_3,\;x_3),
+\]
+obtener:
+
+\begin{enumerate}
+    \item[a)] Núcleo e imagen de la aplicación lineal.
+    
+    \item[b)] Clasificar la aplicación lineal.
+    
+    \item[c)] \(f(V)\), siendo
+    \[
+    V=\{(x_1,x_2,x_3)\in\mathbb{R}^3:x_1+x_2+x_3=0\}.
+    \]
+\end{enumerate}
+
+\section*{Ejercicio 2}
+
+Calcular núcleo e imagen de la aplicación lineal
+\[
+f:\mathbb{R}^4\longrightarrow \mathbb{R}^3
+\]
+definida por
+\[
+f(x_1,x_2,x_3,x_4)=(x_1+x_2,\;0,\;x_1-x_2).
+\]
+
+\section*{Ejercicio 3}
+
+Consideramos el endomorfismo
+\[
+f:P_2(x)\longrightarrow P_2(x)
+\]
+definido sobre el espacio vectorial de polinomios de grado menor o igual que \(2\) con coeficientes reales, que verifica:
+\[
+\ker f=\{a+bx+cx^2\in P_2(x): a=b=c\}
+\]
+y tal que los vectores que tienen término independiente nulo se transforman en sí mismos.
+
+\begin{enumerate}
+    \item[a)] Determinar la matriz \(M_{B_C}(f)\) del endomorfismo en la base canónica.
+    
+    \item[b)] Obtener la expresión implícita del subespacio \(\operatorname{Im} f\) y razonar de dos formas distintas cuál es su dimensión.
+    
+    \item[c)] Si
+    \[
+    S=\{(\lambda-2\mu+\delta,\lambda-2\mu-\delta,\lambda-2\mu): \lambda,\mu,\delta\in\mathbb{R}\},
+    \]
+    determinar en forma implícita \(f(S)\) y razonar si tiene sentido la dimensión obtenida.
+    
+    \item[d)] Dada la base de \(P_2(x)\)
+    \[
+    B^*=\{1+x+x^2,\;1+x,\;1\},
+    \]
+    obtener por coordenadas y matricialmente la matriz \(M_{B^*}(f)\).
+\end{enumerate}
+
+\section*{Ejercicio 4}
+
+Dadas las aplicaciones lineales
+\[
+f:\mathbb{R}^2\longrightarrow \mathbb{R}^3
+\]
+tal que
+\[
+f(1,0)=(2,1,2),
+\qquad
+f(0,1)=(3,2,1),
+\]
+y
+\[
+g:\mathbb{R}^3\longrightarrow \mathbb{R}^2
+\]
+tal que
+\[
+g(1,0,0)=(3,-1),
+\qquad
+g(0,1,0)=(1,0),
+\qquad
+g(0,0,1)=(1,-2).
+\]
+
+Si definimos
+\[
+h=g\circ f,
+\]
+calcular \(h(4,-2)\) matricialmente y por coordenadas.
+
+\section*{Ejercicio 5}
+
+Dada la aplicación lineal
+\[
+f:\mathbb{R}^3\longrightarrow \mathbb{R}^2
+\]
+tal que
+\[
+f(x,y,z)=(2x-y,2y+z),
+\]
+y la aplicación lineal
+\[
+g:\mathbb{R}^2\longrightarrow \mathbb{R}^3
+\]
+tal que
+\[
+g(x,y)=(4x+2y,y,x+y).
+\]
+
+Consideramos en \(\mathbb{R}^3\) la base
+\[
+B=\{(1,0,0),(1,1,0),(1,1,1)\},
+\]
+y en \(\mathbb{R}^2\) la base
+\[
+B'=\{(1,0),(1,1)\}.
+\]
+
+\begin{enumerate}
+    \item[a)] Determinar \(M_{CC'}(f)\) y \(M_{C'C}(g)\), siendo \(C\) y \(C'\) respectivamente las bases canónicas de \(\mathbb{R}^3\) y \(\mathbb{R}^2\).
+
+    \item[b)] Obtener una base de \(\ker f\) y otra base de \(\operatorname{Im} g\). Clasificar las aplicaciones \(f\) y \(g\).
+
+    \item[c)] Calcular
+    \[
+    [f(2,0,-1)]_{B'}
+    \]
+    utilizando la matriz \(M_{BB'}(f)\) y comprobar el resultado en las bases canónicas.
+\end{enumerate}
+
+\section*{Ejercicio 6}
+
+Consideramos la aplicación lineal
+\[
+f:\mathbb{R}^3\longrightarrow \mathbb{R}^2
+\]
+de la que sabemos que:
+\[
+\ker f=\{(x,y,z)\in\mathbb{R}^3:x+ay+z=0,\ ax+y+z=0\},
+\]
+y además:
+\[
+f(0,0,a-1)=(0,a-1),
+\qquad
+f(1,0,1)=(2,1),
+\]
+donde \(a\in\mathbb{R}\).
+
+\begin{enumerate}
+    \item[a)] Obtener dimensiones y bases de \(\ker f\) y de \(\operatorname{Im} f\) según los valores de \(a\).
+
+    \item[b)] Calcular la matriz de la aplicación lineal en las bases canónicas de \(\mathbb{R}^3\) y \(\mathbb{R}^2\).
+
+    \item[c)] Para \(a=1\), hallar, si existen, los vectores que se transforman en el vector \((2,1)\) y en el vector \((2,3)\).
+\end{enumerate}
+
+\end{document}

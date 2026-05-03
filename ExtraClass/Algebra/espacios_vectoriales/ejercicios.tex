@@ -1,0 +1,124 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\usepackage{hyperref}
+
+\title{Ejercicios Espacios Vectoriales}
+\author{}
+
+\begin{document}
+\maketitle
+\section*{Ejercicio 1}
+
+En el espacio vectorial \(P_3(x)\) de los polinomios de grado menor o igual que \(3\), se consideran los subespacios
+\[
+S_1=\left\{p(x)\in P_3(x)\;:\; p(0)=0 \text{ y las tangentes a } p(x) \text{ en los puntos de abscisas } 1 \text{ y } -1 \text{ son paralelas}\right\},
+\]
+\[
+S_2=\left\{p(x)\in P_3(x)\;:\; p(2)=0\right\}.
+\]
+
+\begin{enumerate}
+    \item Calcular la dimensión y obtener una base de cada uno de esos dos subespacios.
+    \item Calcular el subespacio \(S_1\cap S_2\), una base del mismo y razonar si \(S_1+S_2\) es o no una suma directa.
+    \item Si \(p(x)\) es un vector de \(S_1\cap S_2\), calcular cuáles son sus coordenadas en la base
+    \[
+    B=\{1+x,\;x+x^2,\;x^2+x^3,\;x^3\}.
+    \]
+    \item Demostrar, utilizando la matriz de cambio de base apropiada, que las coordenadas en la base canónica del vector obtenido en el apartado \textbf{c)} son efectivamente las mismas.
+\end{enumerate}
+
+\section*{Ejercicio 2}
+
+Calcular la dimensión y una base del subespacio
+\[
+U=\left\{X\in M_{2\times 2}(\mathbb{R}) \;:\; \operatorname{Traza}(MX)=0\right\},
+\qquad
+\text{con }
+M=
+\begin{pmatrix}
+1 & -1\\
+-1 & 1
+\end{pmatrix}.
+\]
+
+
+\section*{Ejercicio 3}
+
+Dados los subespacios de \(\mathbb{R}^4\):
+\[
+U=\left\langle (1,0,0,1),\,(1,1,1,1),\,(0,2,2,0)\right\rangle
+\]
+y
+\[
+W=\left\{(x,y,z,t)\in\mathbb{R}^4 \;:\; 3x+y-z-3t=0,\; y-t=0\right\}.
+\]
+
+Determinar razonadamente si \(U+W\) es una suma directa.
+
+\section*{Ejercicio 4}
+
+Si \(U\) y \(V\) son subespacios vectoriales de \(\mathbb{R}^{100}\) tales que
+\[
+\dim U=60
+\qquad\text{y}\qquad
+\dim V=50,
+\]
+razonar si las siguientes afirmaciones son verdaderas o falsas:
+
+\begin{enumerate}
+    \item Un sistema generador de \(U\cap V\) puede estar formado por \(9\) vectores.
+    \item El espacio vectorial \(V\) puede generarse con \(55\) vectores. En caso de respuesta negativa, razonarlo y en caso de respuesta afirmativa, indicar cómo se construiría un sistema generador.
+\end{enumerate}
+
+\section*{Ejercicio 5}
+
+Si \(P_2(x)\) es el espacio vectorial de los polinomios de grado menor o igual que \(2\) y \(p(x)\) es un polinomio de grado exactamente \(2\),
+
+\begin{enumerate}
+    \item[a)] Demostrar que tanto
+    \[
+    B=\{p(x),\,p'(x),\,p''(x)\}
+    \]
+    como
+    \[
+    B'=\{p(x),\,p(x)+p'(x),\,p'(x)+p''(x)\}
+    \]
+    son bases de \(P_2(x)\).
+
+    \item[b)] Analizar si
+    \[
+    S=\{x(x-a)\,:\,a\in\mathbb{R}\}
+    \]
+    es un subespacio vectorial de \(P_2(x)\).
+
+    \item[c)] Si \(p(x)\in S\) y tiene raíz \(-1\), obtener las coordenadas de
+    \[
+    q(x)=x^2+x+2
+    \]
+    en la base \(B'\).
+
+    \item[d)] Demostrar, utilizando la matriz de cambio de base apropiada, que el vector obtenido en c) es precisamente \(q(x)\).
+\end{enumerate}
+
+\section*{Ejercicio 6}
+Sea \(A=\{v_1,v_2,v_3,v_4,v_5\}\) un subconjunto de un espacio vectorial \(E\) con \(\dim E=4\). Razonar si las siguientes afirmaciones son verdaderas o falsas:
+    
+\begin{enumerate}
+    \item Si \(A\) genera \(E\), entonces de \(A\) puede extraerse una base de \(E\).
+    \item Si todo subconjunto de \(4\) vectores de \(A\) es linealmente dependiente, entonces \(A\) no genera \(E\).
+    \item Si \(A\) contiene una base de \(E\), entonces \(A\) genera \(E\).
+    \item Si \(A\) es linealmente dependiente, entonces \(A\) no puede contener una base de \(E\).
+\end{enumerate}
+
+\end{document}

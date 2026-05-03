@@ -1,0 +1,2776 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\usepackage{hyperref}
+
+\title{Soluciones Ejercicios Aplicaciones Lineales}
+\author{}
+
+\begin{document}
+
+\section*{Solución Ejercicio 1}
+
+Tenemos el endomorfismo
+\[
+f:\mathbb{R}^3\longrightarrow \mathbb{R}^3
+\]
+definido por
+\[
+f(x_1,x_2,x_3)=(x_1+x_2+x_3,\;x_1+x_2-x_3,\;x_3).
+\]
+
+La matriz asociada a \(f\) en la base canónica es
+\[
+M_C(f)=
+\begin{pmatrix}
+1&1&1\\
+1&1&-1\\
+0&0&1
+\end{pmatrix}.
+\]
+
+\subsubsection*{a) Núcleo e imagen de la aplicación lineal}
+
+Calculamos primero el núcleo. Para ello resolvemos:
+\[
+f(x_1,x_2,x_3)=(0,0,0).
+\]
+
+Es decir:
+\[
+(x_1+x_2+x_3,\;x_1+x_2-x_3,\;x_3)=(0,0,0).
+\]
+
+Por tanto:
+\[
+\begin{cases}
+x_1+x_2+x_3=0,\\
+x_1+x_2-x_3=0,\\
+x_3=0.
+\end{cases}
+\]
+
+De la tercera ecuación:
+\[
+x_3=0.
+\]
+
+Sustituyendo en la primera:
+\[
+x_1+x_2=0.
+\]
+
+Por tanto:
+\[
+x_2=-x_1.
+\]
+
+Así, los vectores del núcleo son:
+\[
+(x_1,x_2,x_3)=(x_1,-x_1,0).
+\]
+
+Luego:
+\[
+(x_1,x_2,x_3)=x_1(1,-1,0).
+\]
+
+Por tanto,
+\[
+\ker f=L<\{(1,-1,0)\}>.
+\]
+
+Una base de \(\ker f\) es
+\[
+\boxed{\{(1,-1,0)\}.}
+\]
+
+Luego:
+\[
+\boxed{\dim(\ker f)=1.}
+\]
+
+Ahora calculamos la imagen. A partir de la matriz:
+\[
+M_C(f)=
+\begin{pmatrix}
+1&1&1\\
+1&1&-1\\
+0&0&1
+\end{pmatrix},
+\]
+la imagen está generada por sus columnas:
+\[
+\operatorname{Im} f
+=
+L<\{(1,1,0),(1,1,0),(1,-1,1)\}>.
+\]
+
+Como la primera y la segunda columna son iguales, tenemos:
+\[
+\operatorname{Im} f
+=
+L<\{(1,1,0),(1,-1,1)\}>.
+\]
+
+Comprobamos que estos dos vectores son linealmente independientes. Si
+\[
+\alpha(1,1,0)+\beta(1,-1,1)=(0,0,0),
+\]
+entonces:
+\[
+(\alpha+\beta,\alpha-\beta,\beta)=(0,0,0).
+\]
+
+De la tercera coordenada:
+\[
+\beta=0.
+\]
+
+Sustituyendo:
+\[
+\alpha+\beta=0
+\Rightarrow
+\alpha=0.
+\]
+
+Por tanto, los vectores son linealmente independientes.
+
+Así, una base de la imagen es
+\[
+\boxed{\{(1,1,0),(1,-1,1)\}.}
+\]
+
+Luego:
+\[
+\boxed{\dim(\operatorname{Im} f)=2.}
+\]
+
+También podemos expresar la imagen en forma implícita.
+
+Sea
+\[
+(y_1,y_2,y_3)\in \operatorname{Im} f.
+\]
+
+Entonces:
+\[
+(y_1,y_2,y_3)=\alpha(1,1,0)+\beta(1,-1,1).
+\]
+
+Por tanto:
+\[
+(y_1,y_2,y_3)=(\alpha+\beta,\alpha-\beta,\beta).
+\]
+
+De aquí:
+\[
+y_3=\beta.
+\]
+
+Además:
+\[
+y_1-y_2=(\alpha+\beta)-(\alpha-\beta)=2\beta.
+\]
+
+Como \(\beta=y_3\), queda:
+\[
+y_1-y_2=2y_3.
+\]
+
+Luego:
+\[
+y_1-y_2-2y_3=0.
+\]
+
+Por tanto:
+\[
+\boxed{
+\operatorname{Im} f=
+\{(y_1,y_2,y_3)\in\mathbb{R}^3:y_1-y_2-2y_3=0\}.
+}
+\]
+
+\subsubsection*{b) Clasificación de la aplicación lineal}
+
+Como
+\[
+\ker f=L<\{(1,-1,0)\}>,
+\]
+tenemos:
+\[
+\ker f\neq \{(0,0,0)\}.
+\]
+
+Por tanto, \(f\) no es inyectiva.
+
+Además:
+\[
+\dim(\operatorname{Im} f)=2.
+\]
+
+Como el espacio de llegada es \(\mathbb{R}^3\), se tiene:
+\[
+\dim(\operatorname{Im} f)=2<3=\dim(\mathbb{R}^3).
+\]
+
+Por tanto, \(f\) no es sobreyectiva.
+
+En consecuencia:
+\[
+\boxed{
+f \text{ no es inyectiva ni sobreyectiva.}
+}
+\]
+
+Como \(f\) es un endomorfismo de \(\mathbb{R}^3\), y no es biyectiva, tampoco es un automorfismo.
+
+\[
+\boxed{
+f \text{ no es un automorfismo.}
+}
+\]
+
+\subsubsection*{c) Cálculo de \(f(V)\)}
+
+Tenemos el subespacio
+\[
+V=\{(x_1,x_2,x_3)\in\mathbb{R}^3:x_1+x_2+x_3=0\}.
+\]
+
+Queremos calcular:
+\[
+f(V).
+\]
+
+Tomamos un vector cualquiera de \(V\):
+\[
+(x_1,x_2,x_3)\in V.
+\]
+
+Entonces cumple:
+\[
+x_1+x_2+x_3=0.
+\]
+
+Aplicamos \(f\):
+\[
+f(x_1,x_2,x_3)
+=
+(x_1+x_2+x_3,\;x_1+x_2-x_3,\;x_3).
+\]
+
+Como
+\[
+x_1+x_2+x_3=0,
+\]
+la primera coordenada de la imagen es:
+\[
+0.
+\]
+
+Además, de
+\[
+x_1+x_2+x_3=0
+\]
+obtenemos:
+\[
+x_1+x_2=-x_3.
+\]
+
+Por tanto:
+\[
+x_1+x_2-x_3=-x_3-x_3=-2x_3.
+\]
+
+Luego:
+\[
+f(x_1,x_2,x_3)=(0,-2x_3,x_3).
+\]
+
+Si llamamos
+\[
+x_3=t,
+\]
+entonces:
+\[
+f(x_1,x_2,x_3)=(0,-2t,t).
+\]
+
+Por tanto:
+\[
+f(V)=\{(0,-2t,t):t\in\mathbb{R}\}.
+\]
+
+Equivalentemente:
+\[
+f(V)=L<\{(0,-2,1)\}>.
+\]
+
+Así:
+\[
+\boxed{
+f(V)=L<\{(0,-2,1)\}>.
+}
+\]
+
+En forma implícita:
+\[
+\boxed{
+f(V)=\{(y_1,y_2,y_3)\in\mathbb{R}^3:y_1=0,\ y_2+2y_3=0\}.
+}
+\]
+
+Por tanto:
+\[
+\boxed{\dim f(V)=1.}
+\]
+
+\section*{Solución Ejercicio 2}
+
+Tenemos la aplicación lineal
+\[
+f:\mathbb{R}^4\longrightarrow \mathbb{R}^3
+\]
+definida por
+\[
+f(x_1,x_2,x_3,x_4)=(x_1+x_2,\;0,\;x_1-x_2).
+\]
+
+La matriz asociada a \(f\) en las bases canónicas es
+\[
+M(f)=
+\begin{pmatrix}
+1&1&0&0\\
+0&0&0&0\\
+1&-1&0&0
+\end{pmatrix}.
+\]
+
+\subsubsection*{Núcleo de \(f\)}
+
+Para calcular el núcleo, resolvemos:
+\[
+f(x_1,x_2,x_3,x_4)=(0,0,0).
+\]
+
+Es decir:
+\[
+(x_1+x_2,\;0,\;x_1-x_2)=(0,0,0).
+\]
+
+Por tanto:
+\[
+\begin{cases}
+x_1+x_2=0,\\
+x_1-x_2=0.
+\end{cases}
+\]
+
+Sumando ambas ecuaciones:
+\[
+2x_1=0,
+\]
+luego
+\[
+x_1=0.
+\]
+
+Sustituyendo en
+\[
+x_1+x_2=0,
+\]
+obtenemos:
+\[
+x_2=0.
+\]
+
+Las variables \(x_3\) y \(x_4\) son libres. Por tanto:
+\[
+x_3=\lambda,
+\qquad
+x_4=\mu,
+\]
+con \(\lambda,\mu\in\mathbb{R}\).
+
+Así:
+\[
+(x_1,x_2,x_3,x_4)=(0,0,\lambda,\mu).
+\]
+
+Es decir:
+\[
+(x_1,x_2,x_3,x_4)
+=
+\lambda(0,0,1,0)+\mu(0,0,0,1).
+\]
+
+Por tanto,
+\[
+\ker f=L<\{(0,0,1,0),(0,0,0,1)\}>.
+\]
+
+Una base de \(\ker f\) es
+\[
+\boxed{\{(0,0,1,0),(0,0,0,1)\}.}
+\]
+
+Luego:
+\[
+\boxed{\dim(\ker f)=2.}
+\]
+
+\subsubsection*{Imagen de \(f\)}
+
+A partir de la matriz:
+\[
+M(f)=
+\begin{pmatrix}
+1&1&0&0\\
+0&0&0&0\\
+1&-1&0&0
+\end{pmatrix},
+\]
+la imagen está generada por sus columnas:
+\[
+\operatorname{Im} f
+=
+L<\{(1,0,1),(1,0,-1),(0,0,0),(0,0,0)\}>.
+\]
+
+Por tanto:
+\[
+\operatorname{Im} f
+=
+L<\{(1,0,1),(1,0,-1)\}>.
+\]
+
+Comprobamos que estos dos vectores son linealmente independientes.
+
+Sea
+\[
+\alpha(1,0,1)+\beta(1,0,-1)=(0,0,0).
+\]
+
+Entonces:
+\[
+(\alpha+\beta,0,\alpha-\beta)=(0,0,0).
+\]
+
+Por tanto:
+\[
+\begin{cases}
+\alpha+\beta=0,\\
+\alpha-\beta=0.
+\end{cases}
+\]
+
+Sumando ambas ecuaciones:
+\[
+2\alpha=0,
+\]
+luego
+\[
+\alpha=0.
+\]
+
+Sustituyendo:
+\[
+\beta=0.
+\]
+
+Luego son linealmente independientes.
+
+Así, una base de la imagen es
+\[
+\boxed{\{(1,0,1),(1,0,-1)\}.}
+\]
+
+Por tanto:
+\[
+\boxed{\dim(\operatorname{Im} f)=2.}
+\]
+
+También podemos dar la imagen en forma implícita.
+
+Como la segunda coordenada de cualquier vector imagen es siempre cero, se tiene:
+\[
+\operatorname{Im} f\subseteq \{(y_1,y_2,y_3)\in\mathbb{R}^3:y_2=0\}.
+\]
+
+Además, dado cualquier vector de la forma
+\[
+(y_1,0,y_3),
+\]
+queremos encontrar \(x_1,x_2\) tales que:
+\[
+x_1+x_2=y_1,
+\qquad
+x_1-x_2=y_3.
+\]
+
+Sumando:
+\[
+2x_1=y_1+y_3,
+\]
+luego:
+\[
+x_1=\frac{y_1+y_3}{2}.
+\]
+
+Restando:
+\[
+2x_2=y_1-y_3,
+\]
+luego:
+\[
+x_2=\frac{y_1-y_3}{2}.
+\]
+
+Por tanto, todo vector \((y_1,0,y_3)\) pertenece a la imagen.
+
+Luego:
+\[
+\boxed{
+\operatorname{Im} f=\{(y_1,y_2,y_3)\in\mathbb{R}^3:y_2=0\}.
+}
+\]
+
+\subsubsection*{Comprobación con el teorema de la dimensión}
+
+Como
+\[
+\dim(\mathbb{R}^4)=4,
+\]
+y
+\[
+\dim(\ker f)=2,
+\]
+por el teorema de la dimensión:
+\[
+\dim(\mathbb{R}^4)=\dim(\ker f)+\dim(\operatorname{Im} f).
+\]
+
+Entonces:
+\[
+4=2+\dim(\operatorname{Im} f).
+\]
+
+Por tanto:
+\[
+\dim(\operatorname{Im} f)=2,
+\]
+coincidiendo con lo obtenido anteriormente.
+
+\section*{Solución Ejercicio 3}
+
+Como trabajamos en \(P_2(x)\), aplicamos el isomorfismo natural
+\[
+\varphi:P_2(x)\longrightarrow \mathbb{R}^3,
+\qquad
+\varphi(a+bx+cx^2)=(a,b,c).
+\]
+
+Por tanto, identificamos cada polinomio
+\[
+a+bx+cx^2
+\]
+con el vector
+\[
+(a,b,c)\in\mathbb{R}^3.
+\]
+
+Bajo este isomorfismo, la base canónica de \(P_2(x)\),
+\[
+B_C=\{1,x,x^2\},
+\]
+se corresponde con la base canónica de \(\mathbb{R}^3\):
+\[
+\{(1,0,0),(0,1,0),(0,0,1)\}.
+\]
+
+Además,
+\[
+\ker f=\{(a,b,c)\in\mathbb{R}^3:a=b=c\}.
+\]
+Luego
+\[
+\ker f=L<\{(1,1,1)\}>.
+\]
+
+Por otra parte, los vectores que tienen término independiente nulo son los vectores de la forma
+\[
+(0,b,c).
+\]
+Como estos se transforman en sí mismos, se tiene:
+\[
+f(0,b,c)=(0,b,c).
+\]
+
+En particular,
+\[
+f(0,1,0)=(0,1,0),
+\qquad
+f(0,0,1)=(0,0,1).
+\]
+
+Es decir,
+\[
+f(e_2)=e_2,
+\qquad
+f(e_3)=e_3.
+\]
+
+\subsubsection*{a) Matriz de \(f\) en la base canónica}
+
+Sabemos que
+\[
+(1,1,1)\in \ker f.
+\]
+Por tanto,
+\[
+f(1,1,1)=(0,0,0).
+\]
+
+Como
+\[
+(1,1,1)=e_1+e_2+e_3,
+\]
+por linealidad:
+\[
+f(e_1)+f(e_2)+f(e_3)=(0,0,0).
+\]
+
+Sustituyendo \(f(e_2)=e_2\) y \(f(e_3)=e_3\), queda:
+\[
+f(e_1)+e_2+e_3=(0,0,0).
+\]
+
+Luego
+\[
+f(e_1)=-e_2-e_3.
+\]
+
+Por tanto,
+\[
+f(e_1)=(0,-1,-1),
+\qquad
+f(e_2)=(0,1,0),
+\qquad
+f(e_3)=(0,0,1).
+\]
+
+La matriz de \(f\) en la base canónica se obtiene colocando estos vectores como columnas:
+\[
+M_{B_C}(f)=
+\begin{pmatrix}
+0&0&0\\
+-1&1&0\\
+-1&0&1
+\end{pmatrix}.
+\]
+
+Por tanto,
+\[
+\boxed{
+M_{B_C}(f)=
+\begin{pmatrix}
+0&0&0\\
+-1&1&0\\
+-1&0&1
+\end{pmatrix}
+}
+\]
+
+\subsubsection*{b) Expresión implícita de \(\operatorname{Im} f\)}
+
+A partir de la matriz obtenida, si
+\[
+v=(a,b,c)\in\mathbb{R}^3,
+\]
+entonces
+\[
+f(a,b,c)=
+\begin{pmatrix}
+0&0&0\\
+-1&1&0\\
+-1&0&1
+\end{pmatrix}
+\begin{pmatrix}
+a\\
+b\\
+c
+\end{pmatrix}
+=
+\begin{pmatrix}
+0\\
+-a+b\\
+-a+c
+\end{pmatrix}.
+\]
+
+Luego todo vector de la imagen tiene primera coordenada nula. Por tanto,
+\[
+\operatorname{Im} f\subseteq \{(x,y,z)\in\mathbb{R}^3:x=0\}.
+\]
+
+Además,
+\[
+f(0,1,0)=(0,1,0),
+\qquad
+f(0,0,1)=(0,0,1).
+\]
+Luego los vectores \((0,1,0)\) y \((0,0,1)\) pertenecen a \(\operatorname{Im} f\), y generan todo el plano \(x=0\).
+
+Así,
+\[
+\operatorname{Im} f=L<\{(0,1,0),(0,0,1)\}>.
+\]
+
+En forma implícita:
+\[
+\boxed{
+\operatorname{Im} f=\{(x,y,z)\in\mathbb{R}^3:x=0\}
+}
+\]
+
+Por tanto,
+\[
+\boxed{\dim(\operatorname{Im} f)=2.}
+\]
+
+\paragraph{Primera forma de razonar la dimensión.}
+
+Como
+\[
+\operatorname{Im} f=\{(x,y,z)\in\mathbb{R}^3:x=0\},
+\]
+se trata de un subespacio de \(\mathbb{R}^3\) definido por una única ecuación lineal independiente. Por tanto,
+\[
+\dim(\operatorname{Im} f)=3-1=2.
+\]
+
+\paragraph{Segunda forma de razonar la dimensión.}
+
+Por el teorema de la dimensión:
+\[
+\dim P_2(x)=\dim(\ker f)+\dim(\operatorname{Im} f).
+\]
+
+Como
+\[
+\dim P_2(x)=3
+\]
+y
+\[
+\ker f=L<\{(1,1,1)\}>,
+\]
+se tiene
+\[
+\dim(\ker f)=1.
+\]
+
+Por tanto,
+\[
+3=1+\dim(\operatorname{Im} f),
+\]
+de donde
+\[
+\dim(\operatorname{Im} f)=2.
+\]
+
+\subsubsection*{c) Cálculo de \(f(S)\)}
+
+Tenemos
+\[
+S=\{(\lambda-2\mu+\delta,\lambda-2\mu-\delta,\lambda-2\mu): \lambda,\mu,\delta\in\mathbb{R}\}.
+\]
+
+Tomamos un vector cualquiera de \(S\):
+\[
+v=(\lambda-2\mu+\delta,\lambda-2\mu-\delta,\lambda-2\mu).
+\]
+
+Es decir,
+\[
+a=\lambda-2\mu+\delta,
+\qquad
+b=\lambda-2\mu-\delta,
+\qquad
+c=\lambda-2\mu.
+\]
+
+Como
+\[
+f(a,b,c)=(0,-a+b,-a+c),
+\]
+sustituimos:
+\[
+f(v)=
+\left(
+0,
+-(\lambda-2\mu+\delta)+(\lambda-2\mu-\delta),
+-(\lambda-2\mu+\delta)+(\lambda-2\mu)
+\right).
+\]
+
+Simplificando:
+\[
+f(v)=(0,-2\delta,-\delta).
+\]
+
+Por tanto,
+\[
+f(S)=\{(0,-2\delta,-\delta):\delta\in\mathbb{R}\}.
+\]
+
+Equivalentemente,
+\[
+f(S)=L<\{(0,2,1)\}>.
+\]
+
+Luego
+\[
+\dim f(S)=1.
+\]
+
+Para obtener la forma implícita, si
+\[
+(x,y,z)\in f(S),
+\]
+entonces
+\[
+x=0
+\]
+y, como
+\[
+y=-2\delta,
+\qquad
+z=-\delta,
+\]
+se verifica
+\[
+y=2z.
+\]
+
+Por tanto,
+\[
+y-2z=0.
+\]
+
+Así,
+\[
+\boxed{
+f(S)=\{(x,y,z)\in\mathbb{R}^3:x=0,\ y-2z=0\}
+}
+\]
+
+\paragraph{¿Tiene sentido la dimensión obtenida?}
+
+Sí tiene sentido.
+
+Primero estudiamos \(S\). Escribimos
+\[
+(\lambda-2\mu+\delta,\lambda-2\mu-\delta,\lambda-2\mu)
+=
+(\lambda-2\mu)(1,1,1)+\delta(1,-1,0).
+\]
+
+Por tanto,
+\[
+S=L<\{(1,1,1),(1,-1,0)\}>.
+\]
+
+Los vectores \((1,1,1)\) y \((1,-1,0)\) son linealmente independientes, luego
+\[
+\dim S=2.
+\]
+
+Pero
+\[
+(1,1,1)\in \ker f.
+\]
+
+Esto significa que una de las direcciones de \(S\) desaparece al aplicar \(f\). En concreto,
+\[
+f(1,1,1)=(0,0,0).
+\]
+
+Por tanto, es coherente que \(S\) tenga dimensión \(2\), pero \(f(S)\) tenga dimensión \(1\).
+
+De hecho,
+\[
+S\cap \ker f=L<\{(1,1,1)\}>,
+\]
+así que
+\[
+\dim f(S)=\dim S-\dim(S\cap \ker f)=2-1=1.
+\]
+
+\subsubsection*{d) Matriz de \(f\) en la base \(B^*\)}
+
+La base dada es
+\[
+B^*=\{1+x+x^2,\;1+x,\;1\}.
+\]
+
+Bajo el isomorfismo
+\[
+P_2(x)\simeq \mathbb{R}^3,
+\]
+esta base se corresponde con
+\[
+B^*=\{(1,1,1),(1,1,0),(1,0,0)\}.
+\]
+
+Llamamos
+\[
+u_1=(1,1,1),
+\qquad
+u_2=(1,1,0),
+\qquad
+u_3=(1,0,0).
+\]
+
+\paragraph{Cálculo por coordenadas.}
+
+Calculamos las imágenes de los vectores de la base \(B^*\).
+
+Como
+\[
+u_1=(1,1,1)\in \ker f,
+\]
+se tiene
+\[
+f(u_1)=(0,0,0).
+\]
+
+Luego
+\[
+[f(u_1)]_{B^*}=
+\begin{pmatrix}
+0\\
+0\\
+0
+\end{pmatrix}.
+\]
+
+Ahora calculamos \(f(u_2)\):
+\[
+f(u_2)=f(1,1,0)=(0,-1+1,-1+0)=(0,0,-1).
+\]
+
+Buscamos \(\alpha,\beta,\gamma\in\mathbb{R}\) tales que
+\[
+(0,0,-1)=\alpha(1,1,1)+\beta(1,1,0)+\gamma(1,0,0).
+\]
+
+Entonces
+\[
+(0,0,-1)=(\alpha+\beta+\gamma,\alpha+\beta,\alpha).
+\]
+
+Igualando coordenadas:
+\[
+\alpha=-1,
+\]
+\[
+\alpha+\beta=0,
+\]
+\[
+\alpha+\beta+\gamma=0.
+\]
+
+De aquí:
+\[
+\alpha=-1,\qquad \beta=1,\qquad \gamma=0.
+\]
+
+Por tanto,
+\[
+[f(u_2)]_{B^*}=
+\begin{pmatrix}
+-1\\
+1\\
+0
+\end{pmatrix}.
+\]
+
+Ahora calculamos \(f(u_3)\):
+\[
+f(u_3)=f(1,0,0)=(0,-1,-1).
+\]
+
+Buscamos \(\alpha,\beta,\gamma\in\mathbb{R}\) tales que
+\[
+(0,-1,-1)=\alpha(1,1,1)+\beta(1,1,0)+\gamma(1,0,0).
+\]
+
+Entonces
+\[
+(0,-1,-1)=(\alpha+\beta+\gamma,\alpha+\beta,\alpha).
+\]
+
+Igualando coordenadas:
+\[
+\alpha=-1,
+\]
+\[
+\alpha+\beta=-1,
+\]
+\[
+\alpha+\beta+\gamma=0.
+\]
+
+De aquí:
+\[
+\alpha=-1,\qquad \beta=0,\qquad \gamma=1.
+\]
+
+Por tanto,
+\[
+[f(u_3)]_{B^*}=
+\begin{pmatrix}
+-1\\
+0\\
+1
+\end{pmatrix}.
+\]
+
+La matriz \(M_{B^*}(f)\) se obtiene colocando estas coordenadas como columnas:
+\[
+M_{B^*}(f)=
+\begin{pmatrix}
+0&-1&-1\\
+0&1&0\\
+0&0&1
+\end{pmatrix}.
+\]
+
+Por tanto,
+\[
+\boxed{
+M_{B^*}(f)=
+\begin{pmatrix}
+0&-1&-1\\
+0&1&0\\
+0&0&1
+\end{pmatrix}
+}
+\]
+
+\paragraph{Cálculo matricial.}
+
+La matriz de cambio de base de \(B^*\) a la base canónica \(B_C\) se construye colocando como columnas los vectores de \(B^*\) escritos en coordenadas canónicas:
+\[
+P_{B_C\leftarrow B^*}
+=
+\begin{pmatrix}
+1&1&1\\
+1&1&0\\
+1&0&0
+\end{pmatrix}.
+\]
+
+La matriz de \(f\) en la base canónica es
+\[
+M_{B_C}(f)=
+\begin{pmatrix}
+0&0&0\\
+-1&1&0\\
+-1&0&1
+\end{pmatrix}.
+\]
+
+Por la fórmula de cambio de base:
+\[
+M_{B^*}(f)
+=
+P_{B_C\leftarrow B^*}^{-1}
+M_{B_C}(f)
+P_{B_C\leftarrow B^*}.
+\]
+
+Calculamos primero:
+\[
+M_{B_C}(f)P_{B_C\leftarrow B^*}
+=
+\begin{pmatrix}
+0&0&0\\
+-1&1&0\\
+-1&0&1
+\end{pmatrix}
+\begin{pmatrix}
+1&1&1\\
+1&1&0\\
+1&0&0
+\end{pmatrix}
+=
+\begin{pmatrix}
+0&0&0\\
+0&0&-1\\
+0&-1&-1
+\end{pmatrix}.
+\]
+
+Además,
+\[
+P_{B_C\leftarrow B^*}^{-1}
+=
+\begin{pmatrix}
+0&0&1\\
+0&1&-1\\
+1&-1&0
+\end{pmatrix}.
+\]
+
+Por tanto,
+\[
+M_{B^*}(f)
+=
+\begin{pmatrix}
+0&0&1\\
+0&1&-1\\
+1&-1&0
+\end{pmatrix}
+\begin{pmatrix}
+0&0&0\\
+0&0&-1\\
+0&-1&-1
+\end{pmatrix}
+=
+\begin{pmatrix}
+0&-1&-1\\
+0&1&0\\
+0&0&1
+\end{pmatrix}.
+\]
+
+Así, obtenemos de nuevo:
+\[
+\boxed{
+M_{B^*}(f)=
+\begin{pmatrix}
+0&-1&-1\\
+0&1&0\\
+0&0&1
+\end{pmatrix}.
+}
+\]
+
+\subsubsection*{Conclusión}
+
+La matriz de \(f\) en la base canónica es
+\[
+M_{B_C}(f)=
+\begin{pmatrix}
+0&0&0\\
+-1&1&0\\
+-1&0&1
+\end{pmatrix}.
+\]
+
+La imagen de \(f\) es
+\[
+\operatorname{Im} f=\{(x,y,z)\in\mathbb{R}^3:x=0\},
+\]
+y
+\[
+\dim(\operatorname{Im} f)=2.
+\]
+
+Además,
+\[
+f(S)=\{(x,y,z)\in\mathbb{R}^3:x=0,\ y-2z=0\},
+\]
+con
+\[
+\dim f(S)=1.
+\]
+
+Finalmente, en la base
+\[
+B^*=\{1+x+x^2,\;1+x,\;1\},
+\]
+la matriz del endomorfismo es
+\[
+M_{B^*}(f)=
+\begin{pmatrix}
+0&-1&-1\\
+0&1&0\\
+0&0&1
+\end{pmatrix}.
+\]
+
+\section*{Solución Ejercicio 4}
+
+Tenemos las aplicaciones lineales
+\[
+f:\mathbb{R}^2\longrightarrow \mathbb{R}^3,
+\qquad
+g:\mathbb{R}^3\longrightarrow \mathbb{R}^2.
+\]
+
+Como nos dan las imágenes de los vectores de la base canónica, podemos construir directamente sus matrices asociadas.
+
+\subsubsection*{Cálculo matricial}
+
+La matriz de \(f\) se obtiene colocando como columnas las imágenes de los vectores de la base canónica de \(\mathbb{R}^2\):
+\[
+M(f)=
+\begin{pmatrix}
+2&3\\
+1&2\\
+2&1
+\end{pmatrix}.
+\]
+
+La matriz de \(g\) se obtiene colocando como columnas las imágenes de los vectores de la base canónica de \(\mathbb{R}^3\):
+\[
+M(g)=
+\begin{pmatrix}
+3&1&1\\
+-1&0&-2
+\end{pmatrix}.
+\]
+
+Como
+\[
+h=g\circ f,
+\]
+entonces la matriz de \(h\) es
+\[
+M(h)=M(g)M(f).
+\]
+
+Calculamos:
+\[
+M(h)=
+\begin{pmatrix}
+3&1&1\\
+-1&0&-2
+\end{pmatrix}
+\begin{pmatrix}
+2&3\\
+1&2\\
+2&1
+\end{pmatrix}.
+\]
+
+Por tanto,
+\[
+M(h)=
+\begin{pmatrix}
+3\cdot 2+1\cdot 1+1\cdot 2 & 3\cdot 3+1\cdot 2+1\cdot 1\\
+-1\cdot 2+0\cdot 1-2\cdot 2 & -1\cdot 3+0\cdot 2-2\cdot 1
+\end{pmatrix}.
+\]
+
+Luego
+\[
+M(h)=
+\begin{pmatrix}
+9&12\\
+-6&-5
+\end{pmatrix}.
+\]
+
+Ahora calculamos
+\[
+h(4,-2)=M(h)
+\begin{pmatrix}
+4\\
+-2
+\end{pmatrix}.
+\]
+
+Así,
+\[
+h(4,-2)=
+\begin{pmatrix}
+9&12\\
+-6&-5
+\end{pmatrix}
+\begin{pmatrix}
+4\\
+-2
+\end{pmatrix}
+=
+\begin{pmatrix}
+9\cdot 4+12\cdot(-2)\\
+-6\cdot 4+(-5)\cdot(-2)
+\end{pmatrix}.
+\]
+
+Por tanto,
+\[
+h(4,-2)=
+\begin{pmatrix}
+12\\
+-14
+\end{pmatrix}.
+\]
+
+Luego
+\[
+\boxed{h(4,-2)=(12,-14).}
+\]
+
+\subsubsection*{Cálculo por coordenadas}
+
+Como
+\[
+(4,-2)=4(1,0)-2(0,1),
+\]
+por linealidad de \(f\), tenemos:
+\[
+f(4,-2)=4f(1,0)-2f(0,1).
+\]
+
+Sustituimos:
+\[
+f(4,-2)=4(2,1,2)-2(3,2,1).
+\]
+
+Calculamos:
+\[
+f(4,-2)=(8,4,8)-(6,4,2).
+\]
+
+Luego
+\[
+f(4,-2)=(2,0,6).
+\]
+
+Ahora aplicamos \(g\):
+\[
+h(4,-2)=g(f(4,-2))=g(2,0,6).
+\]
+
+Como
+\[
+(2,0,6)=2(1,0,0)+0(0,1,0)+6(0,0,1),
+\]
+por linealidad de \(g\):
+\[
+g(2,0,6)=2g(1,0,0)+0g(0,1,0)+6g(0,0,1).
+\]
+
+Sustituimos:
+\[
+g(2,0,6)=2(3,-1)+0(1,0)+6(1,-2).
+\]
+
+Calculamos:
+\[
+g(2,0,6)=(6,-2)+(0,0)+(6,-12).
+\]
+
+Por tanto,
+\[
+g(2,0,6)=(12,-14).
+\]
+
+Así,
+\[
+\boxed{h(4,-2)=(12,-14).}
+\]
+
+\section*{Solución Ejercicio 5}
+
+Tenemos las aplicaciones lineales
+\[
+f:\mathbb{R}^3\longrightarrow \mathbb{R}^2,
+\qquad
+f(x,y,z)=(2x-y,2y+z),
+\]
+y
+\[
+g:\mathbb{R}^2\longrightarrow \mathbb{R}^3,
+\qquad
+g(x,y)=(4x+2y,y,x+y).
+\]
+
+\subsubsection*{a) Matrices en las bases canónicas}
+
+Empezamos calculando la matriz de \(f\) respecto de las bases canónicas.
+
+Como
+\[
+f(x,y,z)=(2x-y,2y+z),
+\]
+tenemos:
+\[
+f(1,0,0)=(2,0),
+\]
+\[
+f(0,1,0)=(-1,2),
+\]
+\[
+f(0,0,1)=(0,1).
+\]
+
+Por tanto,
+\[
+M_{CC'}(f)=
+\begin{pmatrix}
+2&-1&0\\
+0&2&1
+\end{pmatrix}.
+\]
+
+Ahora calculamos la matriz de \(g\) respecto de las bases canónicas.
+
+Como
+\[
+g(x,y)=(4x+2y,y,x+y),
+\]
+tenemos:
+\[
+g(1,0)=(4,0,1),
+\]
+\[
+g(0,1)=(2,1,1).
+\]
+
+Por tanto,
+\[
+M_{C'C}(g)=
+\begin{pmatrix}
+4&2\\
+0&1\\
+1&1
+\end{pmatrix}.
+\]
+
+Así,
+\[
+\boxed{
+M_{CC'}(f)=
+\begin{pmatrix}
+2&-1&0\\
+0&2&1
+\end{pmatrix}
+}
+\]
+y
+\[
+\boxed{
+M_{C'C}(g)=
+\begin{pmatrix}
+4&2\\
+0&1\\
+1&1
+\end{pmatrix}.
+}
+\]
+
+\subsubsection*{b) Base de \(\ker f\), base de \(\operatorname{Im} g\) y clasificación}
+
+Para calcular el núcleo de \(f\), resolvemos:
+\[
+f(x,y,z)=(0,0).
+\]
+
+Es decir,
+\[
+(2x-y,2y+z)=(0,0).
+\]
+
+Por tanto:
+\[
+2x-y=0,
+\]
+\[
+2y+z=0.
+\]
+
+De la primera ecuación:
+\[
+y=2x.
+\]
+
+Sustituyendo en la segunda:
+\[
+2(2x)+z=0,
+\]
+\[
+4x+z=0,
+\]
+\[
+z=-4x.
+\]
+
+Luego:
+\[
+(x,y,z)=(x,2x,-4x)=x(1,2,-4).
+\]
+
+Por tanto,
+\[
+\ker f=L<\{(1,2,-4)\}>.
+\]
+
+Una base de \(\ker f\) es
+\[
+\boxed{\{(1,2,-4)\}.}
+\]
+
+En consecuencia,
+\[
+\dim(\ker f)=1.
+\]
+
+Como
+\[
+\dim(\mathbb{R}^3)=3,
+\]
+por el teorema de la dimensión:
+\[
+\dim(\mathbb{R}^3)=\dim(\ker f)+\dim(\operatorname{Im} f).
+\]
+
+Entonces:
+\[
+3=1+\dim(\operatorname{Im} f),
+\]
+de donde
+\[
+\dim(\operatorname{Im} f)=2.
+\]
+
+Como \(f:\mathbb{R}^3\longrightarrow \mathbb{R}^2\), y
+\[
+\dim(\operatorname{Im} f)=2=\dim(\mathbb{R}^2),
+\]
+deducimos que \(f\) es sobreyectiva.
+
+Pero como
+\[
+\ker f\neq \{(0,0,0)\},
+\]
+la aplicación \(f\) no es inyectiva.
+
+Por tanto:
+\[
+\boxed{f \text{ es sobreyectiva, pero no inyectiva.}}
+\]
+
+Ahora calculamos la imagen de \(g\).
+
+Sabemos que
+\[
+g(1,0)=(4,0,1),
+\]
+\[
+g(0,1)=(2,1,1).
+\]
+
+Luego
+\[
+\operatorname{Im} g=L<\{(4,0,1),(2,1,1)\}>.
+\]
+
+Comprobamos si estos dos vectores son linealmente independientes.
+
+Supongamos que
+\[
+\alpha(4,0,1)+\beta(2,1,1)=(0,0,0).
+\]
+
+Entonces:
+\[
+(4\alpha+2\beta,\beta,\alpha+\beta)=(0,0,0).
+\]
+
+De la segunda coordenada:
+\[
+\beta=0.
+\]
+
+Sustituyendo en la tercera:
+\[
+\alpha+\beta=0,
+\]
+\[
+\alpha=0.
+\]
+
+Por tanto, son linealmente independientes.
+
+Una base de \(\operatorname{Im} g\) es
+\[
+\boxed{\{(4,0,1),(2,1,1)\}.}
+\]
+
+Además,
+\[
+\dim(\operatorname{Im} g)=2.
+\]
+
+Como
+\[
+g:\mathbb{R}^2\longrightarrow \mathbb{R}^3
+\]
+y
+\[
+\dim(\operatorname{Im} g)=2=\dim(\mathbb{R}^2),
+\]
+deducimos que
+\[
+\dim(\ker g)=0.
+\]
+
+Por tanto,
+\[
+\ker g=\{(0,0)\}.
+\]
+
+Luego \(g\) es inyectiva.
+
+Sin embargo,
+\[
+\dim(\operatorname{Im} g)=2<3=\dim(\mathbb{R}^3),
+\]
+así que \(g\) no es sobreyectiva.
+
+Por tanto:
+\[
+\boxed{g \text{ es inyectiva, pero no sobreyectiva.}}
+\]
+
+\subsubsection*{c) Cálculo de \([f(2,0,-1)]_{B'}\) utilizando \(M_{BB'}(f)\)}
+
+Queremos calcular
+\[
+[f(2,0,-1)]_{B'}
+\]
+utilizando la matriz de \(f\) respecto de la base \(B\) en el dominio y la base \(B'\) en el codominio.
+
+Recordamos que
+\[
+B=\{(1,0,0),(1,1,0),(1,1,1)\}.
+\]
+
+Llamamos:
+\[
+u_1=(1,0,0),
+\qquad
+u_2=(1,1,0),
+\qquad
+u_3=(1,1,1).
+\]
+
+Y en \(\mathbb{R}^2\):
+\[
+B'=\{(1,0),(1,1)\}.
+\]
+
+Llamamos:
+\[
+v_1=(1,0),
+\qquad
+v_2=(1,1).
+\]
+
+Primero calculamos las imágenes de los vectores de la base \(B\).
+
+Para \(u_1=(1,0,0)\):
+\[
+f(u_1)=f(1,0,0)=(2,0).
+\]
+
+Buscamos sus coordenadas en la base \(B'\):
+\[
+(2,0)=\alpha(1,0)+\beta(1,1).
+\]
+
+Entonces:
+\[
+(2,0)=(\alpha+\beta,\beta).
+\]
+
+Igualando coordenadas:
+\[
+\beta=0,
+\]
+\[
+\alpha+\beta=2.
+\]
+
+Luego:
+\[
+\alpha=2,
+\qquad
+\beta=0.
+\]
+
+Por tanto:
+\[
+[f(u_1)]_{B'}=
+\begin{pmatrix}
+2\\
+0
+\end{pmatrix}.
+\]
+
+Para \(u_2=(1,1,0)\):
+\[
+f(u_2)=f(1,1,0)=(1,2).
+\]
+
+Buscamos sus coordenadas en \(B'\):
+\[
+(1,2)=\alpha(1,0)+\beta(1,1).
+\]
+
+Entonces:
+\[
+(1,2)=(\alpha+\beta,\beta).
+\]
+
+Igualando coordenadas:
+\[
+\beta=2,
+\]
+\[
+\alpha+\beta=1.
+\]
+
+Luego:
+\[
+\alpha=-1,
+\qquad
+\beta=2.
+\]
+
+Por tanto:
+\[
+[f(u_2)]_{B'}=
+\begin{pmatrix}
+-1\\
+2
+\end{pmatrix}.
+\]
+
+Para \(u_3=(1,1,1)\):
+\[
+f(u_3)=f(1,1,1)=(1,3).
+\]
+
+Buscamos sus coordenadas en \(B'\):
+\[
+(1,3)=\alpha(1,0)+\beta(1,1).
+\]
+
+Entonces:
+\[
+(1,3)=(\alpha+\beta,\beta).
+\]
+
+Igualando coordenadas:
+\[
+\beta=3,
+\]
+\[
+\alpha+\beta=1.
+\]
+
+Luego:
+\[
+\alpha=-2,
+\qquad
+\beta=3.
+\]
+
+Por tanto:
+\[
+[f(u_3)]_{B'}=
+\begin{pmatrix}
+-2\\
+3
+\end{pmatrix}.
+\]
+
+Colocando estas coordenadas como columnas, obtenemos:
+\[
+M_{BB'}(f)=
+\begin{pmatrix}
+2&-1&-2\\
+0&2&3
+\end{pmatrix}.
+\]
+
+Ahora escribimos el vector \((2,0,-1)\) en coordenadas de la base \(B\).
+
+Buscamos \(\alpha,\beta,\gamma\in\mathbb{R}\) tales que
+\[
+(2,0,-1)=\alpha(1,0,0)+\beta(1,1,0)+\gamma(1,1,1).
+\]
+
+Entonces:
+\[
+(2,0,-1)=(\alpha+\beta+\gamma,\beta+\gamma,\gamma).
+\]
+
+Igualando coordenadas:
+\[
+\gamma=-1,
+\]
+\[
+\beta+\gamma=0,
+\]
+\[
+\alpha+\beta+\gamma=2.
+\]
+
+De \(\beta+\gamma=0\), como \(\gamma=-1\), tenemos:
+\[
+\beta=1.
+\]
+
+Y de \(\alpha+\beta+\gamma=2\):
+\[
+\alpha+1-1=2,
+\]
+\[
+\alpha=2.
+\]
+
+Por tanto:
+\[
+[(2,0,-1)]_B=
+\begin{pmatrix}
+2\\
+1\\
+-1
+\end{pmatrix}.
+\]
+
+Ahora aplicamos la matriz \(M_{BB'}(f)\):
+\[
+[f(2,0,-1)]_{B'}
+=
+M_{BB'}(f)[(2,0,-1)]_B.
+\]
+
+Es decir:
+\[
+[f(2,0,-1)]_{B'}
+=
+\begin{pmatrix}
+2&-1&-2\\
+0&2&3
+\end{pmatrix}
+\begin{pmatrix}
+2\\
+1\\
+-1
+\end{pmatrix}.
+\]
+
+Calculamos:
+\[
+[f(2,0,-1)]_{B'}
+=
+\begin{pmatrix}
+2\cdot 2+(-1)\cdot 1+(-2)\cdot(-1)\\
+0\cdot 2+2\cdot 1+3\cdot(-1)
+\end{pmatrix}.
+\]
+
+Luego:
+\[
+[f(2,0,-1)]_{B'}
+=
+\begin{pmatrix}
+5\\
+-1
+\end{pmatrix}.
+\]
+
+Por tanto:
+\[
+\boxed{
+[f(2,0,-1)]_{B'}=
+\begin{pmatrix}
+5\\
+-1
+\end{pmatrix}
+}
+\]
+
+\subsubsection*{Comprobación en las bases canónicas}
+
+Calculamos directamente:
+\[
+f(2,0,-1)=(2\cdot 2-0,2\cdot 0+(-1)).
+\]
+
+Por tanto:
+\[
+f(2,0,-1)=(4,-1).
+\]
+
+Ahora comprobamos que sus coordenadas en la base \(B'\) son las obtenidas anteriormente.
+
+Buscamos \(\alpha,\beta\in\mathbb{R}\) tales que
+\[
+(4,-1)=\alpha(1,0)+\beta(1,1).
+\]
+
+Entonces:
+\[
+(4,-1)=(\alpha+\beta,\beta).
+\]
+
+Igualando coordenadas:
+\[
+\beta=-1,
+\]
+\[
+\alpha+\beta=4.
+\]
+
+Como \(\beta=-1\), tenemos:
+\[
+\alpha-1=4,
+\]
+\[
+\alpha=5.
+\]
+
+Por tanto:
+\[
+[(4,-1)]_{B'}=
+\begin{pmatrix}
+5\\
+-1
+\end{pmatrix}.
+\]
+
+Así:
+\[
+\boxed{
+[f(2,0,-1)]_{B'}=
+\begin{pmatrix}
+5\\
+-1
+\end{pmatrix}
+}
+\]
+como queríamos comprobar.
+
+\subsubsection*{Cálculo matricial de \(M_{BB'}(f)\)}
+
+También podemos obtener \(M_{BB'}(f)\) mediante matrices de cambio de base.
+
+La matriz de cambio de base de \(B\) a la base canónica \(C\) es:
+\[
+P_{C\leftarrow B}
+=
+\begin{pmatrix}
+1&1&1\\
+0&1&1\\
+0&0&1
+\end{pmatrix}.
+\]
+
+La matriz de cambio de base de \(B'\) a la base canónica \(C'\) es:
+\[
+P_{C'\leftarrow B'}
+=
+\begin{pmatrix}
+1&1\\
+0&1
+\end{pmatrix}.
+\]
+
+Por tanto:
+\[
+P_{B'\leftarrow C'}=
+P_{C'\leftarrow B'}^{-1}
+=
+\begin{pmatrix}
+1&-1\\
+0&1
+\end{pmatrix}.
+\]
+
+Sabemos que:
+\[
+M_{CC'}(f)=
+\begin{pmatrix}
+2&-1&0\\
+0&2&1
+\end{pmatrix}.
+\]
+
+Entonces:
+\[
+M_{BB'}(f)
+=
+P_{B'\leftarrow C'}M_{CC'}(f)P_{C\leftarrow B}.
+\]
+
+Sustituyendo:
+\[
+M_{BB'}(f)
+=
+\begin{pmatrix}
+1&-1\\
+0&1
+\end{pmatrix}
+\begin{pmatrix}
+2&-1&0\\
+0&2&1
+\end{pmatrix}
+\begin{pmatrix}
+1&1&1\\
+0&1&1\\
+0&0&1
+\end{pmatrix}.
+\]
+
+Primero:
+\[
+\begin{pmatrix}
+2&-1&0\\
+0&2&1
+\end{pmatrix}
+\begin{pmatrix}
+1&1&1\\
+0&1&1\\
+0&0&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+2&1&1\\
+0&2&3
+\end{pmatrix}.
+\]
+
+Luego:
+\[
+M_{BB'}(f)
+=
+\begin{pmatrix}
+1&-1\\
+0&1
+\end{pmatrix}
+\begin{pmatrix}
+2&1&1\\
+0&2&3
+\end{pmatrix}
+=
+\begin{pmatrix}
+2&-1&-2\\
+0&2&3
+\end{pmatrix}.
+\]
+
+Así:
+\[
+\boxed{
+M_{BB'}(f)=
+\begin{pmatrix}
+2&-1&-2\\
+0&2&3
+\end{pmatrix}.
+}
+\]
+
+\section*{Solución Ejercicio 6}
+
+Tenemos una aplicación lineal
+\[
+f:\mathbb{R}^3\longrightarrow \mathbb{R}^2
+\]
+tal que
+\[
+\ker f=\{(x,y,z)\in\mathbb{R}^3:x+ay+z=0,\ ax+y+z=0\}.
+\]
+
+El núcleo viene dado por el sistema homogéneo:
+\[
+\begin{cases}
+x+ay+z=0,\\
+ax+y+z=0.
+\end{cases}
+\]
+
+\subsubsection*{a) Dimensiones y bases de \(\ker f\) y de \(\operatorname{Im} f\)}
+
+Estudiamos el sistema que define el núcleo:
+\[
+\begin{cases}
+x+ay+z=0,\\
+ax+y+z=0.
+\end{cases}
+\]
+
+Restamos ambas ecuaciones:
+\[
+(x+ay+z)-(ax+y+z)=0.
+\]
+
+Entonces:
+\[
+(1-a)x+(a-1)y=0.
+\]
+
+Sacamos factor común:
+\[
+(1-a)(x-y)=0.
+\]
+
+Distinguimos dos casos.
+
+\paragraph{Caso 1: \(a\neq 1\).}
+
+Si
+\[
+a\neq 1,
+\]
+entonces
+\[
+1-a\neq 0,
+\]
+y por tanto:
+\[
+x-y=0.
+\]
+
+Luego:
+\[
+x=y.
+\]
+
+Sustituimos en la primera ecuación:
+\[
+x+ax+z=0.
+\]
+
+Por tanto:
+\[
+(a+1)x+z=0,
+\]
+de donde:
+\[
+z=-(a+1)x.
+\]
+
+Así, los vectores del núcleo son:
+\[
+(x,y,z)=(x,x,-(a+1)x).
+\]
+
+Es decir:
+\[
+(x,y,z)=x(1,1,-a-1).
+\]
+
+Por tanto:
+\[
+\ker f=L<\{(1,1,-a-1)\}>.
+\]
+
+Una base de \(\ker f\) es:
+\[
+\boxed{\{(1,1,-a-1)\}.}
+\]
+
+Luego:
+\[
+\boxed{\dim(\ker f)=1.}
+\]
+
+Por el teorema de la dimensión:
+\[
+\dim(\mathbb{R}^3)=\dim(\ker f)+\dim(\operatorname{Im} f).
+\]
+
+Como
+\[
+\dim(\mathbb{R}^3)=3
+\]
+y
+\[
+\dim(\ker f)=1,
+\]
+tenemos:
+\[
+3=1+\dim(\operatorname{Im} f).
+\]
+
+Por tanto:
+\[
+\dim(\operatorname{Im} f)=2.
+\]
+
+Como
+\[
+f:\mathbb{R}^3\longrightarrow \mathbb{R}^2,
+\]
+se tiene:
+\[
+\operatorname{Im} f=\mathbb{R}^2.
+\]
+
+Luego una base de \(\operatorname{Im} f\) es:
+\[
+\boxed{\{(1,0),(0,1)\}.}
+\]
+
+\paragraph{Caso 2: \(a=1\).}
+
+Si
+\[
+a=1,
+\]
+las dos ecuaciones que definen el núcleo coinciden:
+\[
+x+y+z=0.
+\]
+
+Por tanto:
+\[
+\ker f=\{(x,y,z)\in\mathbb{R}^3:x+y+z=0\}.
+\]
+
+Despejamos:
+\[
+x=-y-z.
+\]
+
+Tomamos
+\[
+y=\lambda,
+\qquad
+z=\mu.
+\]
+
+Entonces:
+\[
+(x,y,z)=(-\lambda-\mu,\lambda,\mu).
+\]
+
+Escribimos:
+\[
+(x,y,z)=\lambda(-1,1,0)+\mu(-1,0,1).
+\]
+
+Por tanto:
+\[
+\ker f=L<\{(-1,1,0),(-1,0,1)\}>.
+\]
+
+Una base de \(\ker f\) es:
+\[
+\boxed{\{(-1,1,0),(-1,0,1)\}.}
+\]
+
+Luego:
+\[
+\boxed{\dim(\ker f)=2.}
+\]
+
+Por el teorema de la dimensión:
+\[
+3=\dim(\ker f)+\dim(\operatorname{Im} f).
+\]
+
+Como
+\[
+\dim(\ker f)=2,
+\]
+tenemos:
+\[
+3=2+\dim(\operatorname{Im} f).
+\]
+
+Por tanto:
+\[
+\dim(\operatorname{Im} f)=1.
+\]
+
+Además, sabemos que:
+\[
+f(1,0,1)=(2,1).
+\]
+
+Como \((2,1)\neq (0,0)\), este vector genera la imagen, porque la imagen tiene dimensión \(1\).
+
+Así:
+\[
+\operatorname{Im} f=L<\{(2,1)\}>.
+\]
+
+Una base de \(\operatorname{Im} f\) es:
+\[
+\boxed{\{(2,1)\}.}
+\]
+
+\subsubsection*{b) Matriz de \(f\) en las bases canónicas}
+
+Queremos calcular la matriz de \(f\) en las bases canónicas de \(\mathbb{R}^3\) y \(\mathbb{R}^2\).
+
+Distinguimos de nuevo dos casos.
+
+\paragraph{Caso 1: \(a\neq 1\).}
+
+Como
+\[
+\ker f=\{(x,y,z)\in\mathbb{R}^3:x+ay+z=0,\ ax+y+z=0\},
+\]
+las filas de la matriz de \(f\) deben ser combinaciones lineales de los vectores:
+\[
+(1,a,1),
+\qquad
+(a,1,1).
+\]
+
+Es decir, podemos escribir:
+\[
+f(x,y,z)=
+\left(
+\alpha(x+ay+z)+\beta(ax+y+z),
+\gamma(x+ay+z)+\delta(ax+y+z)
+\right).
+\]
+
+Usamos las condiciones dadas.
+
+Primero:
+\[
+f(0,0,a-1)=(0,a-1).
+\]
+
+Calculamos:
+\[
+x+ay+z=a-1,
+\qquad
+ax+y+z=a-1.
+\]
+
+Por tanto:
+\[
+f(0,0,a-1)=
+\left(
+(\alpha+\beta)(a-1),
+(\gamma+\delta)(a-1)
+\right).
+\]
+
+Como \(a\neq 1\), tenemos \(a-1\neq 0\). Entonces:
+\[
+\alpha+\beta=0,
+\]
+\[
+\gamma+\delta=1.
+\]
+
+Ahora usamos:
+\[
+f(1,0,1)=(2,1).
+\]
+
+Para \((1,0,1)\):
+\[
+x+ay+z=2,
+\qquad
+ax+y+z=a+1.
+\]
+
+Luego:
+\[
+f(1,0,1)=
+\left(
+2\alpha+(a+1)\beta,
+2\gamma+(a+1)\delta
+\right).
+\]
+
+Por tanto:
+\[
+2\alpha+(a+1)\beta=2,
+\]
+\[
+2\gamma+(a+1)\delta=1.
+\]
+
+De
+\[
+\alpha+\beta=0
+\]
+tenemos:
+\[
+\beta=-\alpha.
+\]
+
+Sustituyendo:
+\[
+2\alpha-(a+1)\alpha=2.
+\]
+
+Entonces:
+\[
+(1-a)\alpha=2,
+\]
+y como \(a\neq 1\):
+\[
+\alpha=\frac{2}{1-a}.
+\]
+
+Luego:
+\[
+\beta=-\frac{2}{1-a}.
+\]
+
+La primera componente de \(f\) queda:
+\[
+\frac{2}{1-a}(x+ay+z)-\frac{2}{1-a}(ax+y+z).
+\]
+
+Simplificando:
+\[
+\frac{2}{1-a}\left((x+ay+z)-(ax+y+z)\right).
+\]
+
+\[
+=\frac{2}{1-a}\left((1-a)x+(a-1)y\right).
+\]
+
+\[
+=2x-2y.
+\]
+
+Por tanto, la primera fila de la matriz es:
+\[
+(2,-2,0).
+\]
+
+Ahora resolvemos la segunda componente.
+
+De
+\[
+\gamma+\delta=1,
+\]
+tenemos:
+\[
+\gamma=1-\delta.
+\]
+
+Sustituyendo en
+\[
+2\gamma+(a+1)\delta=1,
+\]
+obtenemos:
+\[
+2(1-\delta)+(a+1)\delta=1.
+\]
+
+Entonces:
+\[
+2-2\delta+(a+1)\delta=1.
+\]
+
+\[
+2+(a-1)\delta=1.
+\]
+
+Por tanto:
+\[
+(a-1)\delta=-1,
+\]
+y como \(a\neq 1\):
+\[
+\delta=-\frac{1}{a-1}.
+\]
+
+Entonces:
+\[
+\gamma=1+\frac{1}{a-1}
+=
+\frac{a}{a-1}.
+\]
+
+La segunda componente de \(f\) queda:
+\[
+\frac{a}{a-1}(x+ay+z)-\frac{1}{a-1}(ax+y+z).
+\]
+
+Simplificando:
+\[
+\frac{1}{a-1}
+\left(
+a(x+ay+z)-(ax+y+z)
+\right).
+\]
+
+\[
+=
+\frac{1}{a-1}
+\left(
+ax+a^2y+az-ax-y-z
+\right).
+\]
+
+\[
+=
+\frac{1}{a-1}
+\left(
+(a^2-1)y+(a-1)z
+\right).
+\]
+
+\[
+=(a+1)y+z.
+\]
+
+Por tanto, la segunda fila de la matriz es:
+\[
+(0,a+1,1).
+\]
+
+Luego, si \(a\neq 1\),
+\[
+M_{CC'}(f)=
+\begin{pmatrix}
+2&-2&0\\
+0&a+1&1
+\end{pmatrix}.
+\]
+
+Así:
+\[
+\boxed{
+M_{CC'}(f)=
+\begin{pmatrix}
+2&-2&0\\
+0&a+1&1
+\end{pmatrix},
+\qquad a\neq 1.
+}
+\]
+
+\paragraph{Caso 2: \(a=1\).}
+
+Si
+\[
+a=1,
+\]
+tenemos:
+\[
+\ker f=\{(x,y,z)\in\mathbb{R}^3:x+y+z=0\}.
+\]
+
+Por tanto, cada componente de \(f\) debe ser proporcional a:
+\[
+x+y+z.
+\]
+
+Escribimos:
+\[
+f(x,y,z)=(\alpha(x+y+z),\beta(x+y+z)).
+\]
+
+Usamos la condición:
+\[
+f(1,0,1)=(2,1).
+\]
+
+Como
+\[
+1+0+1=2,
+\]
+tenemos:
+\[
+f(1,0,1)=(2\alpha,2\beta).
+\]
+
+Igualando:
+\[
+(2\alpha,2\beta)=(2,1).
+\]
+
+Por tanto:
+\[
+\alpha=1,
+\qquad
+\beta=\frac{1}{2}.
+\]
+
+Así:
+\[
+f(x,y,z)=\left(x+y+z,\frac{1}{2}(x+y+z)\right).
+\]
+
+La matriz de \(f\) es:
+\[
+M_{CC'}(f)=
+\begin{pmatrix}
+1&1&1\\
+\frac{1}{2}&\frac{1}{2}&\frac{1}{2}
+\end{pmatrix}.
+\]
+
+Por tanto:
+\[
+\boxed{
+M_{CC'}(f)=
+\begin{pmatrix}
+1&1&1\\
+\frac{1}{2}&\frac{1}{2}&\frac{1}{2}
+\end{pmatrix},
+\qquad a=1.
+}
+\]
+
+\subsubsection*{c) Para \(a=1\), hallar las pre imagenes de \((2,1)\) y \((2,3)\)}
+
+Para \(a=1\), hemos obtenido:
+\[
+f(x,y,z)=\left(x+y+z,\frac{1}{2}(x+y+z)\right).
+\]
+
+Es decir, si llamamos
+\[
+s=x+y+z,
+\]
+entonces:
+\[
+f(x,y,z)=\left(s,\frac{s}{2}\right).
+\]
+
+\paragraph{Vectores que se transforman en \((2,1)\).}
+
+Queremos resolver:
+\[
+f(x,y,z)=(2,1).
+\]
+
+Esto equivale a:
+\[
+\left(s,\frac{s}{2}\right)=(2,1).
+\]
+
+Por tanto:
+\[
+s=2
+\]
+y
+\[
+\frac{s}{2}=1.
+\]
+
+Ambas condiciones son compatibles, pues si \(s=2\), entonces:
+\[
+\frac{s}{2}=1.
+\]
+
+Luego necesitamos:
+\[
+x+y+z=2.
+\]
+
+Por tanto, los vectores que se transforman en \((2,1)\) son:
+\[
+\{(x,y,z)\in\mathbb{R}^3:x+y+z=2\}.
+\]
+
+Parametrizamos:
+\[
+y=\lambda,
+\qquad
+z=\mu.
+\]
+
+Entonces:
+\[
+x=2-\lambda-\mu.
+\]
+
+Así:
+\[
+(x,y,z)=(2-\lambda-\mu,\lambda,\mu),
+\qquad
+\lambda,\mu\in\mathbb{R}.
+\]
+
+Por tanto:
+\[
+\boxed{
+f^{-1}(2,1)=\{(2-\lambda-\mu,\lambda,\mu):\lambda,\mu\in\mathbb{R}\}.
+}
+\]
+
+\paragraph{Vectores que se transforman en \((2,3)\).}
+
+Queremos resolver:
+\[
+f(x,y,z)=(2,3).
+\]
+
+Esto equivale a:
+\[
+\left(s,\frac{s}{2}\right)=(2,3).
+\]
+
+Por tanto:
+\[
+s=2
+\]
+y
+\[
+\frac{s}{2}=3.
+\]
+
+Pero si
+\[
+s=2,
+\]
+entonces:
+\[
+\frac{s}{2}=1,
+\]
+no \(3\).
+
+Por tanto, el sistema es incompatible.
+
+Luego no existe ningún vector de \(\mathbb{R}^3\) que se transforme en \((2,3)\).
+
+Así:
+\[
+\boxed{
+f^{-1}(2,3)=\varnothing.
+}
+\]
+
+Esto también se puede razonar observando que, para \(a=1\),
+\[
+\operatorname{Im} f=L<\{(2,1)\}>.
+\]
+
+Como
+\[
+(2,1)\in \operatorname{Im} f,
+\]
+sí tiene pre imagen.
+
+En cambio,
+\[
+(2,3)\notin L<\{(2,1)\}>,
+\]
+por lo que no tiene pre imagen.
+\end{document}
