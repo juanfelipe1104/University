@@ -2,6 +2,8 @@
 Funciones Tema 5 (Parseo de Cadenas)
 */
 
+#include <stdio.h>
+
 typedef struct lineas_t{
 	int numLineas;
 	char **lineas;

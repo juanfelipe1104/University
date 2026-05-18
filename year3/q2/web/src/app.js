@@ -1,6 +1,7 @@
 // src/app.js
 import express from 'express';
 import helmet from 'helmet';
+import cors from 'cors';
 import path from 'node:path';
 import router from './routes/routes.js';
 import { logger } from './middleware/logger.js';
@@ -16,6 +17,8 @@ app.set('io', io);
 app.use(express.json());
 
 app.use(helmet());
+
+app.use(cors)
 
 app.use(logger);
 

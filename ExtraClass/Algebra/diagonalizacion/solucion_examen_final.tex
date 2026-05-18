@@ -1,0 +1,976 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\usepackage{hyperref}
+
+\title{Solución Examen Final de Álgebra}
+\author{}
+
+\begin{document}
+
+\section*{Solución Problema 1}
+
+Consideramos el endomorfismo
+\[
+f:P_2(x)\longrightarrow P_2(x)
+\]
+tal que
+\[
+\ker f=\{a+bx+cx^2\in P_2(x):a=b=c\}
+\]
+y los polinomios con término independiente nulo se transforman en sí mismos.
+
+La base canónica de \(P_2(x)\) es
+\[
+B_C=\{1,x,x^2\}.
+\]
+
+Como
+\[
+\ker f=\{a(1+x+x^2):a\in\mathbb{R}\}
+=L<\{1+x+x^2\}>,
+\]
+tenemos
+\[
+f(1+x+x^2)=0.
+\]
+
+Además, los polinomios con término independiente nulo son de la forma
+\[
+bx+cx^2,
+\]
+y por hipótesis se transforman en sí mismos. Por tanto,
+\[
+f(x)=x,
+\qquad
+f(x^2)=x^2.
+\]
+
+Como
+\[
+1=(1+x+x^2)-x-x^2,
+\]
+aplicando \(f\),
+\[
+f(1)=f(1+x+x^2)-f(x)-f(x^2)=0-x-x^2=-x-x^2.
+\]
+
+\subsubsection*{a) Matriz del endomorfismo en la base canónica}
+
+Las columnas de la matriz \(M_{B_C}(f)\) son las coordenadas de
+\(f(1)\), \(f(x)\) y \(f(x^2)\) en la base canónica.
+
+Tenemos
+\[
+f(1)=-x-x^2,
+\qquad
+f(x)=x,
+\qquad
+f(x^2)=x^2.
+\]
+
+Luego
+\[
+[f(1)]_{B_C}=
+\begin{pmatrix}
+0\\-1\\-1
+\end{pmatrix},
+\qquad
+[f(x)]_{B_C}=
+\begin{pmatrix}
+0\\1\\0
+\end{pmatrix},
+\qquad
+[f(x^2)]_{B_C}=
+\begin{pmatrix}
+0\\0\\1
+\end{pmatrix}.
+\]
+
+Por tanto,
+\[
+\boxed{
+M_{B_C}(f)=
+\begin{pmatrix}
+0&0&0\\
+-1&1&0\\
+-1&0&1
+\end{pmatrix}.
+}
+\]
+
+Equivalentemente, si
+\[
+p(x)=a+bx+cx^2,
+\]
+entonces
+\[
+p(x)=a(1+x+x^2)+(b-a)x+(c-a)x^2,
+\]
+y por tanto
+\[
+f(p(x))=(b-a)x+(c-a)x^2.
+\]
+
+\subsubsection*{b) Expresión implícita de \(\operatorname{Im}f\)}
+
+De la expresión anterior,
+\[
+f(a+bx+cx^2)=(b-a)x+(c-a)x^2.
+\]
+
+Por tanto, todo polinomio de la imagen tiene término independiente nulo.
+Además, dados \(\alpha,\beta\in\mathbb{R}\), tomando por ejemplo
+\[
+a=0,\qquad b=\alpha,\qquad c=\beta,
+\]
+se obtiene
+\[
+f(\alpha x+\beta x^2)=\alpha x+\beta x^2.
+\]
+
+Luego
+\[
+\operatorname{Im}f=L<\{x,x^2\}>.
+\]
+
+En coordenadas respecto de la base canónica,
+\[
+\boxed{
+\operatorname{Im}f=
+\{(u,v,w)\in\mathbb{R}^3:u=0\}.
+}
+\]
+
+Por tanto,
+\[
+\boxed{\dim(\operatorname{Im}f)=2.}
+\]
+
+Lo podemos razonar de dos formas:
+
+\[
+\operatorname{Im}f=L<\{x,x^2\}>,
+\]
+y los polinomios \(x\) y \(x^2\) son linealmente independientes, luego
+\[
+\dim(\operatorname{Im}f)=2.
+\]
+
+Por otro lado, por el teorema de la dimensión,
+\[
+\dim P_2(x)=\dim(\ker f)+\dim(\operatorname{Im}f).
+\]
+
+Como
+\[
+\dim P_2(x)=3
+\qquad\text{y}\qquad
+\dim(\ker f)=1,
+\]
+entonces
+\[
+\dim(\operatorname{Im}f)=3-1=2.
+\]
+
+\subsubsection*{c) Cálculo de \(f(S)\)}
+
+Sea
+\[
+S=\{(\lambda-2\mu+\delta,\lambda-2\mu-\delta,\lambda-2\mu):
+\lambda,\mu,\delta\in\mathbb{R}\}.
+\]
+
+Tomamos
+\[
+r=\lambda-2\mu.
+\]
+Entonces
+\[
+S=\{(r+\delta,r-\delta,r):r,\delta\in\mathbb{R}\}.
+\]
+
+Si interpretamos estos vectores como coordenadas en la base canónica,
+\[
+p(x)=(r+\delta)+(r-\delta)x+rx^2.
+\]
+
+Aplicando la expresión de \(f\),
+\[
+f(p(x))=((r-\delta)-(r+\delta))x+(r-(r+\delta))x^2.
+\]
+
+Luego
+\[
+f(p(x))=-2\delta x-\delta x^2.
+\]
+
+Por tanto,
+\[
+f(S)=\{(0,-2\delta,-\delta):\delta\in\mathbb{R}\}
+=L<\{(0,2,1)\}>.
+\]
+
+En forma implícita,
+\[
+\boxed{
+f(S)=\{(u,v,w)\in\mathbb{R}^3:u=0,\ v-2w=0\}.
+}
+\]
+
+Así,
+\[
+\boxed{\dim f(S)=1.}
+\]
+
+Esta dimensión tiene sentido. En efecto,
+\[
+S=\{(r+\delta,r-\delta,r):r,\delta\in\mathbb{R}\}
+\]
+tiene dimensión \(2\). Además,
+\[
+\ker f=L<\{(1,1,1)\}>.
+\]
+
+El vector \((1,1,1)\) pertenece a \(S\), ya que se obtiene tomando
+\[
+r=1,
+\qquad
+\delta=0.
+\]
+
+Por tanto,
+\[
+\dim(S\cap\ker f)=1.
+\]
+
+Aplicando el teorema de la dimensión a la restricción
+\[
+f_{\mid S}:S\longrightarrow f(S),
+\]
+tenemos
+\[
+\dim f(S)=\dim S-\dim(S\cap\ker f)=2-1=1.
+\]
+
+\subsubsection*{d) Matriz de \(f\) en la base \(B^*\)}
+
+Sea
+\[
+B^*=\{1+x+x^2,\ 1+x,\ 1\}.
+\]
+
+Calculamos las imágenes de los vectores de \(B^*\):
+\[
+f(1+x+x^2)=0,
+\]
+\[
+f(1+x)=f(1)+f(x)=(-x-x^2)+x=-x^2,
+\]
+\[
+f(1)=-x-x^2.
+\]
+
+Ahora expresamos cada imagen en coordenadas respecto de \(B^*\).
+
+Para \(f(1+x+x^2)=0\),
+\[
+[f(1+x+x^2)]_{B^*}=
+\begin{pmatrix}
+0\\0\\0
+\end{pmatrix}.
+\]
+
+Para \(-x^2\), buscamos \(\alpha,\beta,\gamma\in\mathbb{R}\) tales que
+\[
+-x^2=\alpha(1+x+x^2)+\beta(1+x)+\gamma.
+\]
+
+Comparando coeficientes:
+\[
+\begin{cases}
+\alpha+\beta+\gamma=0,\\
+\alpha+\beta=0,\\
+\alpha=-1.
+\end{cases}
+\]
+
+De aquí,
+\[
+\alpha=-1,
+\qquad
+\beta=1,
+\qquad
+\gamma=0.
+\]
+
+Luego
+\[
+[-x^2]_{B^*}=
+\begin{pmatrix}
+-1\\1\\0
+\end{pmatrix}.
+\]
+
+Para \(-x-x^2\), buscamos
+\[
+-x-x^2=\alpha(1+x+x^2)+\beta(1+x)+\gamma.
+\]
+
+Comparando coeficientes:
+\[
+\begin{cases}
+\alpha+\beta+\gamma=0,\\
+\alpha+\beta=-1,\\
+\alpha=-1.
+\end{cases}
+\]
+
+De aquí,
+\[
+\alpha=-1,
+\qquad
+\beta=0,
+\qquad
+\gamma=1.
+\]
+
+Luego
+\[
+[-x-x^2]_{B^*}=
+\begin{pmatrix}
+-1\\0\\1
+\end{pmatrix}.
+\]
+
+Así,
+\[
+\boxed{
+M_{B^*}(f)=
+\begin{pmatrix}
+0&-1&-1\\
+0&1&0\\
+0&0&1
+\end{pmatrix}.
+}
+\]
+
+También se puede obtener matricialmente mediante cambio de base.
+La matriz de cambio de coordenadas de \(B^*\) a \(B_C\) es
+\[
+P=
+\begin{pmatrix}
+1&1&1\\
+1&1&0\\
+1&0&0
+\end{pmatrix},
+\]
+ya que sus columnas son las coordenadas de los vectores de \(B^*\) en la base canónica.
+
+Entonces
+\[
+M_{B^*}(f)=P^{-1}M_{B_C}(f)P.
+\]
+
+Calculando,
+\[
+P^{-1}M_{B_C}(f)P=
+\begin{pmatrix}
+0&-1&-1\\
+0&1&0\\
+0&0&1
+\end{pmatrix}.
+\]
+
+\section*{Solución Problema 2}
+
+Sea
+\[
+A=
+\begin{pmatrix}
+4&-1&6\\
+2&1&6\\
+2&-1&8
+\end{pmatrix}.
+\]
+
+\subsubsection*{a) Estudio de diagonalización}
+
+Calculamos el polinomio característico:
+\[
+p_A(\lambda)=\det(\lambda I-A).
+\]
+
+Tenemos
+\[
+\lambda I-A=
+\begin{pmatrix}
+\lambda-4&1&-6\\
+-2&\lambda-1&-6\\
+-2&1&\lambda-8
+\end{pmatrix}.
+\]
+
+Por tanto,
+\[
+p_A(\lambda)=\lambda^3-13\lambda^2+40\lambda-36.
+\]
+
+Factorizamos:
+\[
+\lambda^3-13\lambda^2+40\lambda-36
+=(\lambda-2)^2(\lambda-9).
+\]
+
+Luego los autovalores son
+\[
+\lambda_1=2
+\quad\text{con multiplicidad algebraica }2,
+\]
+y
+\[
+\lambda_2=9
+\quad\text{con multiplicidad algebraica }1.
+\]
+
+Estudiamos los subespacios propios.
+
+Para \(\lambda=2\),
+\[
+A-2I=
+\begin{pmatrix}
+2&-1&6\\
+2&-1&6\\
+2&-1&6
+\end{pmatrix}.
+\]
+
+El sistema \((A-2I)X=0\) queda
+\[
+2x-y+6z=0.
+\]
+
+Por tanto,
+\[
+y=2x+6z.
+\]
+
+Así,
+\[
+E_2=\{(x,2x+6z,z):x,z\in\mathbb{R}\}.
+\]
+
+Separando parámetros:
+\[
+(x,2x+6z,z)=x(1,2,0)+z(0,6,1).
+\]
+
+Luego
+\[
+E_2=L<\{(1,2,0),(0,6,1)\}>,
+\]
+y
+\[
+\dim E_2=2.
+\]
+
+Para \(\lambda=9\),
+\[
+A-9I=
+\begin{pmatrix}
+-5&-1&6\\
+2&-8&6\\
+2&-1&-1
+\end{pmatrix}.
+\]
+
+Resolviendo \((A-9I)X=0\), se obtiene
+\[
+x=y=z.
+\]
+
+Por tanto,
+\[
+E_9=L<\{(1,1,1)\}>,
+\]
+y
+\[
+\dim E_9=1.
+\]
+
+Como
+\[
+\dim E_2+\dim E_9=2+1=3,
+\]
+existe una base de \(\mathbb{R}^3\) formada por autovectores de \(A\).
+
+Por tanto,
+\[
+\boxed{A\text{ es diagonalizable}.}
+\]
+
+\subsubsection*{b) Matrices \(P\) y \(D\)}
+
+Tomamos como columnas de \(P\) una base de autovectores:
+\[
+v_1=(1,2,0),
+\qquad
+v_2=(0,6,1),
+\qquad
+v_3=(1,1,1).
+\]
+
+Los dos primeros corresponden al autovalor \(2\), y el tercero corresponde al autovalor \(9\).
+
+Por tanto,
+\[
+P=
+\begin{pmatrix}
+1&0&1\\
+2&6&1\\
+0&1&1
+\end{pmatrix}.
+\]
+
+La matriz diagonal asociada es
+\[
+D=
+\begin{pmatrix}
+2&0&0\\
+0&2&0\\
+0&0&9
+\end{pmatrix}.
+\]
+
+Con esta elección,
+\[
+\boxed{
+P^{-1}AP=D.
+}
+\]
+
+\subsubsection*{c) Interpretación del proceso de diagonalización}
+
+Diagonalizar \(A\) consiste en cambiar de la base canónica a una base formada por autovectores del endomorfismo.
+
+En la base canónica, el endomorfismo está representado por
+\[
+A=
+\begin{pmatrix}
+4&-1&6\\
+2&1&6\\
+2&-1&8
+\end{pmatrix}.
+\]
+
+Sin embargo, en la base
+\[
+B=\{(1,2,0),(0,6,1),(1,1,1)\},
+\]
+el endomorfismo actúa de forma mucho más simple:
+\[
+f(1,2,0)=2(1,2,0),
+\]
+\[
+f(0,6,1)=2(0,6,1),
+\]
+\[
+f(1,1,1)=9(1,1,1).
+\]
+
+Por eso, en esa base, la matriz asociada es diagonal:
+\[
+D=
+\begin{pmatrix}
+2&0&0\\
+0&2&0\\
+0&0&9
+\end{pmatrix}.
+\]
+
+La matriz \(P\) es la matriz de cambio de base: sus columnas son los vectores de la nueva base escritos en la base canónica.
+
+\section*{Solución Cuestión 1}
+
+Sea
+\[
+M=
+\begin{pmatrix}
+1&-1\\
+-1&1
+\end{pmatrix}
+\]
+y sea
+\[
+X=
+\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix}.
+\]
+
+Entonces
+\[
+MX=
+\begin{pmatrix}
+1&-1\\
+-1&1
+\end{pmatrix}
+\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix}
+=
+\begin{pmatrix}
+a-c&b-d\\
+-a+c&-b+d
+\end{pmatrix}.
+\]
+
+Por tanto,
+\[
+\operatorname{traza}(MX)=(a-c)+(-b+d)=a-b-c+d.
+\]
+
+La condición que define \(U\) es
+\[
+a-b-c+d=0.
+\]
+
+Así,
+\[
+d=-a+b+c.
+\]
+
+Luego
+\[
+X=
+\begin{pmatrix}
+a&b\\
+c&-a+b+c
+\end{pmatrix}.
+\]
+
+Separando parámetros:
+\[
+X=
+a
+\begin{pmatrix}
+1&0\\
+0&-1
+\end{pmatrix}
++b
+\begin{pmatrix}
+0&1\\
+0&1
+\end{pmatrix}
++c
+\begin{pmatrix}
+0&0\\
+1&1
+\end{pmatrix}.
+\]
+
+Por tanto, una base de \(U\) es
+\[
+\boxed{
+\left\{
+\begin{pmatrix}
+1&0\\
+0&-1
+\end{pmatrix},
+\begin{pmatrix}
+0&1\\
+0&1
+\end{pmatrix},
+\begin{pmatrix}
+0&0\\
+1&1
+\end{pmatrix}
+\right\}.
+}
+\]
+
+Además,
+\[
+\boxed{\dim U=3.}
+\]
+
+\section*{Solución Cuestión 2}
+
+La aplicación lineal
+\[
+f:\mathbb{R}^2\longrightarrow\mathbb{R}^3
+\]
+viene dada por
+\[
+f(1,0)=(2,1,2),
+\qquad
+f(0,1)=(3,2,1).
+\]
+
+Luego su matriz en las bases canónicas es
+\[
+M(f)=
+\begin{pmatrix}
+2&3\\
+1&2\\
+2&1
+\end{pmatrix}.
+\]
+
+La aplicación
+\[
+g:\mathbb{R}^3\longrightarrow\mathbb{R}^2
+\]
+viene dada por
+\[
+g(1,0,0)=(3,-1),
+\]
+\[
+g(0,1,0)=(1,0),
+\]
+\[
+g(0,0,1)=(1,-2).
+\]
+
+Luego
+\[
+M(g)=
+\begin{pmatrix}
+3&1&1\\
+-1&0&-2
+\end{pmatrix}.
+\]
+
+Como
+\[
+h=g\circ f,
+\]
+entonces
+\[
+M(h)=M(g)M(f).
+\]
+
+Calculamos:
+\[
+M(h)=
+\begin{pmatrix}
+3&1&1\\
+-1&0&-2
+\end{pmatrix}
+\begin{pmatrix}
+2&3\\
+1&2\\
+2&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+9&12\\
+-6&-5
+\end{pmatrix}.
+\]
+
+Por tanto, matricialmente:
+\[
+h(4,-2)=
+\begin{pmatrix}
+9&12\\
+-6&-5
+\end{pmatrix}
+\begin{pmatrix}
+4\\
+-2
+\end{pmatrix}
+=
+\begin{pmatrix}
+12\\
+-14
+\end{pmatrix}.
+\]
+
+Luego
+\[
+\boxed{h(4,-2)=(12,-14).}
+\]
+
+Por coordenadas:
+\[
+f(4,-2)=4f(1,0)-2f(0,1).
+\]
+
+Así,
+\[
+f(4,-2)=4(2,1,2)-2(3,2,1)=(8,4,8)-(6,4,2)=(2,0,6).
+\]
+
+Entonces
+\[
+h(4,-2)=g(f(4,-2))=g(2,0,6).
+\]
+
+Como \(g\) es lineal,
+\[
+g(2,0,6)=2g(1,0,0)+6g(0,0,1).
+\]
+
+Por tanto,
+\[
+g(2,0,6)=2(3,-1)+6(1,-2)=(6,-2)+(6,-12)=(12,-14).
+\]
+
+\section*{Solución Cuestión 3}
+
+Tenemos
+\[
+U=L<\{(1,0,0,1),(1,1,1,1),(0,2,2,0)\}>
+\]
+y
+\[
+W=\{(x,y,z,t)\in\mathbb{R}^4:
+3x+y-z-3t=0,\ y-t=0\}.
+\]
+
+Observamos que
+\[
+(0,2,2,0)=2(1,1,1,1)-2(1,0,0,1).
+\]
+
+Por tanto,
+\[
+U=L<\{(1,0,0,1),(1,1,1,1)\}>.
+\]
+
+Un vector de \(U\) es de la forma
+\[
+\alpha(1,0,0,1)+\beta(1,1,1,1)
+=(\alpha+\beta,\beta,\beta,\alpha+\beta).
+\]
+
+Así,
+\[
+U=\{(x,y,z,t)\in\mathbb{R}^4:x=t,\ y=z\}.
+\]
+
+Para que \(U+W\) sea suma directa, debe cumplirse
+\[
+U\cap W=\{(0,0,0,0)\}.
+\]
+
+Pero
+\[
+(1,1,1,1)\in U.
+\]
+
+Además,
+\[
+3\cdot 1+1-1-3\cdot 1=0
+\]
+y
+\[
+1-1=0.
+\]
+
+Luego
+\[
+(1,1,1,1)\in W.
+\]
+
+Por tanto,
+\[
+(1,1,1,1)\in U\cap W
+\]
+y este vector no es el vector nulo.
+
+Así,
+\[
+U\cap W\neq \{(0,0,0,0)\}.
+\]
+
+Concluimos que
+\[
+\boxed{U+W\text{ no es suma directa}.}
+\]
+
+\section*{Solución Cuestión 4}
+
+\subsubsection*{1. Una matriz \(A\) tiene autovalor \(0\) si y solo si \(\det(A)=0\)}
+
+La afirmación es verdadera.
+
+En efecto, \(0\) es autovalor de \(A\) si y solo si existe un vector no nulo \(v\) tal que
+\[
+Av=0v=0.
+\]
+
+Esto equivale a que el sistema homogéneo
+\[
+Av=0
+\]
+tenga soluciones no nulas, es decir, a que \(A\) no sea invertible.
+
+Una matriz cuadrada no es invertible si y solo si
+\[
+\det(A)=0.
+\]
+
+Por tanto,
+\[
+\boxed{\text{la afirmación es verdadera}.}
+\]
+
+\subsubsection*{2. Semejanza de matrices}
+
+Sean
+\[
+A=
+\begin{pmatrix}
+1&2&0\\
+-1&3&1\\
+0&1&1
+\end{pmatrix}
+\]
+y
+\[
+B=
+\begin{pmatrix}
+5&0&-4\\
+0&3&0\\
+2&0&-1
+\end{pmatrix}.
+\]
+
+Si dos matrices son semejantes, entonces tienen la misma traza.
+
+Calculamos:
+\[
+\operatorname{traza}(A)=1+3+1=5.
+\]
+
+Por otro lado,
+\[
+\operatorname{traza}(B)=5+3+(-1)=7.
+\]
+
+Como
+\[
+\operatorname{traza}(A)\neq \operatorname{traza}(B),
+\]
+las matrices no pueden ser semejantes.
+
+Por tanto,
+\[
+\boxed{\text{la afirmación es falsa}.}
+\]
+
+\end{document}

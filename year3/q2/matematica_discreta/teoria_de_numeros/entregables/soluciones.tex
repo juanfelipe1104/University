@@ -1,0 +1,2287 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-noshorthands]{babel}
+
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\usepackage{hyperref}
+
+\title{Solucion Entregables Teoría de Números}
+\author{Juan Felipe Rodríguez Córdoba}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Solucion Ejercicio 1}
+
+Queremos demostrar que
+\[
+9 \mid 4^n - 3n - 1.
+\]
+
+Como
+\[
+4=1+3,
+\]
+tenemos, por el binomio de Newton,
+\[
+4^n=(1+3)^n.
+\]
+
+Expandiendo:
+\[
+(1+3)^n
+=
+1+3n+\binom{n}{2}3^2+\binom{n}{3}3^3+\cdots+3^n.
+\]
+
+Por tanto,
+\[
+4^n-3n-1
+=
+\binom{n}{2}3^2+\binom{n}{3}3^3+\cdots+3^n.
+\]
+
+Todos los términos de la derecha tienen factor \(3^2=9\), luego
+\[
+9 \mid 4^n-3n-1.
+\]
+
+Por tanto,
+\[
+4^n-3n-1
+\]
+es divisible por \(9\).
+
+\section*{Solucion Ejercicio 2}
+
+No es verdad que
+\[
+P(n)=n^2+n+41
+\]
+sea primo para todo \(n\in\mathbb{N}\).
+
+Basta tomar
+\[
+n=40.
+\]
+
+Entonces
+\[
+P(40)=40^2+40+41.
+\]
+
+Calculamos:
+\[
+P(40)=1600+40+41=1681.
+\]
+
+Pero
+\[
+1681=41^2.
+\]
+
+Por tanto,
+\[
+P(40)
+\]
+no es primo.
+
+Luego la afirmación es falsa.
+
+\section*{Solucion Ejercicio 3}
+
+Recordemos que si
+\[
+N=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_r^{\alpha_r},
+\]
+entonces el número de divisores positivos de \(N\) es
+\[
+(\alpha_1+1)(\alpha_2+1)\cdots(\alpha_r+1).
+\]
+
+\subsection*{Primer número}
+
+\[
+11\cdot 13 = 11^1\cdot 13^1.
+\]
+
+Por tanto, el número de divisores positivos es
+\[
+(1+1)(1+1)=2\cdot 2=4.
+\]
+
+\[
+\boxed{4}
+\]
+
+\subsection*{Segundo número}
+
+\[
+11\cdot 13\cdot 17 = 11^1\cdot 13^1\cdot 17^1.
+\]
+
+Por tanto, el número de divisores positivos es
+\[
+(1+1)(1+1)(1+1)=2\cdot 2\cdot 2=8.
+\]
+
+\[
+\boxed{8}
+\]
+
+\subsection*{Tercer número}
+
+\[
+11^{14}.
+\]
+
+Como solo aparece un primo con exponente \(14\), el número de divisores positivos es
+\[
+14+1=15.
+\]
+
+\[
+\boxed{15}
+\]
+
+\subsection*{Cuarto número}
+
+\[
+11^{17}\cdot 13^{28}\cdot 17^{65}.
+\]
+
+Por la fórmula, el número de divisores positivos es
+\[
+(17+1)(28+1)(65+1).
+\]
+
+Por tanto,
+\[
+18\cdot 29\cdot 66=34452.
+\]
+
+Luego el número de divisores positivos es
+\[
+\boxed{34452}.
+\]
+
+\section*{Solucion Ejercicio 4}
+
+Sea \(p>3\) un número primo. Queremos demostrar que
+\[
+24 \mid p^2-1.
+\]
+
+Observamos que
+\[
+p^2-1=(p-1)(p+1).
+\]
+
+Como \(p>3\) es primo, entonces \(p\) es impar. Por tanto, \(p-1\) y \(p+1\) son dos números pares consecutivos.
+
+Entre dos números pares consecutivos, uno es múltiplo de \(4\) y el otro es múltiplo de \(2\). Luego
+\[
+8 \mid (p-1)(p+1).
+\]
+
+Es decir,
+\[
+8 \mid p^2-1.
+\]
+
+Por otro lado, como \(p>3\) es primo, entonces \(p\) no es divisible por \(3\). Por tanto,
+\[
+p\equiv 1 \pmod 3
+\]
+o
+\[
+p\equiv -1 \pmod 3.
+\]
+
+En ambos casos,
+\[
+p^2\equiv 1 \pmod 3.
+\]
+
+Luego
+\[
+p^2-1\equiv 0 \pmod 3,
+\]
+es decir,
+\[
+3 \mid p^2-1.
+\]
+
+Hemos demostrado que
+\[
+8 \mid p^2-1
+\]
+y
+\[
+3 \mid p^2-1.
+\]
+
+Como
+\[
+\gcd(8,3)=1,
+\]
+se deduce que
+\[
+24 \mid p^2-1.
+\]
+
+Por tanto,
+\[
+p^2-1
+\]
+es divisible por \(24\).
+
+\section*{Solucion Ejercicio 5}
+
+Queremos demostrar que
+\[
+a+b+c \mid a^3+b^3+c^3-3abc.
+\]
+
+Usamos la identidad algebraica
+\[
+a^3+b^3+c^3-3abc
+=
+(a+b+c)(a^2+b^2+c^2-ab-ac-bc).
+\]
+
+Por tanto,
+\[
+a^3+b^3+c^3-3abc
+\]
+tiene como factor a
+\[
+a+b+c.
+\]
+
+Luego
+\[
+a+b+c \mid a^3+b^3+c^3-3abc.
+\]
+
+Queda demostrado.
+
+\section*{Ejercicio 6}
+
+Queremos demostrar que
+\[
+k! \mid n(n+1)(n+2)\cdots(n+k-1).
+\]
+
+Observamos que
+\[
+n(n+1)(n+2)\cdots(n+k-1)
+=
+\frac{(n+k-1)!}{(n-1)!}.
+\]
+
+Por tanto,
+\[
+\frac{n(n+1)(n+2)\cdots(n+k-1)}{k!}
+=
+\frac{(n+k-1)!}{k!(n-1)!}.
+\]
+
+Pero
+\[
+\frac{(n+k-1)!}{k!(n-1)!}
+=
+\binom{n+k-1}{k}.
+\]
+
+Como todo coeficiente binomial es un número entero, tenemos que
+\[
+\binom{n+k-1}{k}\in\mathbb{Z}.
+\]
+
+Por tanto,
+\[
+\frac{n(n+1)(n+2)\cdots(n+k-1)}{k!}\in\mathbb{Z}.
+\]
+
+Luego
+\[
+k! \mid n(n+1)(n+2)\cdots(n+k-1).
+\]
+
+Queda demostrado.
+
+\section*{Ejercicio 7}
+
+Sea
+\[
+n! = p_1^{a_1}p_2^{a_2}\cdots p_s^{a_s}.
+\]
+
+Queremos calcular el exponente \(a_k\) del primo \(p_k\) en la factorización de \(n!\).
+
+Recordemos que
+\[
+n! = 1\cdot 2\cdot 3\cdots n.
+\]
+
+Cada múltiplo de \(p_k\) aporta al menos un factor \(p_k\). El número de múltiplos de \(p_k\) entre \(1\) y \(n\) es
+\[
+\left\lfloor \frac{n}{p_k} \right\rfloor.
+\]
+
+Pero los múltiplos de \(p_k^2\) aportan un factor \(p_k\) adicional. El número de múltiplos de \(p_k^2\) entre \(1\) y \(n\) es
+\[
+\left\lfloor \frac{n}{p_k^2} \right\rfloor.
+\]
+
+Del mismo modo, los múltiplos de \(p_k^3\) aportan otro factor \(p_k\) adicional, y hay
+\[
+\left\lfloor \frac{n}{p_k^3} \right\rfloor
+\]
+de ellos.
+
+Continuando este proceso, obtenemos
+\[
+a_k=
+\left\lfloor \frac{n}{p_k}\right\rfloor+
+\left\lfloor \frac{n}{p_k^2}\right\rfloor+
+\left\lfloor \frac{n}{p_k^3}\right\rfloor+\cdots.
+\]
+
+La suma es finita, porque para potencias suficientemente grandes se cumple
+\[
+p_k^r>n,
+\]
+y entonces
+\[
+\left\lfloor \frac{n}{p_k^r}\right\rfloor=0.
+\]
+
+Por tanto,
+\[
+a_k=
+\sum_{r\geq 1}
+\left\lfloor \frac{n}{p_k^r}\right\rfloor.
+\]
+
+Queda demostrado.
+
+\section*{Ejercicio 8}
+
+Queremos demostrar que, si \(p\) es primo, entonces
+\[
+(p-1)! \equiv -1 \pmod p.
+\]
+
+Si \(p=2\), entonces
+\[
+(p-1)!=1!,
+\]
+y se cumple que
+\[
+1!\equiv 1 \equiv -1 \pmod 2.
+\]
+
+Supongamos ahora que \(p>2\).
+
+Consideramos los números
+\[
+1,2,3,\dots,p-1.
+\]
+
+Como \(p\) es primo, cada número \(a\in\{1,2,\dots,p-1\}\) tiene inverso módulo \(p\). Es decir, existe un único número \(a^{-1}\) tal que
+\[
+aa^{-1}\equiv 1 \pmod p.
+\]
+
+Veamos cuáles de estos números son iguales a su propio inverso. Si
+\[
+a\equiv a^{-1}\pmod p,
+\]
+entonces
+\[
+a^2\equiv 1 \pmod p.
+\]
+
+Por tanto,
+\[
+a^2-1\equiv 0 \pmod p,
+\]
+luego
+\[
+(a-1)(a+1)\equiv 0 \pmod p.
+\]
+
+Como \(p\) es primo, se deduce que
+\[
+a\equiv 1 \pmod p
+\]
+o
+\[
+a\equiv -1 \pmod p.
+\]
+
+Por tanto, los únicos elementos que son su propio inverso módulo \(p\) son
+\[
+1
+\]
+y
+\[
+p-1\equiv -1 \pmod p.
+\]
+
+Todos los demás elementos se pueden agrupar por parejas
+\[
+a,\ a^{-1},
+\]
+y cada pareja tiene producto congruente con \(1\) módulo \(p\).
+
+Así, al multiplicar todos los números
+\[
+1\cdot 2\cdot 3\cdots(p-1),
+\]
+todas las parejas aportan \(1\), y solo quedan los factores \(1\) y \(p-1\). Por tanto,
+\[
+(p-1)! \equiv 1\cdot(p-1) \pmod p.
+\]
+
+Como
+\[
+p-1\equiv -1 \pmod p,
+\]
+obtenemos
+\[
+(p-1)! \equiv -1 \pmod p.
+\]
+
+Queda demostrado.
+
+\section*{Ejercicio 9}
+
+Queremos demostrar que, para \(p>1\),
+\[
+p \text{ es primo}
+\]
+si y solo si
+\[
+(p-2)! \equiv 1 \pmod p.
+\]
+
+\subsection*{Primera implicación}
+
+Supongamos que \(p\) es primo.
+
+Por el ejercicio anterior, sabemos que
+\[
+(p-1)! \equiv -1 \pmod p.
+\]
+
+Pero
+\[
+(p-1)!=(p-1)(p-2)!.
+\]
+
+Como
+\[
+p-1\equiv -1 \pmod p,
+\]
+tenemos
+\[
+(p-1)!\equiv -(p-2)! \pmod p.
+\]
+
+Usando Wilson,
+\[
+-(p-2)! \equiv -1 \pmod p.
+\]
+
+Multiplicando por \(-1\), obtenemos
+\[
+(p-2)! \equiv 1 \pmod p.
+\]
+
+\subsection*{Segunda implicación}
+
+Supongamos ahora que
+\[
+(p-2)! \equiv 1 \pmod p.
+\]
+
+Queremos demostrar que \(p\) es primo.
+
+Razonamos por contradicción. Supongamos que \(p\) no es primo. Entonces \(p\) es compuesto.
+
+Si \(p=4\), entonces
+\[
+(p-2)!=2!=2,
+\]
+y
+\[
+2\not\equiv 1 \pmod 4.
+\]
+
+Por tanto, \(p\neq 4\).
+
+Supongamos entonces que \(p>4\) es compuesto. Como \(p\) es compuesto, existe un divisor propio \(d\) de \(p\) tal que
+\[
+1<d<p.
+\]
+
+Además, podemos tomarlo de forma que
+\[
+2\leq d\leq p-2.
+\]
+
+Entonces \(d\) aparece como uno de los factores de
+\[
+(p-2)!=1\cdot 2\cdot 3\cdots(p-2).
+\]
+
+Por tanto,
+\[
+d \mid (p-2)!.
+\]
+
+Como además
+\[
+d\mid p,
+\]
+de la congruencia
+\[
+(p-2)!\equiv 1 \pmod p
+\]
+se deduce también que
+\[
+(p-2)!\equiv 1 \pmod d.
+\]
+
+Pero como
+\[
+d\mid (p-2)!,
+\]
+tenemos
+\[
+(p-2)! \equiv 0 \pmod d.
+\]
+
+Luego
+\[
+0\equiv 1 \pmod d,
+\]
+lo cual es imposible porque \(d>1\).
+
+Por tanto, \(p\) no puede ser compuesto.
+
+Concluimos que
+\[
+p
+\]
+es primo.
+
+\section*{Ejercicio 10}
+
+Sean \(p\) y \(q\) dos primos distintos. Queremos demostrar que
+\[
+p^q+q^p \equiv p+q \pmod{pq}.
+\]
+
+Equivale a demostrar que
+\[
+pq \mid p^q+q^p-p-q.
+\]
+
+Primero trabajamos módulo \(p\).
+
+Como
+\[
+p^q\equiv 0 \pmod p
+\]
+y, por el pequeño teorema de Fermat,
+\[
+q^p\equiv q \pmod p,
+\]
+tenemos
+\[
+p^q+q^p\equiv 0+q \pmod p.
+\]
+
+Además,
+\[
+p+q\equiv 0+q \pmod p.
+\]
+
+Por tanto,
+\[
+p^q+q^p\equiv p+q \pmod p.
+\]
+
+Luego
+\[
+p\mid p^q+q^p-p-q.
+\]
+
+Ahora trabajamos módulo \(q\).
+
+Como
+\[
+q^p\equiv 0 \pmod q
+\]
+y, por el pequeño teorema de Fermat,
+\[
+p^q\equiv p \pmod q,
+\]
+tenemos
+\[
+p^q+q^p\equiv p+0 \pmod q.
+\]
+
+Además,
+\[
+p+q\equiv p+0 \pmod q.
+\]
+
+Por tanto,
+\[
+p^q+q^p\equiv p+q \pmod q.
+\]
+
+Luego
+\[
+q\mid p^q+q^p-p-q.
+\]
+
+Hemos demostrado que
+\[
+p\mid p^q+q^p-p-q
+\]
+y
+\[
+q\mid p^q+q^p-p-q.
+\]
+
+Como \(p\) y \(q\) son primos distintos,
+\[
+\gcd(p,q)=1.
+\]
+
+Por tanto,
+\[
+pq\mid p^q+q^p-p-q.
+\]
+
+Así,
+\[
+p^q+q^p\equiv p+q \pmod{pq}.
+\]
+
+Queda demostrado.
+
+\section*{Solucion Ejercicio 11}
+
+Queremos calcular
+\[
+\gcd(2n+13,n+7).
+\]
+
+Aplicamos el algoritmo de Euclides:
+\[
+\gcd(2n+13,n+7)
+=
+\gcd((2n+13)-2(n+7),n+7).
+\]
+
+Calculamos:
+\[
+(2n+13)-2(n+7)=2n+13-2n-14=-1.
+\]
+
+Por tanto,
+\[
+\gcd(2n+13,n+7)=\gcd(-1,n+7).
+\]
+
+Como
+\[
+\gcd(-1,n+7)=1,
+\]
+concluimos que
+\[
+\boxed{\gcd(2n+13,n+7)=1}.
+\]
+
+\section*{Solucion Ejercicio 12}
+
+Queremos calcular
+\[
+\gcd(2^{100}-1,2^{120}-1).
+\]
+
+Usamos la propiedad
+\[
+\gcd(a^m-1,a^n-1)=a^{\gcd(m,n)}-1.
+\]
+
+En este caso,
+\[
+a=2,\qquad m=100,\qquad n=120.
+\]
+
+Calculamos:
+\[
+\gcd(100,120)=20.
+\]
+
+Por tanto,
+\[
+\gcd(2^{100}-1,2^{120}-1)=2^{20}-1.
+\]
+
+Como
+\[
+2^{20}=1048576,
+\]
+obtenemos
+\[
+2^{20}-1=1048575.
+\]
+
+Luego
+\[
+\boxed{\gcd(2^{100}-1,2^{120}-1)=1048575}.
+\]
+
+\section*{Solucion Ejercicio 13}
+
+Supongamos que
+\[
+\gcd(m,n)=1.
+\]
+
+Queremos demostrar que
+\[
+a\equiv b \pmod{mn}
+\]
+si y solo si
+\[
+a\equiv b \pmod m
+\]
+y
+\[
+a\equiv b \pmod n.
+\]
+
+\subsection*{Primera implicación}
+
+Supongamos que
+\[
+a\equiv b \pmod{mn}.
+\]
+
+Entonces
+\[
+mn\mid a-b.
+\]
+
+Como
+\[
+m\mid mn
+\]
+y
+\[
+n\mid mn,
+\]
+se deduce que
+\[
+m\mid a-b
+\]
+y
+\[
+n\mid a-b.
+\]
+
+Por tanto,
+\[
+a\equiv b \pmod m
+\]
+y
+\[
+a\equiv b \pmod n.
+\]
+
+\subsection*{Segunda implicación}
+
+Supongamos ahora que
+\[
+a\equiv b \pmod m
+\]
+y
+\[
+a\equiv b \pmod n.
+\]
+
+Entonces
+\[
+m\mid a-b
+\]
+y
+\[
+n\mid a-b.
+\]
+
+Como
+\[
+\gcd(m,n)=1,
+\]
+y ambos dividen a \(a-b\), se deduce que
+\[
+mn\mid a-b.
+\]
+
+Por tanto,
+\[
+a\equiv b \pmod{mn}.
+\]
+
+Queda demostrado.
+
+\section*{Solucion Ejercicio 14}
+
+Queremos encontrar el mínimo número par \(a\) tal que
+\[
+3\mid a+1,\qquad 5\mid a+2,\qquad 7\mid a+3,
+\]
+\[
+11\mid a+4,\qquad 13\mid a+5.
+\]
+
+Esto equivale al sistema de congruencias
+\[
+a\equiv -1 \pmod 3,
+\]
+\[
+a\equiv -2 \pmod 5,
+\]
+\[
+a\equiv -3 \pmod 7,
+\]
+\[
+a\equiv -4 \pmod {11},
+\]
+\[
+a\equiv -5 \pmod {13}.
+\]
+
+Además, como \(a\) debe ser par,
+\[
+a\equiv 0\pmod 2.
+\]
+
+Rescribimos los restos de forma positiva:
+\[
+a\equiv 0\pmod 2,
+\]
+\[
+a\equiv 2\pmod 3,
+\]
+\[
+a\equiv 3\pmod 5,
+\]
+\[
+a\equiv 4\pmod 7,
+\]
+\[
+a\equiv 7\pmod {11},
+\]
+\[
+a\equiv 8\pmod {13}.
+\]
+
+Empezamos con
+\[
+a\equiv 0\pmod 2.
+\]
+
+Entonces
+\[
+a=2t.
+\]
+
+Usamos la congruencia módulo \(3\):
+\[
+2t\equiv 2\pmod 3.
+\]
+
+Como \(2^{-1}\equiv 2\pmod 3\), se obtiene
+\[
+t\equiv 1\pmod 3.
+\]
+
+Por tanto,
+\[
+t=3s+1.
+\]
+
+Así,
+\[
+a=2(3s+1)=6s+2.
+\]
+
+Usamos ahora la congruencia módulo \(5\):
+\[
+6s+2\equiv 3\pmod 5.
+\]
+
+Como \(6\equiv 1\pmod 5\), queda
+\[
+s+2\equiv 3\pmod 5,
+\]
+luego
+\[
+s\equiv 1\pmod 5.
+\]
+
+Por tanto,
+\[
+s=5r+1.
+\]
+
+Entonces
+\[
+a=6(5r+1)+2=30r+8.
+\]
+
+Usamos la congruencia módulo \(7\):
+\[
+30r+8\equiv 4\pmod 7.
+\]
+
+Como
+\[
+30\equiv 2\pmod 7
+\]
+y
+\[
+8\equiv 1\pmod 7,
+\]
+tenemos
+\[
+2r+1\equiv 4\pmod 7.
+\]
+
+Luego
+\[
+2r\equiv 3\pmod 7.
+\]
+
+Como \(2^{-1}\equiv 4\pmod 7\), obtenemos
+\[
+r\equiv 12\equiv 5\pmod 7.
+\]
+
+Por tanto,
+\[
+r=7u+5.
+\]
+
+Entonces
+\[
+a=30(7u+5)+8=210u+158.
+\]
+
+Usamos la congruencia módulo \(11\):
+\[
+210u+158\equiv 7\pmod {11}.
+\]
+
+Como
+\[
+210\equiv 1\pmod {11}
+\]
+y
+\[
+158\equiv 4\pmod {11},
+\]
+tenemos
+\[
+u+4\equiv 7\pmod {11}.
+\]
+
+Luego
+\[
+u\equiv 3\pmod {11}.
+\]
+
+Por tanto,
+\[
+u=11v+3.
+\]
+
+Así,
+\[
+a=210(11v+3)+158=2310v+788.
+\]
+
+Finalmente usamos la congruencia módulo \(13\):
+\[
+2310v+788\equiv 8\pmod {13}.
+\]
+
+Como
+\[
+2310\equiv 9\pmod {13}
+\]
+y
+\[
+788\equiv 8\pmod {13},
+\]
+queda
+\[
+9v+8\equiv 8\pmod {13}.
+\]
+
+Entonces
+\[
+9v\equiv 0\pmod {13}.
+\]
+
+Como \(\gcd(9,13)=1\), se obtiene
+\[
+v\equiv 0\pmod {13}.
+\]
+
+Por tanto,
+\[
+v=13w.
+\]
+
+Luego
+\[
+a=2310(13w)+788=30030w+788.
+\]
+
+La solución general es
+\[
+a\equiv 788\pmod {30030}.
+\]
+
+El mínimo número par positivo que cumple las condiciones es
+\[
+\boxed{788}.
+\]
+
+\section*{Solucion Ejercicio 15}
+
+Queremos resolver
+\[
+55\mid n^2+3n+1.
+\]
+
+Como
+\[
+55=5\cdot 11
+\]
+y
+\[
+\gcd(5,11)=1,
+\]
+esto equivale a resolver simultáneamente
+\[
+n^2+3n+1\equiv 0\pmod 5
+\]
+y
+\[
+n^2+3n+1\equiv 0\pmod {11}.
+\]
+
+Primero resolvemos módulo \(5\).
+
+Probamos los restos \(0,1,2,3,4\):
+
+\[
+0^2+3\cdot 0+1\equiv 1\pmod 5,
+\]
+
+\[
+1^2+3\cdot 1+1=5\equiv 0\pmod 5,
+\]
+
+\[
+2^2+3\cdot 2+1=11\equiv 1\pmod 5,
+\]
+
+\[
+3^2+3\cdot 3+1=19\equiv 4\pmod 5,
+\]
+
+\[
+4^2+3\cdot 4+1=29\equiv 4\pmod 5.
+\]
+
+Por tanto,
+\[
+n\equiv 1\pmod 5.
+\]
+
+Ahora resolvemos módulo \(11\).
+
+Probamos los restos \(0,1,\dots,10\), o equivalentemente resolvemos la ecuación cuadrática. Las soluciones son
+\[
+n\equiv 2\pmod {11}
+\]
+y
+\[
+n\equiv 6\pmod {11}.
+\]
+
+Combinamos ahora con
+\[
+n\equiv 1\pmod 5.
+\]
+
+\subsubsection*{Primer caso}
+
+Supongamos que
+\[
+n\equiv 6\pmod {11}.
+\]
+
+Los números congruentes con \(6\) módulo \(11\) son
+\[
+6,17,28,39,50,\dots
+\]
+
+De ellos, el que cumple
+\[
+n\equiv 1\pmod 5
+\]
+es
+\[
+6.
+\]
+
+Por tanto,
+\[
+n\equiv 6\pmod {55}.
+\]
+
+\subsubsection*{Segundo caso}
+
+Supongamos que
+\[
+n\equiv 2\pmod {11}.
+\]
+
+Los números congruentes con \(2\) módulo \(11\) son
+\[
+2,13,24,35,46,\dots
+\]
+
+De ellos, el que cumple
+\[
+n\equiv 1\pmod 5
+\]
+es
+\[
+46.
+\]
+
+Por tanto,
+\[
+n\equiv 46\pmod {55}.
+\]
+
+Concluimos que las soluciones enteras son
+\[
+\boxed{n\equiv 6\pmod {55}}
+\]
+o
+\[
+\boxed{n\equiv 46\pmod {55}}.
+\]
+
+\section*{Solucion Ejercicio 16}
+
+Supongamos que la tabla cuadrada grande tiene tamaño
+\[
+n\times n,
+\]
+y que la tabla cuadrada coloreada tiene tamaño
+\[
+k\times k.
+\]
+
+Entonces el número de casillas de la tabla grande es
+\[
+n^2,
+\]
+y el número de casillas coloreadas es
+\[
+k^2.
+\]
+
+Por tanto, el número de casillas sin colorear es
+\[
+n^2-k^2.
+\]
+
+Según el enunciado,
+\[
+n^2-k^2=79.
+\]
+
+Factorizamos como diferencia de cuadrados:
+\[
+n^2-k^2=(n-k)(n+k).
+\]
+
+Así,
+\[
+(n-k)(n+k)=79.
+\]
+
+Como \(79\) es primo, sus únicos divisores positivos son \(1\) y \(79\). Por tanto,
+\[
+n-k=1
+\]
+y
+\[
+n+k=79.
+\]
+
+Sumando ambas ecuaciones:
+\[
+2n=80,
+\]
+luego
+\[
+n=40.
+\]
+
+Sustituyendo en
+\[
+n-k=1,
+\]
+obtenemos
+\[
+40-k=1,
+\]
+por tanto
+\[
+k=39.
+\]
+
+Así, la tabla grande es de tamaño
+\[
+40\times 40,
+\]
+y la tabla coloreada es de tamaño
+\[
+39\times 39.
+\]
+
+Pero una tabla de tamaño \(39\times 39\) dentro de una tabla de tamaño \(40\times 40\) solo deja sin colorear una fila y una columna. Por tanto, necesariamente la tabla coloreada toca alguna esquina de la tabla grande.
+
+En consecuencia, no pueden quedar las cuatro esquinas sin colorear.
+
+\[
+\boxed{\text{No, no pueden quedar las esquinas sin colorear.}}
+\]
+
+\section*{Solucion Ejercicio 17}
+
+Al sumar repetidamente las cifras de un número hasta obtener una sola cifra, se obtiene su raíz digital.
+
+Para un número entero positivo \(n\), su raíz digital está determinada por su resto módulo \(9\). En particular:
+\[
+n\equiv 1\pmod 9
+\]
+si y solo si el proceso termina en \(1\), y
+\[
+n\equiv 2\pmod 9
+\]
+si y solo si el proceso termina en \(2\).
+
+Por tanto, debemos comparar cuántos números entre \(1\) y \(1000000\) son congruentes con \(1\) módulo \(9\), y cuántos son congruentes con \(2\) módulo \(9\).
+
+Dividimos:
+\[
+1000000=9\cdot 111111+1.
+\]
+
+Esto significa que entre \(1\) y \(1000000\) hay \(111111\) bloques completos de \(9\) números, más un número adicional.
+
+En cada bloque de \(9\) números consecutivos aparece exactamente una vez cada resto módulo \(9\). Por tanto, en cada bloque hay el mismo número de números que acaban en \(1\) que de números que acaban en \(2\).
+
+El número adicional es
+\[
+1000000.
+\]
+
+Calculamos su resto módulo \(9\):
+\[
+1000000=9\cdot 111111+1,
+\]
+luego
+\[
+1000000\equiv 1\pmod 9.
+\]
+
+Por tanto, ese último número aporta un \(1\) adicional y ningún \(2\) adicional.
+
+En consecuencia, hay
+\[
+\boxed{1}
+\]
+más unos que doses.
+
+\section*{Hoja 3}
+
+\section*{Solucion Ejercicio 1}
+
+Queremos representar
+\[
+\sqrt{7}
+\]
+como fracción continua periódica.
+
+Sabemos que
+\[
+2<\sqrt{7}<3,
+\]
+por tanto la parte entera de \(\sqrt{7}\) es
+\[
+a_0=2.
+\]
+
+Entonces
+\[
+\sqrt{7}=2+(\sqrt{7}-2).
+\]
+
+Invertimos la parte decimal:
+\[
+\frac{1}{\sqrt{7}-2}.
+\]
+
+Racionalizando:
+\[
+\frac{1}{\sqrt{7}-2}\cdot \frac{\sqrt{7}+2}{\sqrt{7}+2}
+=
+\frac{\sqrt{7}+2}{7-4}
+=
+\frac{\sqrt{7}+2}{3}.
+\]
+
+Como
+\[
+1<\frac{\sqrt{7}+2}{3}<2,
+\]
+su parte entera es \(1\). Por tanto,
+\[
+\frac{1}{\sqrt{7}-2}
+=
+1+\frac{\sqrt{7}-1}{3}.
+\]
+
+Ahora invertimos de nuevo la parte decimal:
+\[
+\frac{1}{\frac{\sqrt{7}-1}{3}}
+=
+\frac{3}{\sqrt{7}-1}.
+\]
+
+Racionalizando:
+\[
+\frac{3}{\sqrt{7}-1}\cdot \frac{\sqrt{7}+1}{\sqrt{7}+1}
+=
+\frac{3(\sqrt{7}+1)}{7-1}
+=
+\frac{\sqrt{7}+1}{2}.
+\]
+
+Como
+\[
+1<\frac{\sqrt{7}+1}{2}<2,
+\]
+su parte entera es \(1\). Luego
+\[
+\frac{\sqrt{7}+1}{2}
+=
+1+\frac{\sqrt{7}-1}{2}.
+\]
+
+Invertimos otra vez:
+\[
+\frac{1}{\frac{\sqrt{7}-1}{2}}
+=
+\frac{2}{\sqrt{7}-1}.
+\]
+
+Racionalizando:
+\[
+\frac{2}{\sqrt{7}-1}\cdot \frac{\sqrt{7}+1}{\sqrt{7}+1}
+=
+\frac{2(\sqrt{7}+1)}{7-1}
+=
+\frac{\sqrt{7}+1}{3}.
+\]
+
+Como
+\[
+1<\frac{\sqrt{7}+1}{3}<2,
+\]
+su parte entera es \(1\). Por tanto,
+\[
+\frac{\sqrt{7}+1}{3}
+=
+1+\frac{\sqrt{7}-2}{3}.
+\]
+
+Invertimos de nuevo:
+\[
+\frac{1}{\frac{\sqrt{7}-2}{3}}
+=
+\frac{3}{\sqrt{7}-2}.
+\]
+
+Racionalizando:
+\[
+\frac{3}{\sqrt{7}-2}\cdot \frac{\sqrt{7}+2}{\sqrt{7}+2}
+=
+\frac{3(\sqrt{7}+2)}{7-4}
+=
+\sqrt{7}+2.
+\]
+
+La parte entera de
+\[
+\sqrt{7}+2
+\]
+es \(4\), y queda:
+\[
+\sqrt{7}+2=4+(\sqrt{7}-2).
+\]
+
+Hemos vuelto a obtener la misma parte decimal inicial:
+\[
+\sqrt{7}-2.
+\]
+
+Por tanto, la fracción continua es periódica, con periodo
+\[
+1,1,1,4.
+\]
+
+Así,
+\[
+\boxed{\sqrt{7}=[2;\overline{1,1,1,4}]}.
+\]
+
+\section*{Solucion Ejercicio 2}
+
+Queremos demostrar que hay infinitos primos de la forma
+\[
+4n+3.
+\]
+
+Razonamos por contradicción.
+
+Supongamos que solo hay un número finito de primos de la forma \(4n+3\). Los llamamos
+\[
+p_1,p_2,\dots,p_k.
+\]
+
+Consideramos el número
+\[
+N=4p_1p_2\cdots p_k-1.
+\]
+
+Entonces
+\[
+N\equiv -1\pmod 4,
+\]
+es decir,
+\[
+N\equiv 3\pmod 4.
+\]
+
+Por tanto, \(N\) es de la forma \(4n+3\).
+
+Sea \(q\) un divisor primo de \(N\). Como \(q\mid N\), \(q\) aparece en la factorización prima de \(N\).
+
+Observamos que no puede ocurrir que todos los divisores primos de \(N\) sean congruentes con \(1\) módulo \(4\). En efecto, si todos fueran congruentes con \(1\) módulo \(4\), entonces su producto también sería congruente con \(1\) módulo \(4\). Pero eso contradice que
+\[
+N\equiv 3\pmod 4.
+\]
+
+Por tanto, algún divisor primo \(q\) de \(N\) debe cumplir
+\[
+q\equiv 3\pmod 4.
+\]
+
+Luego \(q\) es un primo de la forma \(4n+3\).
+
+Ahora bien, \(q\) no puede ser ninguno de los primos
+\[
+p_1,p_2,\dots,p_k.
+\]
+
+En efecto, para cada \(p_i\), tenemos
+\[
+N=4p_1p_2\cdots p_k-1\equiv -1\pmod {p_i}.
+\]
+
+Por tanto,
+\[
+p_i\nmid N.
+\]
+
+Así, hemos encontrado un nuevo primo \(q\) de la forma \(4n+3\) que no estaba en la lista inicial.
+
+Esto contradice que la lista
+\[
+p_1,p_2,\dots,p_k
+\]
+contenía todos los primos de la forma \(4n+3\).
+
+Por tanto, hay infinitos primos de la forma
+\[
+4n+3.
+\]
+
+\section*{Solucion Ejercicio 3}
+
+Buscamos todos los números de tres cifras cuyo cuadrado termina en el propio número.
+
+Sea \(n\) uno de estos números. Que su cuadrado termine en \(n\) significa que
+\[
+n^2\equiv n\pmod{1000}.
+\]
+
+Equivalente a
+\[
+n^2-n\equiv 0\pmod{1000}.
+\]
+
+Factorizando:
+\[
+n(n-1)\equiv 0\pmod{1000}.
+\]
+
+Como
+\[
+1000=8\cdot 125
+\]
+y
+\[
+\gcd(8,125)=1,
+\]
+la congruencia anterior equivale a
+\[
+n(n-1)\equiv 0\pmod 8
+\]
+y
+\[
+n(n-1)\equiv 0\pmod {125}.
+\]
+
+Como \(n\) y \(n-1\) son consecutivos, son coprimos. Por tanto, para cada módulo debe cumplirse que uno de los dos factores absorba todo el módulo.
+
+Así,
+\[
+n\equiv 0\pmod 8
+\quad \text{o} \quad
+n\equiv 1\pmod 8,
+\]
+y
+\[
+n\equiv 0\pmod {125}
+\quad \text{o} \quad
+n\equiv 1\pmod {125}.
+\]
+
+Tenemos cuatro sistemas.
+
+\subsection*{Primer sistema}
+
+\[
+n\equiv 0\pmod 8,
+\qquad
+n\equiv 0\pmod {125}.
+\]
+
+Como \(\gcd(8,125)=1\), esto da
+\[
+n\equiv 0\pmod {1000}.
+\]
+
+\subsection*{Segundo sistema}
+
+\[
+n\equiv 1\pmod 8,
+\qquad
+n\equiv 1\pmod {125}.
+\]
+
+Esto da
+\[
+n\equiv 1\pmod {1000}.
+\]
+
+\subsection*{Tercer sistema}
+
+\[
+n\equiv 0\pmod 8,
+\qquad
+n\equiv 1\pmod {125}.
+\]
+
+Escribimos
+\[
+n=1+125t.
+\]
+
+Imponemos la congruencia módulo \(8\):
+\[
+1+125t\equiv 0\pmod 8.
+\]
+
+Como
+\[
+125\equiv 5\pmod 8,
+\]
+tenemos
+\[
+1+5t\equiv 0\pmod 8.
+\]
+
+Luego
+\[
+5t\equiv -1\equiv 7\pmod 8.
+\]
+
+Como
+\[
+5^{-1}\equiv 5\pmod 8,
+\]
+obtenemos
+\[
+t\equiv 5\cdot 7\equiv 35\equiv 3\pmod 8.
+\]
+
+Tomando \(t=3\), obtenemos
+\[
+n=1+125\cdot 3=376.
+\]
+
+Por tanto,
+\[
+n\equiv 376\pmod {1000}.
+\]
+
+\subsection*{Cuarto sistema}
+
+\[
+n\equiv 1\pmod 8,
+\qquad
+n\equiv 0\pmod {125}.
+\]
+
+Escribimos
+\[
+n=125t.
+\]
+
+Imponemos la congruencia módulo \(8\):
+\[
+125t\equiv 1\pmod 8.
+\]
+
+Como
+\[
+125\equiv 5\pmod 8,
+\]
+queda
+\[
+5t\equiv 1\pmod 8.
+\]
+
+Como
+\[
+5^{-1}\equiv 5\pmod 8,
+\]
+obtenemos
+\[
+t\equiv 5\pmod 8.
+\]
+
+Tomando \(t=5\), obtenemos
+\[
+n=125\cdot 5=625.
+\]
+
+Por tanto,
+\[
+n\equiv 625\pmod {1000}.
+\]
+
+Las soluciones módulo \(1000\) son
+\[
+0,\ 1,\ 376,\ 625.
+\]
+
+Como queremos números de tres cifras, descartamos \(0\) y \(1\).
+
+Por tanto, los números buscados son
+\[
+\boxed{376 \text{ y } 625}.
+\]
+
+\section*{Solucion Ejercicio 4}
+
+Queremos demostrar que la ecuación
+\[
+4x^2+3y^2=2000000002
+\]
+no tiene solución en números enteros.
+
+Trabajamos módulo \(4\).
+
+Por un lado,
+\[
+4x^2\equiv 0\pmod 4.
+\]
+
+Por otro lado, sabemos que todo cuadrado módulo \(4\) es congruente con \(0\) o con \(1\). Es decir,
+\[
+y^2\equiv 0\pmod 4
+\]
+o
+\[
+y^2\equiv 1\pmod 4.
+\]
+
+Entonces
+\[
+3y^2\equiv 0\pmod 4
+\]
+o
+\[
+3y^2\equiv 3\pmod 4.
+\]
+
+Por tanto,
+\[
+4x^2+3y^2\equiv 0\pmod 4
+\]
+o
+\[
+4x^2+3y^2\equiv 3\pmod 4.
+\]
+
+Es decir, el lado izquierdo solo puede ser congruente con \(0\) o con \(3\) módulo \(4\).
+
+Sin embargo,
+\[
+2000000002\equiv 2\pmod 4.
+\]
+
+Por tanto, la igualdad
+\[
+4x^2+3y^2=2000000002
+\]
+es imposible módulo \(4\).
+
+Luego la ecuación no tiene solución en números enteros.
+
+\[
+\boxed{\text{No tiene solución en } \mathbb{Z}.}
+\]
+
+\section*{Solucion Ejercicio 5}
+
+Queremos resolver
+\[
+x^2\equiv 1\pmod {35}.
+\]
+
+Como
+\[
+35=5\cdot 7
+\]
+y
+\[
+\gcd(5,7)=1,
+\]
+la congruencia es equivalente al sistema
+\[
+x^2\equiv 1\pmod 5
+\]
+y
+\[
+x^2\equiv 1\pmod 7.
+\]
+
+Primero resolvemos módulo \(5\):
+\[
+x^2\equiv 1\pmod 5.
+\]
+
+Esto equivale a
+\[
+x\equiv 1\pmod 5
+\]
+o
+\[
+x\equiv -1\pmod 5.
+\]
+
+Es decir,
+\[
+x\equiv 1\pmod 5
+\]
+o
+\[
+x\equiv 4\pmod 5.
+\]
+
+Ahora resolvemos módulo \(7\):
+\[
+x^2\equiv 1\pmod 7.
+\]
+
+Esto equivale a
+\[
+x\equiv 1\pmod 7
+\]
+o
+\[
+x\equiv -1\pmod 7.
+\]
+
+Es decir,
+\[
+x\equiv 1\pmod 7
+\]
+o
+\[
+x\equiv 6\pmod 7.
+\]
+
+Combinamos los casos.
+
+\subsection*{Primer caso}
+
+\[
+x\equiv 1\pmod 5,
+\qquad
+x\equiv 1\pmod 7.
+\]
+
+Entonces
+\[
+x\equiv 1\pmod {35}.
+\]
+
+\subsection*{Segundo caso}
+
+\[
+x\equiv 1\pmod 5,
+\qquad
+x\equiv 6\pmod 7.
+\]
+
+Probamos los números congruentes con \(1\) módulo \(5\):
+\[
+1,6,11,16,21,26,31.
+\]
+
+El que es congruente con \(6\) módulo \(7\) es
+\[
+6.
+\]
+
+Por tanto,
+\[
+x\equiv 6\pmod {35}.
+\]
+
+\subsection*{Tercer caso}
+
+\[
+x\equiv 4\pmod 5,
+\qquad
+x\equiv 1\pmod 7.
+\]
+
+Probamos los números congruentes con \(4\) módulo \(5\):
+\[
+4,9,14,19,24,29,34.
+\]
+
+El que es congruente con \(1\) módulo \(7\) es
+\[
+29.
+\]
+
+Por tanto,
+\[
+x\equiv 29\pmod {35}.
+\]
+
+\subsection*{Cuarto caso}
+
+\[
+x\equiv 4\pmod 5,
+\qquad
+x\equiv 6\pmod 7.
+\]
+
+Esto equivale a
+\[
+x\equiv -1\pmod 5
+\]
+y
+\[
+x\equiv -1\pmod 7.
+\]
+
+Por tanto,
+\[
+x\equiv -1\pmod {35}.
+\]
+
+Es decir,
+\[
+x\equiv 34\pmod {35}.
+\]
+
+Concluimos que las soluciones son
+\[
+\boxed{x\equiv 1,6,29,34\pmod {35}}.
+\]
+
+\section*{Ejercicio 6}
+
+Queremos demostrar que para cualquier \(N\in\mathbb{N}\) existe una lista de \(N\) números compuestos consecutivos.
+
+Consideramos el número
+\[
+(N+1)!.
+\]
+
+Ahora tomamos los \(N\) números consecutivos
+\[
+(N+1)!+2,\ (N+1)!+3,\ \dots,\ (N+1)!+(N+1).
+\]
+
+Hay exactamente \(N\) números en esta lista, porque el índice va desde \(2\) hasta \(N+1\).
+
+Veamos que todos son compuestos.
+
+Sea
+\[
+k\in\{2,3,\dots,N+1\}.
+\]
+
+Entonces \(k\) divide a \((N+1)!\), porque \((N+1)!\) contiene como factor a todos los enteros desde \(1\) hasta \(N+1\). Por tanto,
+\[
+k\mid (N+1)!.
+\]
+
+Además,
+\[
+k\mid k.
+\]
+
+Luego
+\[
+k\mid (N+1)!+k.
+\]
+
+Por tanto, el número
+\[
+(N+1)!+k
+\]
+es divisible por \(k\).
+
+Además,
+\[
+(N+1)!+k>k,
+\]
+por lo que \((N+1)!+k\) tiene un divisor positivo distinto de \(1\) y de sí mismo.
+
+Así, \((N+1)!+k\) es compuesto.
+
+Como esto ocurre para todo
+\[
+k=2,3,\dots,N+1,
+\]
+los números
+\[
+(N+1)!+2,\ (N+1)!+3,\ \dots,\ (N+1)!+(N+1)
+\]
+son \(N\) números compuestos consecutivos.
+
+Por tanto, para cualquier \(N\) existe una lista de \(N\) números compuestos sucesivos.
+
+\[
+\boxed{\text{Queda demostrado.}}
+\]
+
+\section*{Ejercicio 7}
+
+El mensaje cifrado es
+\[
+\texttt{t5r](+}.
+\]
+
+Nos dan los parámetros RSA
+\[
+n=77,
+\qquad
+e=37.
+\]
+
+Primero factorizamos \(n\):
+\[
+77=7\cdot 11.
+\]
+
+Por tanto,
+\[
+\varphi(77)=\varphi(7\cdot 11).
+\]
+
+Como \(7\) y \(11\) son primos distintos,
+\[
+\varphi(77)=(7-1)(11-1)=6\cdot 10=60.
+\]
+
+Para descifrar necesitamos encontrar el inverso de \(e=37\) módulo \(\varphi(77)=60\). Es decir, buscamos \(d\) tal que
+\[
+37d\equiv 1\pmod{60}.
+\]
+
+Probamos:
+\[
+37\cdot 13=481.
+\]
+
+Como
+\[
+481=60\cdot 8+1,
+\]
+tenemos
+\[
+481\equiv 1\pmod{60}.
+\]
+
+Por tanto,
+\[
+d=13.
+\]
+
+Así, para descifrar cada bloque cifrado \(c\), calculamos
+\[
+m\equiv c^{13}\pmod{77}.
+\]
+
+Usando la tabla alfanumérica de la hoja, el mensaje cifrado
+\[
+\texttt{t5r](+}
+\]
+corresponde a los números
+\[
+47,\ 59,\ 45,\ 74,\ 69,\ 75.
+\]
+
+Desciframos cada uno:
+
+\[
+47^{13}\equiv 5\pmod{77},
+\]
+
+\[
+59^{13}\equiv 31\pmod{77},
+\]
+
+\[
+45^{13}\equiv 45\pmod{77},
+\]
+
+\[
+74^{13}\equiv 39\pmod{77},
+\]
+
+\[
+69^{13}\equiv 27\pmod{77},
+\]
+
+\[
+75^{13}\equiv 47\pmod{77}.
+\]
+
+Por tanto, el mensaje descifrado corresponde a los números
+\[
+5,\ 31,\ 45,\ 39,\ 27,\ 47.
+\]
+
+Volvemos ahora a la tabla alfanumérica:
+
+\[
+5\mapsto \texttt{F},
+\]
+
+\[
+31\mapsto \texttt{e},
+\]
+
+\[
+45\mapsto \texttt{r},
+\]
+
+\[
+39\mapsto \texttt{m},
+\]
+
+\[
+27\mapsto \texttt{a},
+\]
+
+\[
+47\mapsto \texttt{t}.
+\]
+
+Por tanto, el mensaje descifrado es
+\[
+\boxed{\texttt{Fermat}}.
+\]
+
+\section*{Solucion Ejercicio 8}
+
+Queremos demostrar que para cualquier
+\[
+\varepsilon>0
+\]
+existe un número suficientemente grande \(N\) tal que el porcentaje de primos entre
+\[
+1,2,\dots,N
+\]
+es menor que \(\varepsilon\).
+
+Denotemos por \(\pi(N)\) al número de primos menores o iguales que \(N\). Queremos demostrar que existe \(N\) tal que
+\[
+\frac{\pi(N)}{N}<\varepsilon.
+\]
+
+Usaremos una estimación elemental.
+
+Tomemos un entero positivo \(m\) y consideremos
+\[
+N=m!.
+\]
+
+Todos los números primos \(p\leq m\) son, como mucho, \(m\) números. Por tanto, hay a lo sumo \(m\) primos menores o iguales que \(m\).
+
+Ahora consideremos un primo \(p\) tal que
+\[
+m<p\leq m!.
+\]
+
+Como \(p\) es primo y \(p>m\), no divide a \(m!\). Por tanto,
+\[
+\gcd(p,m!)=1.
+\]
+
+Así, todo primo \(p\) con
+\[
+m<p\leq m!
+\]
+es coprimo con \(m!\).
+
+El número de enteros entre \(1\) y \(m!\) que son coprimos con \(m!\) es
+\[
+\varphi(m!).
+\]
+
+Por tanto, el número total de primos menores o iguales que \(m!\) está acotado por
+\[
+\pi(m!)\leq m+\varphi(m!).
+\]
+
+Dividiendo entre \(m!\), obtenemos
+\[
+\frac{\pi(m!)}{m!}
+\leq
+\frac{m}{m!}+\frac{\varphi(m!)}{m!}.
+\]
+
+Ahora calculamos
+\[
+\frac{\varphi(m!)}{m!}.
+\]
+
+Como los primos que dividen a \(m!\) son exactamente los primos menores o iguales que \(m\), tenemos
+\[
+\frac{\varphi(m!)}{m!}
+=
+\prod_{p\leq m}\left(1-\frac{1}{p}\right).
+\]
+
+Este producto se hace arbitrariamente pequeño cuando \(m\) crece, porque contiene, en particular, los factores correspondientes a los primos
+\[
+2,3,5,7,\dots
+\]
+
+Por tanto,
+\[
+\lim_{m\to\infty}\frac{\varphi(m!)}{m!}=0.
+\]
+
+Además,
+\[
+\lim_{m\to\infty}\frac{m}{m!}=0.
+\]
+
+Así,
+\[
+\lim_{m\to\infty}\frac{\pi(m!)}{m!}=0.
+\]
+
+Por tanto, dado cualquier
+\[
+\varepsilon>0,
+\]
+existe un entero suficientemente grande \(m\) tal que
+\[
+\frac{\pi(m!)}{m!}<\varepsilon.
+\]
+
+Tomando
+\[
+N=m!,
+\]
+obtenemos
+\[
+\frac{\pi(N)}{N}<\varepsilon.
+\]
+
+Es decir, entre los primeros \(N\) números, el porcentaje de primos es menor que \(\varepsilon\).
+
+\[
+\boxed{\text{Queda demostrado.}}
+\]
+\end{document}

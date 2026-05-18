@@ -15,9 +15,10 @@ def euler(f, t, y0):
 
 
 if __name__ == "__main__":
-    f = lambda t, y: y
+    L = -10.0
+    f = lambda t, y: L*y
     a, b = 0, 2
-    N = 50
+    N = 20
     t = np.linspace(a, b, N)
     y = euler(f, t, 1.0)
     plt.plot(t,y, "o-", label="Euler")

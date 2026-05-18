@@ -1,4 +1,3 @@
-version: "3.8"
 services:
   hdfs:
     image: mafernandezd/hdfs:2.7.2

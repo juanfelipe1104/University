@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   spark-master:
     image: mafernandezd/spark:3.5.7-scala2.12-java17-r-ubuntu
