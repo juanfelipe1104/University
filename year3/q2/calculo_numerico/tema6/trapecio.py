@@ -22,6 +22,23 @@ def trapecio_equis(y, x):
     return 0.5 * h * (y[0] + 2 * np.sum(y[1:-1]) + y[-1])
 
 
+def trapecio_for(y, x):
+    area = 0
+    for i in range(len(x) - 1):
+        h = x[i + 1] - x[i]
+        area_trapecio = 0.5 * h * (y[i] + y[i + 1])
+        area += area_trapecio
+    return area
+
+
+def trapecio_equis_for(y, x):
+    h = x[1] - x[0]
+    suma = y[0] + y[-1]
+    for i in range(1, len(y) - 1):
+        suma += 2 * y[i]
+    return 0.5 * h * suma
+
+
 W = trapecio_equis(y, x)
 
 print(f"{W} J")  # J
