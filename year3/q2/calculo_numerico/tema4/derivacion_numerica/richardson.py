@@ -1,5 +1,5 @@
 import numpy as np
-from Lab4A import calc_bd, calc_cd, calc_fd, calc_error
+from tema4.derivacion_numerica.diferencias_finitas import calc_bd, calc_cd, calc_fd, calc_error
 
 error_maquina = np.finfo(float).eps
 x_0 = np.pi/2

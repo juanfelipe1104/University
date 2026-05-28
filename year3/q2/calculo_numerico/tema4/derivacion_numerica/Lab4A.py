@@ -1,20 +1,26 @@
 import numpy as np
 
 error_maquina = np.finfo(float).eps
-x_0 = np.pi/2
+x_0 = np.pi / 2
 f = lambda x: x * np.sin(x)
 f_real = 1
 h_values = [1e-1, 1e-2, 1e-3, 1e-4]
 
+
 def calc_fd(f, x, h):
-    return (f(x +h) -f(x)) / h 
+    return (f(x + h) - f(x)) / h
+
+
 def calc_bd(f, x, h):
     return (f(x) - f(x - h)) / h
+
+
 def calc_cd(f, x, h):
     return (f(x + h) - f(x - h)) / (2 * h)
 
+
 def calc_error(derivative, real):
-    return abs(derivative - real)/ abs(real)
+    return abs(derivative - real) / abs(real)
 
 
 for h in h_values:

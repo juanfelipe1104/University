@@ -15,8 +15,7 @@ def euler(f, t, y0):
 
 
 if __name__ == "__main__":
-    L = -10.0
-    f = lambda t, y: L*y
+    f = lambda t, y: y
     a, b = 0, 2
     N = 20
     t = np.linspace(a, b, N)
