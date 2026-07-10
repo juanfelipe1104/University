@@ -26,7 +26,7 @@ El sistema permite:
 Todos los notebooks incluyen los comandos para instalar las librerías requeridas. Se deberá reiniciar el notebook después de la instalación de la librería requerida
 
 ## 3. Configuración del entorno
-Crear o editar el archivo .env.local suministrado en la carpeta messaging_system
+Crear el archivo .env a partir del .env.example suministrado en la carpeta messaging_system
 ```
 # Neo4j
 NEO4J_URI = "neo4j://localhost:7687"
@@ -64,7 +64,7 @@ messaging_system/
 │   ├── mongo.ipynb
 │   └── messaging_service.ipynb
 │
-├── .env.local
+├── .env
 └── README.md
 ```
 
