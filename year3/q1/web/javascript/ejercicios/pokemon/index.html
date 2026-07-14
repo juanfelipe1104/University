@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explorador de los primeros nueve Pokémon mediante PokéAPI"
+    />
+    <title>Pokédex inicial</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">PokéAPI Explorer</p>
+          <h1>Pokédex inicial</h1>
+        </div>
+        <p>Consulta los nueve primeros Pokémon y descubre sus características.</p>
+      </header>
+
+      <section aria-labelledby="pokemon-title">
+        <div class="section-heading">
+          <h2 id="pokemon-title">Primera selección</h2>
+          <button id="retry-button" class="secondary-button" type="button" hidden>
+            Reintentar
+          </button>
+        </div>
+
+        <p id="status" class="status" role="status">Cargando Pokémon…</p>
+        <div id="pokemon-grid" class="pokemon-grid" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <dialog id="pokemon-dialog" aria-labelledby="dialog-name">
+      <div class="dialog-card">
+        <button id="close-dialog" class="close-button" type="button" aria-label="Cerrar">
+          &times;
+        </button>
+
+        <div id="dialog-loading" class="dialog-loading" role="status">
+          Cargando detalles…
+        </div>
+
+        <article id="pokemon-detail" hidden>
+          <div class="pokemon-visual">
+            <span id="dialog-number" class="pokemon-number"></span>
+            <img id="dialog-image" src="" alt="" width="240" height="240" />
+          </div>
+
+          <div class="pokemon-info">
+            <p class="eyebrow">Ficha Pokédex</p>
+            <h2 id="dialog-name"></h2>
+            <div id="dialog-types" class="type-list" aria-label="Tipos"></div>
+
+            <dl class="measurements">
+              <div>
+                <dt>Altura</dt>
+                <dd id="dialog-height"></dd>
+              </div>
+              <div>
+                <dt>Peso</dt>
+                <dd id="dialog-weight"></dd>
+              </div>
+            </dl>
+
+            <h3>Estadísticas base</h3>
+            <div id="dialog-stats" class="stats"></div>
+          </div>
+        </article>
+      </div>
+    </dialog>
+
+    <template id="pokemon-card-template">
+      <button class="pokemon-card" type="button">
+        <span class="card-number"></span>
+        <span class="sprite-frame">
+          <img class="card-image" src="" alt="" width="160" height="160" />
+        </span>
+        <strong class="card-name"></strong>
+        <span class="card-action">Ver ficha <span aria-hidden="true">↗</span></span>
+      </button>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,228 @@
+:root {
+  font-family:
+    Inter, ui-rounded, "Arial Rounded MT Bold", system-ui, sans-serif;
+  color: #30241d;
+  background: #ffe9a8;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 20% 15%, #fff8d4 0 2px, transparent 3px) 0 0 / 35px
+      35px,
+    linear-gradient(160deg, #ffe9a8, #ffc66f);
+}
+
+button {
+  font: inherit;
+}
+
+.game-shell {
+  width: min(680px, calc(100% - 1.5rem));
+  margin-inline: auto;
+  padding: 2.5rem 0;
+}
+
+header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #b64d26;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0.2rem 0 0.5rem;
+  font-size: clamp(2.7rem, 11vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.07em;
+}
+
+.instructions {
+  margin: 0;
+  color: #6e5547;
+}
+
+.scoreboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.scoreboard > div {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.85rem 1rem;
+  border: 2px solid #2f241d;
+  border-radius: 1rem;
+  background: #fff9e8;
+  box-shadow: 0 5px 0 #2f241d;
+}
+
+.scoreboard span {
+  color: #806a5c;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.scoreboard strong {
+  color: #30241d;
+  font-size: 1.3rem;
+}
+
+#start-button,
+dialog button {
+  grid-column: 1 / -1;
+  border: 2px solid #2f241d;
+  border-radius: 1rem;
+  padding: 0.8rem 1rem;
+  background: #e55e31;
+  box-shadow: 0 5px 0 #2f241d;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 900;
+  transition: 100ms ease;
+}
+
+#start-button:hover,
+dialog button:hover {
+  background: #f06e3d;
+}
+
+#start-button:active,
+dialog button:active {
+  box-shadow: 0 2px 0 #2f241d;
+  transform: translateY(3px);
+}
+
+#start-button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(0.5rem, 2vw, 0.9rem);
+  padding: clamp(0.65rem, 2vw, 1rem);
+  border: 3px solid #2f241d;
+  border-radius: 1.5rem;
+  background: #82bf4b;
+  box-shadow: 0 8px 0 #2f241d;
+}
+
+.hole {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 0;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, #20150f 0 48%, #59402f 49% 62%, #74ab43 63%);
+  cursor: default;
+}
+
+.hole.has-mole {
+  cursor: crosshair;
+}
+
+.hole.has-mole::after {
+  position: absolute;
+  inset: 8% 10% 5%;
+  background: url("mole.svg") center bottom / contain no-repeat;
+  content: "";
+  filter: drop-shadow(0 5px 2px rgb(22 13 8 / 25%));
+  animation: pop-up 130ms ease-out;
+}
+
+.hole.was-hit::after {
+  transform: translateY(65%) rotate(8deg);
+  transition: transform 100ms ease-in;
+}
+
+@keyframes pop-up {
+  from {
+    transform: translateY(70%);
+  }
+}
+
+dialog {
+  width: min(420px, calc(100% - 2rem));
+  border: 3px solid #2f241d;
+  border-radius: 1.5rem;
+  padding: 0;
+  background: #fff9e8;
+  box-shadow: 0 8px 0 #2f241d;
+  color: #30241d;
+}
+
+dialog::backdrop {
+  background: rgb(42 28 20 / 72%);
+  backdrop-filter: blur(4px);
+}
+
+.dialog-content {
+  padding: 2rem;
+  text-align: center;
+}
+
+.dialog-content h2 {
+  margin: 0.3rem 0;
+  font-size: 2rem;
+}
+
+.dialog-content p:not(.eyebrow) {
+  margin: 0 0 1.5rem;
+  color: #6e5547;
+}
+
+dialog button {
+  width: 100%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+@media (min-width: 520px) {
+  .scoreboard {
+    grid-template-columns: 1fr 1fr 1.3fr;
+    align-items: stretch;
+  }
+
+  #start-button {
+    grid-column: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

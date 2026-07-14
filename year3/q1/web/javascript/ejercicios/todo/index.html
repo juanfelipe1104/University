@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Aplicación para crear, completar y eliminar tareas"
+    />
+    <title>Lista de tareas</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <p class="eyebrow">Organiza tu día</p>
+        <h1>Lista de tareas</h1>
+        <p>Crea una tarea y márcala cuando esté terminada.</p>
+      </header>
+
+      <div class="workspace">
+        <section class="task-panel" aria-labelledby="tasks-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Tu progreso</p>
+              <h2 id="tasks-title">Tareas</h2>
+            </div>
+            <span id="task-counter" class="counter" aria-live="polite">0 pendientes</span>
+          </div>
+
+          <p id="empty-state" class="empty-state">
+            Todavía no hay tareas. Añade la primera desde el formulario.
+          </p>
+          <ul id="task-list" class="task-list" aria-label="Lista de tareas"></ul>
+        </section>
+
+        <aside class="form-panel" aria-labelledby="form-title">
+          <p class="eyebrow">Nueva tarea</p>
+          <h2 id="form-title">¿Qué necesitas hacer?</h2>
+
+          <form id="task-form">
+            <label for="task-title">Título</label>
+            <input
+              id="task-title"
+              name="title"
+              type="text"
+              maxlength="100"
+              placeholder="Ej. Repasar arrays"
+              autocomplete="off"
+              required
+            />
+
+            <label for="task-description">Descripción <span>(opcional)</span></label>
+            <textarea
+              id="task-description"
+              name="description"
+              rows="4"
+              maxlength="280"
+              placeholder="Añade algún detalle"
+            ></textarea>
+
+            <button class="primary-button" type="submit">Añadir tarea</button>
+          </form>
+        </aside>
+      </div>
+    </main>
+
+    <template id="task-template">
+      <li class="task-item">
+        <label class="task-check">
+          <input class="task-toggle" type="checkbox" />
+          <span class="custom-check" aria-hidden="true"></span>
+          <span class="task-copy">
+            <strong class="task-title"></strong>
+            <span class="task-description"></span>
+          </span>
+        </label>
+        <button class="delete-button" type="button" aria-label="Eliminar tarea">
+          Eliminar
+        </button>
+      </li>
+    </template>
+  </body>
+</html>

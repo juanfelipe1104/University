@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Juego Whack-a-mole de diez segundos" />
+    <title>Whack-a-mole</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="game-shell">
+      <header>
+        <p class="eyebrow">Partida de 10 segundos</p>
+        <h1>Whack-a-mole</h1>
+        <p class="instructions">Pulsa al topo cada vez que aparezca. ¡Que no se escape!</p>
+      </header>
+
+      <section class="scoreboard" aria-label="Marcador de la partida">
+        <div>
+          <span>Puntos</span>
+          <strong id="score">0</strong>
+        </div>
+        <div>
+          <span>Tiempo</span>
+          <strong><span id="time">10.0</span> s</strong>
+        </div>
+        <button id="start-button" type="button">Comenzar</button>
+      </section>
+
+      <section id="board" class="board" aria-label="Tablero de juego">
+        <button class="hole" type="button" aria-label="Agujero 1"></button>
+        <button class="hole" type="button" aria-label="Agujero 2"></button>
+        <button class="hole" type="button" aria-label="Agujero 3"></button>
+        <button class="hole" type="button" aria-label="Agujero 4"></button>
+        <button class="hole" type="button" aria-label="Agujero 5"></button>
+        <button class="hole" type="button" aria-label="Agujero 6"></button>
+        <button class="hole" type="button" aria-label="Agujero 7"></button>
+        <button class="hole" type="button" aria-label="Agujero 8"></button>
+        <button class="hole" type="button" aria-label="Agujero 9"></button>
+      </section>
+
+      <p id="game-status" class="sr-only" aria-live="assertive"></p>
+    </main>
+
+    <dialog id="result-dialog">
+      <div class="dialog-content">
+        <p class="eyebrow">Fin de la partida</p>
+        <h2>¡Buen golpe!</h2>
+        <p>Has conseguido <strong id="final-score">0 puntos</strong>.</p>
+        <form method="dialog">
+          <button type="submit">Cerrar</button>
+        </form>
+      </div>
+    </dialog>
+  </body>
+</html>
