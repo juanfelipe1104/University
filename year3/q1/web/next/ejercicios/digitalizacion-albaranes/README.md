@@ -1,6 +1,6 @@
 # Digitalización de albaranes
 
-Aplicación Next.js que consume la API de [BildyApp](https://github.com/juanfelipe1104/BildyApp) para gestionar clientes, proyectos y albaranes.
+Aplicación Next.js que consume la API de [BildyApp](https://github.com/juanfelipe1104/bildy_app) para gestionar clientes, proyectos y albaranes.
 
 ## Requisitos
 
