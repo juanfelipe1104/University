@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "971174890735",
+    "project_id": "tiendafragment",
+    "storage_bucket": "tiendafragment.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:971174890735:android:30f2273c0803e39d24df1a",
+        "android_client_info": {
+          "package_name": "com.example.tiendafragments"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZf3dndNToaYwXMxNri5ipEo3nA7FKLjA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
