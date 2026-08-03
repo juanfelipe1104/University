@@ -1,7 +1,7 @@
 [project]
 name = "bain"
 version = "0.1.0"
-description = "Add your description here"
+description = "Material de Búsqueda y Análisis de la Información"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
@@ -11,7 +11,13 @@ dependencies = [
     "fastavro>=1.12.2",
     "fastparquet>=2026.3.0",
     "gensim>=4.4.0",
+    "google-genai>=1.0.0",
     "ipykernel>=7.2.0",
+    "ipywidgets>=8.1.0",
+    "jupyterlab>=4.4.0",
+    "langchain-core>=1.0.0",
+    "langgraph>=1.0.0",
+    "matplotlib>=3.10.0",
     "networkx>=3.6.1",
     "nltk>=3.9.4",
     "numpy>=2.4.4",
