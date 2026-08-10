@@ -1,0 +1,2156 @@
+\documentclass[fleqn]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\title{Solución Problemas Números Complejos}
+\author{Juan Rodríguez}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+\maketitle
+\section{Ejercicio 1}
+	Utilizando el Teorema Fundamental del Cálculo, determina las derivadas de las siguientes funciones:
+
+	\[
+	F_1(x)=\int_0^x t^2\,dt
+	\qquad
+	F_2(x)=\int_0^{x^2} e^t\,dt
+	\]
+
+	\[
+	F_3(x)=\int_1^{e^{3x}}\sin(t)\,dt
+	\qquad
+	F_4(x)=\int_2^{\sin(x)}\frac{1}{1-t^2}\,dt
+	\]
+
+	\subsection{Solución}
+
+	Aplicamos el Teorema Fundamental del Cálculo:
+
+	\[
+	F'(x)=f(g(x))g'(x)
+	\]
+
+	\subsubsection*{a)}
+
+	\[
+	F_1'(x)
+	=
+	x^2
+	\]
+
+	\[
+	\boxed{F_1'(x)=x^2}
+	\]
+
+	\subsubsection*{b)}
+
+	\[
+	F_2'(x)
+	=
+	e^{x^2}(x^2)'
+	=
+	2xe^{x^2}
+	\]
+
+	\[
+	\boxed{F_2'(x)=2xe^{x^2}}
+	\]
+
+	\subsubsection*{c)}
+
+	\[
+	F_3'(x)
+	=
+	\sin(e^{3x})(e^{3x})'
+	=
+	3e^{3x}\sin(e^{3x})
+	\]
+
+	\[
+	\boxed{F_3'(x)=3e^{3x}\sin(e^{3x})}
+	\]
+
+	\subsubsection*{d)}
+	\[
+	F_4'(x)
+	=
+	\frac{1}{1-\sin^2(x)}\cos(x)
+	=
+	\frac{\cos(x)}{\cos^2(x)}
+	=
+	\frac{1}{\cos(x)}
+	\]
+
+	\[
+	\boxed{F_4'(x)=\frac{1}{\cos(x)}}
+	\]
+
+\section{Ejercicio 2}
+	Calcula la ecuación de la recta tangente en $x=1$ a la gráfica de
+
+	\[
+	F(x)=\int_{-1}^{x}\frac{t^3}{t^4-4}\,dt
+	\]
+
+	\subsection{Solución}
+
+	La ecuación de la recta tangente es:
+
+	\[
+	y-F(1)=F'(1)(x-1)
+	\]
+
+	Por el Teorema Fundamental del Cálculo:
+
+	\[
+	F'(x)=\frac{x^3}{x^4-4}
+	\]
+
+	\[
+	F'(1)=\frac{1}{1-4}=-\frac{1}{3}
+	\]
+
+	Calculamos $F(1)$:
+
+	\[
+	F(1)
+	=
+	\int_{-1}^{1}\frac{t^3}{t^4-4}\,dt
+	=
+	0
+	\]
+
+	ya que el integrando es una función impar.
+
+	Por tanto:
+
+	\[
+	y
+	=
+	-\frac{1}{3}(x-1)
+	\]
+
+	\[
+	\boxed{
+	y=-\frac{x}{3}+\frac{1}{3}
+	}
+	\]
+
+\section{Ejercicio 3}
+	Determina los intervalos en los que la función
+
+	\[
+	F(x)=\int_1^x \arctan(e^t)\,dt
+	\]
+
+	es inyectiva.
+
+	\subsection{Solución}
+
+	Por el Teorema Fundamental del Cálculo:
+
+	\[
+	F'(x)=\arctan(e^x)
+	\]
+
+	Como:
+
+	\[
+	e^x>0
+	\]
+
+	para todo $x\in\mathbb{R}$, entonces:
+
+	\[
+	\arctan(e^x)>0
+	\]
+
+	Por tanto:
+
+	\[
+	F'(x)>0
+	\qquad
+	\forall x\in\mathbb{R}
+	\]
+
+	Luego $F(x)$ es estrictamente creciente en todo su dominio y, por tanto, es inyectiva en:
+
+	\[
+	\boxed{(-\infty,+\infty)}
+	\]
+
+\section{Ejercicio 4}
+	Calcula
+
+	\[
+	\lim_{x\to 0}
+	\frac{1}{x}
+	\int_0^x
+	\frac{|\cos(t^3)|}{t^2+1}\,dt
+	\]
+
+	\subsection{Solución}
+
+	Definimos:
+
+	\[
+	F(x)
+	=
+	\int_0^x
+	\frac{|\cos(t^3)|}{t^2+1}\,dt
+	\]
+
+	Como:
+
+	\[
+	F(0)=0
+	\]
+
+	el límite presenta una indeterminación $\frac{0}{0}$. Aplicamos la regla de L'Hôpital y el Teorema Fundamental del Cálculo:
+
+	\[
+	\lim_{x\to 0}
+	\frac{F(x)}{x}
+	=
+	\lim_{x\to 0}
+	\frac{F'(x)}{1}
+	=
+	\lim_{x\to 0}
+	\frac{|\cos(x^3)|}{x^2+1}
+	\]
+
+	\[
+	=
+	\frac{|\cos(0)|}{1}
+	=
+	1
+	\]
+
+	\[
+	\boxed{1}
+	\]
+
+\section{Ejercicio 5}
+	Calcula, en caso de existir, la primera y segunda derivada de la función
+
+	\[
+	F(x)=x\int_{2x}^{3x}e^{-t^2}\,dt
+	\]
+
+	\subsection{Solución}
+
+	Aplicamos la regla del producto:
+
+	\[
+	F'(x)
+	=
+	\int_{2x}^{3x}e^{-t^2}\,dt
+	+
+	x\frac{d}{dx}
+	\left(
+	\int_{2x}^{3x}e^{-t^2}\,dt
+	\right)
+	\]
+
+	Utilizando el Teorema Fundamental del Cálculo:
+
+	\[
+	\frac{d}{dx}
+	\left(
+	\int_{2x}^{3x}e^{-t^2}\,dt
+	\right)
+	=
+	3e^{-9x^2}
+	-
+	2e^{-4x^2}
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	F'(x)
+	=
+	\int_{2x}^{3x}e^{-t^2}\,dt
+	+
+	3xe^{-9x^2}
+	-
+	2xe^{-4x^2}
+	}
+	\]
+
+	Derivamos de nuevo:
+
+	\[
+	F''(x)
+	=
+	3e^{-9x^2}
+	-
+	2e^{-4x^2}
+	+
+	3e^{-9x^2}
+	-
+	54x^2e^{-9x^2}
+	-
+	2e^{-4x^2}
+	+
+	16x^2e^{-4x^2}
+	\]
+
+	\[
+	F''(x)
+	=
+	6e^{-9x^2}
+	-
+	4e^{-4x^2}
+	-
+	54x^2e^{-9x^2}
+	+
+	16x^2e^{-4x^2}
+	\]
+
+	\[
+	\boxed{
+	F''(x)
+	=
+	(6-54x^2)e^{-9x^2}
+	+
+	(16x^2-4)e^{-4x^2}
+	}
+	\]
+
+\section{Ejercicio 6}
+	Demuestra que la función
+
+	\[
+	F(x)=\int_{1-x}^{1+x}\ln(t)\,dt
+	\]
+
+	es decreciente en $\left(0,\frac{1}{2}\right)$.
+
+	\subsection{Solución}
+
+	Aplicamos el Teorema Fundamental del Cálculo:
+
+	\[
+	F'(x)
+	=
+	\ln(1+x)(1)
+	-
+	\ln(1-x)(-1)
+	\]
+
+	\[
+	F'(x)
+	=
+	\ln(1+x)+\ln(1-x)
+	=
+	\ln\left((1+x)(1-x)\right)
+	=
+	\ln(1-x^2)
+	\]
+
+	Para $x\in\left(0,\frac{1}{2}\right)$:
+
+	\[
+	0<1-x^2<1
+	\]
+
+	y, por tanto:
+
+	\[
+	\ln(1-x^2)<0
+	\]
+
+	\[
+	F'(x)<0
+	\qquad
+	\forall x\in\left(0,\frac{1}{2}\right)
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	F(x)\text{ es decreciente en }
+	\left(0,\frac{1}{2}\right)
+	}
+	\]
+
+\section{Ejercicio 7}
+	Determina el polinomio de Taylor de orden 3 en $x_0=0$ de la función
+
+	\[
+	F(x)=\int_0^x t^2\cos(t^2)\,dt
+	\]
+
+	y utiliza el resultado para calcular
+
+	\[
+	\lim_{x\to0}\frac{F(x)}{x^3}
+	\]
+
+	\subsection{Solución}
+
+	Por el Teorema Fundamental del Cálculo:
+
+	\[
+	F'(x)=x^2\cos(x^2)
+	\]
+
+	\[
+	F''(x)
+	=
+	2x\cos(x^2)-2x^3\sin(x^2)
+	\]
+
+	\[
+	F'''(x)
+	=
+	2\cos(x^2)
+	-10x^2\sin(x^2)
+	-4x^4\cos(x^2)
+	\]
+
+	Calculamos los valores en $x=0$:
+
+	\[
+	F(0)=0,
+	\qquad
+	F'(0)=0,
+	\qquad
+	F''(0)=0,
+	\qquad
+	F'''(0)=2
+	\]
+
+	Por tanto, el polinomio de Taylor de orden 3 es:
+
+	\[
+	P_3(x)
+	=
+	F(0)+F'(0)x+\frac{F''(0)}{2!}x^2
+	+\frac{F'''(0)}{3!}x^3
+	=
+	\frac{x^3}{3}
+	\]
+
+	\[
+	\boxed{P_3(x)=\frac{x^3}{3}}
+	\]
+
+	Entonces:
+
+	\[
+	F(x)
+	=
+	\frac{x^3}{3}+o(x^3)
+	\]
+
+	\[
+	\lim_{x\to0}\frac{F(x)}{x^3}
+	=
+	\lim_{x\to0}
+	\frac{\frac{x^3}{3}+o(x^3)}{x^3}
+	=
+	\frac{1}{3}
+	\]
+
+	\[
+	\boxed{\frac{1}{3}}
+	\]
+
+\section{Ejercicio 8}
+	Dada la función $f(x)=x^2$, determina para qué valor
+	$c\in[0,3]$ se verifica el teorema del valor medio integral.
+
+	\subsection{Solución}
+
+	Por el teorema del valor medio integral:
+
+	\[
+	\int_a^b f(x)\,dx
+	=
+	f(c)(b-a)
+	\]
+
+	En este caso:
+
+	\[
+	\int_0^3 x^2\,dx
+	=
+	c^2(3-0)
+	\]
+
+	\[
+	\left[\frac{x^3}{3}\right]_0^3
+	=
+	3c^2
+	\]
+
+	\[
+	9=3c^2
+	\]
+
+	\[
+	c^2=3
+	\]
+
+	Como $c\in[0,3]$:
+
+	\[
+	\boxed{c=\sqrt{3}}
+	\]
+
+\section{Ejercicio 9}
+	Utiliza el teorema del valor medio del cálculo integral para determinar el valor
+	(o valores) $c\in(a,b)$ que lo satisface(n) respecto a la función
+
+	\[
+	f(x)=1-x+x^2
+	\]
+
+	en el intervalo $[-1,1]$.
+
+	\subsection{Solución}
+
+	Por el teorema del valor medio integral:
+
+	\[
+	\int_a^b f(x)\,dx
+	=
+	f(c)(b-a)
+	\]
+
+	En este caso:
+
+	\[
+	\int_{-1}^{1}(1-x+x^2)\,dx
+	=
+	(1-c+c^2)(1-(-1))
+	\]
+
+	\[
+	\left[
+	x-\frac{x^2}{2}+\frac{x^3}{3}
+	\right]_{-1}^{1}
+	=
+	2(1-c+c^2)
+	\]
+
+	\[
+	\frac{8}{3}
+	=
+	2(1-c+c^2)
+	\]
+
+	\[
+	\frac{4}{3}
+	=
+	1-c+c^2
+	\]
+
+	\[
+	c^2-c-\frac{1}{3}=0
+	\]
+
+	Resolviendo la ecuación:
+
+	\[
+	c
+	=
+	\frac{1\pm\sqrt{1+\frac{4}{3}}}{2}
+	=
+	\frac{1\pm\sqrt{\frac{7}{3}}}{2}
+	=
+	\frac{3\pm\sqrt{21}}{6}
+	\]
+
+	Como debe cumplirse $c\in(-1,1)$, únicamente es válida:
+
+	\[
+	\boxed{
+	c=\frac{3-\sqrt{21}}{6}
+	}
+	\]
+
+\section{Ejercicio 10}
+	Calcula
+
+	\[
+	\lim_{x\to0}
+	\frac{\displaystyle\int_0^{x^2}\sin(\sqrt{t})\,dt}{x^3}
+	\]
+
+	\subsection{Solución}
+
+	La expresión presenta una indeterminación $\frac{0}{0}$, por lo que aplicamos la regla de L'Hôpital.
+
+	Por el Teorema Fundamental del Cálculo:
+
+	\[
+	\frac{d}{dx}
+	\left(
+	\int_0^{x^2}\sin(\sqrt{t})\,dt
+	\right)
+	=
+	\sin(\sqrt{x^2})\cdot 2x
+	=
+	2x\sin(|x|)
+	\]
+
+	Por tanto:
+
+	\[
+	\lim_{x\to0}
+	\frac{\displaystyle\int_0^{x^2}\sin(\sqrt{t})\,dt}{x^3}
+	=
+	\lim_{x\to0}
+	\frac{2x\sin(|x|)}{3x^2}
+	=
+	\lim_{x\to0}
+	\frac{2\sin(|x|)}{3x}
+	\]
+
+	Estudiamos los límites laterales:
+
+	\[
+	\lim_{x\to0^+}
+	\frac{2\sin(|x|)}{3x}
+	=
+	\frac{2}{3}
+	\]
+
+	\[
+	\lim_{x\to0^-}
+	\frac{2\sin(|x|)}{3x}
+	=
+	-\frac{2}{3}
+	\]
+
+	Como los límites laterales son distintos:
+
+	\[
+	\boxed{
+	\lim_{x\to0}
+	\frac{\displaystyle\int_0^{x^2}\sin(\sqrt{t})\,dt}{x^3}
+	\text{ no existe}
+	}
+	\]
+
+\section{Ejercicio 11}
+	Calcula
+
+	\[
+	\int_1^{+\infty}\frac{1}{x^2}\,dx
+	\]
+
+	\subsection{Solución}
+
+	Al tratarse de una integral impropia de primera especie:
+
+	\[
+	\int_1^{+\infty}\frac{1}{x^2}\,dx
+	=
+	\lim_{k\to+\infty}
+	\int_1^k\frac{1}{x^2}\,dx
+	\]
+
+	\[
+	=
+	\lim_{k\to+\infty}
+	\left[
+	-\frac{1}{x}
+	\right]_1^k
+	=
+	\lim_{k\to+\infty}
+	\left(
+	-\frac{1}{k}+1
+	\right)
+	\]
+
+	\[
+	=
+	1
+	\]
+
+	Por tanto, la integral es convergente y:
+
+	\[
+	\boxed{
+	\int_1^{+\infty}\frac{1}{x^2}\,dx=1
+	}
+	\]
+
+\section{Ejercicio 12}
+	Dada la integral impropia
+
+	\[
+	\int_1^{+\infty}\frac{1}{x^\alpha}\,dx
+	\]
+
+	¿para qué valores $\alpha\in\mathbb{R}$ la integral es convergente?
+	¿Para qué valores es divergente?
+
+	\subsection{Solución}
+
+	Expresamos la integral impropia mediante un límite:
+
+	\[
+	\int_1^{+\infty}\frac{1}{x^\alpha}\,dx
+	=
+	\lim_{k\to+\infty}
+	\int_1^k x^{-\alpha}\,dx
+	\]
+
+	Para $\alpha\neq1$:
+
+	\[
+	=
+	\lim_{k\to+\infty}
+	\left[
+	\frac{x^{1-\alpha}}{1-\alpha}
+	\right]_1^k
+	=
+	\lim_{k\to+\infty}
+	\frac{k^{1-\alpha}-1}{1-\alpha}
+	\]
+
+	Si $\alpha>1$:
+
+	\[
+	1-\alpha<0
+	\qquad\Longrightarrow\qquad
+	\lim_{k\to+\infty}k^{1-\alpha}=0
+	\]
+
+	\[
+	\int_1^{+\infty}\frac{1}{x^\alpha}\,dx
+	=
+	\frac{1}{\alpha-1}
+	\]
+
+	Por tanto, la integral es convergente para:
+
+	\[
+	\boxed{\alpha>1}
+	\]
+
+	Si $\alpha<1$:
+
+	\[
+	1-\alpha>0
+	\qquad\Longrightarrow\qquad
+	\lim_{k\to+\infty}k^{1-\alpha}=+\infty
+	\]
+
+	por lo que la integral es divergente.
+
+	Para $\alpha=1$:
+
+	\[
+	\int_1^{+\infty}\frac{1}{x}\,dx
+	=
+	\lim_{k\to+\infty}
+	\left[\ln(x)\right]_1^k
+	=
+	\lim_{k\to+\infty}\ln(k)
+	=
+	+\infty
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	\begin{cases}
+	\text{Convergente}, & \alpha>1 \\[2mm]
+	\text{Divergente}, & \alpha\leq1
+	\end{cases}
+	}
+	\]
+
+\section{Ejercicio 13}
+	Determina la convergencia o divergencia de
+
+	\[
+	\int_2^{+\infty}\frac{x+1}{x^2}\,dx
+	\]
+
+	\subsection{Solución}
+
+	Descomponemos el integrando:
+
+	\[
+	\frac{x+1}{x^2}
+	=
+	\frac{1}{x}
+	+
+	\frac{1}{x^2}
+	\]
+
+	Por tanto:
+
+	\[
+	\int_2^{+\infty}\frac{x+1}{x^2}\,dx
+	=
+	\lim_{k\to+\infty}
+	\int_2^k
+	\left(
+	\frac{1}{x}+\frac{1}{x^2}
+	\right)\,dx
+	\]
+
+	\[
+	=
+	\lim_{k\to+\infty}
+	\left[
+	\ln(x)-\frac{1}{x}
+	\right]_2^k
+	\]
+
+	\[
+	=
+	\lim_{k\to+\infty}
+	\left(
+	\ln(k)-\frac{1}{k}
+	-\ln(2)+\frac{1}{2}
+	\right)
+	\]
+
+	Como:
+
+	\[
+	\lim_{k\to+\infty}\ln(k)=+\infty
+	\]
+
+	se obtiene:
+
+	\[
+	\boxed{
+	\int_2^{+\infty}\frac{x+1}{x^2}\,dx
+	\text{ es divergente}
+	}
+	\]
+
+\section{Ejercicio 14}
+	Determina la convergencia o divergencia de
+
+	\[
+	\int_0^{+\infty}\cos(x)\,dx
+	\]
+
+	\subsection{Solución}
+
+	Al tratarse de una integral impropia de primera especie:
+
+	\[
+	\int_0^{+\infty}\cos(x)\,dx
+	=
+	\lim_{k\to+\infty}
+	\int_0^k\cos(x)\,dx
+	\]
+
+	\[
+	=
+	\lim_{k\to+\infty}
+	\left[
+	\sin(x)
+	\right]_0^k
+	=
+	\lim_{k\to+\infty}\sin(k)
+	\]
+
+	El límite no existe, ya que $\sin(k)$ oscila entre $-1$ y $1$.
+
+	Por tanto:
+
+	\[
+	\boxed{
+	\int_0^{+\infty}\cos(x)\,dx
+	\text{ es divergente}
+	}
+	\]
+
+\section{Ejercicio 15}
+	Determina la convergencia o divergencia de
+
+	\[
+	\int_0^1\frac{1}{\sqrt{x}}\,dx
+	\]
+
+	\subsection{Solución}
+
+	La función presenta una discontinuidad infinita en $x=0$, por lo que se trata de una integral impropia de segunda especie:
+
+	\[
+	\int_0^1\frac{1}{\sqrt{x}}\,dx
+	=
+	\lim_{\varepsilon\to0^+}
+	\int_{\varepsilon}^1 x^{-\frac{1}{2}}\,dx
+	\]
+
+	\[
+	=
+	\lim_{\varepsilon\to0^+}
+	\left[
+	2\sqrt{x}
+	\right]_{\varepsilon}^1
+	=
+	\lim_{\varepsilon\to0^+}
+	\left(
+	2-2\sqrt{\varepsilon}
+	\right)
+	\]
+
+	\[
+	=
+	2
+	\]
+
+	Por tanto, la integral es convergente y:
+
+	\[
+	\boxed{
+	\int_0^1\frac{1}{\sqrt{x}}\,dx=2
+	}
+	\]
+
+\section{Ejercicio 16}
+	Calcula
+
+	\[
+	\int_0^1\frac{1}{x}\,dx
+	\]
+
+	\subsection{Solución}
+
+	La función presenta una discontinuidad infinita en $x=0$, por lo que se trata de una integral impropia de segunda especie:
+
+	\[
+	\int_0^1\frac{1}{x}\,dx
+	=
+	\lim_{\varepsilon\to0^+}
+	\int_{\varepsilon}^1\frac{1}{x}\,dx
+	\]
+
+	\[
+	=
+	\lim_{\varepsilon\to0^+}
+	\left[
+	\ln(x)
+	\right]_{\varepsilon}^1
+	=
+	\lim_{\varepsilon\to0^+}
+	\left(
+	-\ln(\varepsilon)
+	\right)
+	\]
+
+	\[
+	=
+	+\infty
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	\int_0^1\frac{1}{x}\,dx
+	\text{ es divergente}
+	}
+	\]
+
+\section{Ejercicio 17}
+	Calcula
+
+	\[
+	\int_0^1\ln(x)\,dx
+	\]
+
+	\subsection{Solución}
+
+	La función presenta una discontinuidad infinita en $x=0$, por lo que se trata de una integral impropia de segunda especie:
+
+	\[
+	\int_0^1\ln(x)\,dx
+	=
+	\lim_{\varepsilon\to0^+}
+	\int_{\varepsilon}^1\ln(x)\,dx
+	\]
+
+	Integramos por partes:
+
+	\[
+	\int\ln(x)\,dx
+	=
+	x\ln(x)-x
+	\]
+
+	Por tanto:
+
+	\[
+	\int_0^1\ln(x)\,dx
+	=
+	\lim_{\varepsilon\to0^+}
+	\left[
+	x\ln(x)-x
+	\right]_{\varepsilon}^1
+	\]
+
+	\[
+	=
+	\lim_{\varepsilon\to0^+}
+	\left(
+	-1-\varepsilon\ln(\varepsilon)+\varepsilon
+	\right)
+	\]
+
+	Como:
+
+	\[
+	\lim_{\varepsilon\to0^+}
+	\varepsilon\ln(\varepsilon)=0
+	\]
+
+	se obtiene:
+
+	\[
+	\boxed{
+	\int_0^1\ln(x)\,dx=-1
+	}
+	\]
+
+\section{Ejercicio 18}
+	Calcula
+
+	\[
+	\int_0^3\frac{1}{(x-1)^{2/3}}\,dx
+	\]
+
+	y compara el resultado con su valor principal.
+
+	\subsection{Solución}
+
+	La función presenta una discontinuidad infinita en $x=1$, por lo que dividimos la integral:
+
+	\[
+	\int_0^3\frac{1}{(x-1)^{2/3}}\,dx
+	=
+	\lim_{\varepsilon_1\to0^+}
+	\int_0^{1-\varepsilon_1}\frac{1}{(x-1)^{2/3}}\,dx
+	+
+	\lim_{\varepsilon_2\to0^+}
+	\int_{1+\varepsilon_2}^3\frac{1}{(x-1)^{2/3}}\,dx
+	\]
+
+	Como:
+
+	\[
+	\int\frac{1}{(x-1)^{2/3}}\,dx
+	=
+	3(x-1)^{1/3}
+	\]
+
+	tenemos:
+
+	\[
+	\lim_{\varepsilon_1\to0^+}
+	3\left[(x-1)^{1/3}\right]_0^{1-\varepsilon_1}
+	=
+	\lim_{\varepsilon_1\to0^+}
+	3\left(1-\sqrt[3]{\varepsilon_1}\right)
+	=
+	3
+	\]
+
+	\[
+	\lim_{\varepsilon_2\to0^+}
+	3\left[(x-1)^{1/3}\right]_{1+\varepsilon_2}^3
+	=
+	\lim_{\varepsilon_2\to0^+}
+	3\left(\sqrt[3]{2}-\sqrt[3]{\varepsilon_2}\right)
+	=
+	3\sqrt[3]{2}
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	\int_0^3\frac{1}{(x-1)^{2/3}}\,dx
+	=
+	3\left(1+\sqrt[3]{2}\right)
+	}
+	\]
+
+	Calculamos ahora el valor principal:
+
+	\[
+	\operatorname{V.P.}
+	\left(
+	\int_0^3\frac{1}{(x-1)^{2/3}}\,dx
+	\right)
+	=
+	\lim_{\varepsilon\to0^+}
+	\left(
+	\int_0^{1-\varepsilon}\frac{1}{(x-1)^{2/3}}\,dx
+	+
+	\int_{1+\varepsilon}^3\frac{1}{(x-1)^{2/3}}\,dx
+	\right)
+	\]
+
+	\[
+	=
+	\lim_{\varepsilon\to0^+}
+	3\left(
+	1+\sqrt[3]{2}-2\sqrt[3]{\varepsilon}
+	\right)
+	=
+	3\left(1+\sqrt[3]{2}\right)
+	\]
+
+	Por tanto, la integral impropia converge y coincide con su valor principal:
+
+	\[
+	\boxed{
+	\operatorname{V.P.}
+	=
+	\int_0^3\frac{1}{(x-1)^{2/3}}\,dx
+	=
+	3\left(1+\sqrt[3]{2}\right)
+	}
+	\]
+
+\section{Ejercicio 19}
+	Calcula
+
+	\[
+	\int_{-1}^{1}\frac{1}{x^3}\,dx
+	\]
+
+	y compara el resultado con su valor principal.
+
+	\subsection{Solución}
+
+	La función presenta una discontinuidad infinita en $x=0$, por lo que dividimos la integral:
+
+	\[
+	\int_{-1}^{1}\frac{1}{x^3}\,dx
+	=
+	\lim_{\varepsilon_1\to0^+}
+	\int_{-1}^{-\varepsilon_1}\frac{1}{x^3}\,dx
+	+
+	\lim_{\varepsilon_2\to0^+}
+	\int_{\varepsilon_2}^{1}\frac{1}{x^3}\,dx
+	\]
+
+	Como:
+
+	\[
+	\int\frac{1}{x^3}\,dx
+	=
+	-\frac{1}{2x^2}
+	\]
+
+	tenemos:
+
+	\[
+	\lim_{\varepsilon_1\to0^+}
+	\left[
+	-\frac{1}{2x^2}
+	\right]_{-1}^{-\varepsilon_1}
+	=
+	\lim_{\varepsilon_1\to0^+}
+	\left(
+	-\frac{1}{2\varepsilon_1^2}
+	+\frac{1}{2}
+	\right)
+	=
+	-\infty
+	\]
+
+	\[
+	\lim_{\varepsilon_2\to0^+}
+	\left[
+	-\frac{1}{2x^2}
+	\right]_{\varepsilon_2}^{1}
+	=
+	\lim_{\varepsilon_2\to0^+}
+	\left(
+	-\frac{1}{2}
+	+\frac{1}{2\varepsilon_2^2}
+	\right)
+	=
+	+\infty
+	\]
+
+	Por tanto, la integral impropia es divergente:
+
+	\[
+	\boxed{
+	\int_{-1}^{1}\frac{1}{x^3}\,dx
+	\text{ es divergente}
+	}
+	\]
+
+	Calculamos ahora el valor principal:
+
+	\[
+	\operatorname{V.P.}
+	\left(
+	\int_{-1}^{1}\frac{1}{x^3}\,dx
+	\right)
+	=
+	\lim_{\varepsilon\to0^+}
+	\left(
+	\int_{-1}^{-\varepsilon}\frac{1}{x^3}\,dx
+	+
+	\int_{\varepsilon}^{1}\frac{1}{x^3}\,dx
+	\right)
+	\]
+
+	\[
+	=
+	\lim_{\varepsilon\to0^+}
+	\left[
+	-\frac{1}{2\varepsilon^2}
+	+\frac{1}{2}
+	-\frac{1}{2}
+	+\frac{1}{2\varepsilon^2}
+	\right]
+	=
+	0
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	\operatorname{V.P.}
+	\left(
+	\int_{-1}^{1}\frac{1}{x^3}\,dx
+	\right)
+	=
+	0
+	}
+	\]
+
+\section{Ejercicio 20}
+	Calcula
+
+	\[
+	\int_{-2}^{4}\frac{1}{x^2}\,dx
+	\]
+
+	de forma directa y mediante el cambio $x=\frac{1}{t}$.
+
+	\subsection{Solución}
+
+	La función presenta una discontinuidad infinita en $x=0$, por lo que dividimos la integral:
+
+	\[
+	\int_{-2}^{4}\frac{1}{x^2}\,dx
+	=
+	\lim_{\varepsilon_1\to0^+}
+	\int_{-2}^{-\varepsilon_1}\frac{1}{x^2}\,dx
+	+
+	\lim_{\varepsilon_2\to0^+}
+	\int_{\varepsilon_2}^{4}\frac{1}{x^2}\,dx
+	\]
+
+	\[
+	=
+	\lim_{\varepsilon_1\to0^+}
+	\left[
+	-\frac{1}{x}
+	\right]_{-2}^{-\varepsilon_1}
+	+
+	\lim_{\varepsilon_2\to0^+}
+	\left[
+	-\frac{1}{x}
+	\right]_{\varepsilon_2}^{4}
+	\]
+
+	\[
+	=
+	\lim_{\varepsilon_1\to0^+}
+	\left(
+	\frac{1}{\varepsilon_1}-\frac{1}{2}
+	\right)
+	+
+	\lim_{\varepsilon_2\to0^+}
+	\left(
+	\frac{1}{\varepsilon_2}-\frac{1}{4}
+	\right)
+	=
+	+\infty
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	\int_{-2}^{4}\frac{1}{x^2}\,dx
+	\text{ es divergente}
+	}
+	\]
+
+	Realizamos ahora el cambio:
+
+	\[
+	x=\frac{1}{t}
+	\qquad\Longrightarrow\qquad
+	dx=-\frac{1}{t^2}\,dt
+	\]
+
+	\[
+	\frac{1}{x^2}\,dx
+	=
+	t^2\left(-\frac{1}{t^2}\right)\,dt
+	=
+-dt
+	\]
+
+	Como el cambio no está definido en $x=0$, tratamos ambos intervalos por separado:
+
+	\[
+	\int_{-2}^{0}\frac{1}{x^2}\,dx
+	=
+	\int_{-\infty}^{-\frac{1}{2}}dt
+	=
+	+\infty
+	\]
+
+	\[
+	\int_{0}^{4}\frac{1}{x^2}\,dx
+	=
+	\int_{\frac{1}{4}}^{+\infty}dt
+	=
+	+\infty
+	\]
+
+	Por tanto, mediante el cambio de variable obtenemos igualmente:
+
+	\[
+	\boxed{
+	\int_{-2}^{4}\frac{1}{x^2}\,dx
+	\text{ es divergente}
+	}
+	\]
+
+\section{Ejercicio 21}
+	Calcula
+
+	\[
+	\int_0^1\sqrt{\frac{1-x}{x}}\,dx
+	\]
+
+	\subsection{Solución}
+
+	Expresamos la integral en la forma de la función Beta:
+
+	\[
+	\int_0^1\sqrt{\frac{1-x}{x}}\,dx
+	=
+	\int_0^1
+	x^{-\frac{1}{2}}
+	(1-x)^{\frac{1}{2}}
+	\,dx
+	\]
+
+	Recordando que:
+
+	\[
+	\beta(p,q)
+	=
+	\int_0^1
+	x^{p-1}(1-x)^{q-1}\,dx
+	\]
+
+	identificamos:
+
+	\[
+	p-\frac{}{}1=\!-\frac{1}{2}
+	\qquad\Longrightarrow\qquad
+	p=\frac{1}{2}
+	\]
+
+	\[
+	q-1=\frac{1}{2}
+	\qquad\Longrightarrow\qquad
+	q=\frac{3}{2}
+	\]
+
+	Por tanto:
+
+	\[
+	\int_0^1\sqrt{\frac{1-x}{x}}\,dx
+	=
+	\beta\left(\frac{1}{2},\frac{3}{2}\right)
+	\]
+
+	Utilizamos la relación:
+
+	\[
+	\beta(p,q)
+	=
+	\frac{\Gamma(p)\Gamma(q)}
+	{\Gamma(p+q)}
+	\]
+
+	\[
+	=
+	\frac{
+	\Gamma\left(\frac{1}{2}\right)
+	\Gamma\left(\frac{3}{2}\right)
+	}{
+	\Gamma(2)
+	}
+	\]
+
+	Como:
+
+	\[
+	\Gamma\left(\frac{1}{2}\right)=\sqrt{\pi},
+	\qquad
+	\Gamma\left(\frac{3}{2}\right)
+	=
+	\frac{1}{2}\Gamma\left(\frac{1}{2}\right)
+	=
+	\frac{\sqrt{\pi}}{2},
+	\qquad
+	\Gamma(2)=1
+	\]
+
+	obtenemos:
+
+	\[
+	\boxed{
+	\int_0^1\sqrt{\frac{1-x}{x}}\,dx
+	=
+	\frac{\pi}{2}
+	}
+	\]
+
+\section{Ejercicio 22}
+	Calcula
+
+	\[
+	\int_0^1\sqrt{1-x^5}\,dx
+	\]
+
+	\subsection{Solución}
+
+	Realizamos el cambio:
+
+	\[
+	t=x^5
+	\qquad\Longrightarrow\qquad
+	x=t^{1/5},
+	\qquad
+	dx=\frac{1}{5}t^{-4/5}\,dt
+	\]
+
+	Entonces:
+
+	\[
+	\int_0^1\sqrt{1-x^5}\,dx
+	=
+	\frac{1}{5}
+	\int_0^1
+	t^{-4/5}(1-t)^{1/2}\,dt
+	\]
+
+	Recordando que:
+
+	\[
+	\beta(p,q)
+	=
+	\int_0^1
+	t^{p-1}(1-t)^{q-1}\,dt
+	\]
+
+	identificamos:
+
+	\[
+	p=\frac{1}{5},
+	\qquad
+	q=\frac{3}{2}
+	\]
+
+	Por tanto:
+
+	\[
+	\int_0^1\sqrt{1-x^5}\,dx
+	=
+	\frac{1}{5}
+	\beta\left(\frac{1}{5},\frac{3}{2}\right)
+	\]
+
+	Utilizando:
+
+	\[
+	\beta(p,q)
+	=
+	\frac{\Gamma(p)\Gamma(q)}
+	{\Gamma(p+q)}
+	\]
+
+	\[
+	=
+	\frac{1}{5}
+	\frac{
+	\Gamma\left(\frac{1}{5}\right)
+	\Gamma\left(\frac{3}{2}\right)
+	}{
+	\Gamma\left(\frac{17}{10}\right)
+	}
+	\]
+
+	Como:
+
+	\[
+	\Gamma\left(\frac{3}{2}\right)
+	=
+	\frac{\sqrt{\pi}}{2}
+	\]
+
+	obtenemos:
+
+	\[
+	\boxed{
+	\int_0^1\sqrt{1-x^5}\,dx
+	=
+	\frac{\sqrt{\pi}}{10}
+	\frac{
+	\Gamma\left(\frac{1}{5}\right)
+	}{
+	\Gamma\left(\frac{17}{10}\right)
+	}
+	}
+	\]
+
+\section{Ejercicio 23}
+	Calcula
+
+	\[
+	\int_0^{+\infty}x^{4/3}e^{-x}\,dx
+	\]
+
+	\subsection{Solución}
+
+	Recordando la definición de la función Gamma:
+
+	\[
+	\Gamma(p)
+	=
+	\int_0^{+\infty}x^{p-1}e^{-x}\,dx
+	\]
+
+	identificamos:
+
+	\[
+	p-1=\frac{4}{3}
+	\qquad\Longrightarrow\qquad
+	p=\frac{7}{3}
+	\]
+
+	Por tanto:
+
+	\[
+	\int_0^{+\infty}x^{4/3}e^{-x}\,dx
+	=
+	\Gamma\left(\frac{7}{3}\right)
+	\]
+
+	Utilizando la propiedad:
+
+	\[
+	\Gamma(p)
+	=
+	(p-1)\Gamma(p-1)
+	\]
+
+	\[
+	\Gamma\left(\frac{7}{3}\right)
+	=
+	\frac{4}{3}
+	\Gamma\left(\frac{4}{3}\right)
+	=
+	\frac{4}{3}\cdot\frac{1}{3}
+	\Gamma\left(\frac{1}{3}\right)
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	\int_0^{+\infty}x^{4/3}e^{-x}\,dx
+	=
+	\frac{4}{9}
+	\Gamma\left(\frac{1}{3}\right)
+	}
+	\]
+
+\section{Ejercicio 24}
+	Calcula mediante un cambio de variable la integral
+
+	\[
+	\int_1^{+\infty}\frac{\ln(x)}{x^2}\,dx
+	\]
+
+	\subsection{Solución}
+
+	Realizamos el cambio:
+
+	\[
+	t=\frac{1}{x}
+	\qquad\Longrightarrow\qquad
+	x=\frac{1}{t},
+	\qquad
+	dx=-\frac{1}{t^2}\,dt
+	\]
+
+	Además:
+
+	\[
+	\ln(x)=\ln\left(\frac{1}{t}\right)=-\ln(t),
+	\qquad
+	\frac{1}{x^2}=t^2
+	\]
+
+	Los límites se transforman en:
+
+	\[
+	x=1\Longrightarrow t=1,
+	\qquad
+	x\to+\infty\Longrightarrow t\to0^+
+	\]
+
+	Por tanto:
+
+	\[
+	\int_1^{+\infty}\frac{\ln(x)}{x^2}\,dx
+	=
+	\int_1^0
+	(-\ln(t))t^2
+	\left(-\frac{1}{t^2}\right)\,dt
+	=
+	\int_1^0\ln(t)\,dt
+	\]
+
+	\[
+	=
+	-\int_0^1\ln(t)\,dt
+	\]
+
+	Como:
+
+	\[
+	\int_0^1\ln(t)\,dt=-1
+	\]
+
+	obtenemos:
+
+	\[
+	\boxed{
+	\int_1^{+\infty}\frac{\ln(x)}{x^2}\,dx=1
+	}
+	\]
+
+\section{Ejercicio 25}
+	Calcula $\Gamma\left(\frac{1}{2}\right)$ utilizando para ello la función beta correspondiente.
+
+	\subsection{Solución}
+
+	Utilizamos la relación:
+
+	\[
+	\beta(p,q)
+	=
+	2\int_0^{\pi/2}
+	(\cos t)^{2p-1}
+	(\sin t)^{2q-1}\,dt
+	\]
+
+	Tomando:
+
+	\[
+	p=q=\frac{1}{2}
+	\]
+
+	obtenemos:
+
+	\[
+	\beta\left(\frac{1}{2},\frac{1}{2}\right)
+	=
+	2\int_0^{\pi/2}1\,dt
+	=
+	\pi
+	\]
+
+	Por otra parte:
+
+	\[
+	\beta(p,q)
+	=
+	\frac{\Gamma(p)\Gamma(q)}
+	{\Gamma(p+q)}
+	\]
+
+	\[
+	\beta\left(\frac{1}{2},\frac{1}{2}\right)
+	=
+	\frac{
+	\Gamma\left(\frac{1}{2}\right)^2
+	}{
+	\Gamma(1)
+	}
+	=
+	\Gamma\left(\frac{1}{2}\right)^2
+	\]
+
+	Por tanto:
+
+	\[
+	\Gamma\left(\frac{1}{2}\right)^2
+	=
+	\pi
+	\]
+
+	Como $\Gamma\left(\frac{1}{2}\right)>0$:
+
+	\[
+	\boxed{
+	\Gamma\left(\frac{1}{2}\right)=\sqrt{\pi}
+	}
+	\]
+
+\section{Ejercicio 26}
+	Calcula la integral paramétrica
+
+	\[
+	\int_1^3(3x-1)\cos(tx)\,dx
+	\]
+
+	\subsection{Solución}
+
+	Integramos por partes:
+
+	\[
+	u=3x-1,
+	\qquad
+	dv=\cos(tx)\,dx
+	\]
+
+	\[
+	du=3\,dx,
+	\qquad
+	v=\frac{\sin(tx)}{t}
+	\]
+
+	Por tanto:
+
+	\[
+	\int(3x-1)\cos(tx)\,dx
+	=
+	\frac{(3x-1)\sin(tx)}{t}
+	-
+	\frac{3}{t}\int\sin(tx)\,dx
+	\]
+
+	\[
+	=
+	\frac{(3x-1)\sin(tx)}{t}
+	+
+	\frac{3\cos(tx)}{t^2}
+	\]
+
+	Aplicando los límites:
+
+	\[
+	\int_1^3(3x-1)\cos(tx)\,dx
+	=
+	\left[
+	\frac{(3x-1)\sin(tx)}{t}
+	+
+	\frac{3\cos(tx)}{t^2}
+	\right]_1^3
+	\]
+
+	\[
+	=
+	\frac{8\sin(3t)-2\sin(t)}{t}
+	+
+	\frac{3\left(\cos(3t)-\cos(t)\right)}{t^2},
+	\qquad t\neq0
+	\]
+
+	Para $t=0$:
+
+	\[
+	\int_1^3(3x-1)\,dx
+	=
+	\left[
+	\frac{3x^2}{2}-x
+	\right]_1^3
+	=
+	10
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	F(t)=
+	\begin{cases}
+	\displaystyle
+	\frac{8\sin(3t)-2\sin(t)}{t}
+	+
+	\frac{3\left(\cos(3t)-\cos(t)\right)}{t^2},
+	& t\neq0 \\[4mm]
+	10,
+	& t=0
+	\end{cases}
+	}
+	\]
+
+\section{Ejercicio 27}
+	Calcula
+
+	\[
+	\lim_{t\to0}
+	\int_1^3(3x-1)\cos(tx)\,dx
+	\]
+
+	\subsection{Solución}
+
+	Como el integrando es continuo, podemos intercambiar el límite y la integral:
+
+	\[
+	\lim_{t\to0}
+	\int_1^3(3x-1)\cos(tx)\,dx
+	=
+	\int_1^3
+	\lim_{t\to0}
+	(3x-1)\cos(tx)\,dx
+	\]
+
+	\[
+	=
+	\int_1^3(3x-1)\,dx
+	\]
+
+	\[
+	=
+	\left[
+	\frac{3x^2}{2}-x
+	\right]_1^3
+	=
+	\left(\frac{27}{2}-3\right)
+	-
+	\left(\frac{3}{2}-1\right)
+	\]
+
+	\[
+	=
+	10
+	\]
+
+	\[
+	\boxed{10}
+	\]
+
+\section{Ejercicio 28}
+	Dada
+
+	\[
+	I(t)=\int_{t^2}^{t}\sin(x^2+t^2)\,dx
+	\]
+
+	determina la expresión de $I'(t)$.
+
+	\subsection{Solución}
+
+	Utilizamos la regla de derivación para integrales paramétricas:
+
+	\[
+	I'(t)
+	=
+	\int_{\alpha(t)}^{\beta(t)}
+	\frac{\partial f(x,t)}{\partial t}\,dx
+	+
+	f(\beta(t),t)\beta'(t)
+	-
+	f(\alpha(t),t)\alpha'(t)
+	\]
+
+	En este caso:
+
+	\[
+	f(x,t)=\sin(x^2+t^2),
+	\qquad
+	\alpha(t)=t^2,
+	\qquad
+	\beta(t)=t
+	\]
+
+	\[
+	\frac{\partial f(x,t)}{\partial t}
+	=
+	2t\cos(x^2+t^2)
+	\]
+
+	Por tanto:
+
+	\[
+	I'(t)
+	=
+	\int_{t^2}^{t}2t\cos(x^2+t^2)\,dx
+	+
+	\sin(t^2+t^2)
+	-
+	2t\sin(t^4+t^2)
+	\]
+
+	\[
+	\boxed{
+	I'(t)
+	=
+	2t\int_{t^2}^{t}\cos(x^2+t^2)\,dx
+	+
+	\sin(2t^2)
+	-
+	2t\sin(t^4+t^2)
+	}
+	\]
+
+\section{Ejercicio 29}
+	Utilizando derivación paramétrica, calcula
+
+	\[
+	\int_0^{\pi/2}
+	\frac{\arctan(t\sin x)}{\sin x}\,dx
+	\]
+
+	\subsection{Solución}
+
+	Definimos:
+
+	\[
+	I(t)
+	=
+	\int_0^{\pi/2}
+	\frac{\arctan(t\sin x)}{\sin x}\,dx
+	\]
+
+	Derivamos respecto de $t$:
+
+	\[
+	I'(t)
+	=
+	\int_0^{\pi/2}
+	\frac{1}{1+t^2\sin^2 x}\,dx
+	\]
+
+	Realizamos el cambio:
+
+	\[
+	u=\tan x,
+	\qquad
+	dx=\frac{du}{1+u^2},
+	\qquad
+	\sin^2 x=\frac{u^2}{1+u^2}
+	\]
+
+	\[
+	I'(t)
+	=
+	\int_0^{+\infty}
+	\frac{1}{1+(1+t^2)u^2}\,du
+	\]
+
+	\[
+	=
+	\left[
+	\frac{1}{\sqrt{1+t^2}}
+	\arctan\left(u\sqrt{1+t^2}\right)
+	\right]_0^{+\infty}
+	=
+	\frac{\pi}{2\sqrt{1+t^2}}
+	\]
+
+	Integramos respecto de $t$:
+
+	\[
+	I(t)
+	=
+	\frac{\pi}{2}
+	\int\frac{1}{\sqrt{1+t^2}}\,dt
+	=
+	\frac{\pi}{2}
+	\ln\left(t+\sqrt{1+t^2}\right)+C
+	\]
+
+	Como:
+
+	\[
+	I(0)=0
+	\]
+
+	se obtiene:
+
+	\[
+	C=0
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	\int_0^{\pi/2}
+	\frac{\arctan(t\sin x)}{\sin x}\,dx
+	=
+	\frac{\pi}{2}
+	\ln\left(t+\sqrt{1+t^2}\right)
+	}
+	\]
+
+\section{Ejercicio 30}
+	Calcula por derivación paramétrica
+
+	\[
+	I(t)=\int_0^t\frac{1}{(x^2+t^2)^3}\,dx,
+	\qquad t>0
+	\]
+
+	\subsection{Solución}
+
+	Derivamos respecto de $t$:
+
+	\[
+	I'(t)
+	=
+	\frac{1}{(t^2+t^2)^3}
+	+
+	\int_0^t
+	\frac{-6t}{(x^2+t^2)^4}\,dx
+	\]
+
+	\[
+	I'(t)
+	=
+	\frac{1}{8t^6}
+	-
+	6t\int_0^t\frac{1}{(x^2+t^2)^4}\,dx
+	\]
+
+	Por otra parte:
+
+	\[
+	\frac{d}{dx}
+	\left(
+	\frac{x}{(x^2+t^2)^3}
+	\right)
+	=
+	\frac{1}{(x^2+t^2)^3}
+	-
+	\frac{6x^2}{(x^2+t^2)^4}
+	\]
+
+	Integrando entre $0$ y $t$:
+
+	\[
+	\frac{1}{8t^5}
+	=
+	I(t)
+	-
+	6\int_0^t
+	\frac{x^2}{(x^2+t^2)^4}\,dx
+	\]
+
+	Como:
+
+	\[
+	x^2=(x^2+t^2)-t^2
+	\]
+
+	se obtiene:
+
+	\[
+	\frac{1}{8t^5}
+	=
+	-5I(t)
+	+
+	6t^2\int_0^t
+	\frac{1}{(x^2+t^2)^4}\,dx
+	\]
+
+	Por tanto:
+
+	\[
+	6t\int_0^t
+	\frac{1}{(x^2+t^2)^4}\,dx
+	=
+	\frac{1}{8t^6}
+	+
+	\frac{5I(t)}{t}
+	\]
+
+	Sustituyendo en $I'(t)$:
+
+	\[
+	I'(t)
+	=
+	-\frac{5}{t}I(t)
+	\]
+
+	\[
+	\frac{I'(t)}{I(t)}
+	=
+	-\frac{5}{t}
+	\]
+
+	\[
+	\ln I(t)
+	=
+	-5\ln t+C
+	\]
+
+	\[
+	I(t)=\frac{C}{t^5}
+	\]
+
+	Calculamos la constante tomando $t=1$:
+
+	\[
+	C=I(1)
+	=
+	\int_0^1\frac{1}{(1+x^2)^3}\,dx
+	\]
+
+	Con el cambio $x=\tan u$:
+
+	\[
+	C
+	=
+	\int_0^{\pi/4}\cos^4u\,du
+	=
+	\frac{3\pi}{32}+\frac{1}{4}
+	=
+	\frac{3\pi+8}{32}
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	I(t)
+	=
+	\frac{3\pi+8}{32t^5}
+	}
+	\]
+\end{document}
