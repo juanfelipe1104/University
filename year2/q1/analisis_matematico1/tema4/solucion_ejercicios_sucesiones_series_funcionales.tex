@@ -1,0 +1,2424 @@
+\documentclass[fleqn]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\title{Solución Problemas Sucesiones y Series Funcionales}
+\author{Juan Rodríguez}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+\maketitle
+\section{Ejercicio 1}
+	Dada la familia de funciones
+
+	\[
+	f_n(x)=x^n
+	\]
+
+	definidas en el intervalo $[0,+\infty)$, estudiar el campo de convergencia de la sucesión $\{f_n\}$.
+	¿Es la sucesión uniformemente convergente en $[0,1]$?
+
+	\subsection{Solución}
+
+	Estudiamos el límite puntual:
+
+	\[
+	\lim_{n\to\infty}x^n
+	\]
+
+	Si $0\leq x<1$:
+
+	\[
+	\lim_{n\to\infty}x^n=0
+	\]
+
+	Si $x=1$:
+
+	\[
+	\lim_{n\to\infty}1^n=1
+	\]
+
+	Si $x>1$:
+
+	\[
+	\lim_{n\to\infty}x^n=+\infty
+	\]
+
+	Por tanto, el campo de convergencia es:
+
+	\[
+	\boxed{C=[0,1]}
+	\]
+
+	y la función límite es:
+
+	\[
+	f(x)=
+	\begin{cases}
+	0, & 0\leq x<1 \\[1mm]
+	1, & x=1
+	\end{cases}
+	\]
+
+	Estudiamos ahora la convergencia uniforme en $[0,1]$.
+
+	Cada función $f_n(x)=x^n$ es continua en $[0,1]$, pero la función límite $f(x)$ no es continua en $x=1$.
+
+	Por tanto, la convergencia no puede ser uniforme:
+
+	\[
+	\boxed{
+	\{f_n\}\text{ no converge uniformemente en }[0,1]
+	}
+	\]
+
+\section{Ejercicio 2}
+	Dada la sucesión de funciones cuyo término general es
+
+	\[
+	f_n(x)=x+n
+	\]
+
+	estudiar su convergencia.
+
+	\subsection{Solución}
+
+	Estudiamos el límite puntual:
+
+	\[
+	\lim_{n\to\infty}f_n(x)
+	=
+	\lim_{n\to\infty}(x+n)
+	\]
+
+	Para cualquier $x\in\mathbb{R}$:
+
+	\[
+	\lim_{n\to\infty}(x+n)=+\infty
+	\]
+
+	Por tanto, la sucesión no converge puntualmente a ninguna función real.
+
+	\[
+	\boxed{
+	C=\emptyset
+	}
+	\]
+
+	En consecuencia, tampoco puede existir convergencia uniforme en ningún intervalo no vacío.
+
+	\[
+	\boxed{
+	\{f_n\}\text{ no es uniformemente convergente}
+	}
+	\]
+
+\section{Ejercicio 3}
+	Dada la sucesión de funciones cuyo término general es
+
+	\[
+	f_n(x)=e^{-nx}
+	\]
+
+	determinar su límite puntual y si la sucesión converge uniformemente en el intervalo
+	$[a,+\infty)$ con $a>0$.
+
+	\subsection{Solución}
+
+	Estudiamos el límite puntual:
+
+	\[
+	\lim_{n\to\infty}e^{-nx}
+	\]
+
+	Si $x>0$:
+
+	\[
+	\lim_{n\to\infty}e^{-nx}=0
+	\]
+
+	Si $x=0$:
+
+	\[
+	\lim_{n\to\infty}e^0=1
+	\]
+
+	Si $x<0$:
+
+	\[
+	\lim_{n\to\infty}e^{-nx}=+\infty
+	\]
+
+	Por tanto, el campo de convergencia es:
+
+	\[
+	\boxed{
+	C=[0,+\infty)
+	}
+	\]
+
+	y la función límite es:
+
+	\[
+	f(x)=
+	\begin{cases}
+	1, & x=0 \\[1mm]
+	0, & x>0
+	\end{cases}
+	\]
+
+	Estudiamos ahora la convergencia uniforme en $[a,+\infty)$, con $a>0$.
+
+	Como en dicho intervalo $f(x)=0$:
+
+	\[
+	|f_n(x)-f(x)|
+	=
+	e^{-nx}
+	\]
+
+	El máximo se alcanza en $x=a$:
+
+	\[
+	\sup_{x\in[a,+\infty)}
+	|f_n(x)-f(x)|
+	=
+	e^{-na}
+	\]
+
+	\[
+	\lim_{n\to\infty}e^{-na}=0
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	\{f_n\}\text{ converge uniformemente en }[a,+\infty)
+	}
+	\]
+
+\section{Ejercicio 4}
+	Dada la sucesión de funciones cuyo término general es
+
+	\[
+	f_n(x)=nxe^{-nx}
+	\]
+
+	determinar su límite puntual y si la sucesión converge uniformemente en algún intervalo.
+
+	\subsection{Solución}
+
+	Estudiamos el límite puntual:
+
+	\[
+	\lim_{n\to\infty}nxe^{-nx}
+	\]
+
+	Si $x>0$:
+
+	\[
+	\lim_{n\to\infty}nxe^{-nx}=0
+	\]
+
+	Si $x=0$:
+
+	\[
+	f_n(0)=0
+	\]
+
+	Si $x<0$:
+
+	\[
+	nxe^{-nx}\to-\infty
+	\]
+
+	Por tanto, el campo de convergencia es:
+
+	\[
+	\boxed{
+	C=[0,+\infty)
+	}
+	\]
+
+	y la función límite es:
+
+	\[
+	f(x)=0
+	\]
+
+	Estudiamos ahora la convergencia uniforme en $[0,+\infty)$:
+
+	\[
+	|f_n(x)-f(x)|
+	=
+	nxe^{-nx}
+	\]
+
+	Buscamos su máximo:
+
+	\[
+	\frac{d}{dx}
+	\left(
+	nxe^{-nx}
+	\right)
+	=
+	ne^{-nx}(1-nx)
+	\]
+
+	\[
+	1-nx=0
+	\qquad\Longrightarrow\qquad
+	x=\frac{1}{n}
+	\]
+
+	Por tanto:
+
+	\[
+	\sup_{x\in[0,+\infty)}
+	|f_n(x)|
+	=
+	f_n\left(\frac{1}{n}\right)
+	=
+	e^{-1}
+	\]
+
+	Como:
+
+	\[
+	\lim_{n\to\infty}e^{-1}
+	=
+	e^{-1}\neq0
+	\]
+
+	la convergencia no es uniforme en $[0,+\infty)$.
+
+	\[
+	\boxed{
+	\{f_n\}\text{ no converge uniformemente en }[0,+\infty)
+	}
+	\]
+
+	Sin embargo, para cualquier $a>0$:
+
+	\[
+	\sup_{x\in[a,+\infty)}
+	nxe^{-nx}
+	=
+	nae^{-na}
+	\]
+
+	para $n$ suficientemente grande, y:
+
+	\[
+	\lim_{n\to\infty}nae^{-na}=0
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	\{f_n\}\text{ converge uniformemente en }[a,+\infty),
+	\quad a>0
+	}
+	\]
+
+\section{Ejercicio 5}
+	Dada la sucesión de funciones cuyo término general es
+
+	\[
+	f_n(x)=\frac{2nx}{1+n^4x^2},
+	\qquad x\in[0,1]
+	\]
+
+	determinar su límite puntual y si la sucesión converge uniformemente en dicho intervalo.
+
+	\subsection{Solución}
+
+	Estudiamos el límite puntual:
+
+	\[
+	\lim_{n\to\infty}
+	\frac{2nx}{1+n^4x^2}
+	\]
+
+	Si $x=0$:
+
+	\[
+	f_n(0)=0
+	\]
+
+	Si $x>0$:
+
+	\[
+	\frac{2nx}{1+n^4x^2}
+	=
+	\frac{2x/n^3}{1/n^4+x^2}
+	\longrightarrow 0
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	f(x)=0
+	\qquad \forall x\in[0,1]
+	}
+	\]
+
+	Estudiamos ahora la convergencia uniforme:
+
+	\[
+	|f_n(x)-f(x)|
+	=
+	\frac{2nx}{1+n^4x^2}
+	\]
+
+	Buscamos su máximo derivando:
+
+	\[
+	f_n'(x)
+	=
+	\frac{
+	2n(1+n^4x^2)-2nx(2n^4x)
+	}{
+	(1+n^4x^2)^2
+	}
+	\]
+
+	\[
+	=
+	\frac{
+	2n(1-n^4x^2)
+	}{
+	(1+n^4x^2)^2
+	}
+	\]
+
+	\[
+	1-n^4x^2=0
+	\qquad\Longrightarrow\qquad
+	x=\frac{1}{n^2}
+	\]
+
+	Entonces:
+
+	\[
+	\sup_{x\in[0,1]}
+	|f_n(x)|
+	=
+	f_n\left(\frac{1}{n^2}\right)
+	=
+	\frac{2n\frac{1}{n^2}}{1+n^4\frac{1}{n^4}}
+	=
+	\frac{1}{n}
+	\]
+
+	Como:
+
+	\[
+	\lim_{n\to\infty}\frac{1}{n}=0
+	\]
+
+	se concluye que:
+
+	\[
+	\boxed{
+	\{f_n\}\text{ converge uniformemente en }[0,1]
+	}
+	\]
+
+\section{Ejercicio 6}
+	Dada la sucesión de funciones cuyo término general es
+
+	\[
+	f_n(x)=\frac{nx}{1+nx^2},
+	\qquad x\in[0,+\infty)
+	\]
+
+	calcular su límite puntual. A continuación, estudiar si esa función y las $f_n$ están acotadas en ese intervalo. ¿Es la convergencia uniforme?
+
+	\subsection{Solución}
+
+	Estudiamos el límite puntual:
+
+	\[
+	\lim_{n\to\infty}
+	\frac{nx}{1+nx^2}
+	\]
+
+	Si $x=0$:
+
+	\[
+	f_n(0)=0
+	\]
+
+	Si $x>0$:
+
+	\[
+	\frac{nx}{1+nx^2}
+	=
+	\frac{x}{\frac{1}{n}+x^2}
+	\longrightarrow
+	\frac{1}{x}
+	\]
+
+	Por tanto:
+
+	\[
+	f(x)=
+	\begin{cases}
+	0, & x=0 \\[1mm]
+	\displaystyle\frac{1}{x}, & x>0
+	\end{cases}
+	\]
+
+	La función límite no está acotada en $[0,+\infty)$, ya que:
+
+	\[
+	\lim_{x\to0^+}\frac{1}{x}=+\infty
+	\]
+
+	En cambio, para cada $n$ fijo, estudiamos el máximo de $f_n$:
+
+	\[
+	f_n'(x)
+	=
+	\frac{
+	n(1+nx^2)-nx(2nx)
+	}{
+	(1+nx^2)^2
+	}
+	=
+	\frac{
+	n(1-nx^2)
+	}{
+	(1+nx^2)^2
+	}
+	\]
+
+	\[
+	1-nx^2=0
+	\qquad\Longrightarrow\qquad
+	x=\frac{1}{\sqrt{n}}
+	\]
+
+	\[
+	f_n\left(\frac{1}{\sqrt{n}}\right)
+	=
+	\frac{\sqrt{n}}{2}
+	\]
+
+	Por tanto, cada función $f_n$ está acotada en $[0,+\infty)$.
+
+	Como todas las $f_n$ están acotadas pero la función límite $f$ no está acotada, la convergencia no puede ser uniforme.
+
+	\[
+	\boxed{
+	\{f_n\}\text{ no converge uniformemente en }[0,+\infty)
+	}
+	\]
+
+\section{Ejercicio 7}
+	Estudiar la convergencia puntual y uniforme de la sucesión de funciones cuyo término general es
+
+	\[
+	f_n(x)=\arctan(nx)
+	\]
+
+	en todo $\mathbb{R}$.
+
+	\subsection{Solución}
+
+	Estudiamos el límite puntual:
+
+	\[
+	\lim_{n\to\infty}\arctan(nx)
+	\]
+
+	Si $x>0$:
+
+	\[
+	\lim_{n\to\infty}\arctan(nx)
+	=
+	\frac{\pi}{2}
+	\]
+
+	Si $x=0$:
+
+	\[
+	f_n(0)=0
+	\]
+
+	Si $x<0$:
+
+	\[
+	\lim_{n\to\infty}\arctan(nx)
+	=
+	-\frac{\pi}{2}
+	\]
+
+	Por tanto, la función límite es:
+
+	\[
+	f(x)=
+	\begin{cases}
+	-\frac{\pi}{2}, & x<0 \\[1mm]
+	0, & x=0 \\[1mm]
+	\frac{\pi}{2}, & x>0
+	\end{cases}
+	\]
+
+	La función límite no es continua en $x=0$, mientras que todas las funciones
+	$f_n(x)=\arctan(nx)$ son continuas en $\mathbb{R}$.
+
+	Por tanto, la convergencia no puede ser uniforme en $\mathbb{R}$:
+
+	\[
+	\boxed{
+	\{f_n\}\text{ no converge uniformemente en }\mathbb{R}
+	}
+	\]
+
+	En cambio, la sucesión sí converge puntualmente en todo $\mathbb{R}$:
+
+	\[
+	\boxed{
+	C=\mathbb{R}
+	}
+	\]
+
+\section{Ejercicio 8}
+	Dada la sucesión de funciones cuyo término general es
+
+	\[
+	f_n(x)=\frac{x+n}{1+xn}
+	\]
+
+	calcular su límite puntual en $(0,+\infty)$ y determinar si es uniformemente convergente en $(1,+\infty)$.
+
+	\subsection{Solución}
+
+	Estudiamos el límite puntual:
+
+	\[
+	\lim_{n\to\infty}
+	\frac{x+n}{1+xn}
+	\]
+
+	Dividimos numerador y denominador entre $n$:
+
+	\[
+	\frac{x+n}{1+xn}
+	=
+	\frac{\frac{x}{n}+1}{\frac{1}{n}+x}
+	\]
+
+	Por tanto:
+
+	\[
+	\lim_{n\to\infty}
+	\frac{x+n}{1+xn}
+	=
+	\frac{1}{x}
+	\]
+
+	Así, la función límite es:
+
+	\[
+	\boxed{
+	f(x)=\frac{1}{x},
+	\qquad x\in(0,+\infty)
+	}
+	\]
+
+	Estudiamos ahora la convergencia uniforme en $(1,+\infty)$:
+
+	\[
+	\left|
+	f_n(x)-f(x)
+	\right|
+	=
+	\left|
+	\frac{x+n}{1+xn}
+	-
+	\frac{1}{x}
+	\right|
+	\]
+
+	\[
+	=
+	\left|
+	\frac{x(x+n)-(1+xn)}
+	{x(1+xn)}
+	\right|
+	=
+	\frac{x^2-1}{x(1+xn)}
+	\]
+
+	Para $x>1$:
+
+	\[
+	0<
+	\frac{x^2-1}{x(1+xn)}
+	<
+	\frac{x^2}{x^2n}
+	=
+	\frac{1}{n}
+	\]
+
+	Por tanto:
+
+	\[
+	\sup_{x\in(1,+\infty)}
+	|f_n(x)-f(x)|
+	\leq
+	\frac{1}{n}
+	\]
+
+	Como:
+
+	\[
+	\lim_{n\to\infty}\frac{1}{n}=0
+	\]
+
+	se concluye que:
+
+	\[
+	\boxed{
+	\{f_n\}\text{ converge uniformemente en }(1,+\infty)
+	}
+	\]
+
+\section{Ejercicio 9}
+	Demostrar que la sucesión $\{f_n\}$, donde
+
+	\[
+	f_n(x)=\frac{2n^2x}{(n^2x^2+1)^2}
+	\]
+
+	no es uniformemente convergente en el intervalo $[0,1]$ utilizando integrales.
+
+	\subsection{Solución}
+
+	Primero calculamos el límite puntual.
+
+	Si $x=0$:
+
+	\[
+	f_n(0)=0
+	\]
+
+	Si $x>0$:
+
+	\[
+	\frac{2n^2x}{(n^2x^2+1)^2}
+	=
+	\frac{\frac{2x}{n^2}}
+	{\left(x^2+\frac{1}{n^2}\right)^2}
+	\longrightarrow 0
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	f(x)=0
+	}
+	\]
+
+	Si la convergencia fuese uniforme, al ser las $f_n$ continuas en $[0,1]$ se cumpliría:
+
+	\[
+	\lim_{n\to\infty}
+	\int_0^1 f_n(x)\,dx
+	=
+	\int_0^1
+	\lim_{n\to\infty}f_n(x)\,dx
+	=
+	0
+	\]
+
+	Calculamos la integral:
+
+	\[
+	\int_0^1
+	\frac{2n^2x}{(n^2x^2+1)^2}\,dx
+	\]
+
+	Hacemos:
+
+	\[
+	u=n^2x^2+1,
+	\qquad
+	du=2n^2x\,dx
+	\]
+
+	\[
+	\int_0^1
+	\frac{2n^2x}{(n^2x^2+1)^2}\,dx
+	=
+	\int_1^{n^2+1}\frac{1}{u^2}\,du
+	\]
+
+	\[
+	=
+	\left[
+	-\frac{1}{u}
+	\right]_1^{n^2+1}
+	=
+	1-\frac{1}{n^2+1}
+	\]
+
+	Por tanto:
+
+	\[
+	\lim_{n\to\infty}
+	\int_0^1f_n(x)\,dx
+	=
+	1
+	\neq
+	0
+	=
+	\int_0^1f(x)\,dx
+	\]
+
+	Luego la convergencia no puede ser uniforme:
+
+	\[
+	\boxed{
+	\{f_n\}\text{ no converge uniformemente en }[0,1]
+	}
+	\]
+
+\section{Ejercicio 10}
+	Estudiar la convergencia puntual de la serie de funciones
+
+	\[
+	\sum_{n=1}^{\infty}
+	\left(
+	x+\frac{1}{n}
+	\right)^n,
+	\qquad x\geq 0
+	\]
+
+	\subsection{Solución}
+
+	Para que la serie pueda converger es necesario que:
+
+	\[
+	\lim_{n\to\infty}
+	\left(
+	x+\frac{1}{n}
+	\right)^n
+	=
+	0
+	\]
+
+	Estudiamos según el valor de $x$.
+
+	Si $x=0$:
+
+	\[
+	\left(
+	\frac{1}{n}
+	\right)^n
+	\longrightarrow 0
+	\]
+
+	y la serie
+
+	\[
+	\sum_{n=1}^{\infty}
+	\frac{1}{n^n}
+	\]
+
+	es convergente.
+
+	Si $0<x<1$, aplicamos el criterio de la raíz:
+
+	\[
+	\sqrt[n]{
+	\left(
+	x+\frac{1}{n}
+	\right)^n
+	}
+	=
+	x+\frac{1}{n}
+	\]
+
+	\[
+	\lim_{n\to\infty}
+	\left(
+	x+\frac{1}{n}
+	\right)
+	=
+	x<1
+	\]
+
+	Por tanto, la serie converge.
+
+	Si $x=1$:
+
+	\[
+	\left(
+	1+\frac{1}{n}
+	\right)^n
+	\longrightarrow e\neq0
+	\]
+
+	por lo que la serie diverge.
+
+	Si $x>1$:
+
+	\[
+	\left(
+	x+\frac{1}{n}
+	\right)^n
+	\not\longrightarrow0
+	\]
+
+	y la serie también diverge.
+
+	Por tanto, el campo de convergencia puntual es:
+
+	\[
+	\boxed{
+	C=[0,1)
+	}
+	\]
+
+\section{Ejercicio 11}
+	Estudiar la convergencia puntual de la serie de funciones
+
+	\[
+	\sum_{n=1}^{\infty}x^{n-1}
+	\]
+
+	en $(0,1)$ y calcular $S(x)$.
+
+	\subsection{Solución}
+
+	La serie es geométrica:
+
+	\[
+	\sum_{n=1}^{\infty}x^{n-1}
+	=
+	\sum_{k=0}^{\infty}x^k
+	\]
+
+	Una serie geométrica converge si:
+
+	\[
+	|x|<1
+	\]
+
+	Como $x\in(0,1)$, la serie converge para todo punto del intervalo.
+
+	Por tanto:
+
+	\[
+	\boxed{
+	C=(0,1)
+	}
+	\]
+
+	La suma de una serie geométrica es:
+
+	\[
+	\sum_{k=0}^{\infty}x^k
+	=
+	\frac{1}{1-x}
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	S(x)=\frac{1}{1-x},
+	\qquad x\in(0,1)
+	}
+	\]
+
+\section{Ejercicio 12}
+	Determinar si la serie de funciones
+
+	\[
+	\sum_{n=1}^{\infty}(1-x)x^{n-1}
+	\]
+
+	es uniformemente convergente en $[0,1]$.
+
+	\subsection{Solución}
+
+	Para $0\leq x<1$, la serie es geométrica:
+
+	\[
+	\sum_{n=1}^{\infty}(1-x)x^{n-1}
+	=
+	(1-x)\sum_{n=1}^{\infty}x^{n-1}
+	\]
+
+	\[
+	=
+	(1-x)\frac{1}{1-x}
+	=
+	1
+	\]
+
+	Si $x=1$:
+
+	\[
+	(1-x)x^{n-1}=0
+	\]
+
+	para todo $n$, por lo que:
+
+	\[
+	S(1)=0
+	\]
+
+	Así, la función suma es:
+
+	\[
+	S(x)=
+	\begin{cases}
+	1, & 0\leq x<1 \\[1mm]
+	0, & x=1
+	\end{cases}
+	\]
+
+	Cada término
+
+	\[
+	f_n(x)=(1-x)x^{n-1}
+	\]
+
+	es continuo en $[0,1]$, pero la función suma $S(x)$ no es continua en $x=1$.
+
+	Por tanto, la serie no puede converger uniformemente en $[0,1]$:
+
+	\[
+	\boxed{
+	\sum_{n=1}^{\infty}(1-x)x^{n-1}
+	\text{ no converge uniformemente en }[0,1]
+	}
+	\]
+
+\section{Ejercicio 13}
+	Determinar si la serie de funciones
+
+	\[
+	\sum_{n=1}^{\infty}\frac{\sin(nx)}{n^2}
+	\]
+
+	es uniformemente convergente en todo $\mathbb{R}$.
+
+	\subsection{Solución}
+
+	Aplicamos el criterio mayorante de Weierstrass.
+
+	Como:
+
+	\[
+	|\sin(nx)|\leq 1
+	\]
+
+	se tiene:
+
+	\[
+	\left|
+	\frac{\sin(nx)}{n^2}
+	\right|
+	\leq
+	\frac{1}{n^2}
+	\]
+
+	para todo $x\in\mathbb{R}$.
+
+	La serie numérica:
+
+	\[
+	\sum_{n=1}^{\infty}\frac{1}{n^2}
+	\]
+
+	es convergente.
+
+	Por el criterio mayorante de Weierstrass:
+
+	\[
+	\boxed{
+	\sum_{n=1}^{\infty}\frac{\sin(nx)}{n^2}
+	\text{ converge uniformemente en }\mathbb{R}
+	}
+	\]
+
+\section{Ejercicio 14}
+	Determinar si la serie de funciones
+
+	\[
+	\sum_{n=1}^{\infty}
+	\frac{x}{1+n^2x^2}
+	\]
+
+	es uniformemente convergente en el intervalo $[c,+\infty)$, donde $c>0$.
+
+	\subsection{Solución}
+
+	Aplicamos el criterio mayorante de Weierstrass.
+
+	Para $x\geq c>0$:
+
+	\[
+	\frac{x}{1+n^2x^2}
+	\leq
+	\frac{x}{n^2x^2}
+	=
+	\frac{1}{n^2x}
+	\]
+
+	Como $x\geq c$:
+
+	\[
+	\frac{1}{n^2x}
+	\leq
+	\frac{1}{n^2c}
+	\]
+
+	Por tanto:
+
+	\[
+	\left|
+	\frac{x}{1+n^2x^2}
+	\right|
+	\leq
+	\frac{1}{n^2c}
+	\]
+
+	La serie numérica:
+
+	\[
+	\sum_{n=1}^{\infty}
+	\frac{1}{n^2c}
+	=
+	\frac{1}{c}
+	\sum_{n=1}^{\infty}
+	\frac{1}{n^2}
+	\]
+
+	es convergente.
+
+	Por el criterio mayorante de Weierstrass:
+
+	\[
+	\boxed{
+	\sum_{n=1}^{\infty}
+	\frac{x}{1+n^2x^2}
+	\text{ converge uniformemente en }[c,+\infty)
+	}
+	\]
+
+\section{Ejercicio 15}
+	Determinar si la serie de funciones
+
+	\[
+	\sum_{n=0}^{\infty}
+	\frac{(-1)^n}{n!}x^n
+	\]
+
+	es uniformemente convergente en el intervalo $[-a,a]$, donde $a>0$.
+
+	\subsection{Solución}
+
+	Aplicamos el criterio mayorante de Weierstrass.
+
+	Para $x\in[-a,a]$:
+
+	\[
+	|x|\leq a
+	\]
+
+	Por tanto:
+
+	\[
+	\left|
+	\frac{(-1)^n}{n!}x^n
+	\right|
+	=
+	\frac{|x|^n}{n!}
+	\leq
+	\frac{a^n}{n!}
+	\]
+
+	La serie numérica:
+
+	\[
+	\sum_{n=0}^{\infty}\frac{a^n}{n!}
+	\]
+
+	es convergente, ya que:
+
+	\[
+	\sum_{n=0}^{\infty}\frac{a^n}{n!}
+	=
+	e^a
+	\]
+
+	Por el criterio mayorante de Weierstrass:
+
+	\[
+	\boxed{
+	\sum_{n=0}^{\infty}
+	\frac{(-1)^n}{n!}x^n
+	\text{ converge uniformemente en }[-a,a]
+	}
+	\]
+
+\section{Ejercicio 16}
+	Demostrar que la serie de funciones
+
+	\[
+	\sum_{n=0}^{\infty}
+	e^{-n^2\alpha}\sin(nx)
+	\]
+
+	es uniformemente convergente en $\mathbb{R}$ para cualquier valor $\alpha>0$.
+
+	\subsection{Solución}
+
+	Aplicamos el criterio mayorante de Weierstrass.
+
+	Como:
+
+	\[
+	|\sin(nx)|\leq 1
+	\]
+
+	se tiene:
+
+	\[
+	\left|
+	e^{-n^2\alpha}\sin(nx)
+	\right|
+	\leq
+	e^{-n^2\alpha}
+	\]
+
+	Para $n\geq1$:
+
+	\[
+	n^2\geq n
+	\]
+
+	y como $\alpha>0$:
+
+	\[
+	e^{-n^2\alpha}
+	\leq
+	e^{-n\alpha}
+	\]
+
+	La serie:
+
+	\[
+	\sum_{n=1}^{\infty}e^{-n\alpha}
+	\]
+
+	es geométrica de razón:
+
+	\[
+	e^{-\alpha}<1
+	\]
+
+	por lo que es convergente.
+
+	Por comparación:
+
+	\[
+	\sum_{n=0}^{\infty}e^{-n^2\alpha}
+	\]
+
+	es convergente.
+
+	Por el criterio mayorante de Weierstrass:
+
+	\[
+	\boxed{
+	\sum_{n=0}^{\infty}
+	e^{-n^2\alpha}\sin(nx)
+	\text{ converge uniformemente en }\mathbb{R}
+	}
+	\]
+
+\section{Ejercicio 17}
+	Determinar si la serie
+
+	\[
+	\sum_{n=1}^{\infty}
+	\frac{n^2+x^4}{n^4+x^2}
+	\]
+
+	converge uniformemente a una cierta función $S(x)$ en $[-a,a]$, donde $a>0$.
+	¿Se puede afirmar que $S(x)$ es continua en $[-a,a]$?
+
+	\subsection{Solución}
+
+	Aplicamos el criterio mayorante de Weierstrass.
+
+	Para $x\in[-a,a]$:
+
+	\[
+	|x|\leq a
+	\]
+
+	y por tanto:
+
+	\[
+	x^4\leq a^4
+	\]
+
+	Además:
+
+	\[
+	n^4+x^2\geq n^4
+	\]
+
+	Así:
+
+	\[
+	0\leq
+	\frac{n^2+x^4}{n^4+x^2}
+	\leq
+	\frac{n^2+a^4}{n^4}
+	\]
+
+	\[
+	=
+	\frac{1}{n^2}
+	+
+	\frac{a^4}{n^4}
+	\]
+
+	La serie numérica:
+
+	\[
+	\sum_{n=1}^{\infty}
+	\left(
+	\frac{1}{n^2}
+	+
+	\frac{a^4}{n^4}
+	\right)
+	\]
+
+	es convergente.
+
+	Por el criterio mayorante de Weierstrass:
+
+	\[
+	\boxed{
+	\sum_{n=1}^{\infty}
+	\frac{n^2+x^4}{n^4+x^2}
+	\text{ converge uniformemente en }[-a,a]
+	}
+	\]
+
+	Cada función:
+
+	\[
+	f_n(x)=
+	\frac{n^2+x^4}{n^4+x^2}
+	\]
+
+	es continua en $[-a,a]$.
+
+	Como la serie converge uniformemente y cada $f_n$ es continua, su función suma $S(x)$ también es continua.
+
+	\[
+	\boxed{
+	S(x)\text{ es continua en }[-a,a]
+	}
+	\]
+
+\section{Ejercicio 18}
+	Calcular el campo de convergencia de la serie de potencias
+
+	\[
+	\sum_{n=0}^{\infty}x^n
+	\]
+
+	\subsection{Solución}
+
+	Aplicamos el criterio del cociente:
+
+	\[
+	\lim_{n\to\infty}
+	\left|
+	\frac{x^{n+1}}{x^n}
+	\right|
+	=
+	|x|
+	\]
+
+	La serie converge si:
+
+	\[
+	|x|<1
+	\]
+
+	Por tanto, el radio de convergencia es:
+
+	\[
+	\boxed{
+	R=1
+	}
+	\]
+
+	Estudiamos los extremos.
+
+	Si $x=1$:
+
+	\[
+	\sum_{n=0}^{\infty}1
+	\]
+
+	es divergente.
+
+	Si $x=-1$:
+
+	\[
+	\sum_{n=0}^{\infty}(-1)^n
+	\]
+
+	es divergente, ya que el término general no tiende a cero.
+
+	Por tanto, el campo de convergencia es:
+
+	\[
+	\boxed{
+	C=(-1,1)
+	}
+	\]
+
+\section{Ejercicio 19}
+	Calcular el campo de convergencia de la serie de potencias
+
+	\[
+	\sum_{n=1}^{\infty}n!x^n
+	\]
+
+	\subsection{Solución}
+
+	Aplicamos el criterio del cociente:
+
+	\[
+	\lim_{n\to\infty}
+	\left|
+	\frac{(n+1)!x^{n+1}}{n!x^n}
+	\right|
+	\]
+
+	\[
+	=
+	\lim_{n\to\infty}
+	(n+1)|x|
+	\]
+
+	Si $x\neq0$:
+
+	\[
+	\lim_{n\to\infty}
+	(n+1)|x|
+	=
+	+\infty
+	\]
+
+	por lo que la serie diverge.
+
+	Si $x=0$:
+
+	\[
+	\sum_{n=1}^{\infty}n!0^n=0
+	\]
+
+	y la serie converge.
+
+	Por tanto, el radio de convergencia es:
+
+	\[
+	\boxed{
+	R=0
+	}
+	\]
+
+	y el campo de convergencia es:
+
+	\[
+	\boxed{
+	C=\{0\}
+	}
+	\]
+
+\section{Ejercicio 20}
+	Calcular el campo de convergencia de la serie de potencias
+
+	\[
+	\sum_{n=1}^{\infty}\frac{x^n}{n!}
+	\]
+
+	\subsection{Solución}
+
+	Aplicamos el criterio del cociente:
+
+	\[
+	\lim_{n\to\infty}
+	\left|
+	\frac{x^{n+1}}{(n+1)!}
+	\frac{n!}{x^n}
+	\right|
+	\]
+
+	\[
+	=
+	\lim_{n\to\infty}
+	\frac{|x|}{n+1}
+	=
+	0
+	\]
+
+	para cualquier $x\in\mathbb{R}$.
+
+	Como:
+
+	\[
+	0<1
+	\]
+
+	la serie converge para todo $x\in\mathbb{R}$.
+
+	Por tanto, el radio de convergencia es:
+
+	\[
+	\boxed{
+	R=+\infty
+	}
+	\]
+
+	y el campo de convergencia es:
+
+	\[
+	\boxed{
+	C=\mathbb{R}
+	}
+	\]
+
+\section{Ejercicio 21}
+	Calcular el campo de convergencia de la serie de potencias
+
+	\[
+	\sum_{n=0}^{\infty}\frac{x^n}{2n+1}
+	\]
+
+	\subsection{Solución}
+
+	Aplicamos el criterio del cociente:
+
+	\[
+	\lim_{n\to\infty}
+	\left|
+	\frac{x^{n+1}}{2n+3}
+	\frac{2n+1}{x^n}
+	\right|
+	\]
+
+	\[
+	=
+	|x|
+	\lim_{n\to\infty}
+	\frac{2n+1}{2n+3}
+	=
+	|x|
+	\]
+
+	La serie converge si:
+
+	\[
+	|x|<1
+	\]
+
+	Por tanto, el radio de convergencia es:
+
+	\[
+	\boxed{
+	R=1
+	}
+	\]
+
+	Estudiamos los extremos.
+
+	Si $x=1$:
+
+	\[
+	\sum_{n=0}^{\infty}\frac{1}{2n+1}
+	\]
+
+	es divergente.
+
+	Si $x=-1$:
+
+	\[
+	\sum_{n=0}^{\infty}\frac{(-1)^n}{2n+1}
+	\]
+
+	es convergente por el criterio de Leibniz.
+
+	Por tanto, el campo de convergencia es:
+
+	\[
+	\boxed{
+	C=[-1,1)
+	}
+	\]
+
+\section{Ejercicio 22}
+	Calcular el campo de convergencia de la serie de potencias
+
+	\[
+	\sum_{n=1}^{\infty}2^n x^n
+	\]
+
+	\subsection{Solución}
+
+	Aplicamos el criterio del cociente:
+
+	\[
+	\lim_{n\to\infty}
+	\left|
+	\frac{2^{n+1}x^{n+1}}{2^n x^n}
+	\right|
+	=
+	2|x|
+	\]
+
+	La serie converge si:
+
+	\[
+	2|x|<1
+	\]
+
+	\[
+	|x|<\frac{1}{2}
+	\]
+
+	Por tanto, el radio de convergencia es:
+
+	\[
+	\boxed{
+	R=\frac{1}{2}
+	}
+	\]
+
+	Estudiamos los extremos.
+
+	Si $x=\frac{1}{2}$:
+
+	\[
+	\sum_{n=1}^{\infty}
+	2^n\left(\frac{1}{2}\right)^n
+	=
+	\sum_{n=1}^{\infty}1
+	\]
+
+	es divergente.
+
+	Si $x=-\frac{1}{2}$:
+
+	\[
+	\sum_{n=1}^{\infty}
+	2^n\left(-\frac{1}{2}\right)^n
+	=
+	\sum_{n=1}^{\infty}(-1)^n
+	\]
+
+	es divergente.
+
+	Por tanto, el campo de convergencia es:
+
+	\[
+	\boxed{
+	C=\left(-\frac{1}{2},\frac{1}{2}\right)
+	}
+	\]
+
+\section{Ejercicio 23}
+	Calcular el campo de convergencia de la serie de potencias
+
+	\[
+	\sum_{n=1}^{\infty}\frac{x^{2n}}{3^n}
+	\]
+
+	\subsection{Solución}
+
+	Podemos escribir:
+
+	\[
+	\frac{x^{2n}}{3^n}
+	=
+	\left(
+	\frac{x^2}{3}
+	\right)^n
+	\]
+
+	Por tanto, es una serie geométrica de razón:
+
+	\[
+	r=\frac{x^2}{3}
+	\]
+
+	La serie converge si:
+
+	\[
+	\left|
+	\frac{x^2}{3}
+	\right|<1
+	\]
+
+	Como $x^2\geq0$:
+
+	\[
+	\frac{x^2}{3}<1
+	\]
+
+	\[
+	x^2<3
+	\]
+
+	\[
+	|x|<\sqrt{3}
+	\]
+
+	Por tanto, el radio de convergencia es:
+
+	\[
+	\boxed{
+	R=\sqrt{3}
+	}
+	\]
+
+	Estudiamos los extremos.
+
+	Si $x=\sqrt{3}$:
+
+	\[
+	\sum_{n=1}^{\infty}
+	\frac{(\sqrt{3})^{2n}}{3^n}
+	=
+	\sum_{n=1}^{\infty}1
+	\]
+
+	es divergente.
+
+	Si $x=-\sqrt{3}$:
+
+	\[
+	\sum_{n=1}^{\infty}
+	\frac{(-\sqrt{3})^{2n}}{3^n}
+	=
+	\sum_{n=1}^{\infty}1
+	\]
+
+	es divergente.
+
+	Por tanto, el campo de convergencia es:
+
+	\[
+	\boxed{
+	C=(-\sqrt{3},\sqrt{3})
+	}
+	\]
+
+\section{Ejercicio 24}
+	Calcular el campo de convergencia de la serie de potencias
+
+	\[
+	\sum_{n=1}^{\infty}
+	\frac{(x-2)^n}{n^2}
+	\]
+
+	\subsection{Solución}
+
+	Aplicamos el criterio del cociente:
+
+	\[
+	\lim_{n\to\infty}
+	\left|
+	\frac{(x-2)^{n+1}}{(n+1)^2}
+	\frac{n^2}{(x-2)^n}
+	\right|
+	\]
+
+	\[
+	=
+	|x-2|
+	\lim_{n\to\infty}
+	\frac{n^2}{(n+1)^2}
+	=
+	|x-2|
+	\]
+
+	La serie converge si:
+
+	\[
+	|x-2|<1
+	\]
+
+	\[
+	1<x<3
+	\]
+
+	Por tanto, el radio de convergencia es:
+
+	\[
+	\boxed{
+	R=1
+	}
+	\]
+
+	Estudiamos los extremos.
+
+	Si $x=1$:
+
+	\[
+	\sum_{n=1}^{\infty}
+	\frac{(-1)^n}{n^2}
+	\]
+
+	es convergente.
+
+	Si $x=3$:
+
+	\[
+	\sum_{n=1}^{\infty}
+	\frac{1}{n^2}
+	\]
+
+	es convergente.
+
+	Por tanto, el campo de convergencia es:
+
+	\[
+	\boxed{
+	C=[1,3]
+	}
+	\]
+
+\section{Ejercicio 25}
+	Determinar el desarrollo en serie de la función
+
+	\[
+	f(x)=(1+e^x)^2
+	\]
+
+	y calcular su radio de convergencia.
+
+	\subsection{Solución}
+
+	Desarrollamos:
+
+	\[
+	(1+e^x)^2
+	=
+	1+2e^x+e^{2x}
+	\]
+
+	Sabemos que:
+
+	\[
+	e^x
+	=
+	\sum_{n=0}^{\infty}\frac{x^n}{n!}
+	\]
+
+	y:
+
+	\[
+	e^{2x}
+	=
+	\sum_{n=0}^{\infty}\frac{2^n x^n}{n!}
+	\]
+
+	Por tanto:
+
+	\[
+	f(x)
+	=
+	1
+	+
+	2\sum_{n=0}^{\infty}\frac{x^n}{n!}
+	+
+	\sum_{n=0}^{\infty}\frac{2^n x^n}{n!}
+	\]
+
+	Separando el término constante:
+
+	\[
+	f(x)
+	=
+	4
+	+
+	\sum_{n=1}^{\infty}
+	\frac{2+2^n}{n!}x^n
+	\]
+
+	Así, el desarrollo en serie de potencias es:
+
+	\[
+	\boxed{
+	(1+e^x)^2
+	=
+	4+
+	\sum_{n=1}^{\infty}
+	\frac{2+2^n}{n!}x^n
+	}
+	\]
+
+	Como las series de $e^x$ y $e^{2x}$ convergen para todo $x\in\mathbb{R}$:
+
+	\[
+	\boxed{
+	R=+\infty
+	}
+	\]
+
+\section{Ejercicio 26}
+	Determinar el desarrollo en serie de la función
+
+	\[
+	f(x)=\frac{1}{\sqrt{2-x}}
+	\]
+
+	y calcular su radio de convergencia.
+
+	\subsection{Solución}
+
+	Escribimos:
+
+	\[
+	\frac{1}{\sqrt{2-x}}
+	=
+	\frac{1}{\sqrt{2}}
+	\frac{1}{\sqrt{1-\frac{x}{2}}}
+	\]
+
+	Usamos el desarrollo:
+
+	\[
+	(1-u)^{-1/2}
+	=
+	\sum_{n=0}^{\infty}
+	\frac{(2n)!}{4^n(n!)^2}u^n
+	\]
+
+	con:
+
+	\[
+	u=\frac{x}{2}
+	\]
+
+	Por tanto:
+
+	\[
+	\frac{1}{\sqrt{2-x}}
+	=
+	\frac{1}{\sqrt{2}}
+	\sum_{n=0}^{\infty}
+	\frac{(2n)!}{4^n(n!)^2}
+	\left(
+	\frac{x}{2}
+	\right)^n
+	\]
+
+	\[
+	=
+	\frac{1}{\sqrt{2}}
+	\sum_{n=0}^{\infty}
+	\frac{(2n)!}{8^n(n!)^2}x^n
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	\frac{1}{\sqrt{2-x}}
+	=
+	\frac{1}{\sqrt{2}}
+	\sum_{n=0}^{\infty}
+	\frac{(2n)!}{8^n(n!)^2}x^n
+	}
+	\]
+
+	El desarrollo de $(1-u)^{-1/2}$ converge para:
+
+	\[
+	|u|<1
+	\]
+
+	Así:
+
+	\[
+	\left|
+	\frac{x}{2}
+	\right|<1
+	\]
+
+	\[
+	|x|<2
+	\]
+
+	Por tanto, el radio de convergencia es:
+
+	\[
+	\boxed{
+	R=2
+	}
+	\]
+
+\section{Ejercicio 27}
+	Hallar el desarrollo en serie de la función
+
+	\[
+	f(x)=\frac{3x+2}{x^2-5x+6}
+	\]
+
+	y calcular su radio de convergencia.
+
+	\subsection{Solución}
+
+	Factorizamos el denominador:
+
+	\[
+	x^2-5x+6=(x-2)(x-3)
+	\]
+
+	Descomponemos en fracciones simples:
+
+	\[
+	\frac{3x+2}{(x-2)(x-3)}
+	=
+	\frac{A}{x-2}
+	+
+	\frac{B}{x-3}
+	\]
+
+	\[
+	3x+2
+	=
+	A(x-3)+B(x-2)
+	\]
+
+	\[
+	A+B=3
+	\]
+
+	\[
+	-3A-2B=2
+	\]
+
+	De donde:
+
+	\[
+	A=-8,
+	\qquad
+	B=11
+	\]
+
+	Por tanto:
+
+	\[
+	f(x)
+	=
+	-\frac{8}{x-2}
+	+
+	\frac{11}{x-3}
+	\]
+
+	Reescribimos:
+
+	\[
+	-\frac{8}{x-2}
+	=
+	\frac{4}{1-\frac{x}{2}}
+	\]
+
+	y:
+
+	\[
+	\frac{11}{x-3}
+	=
+	-\frac{11}{3}
+	\frac{1}{1-\frac{x}{3}}
+	\]
+
+	Usando la serie geométrica:
+
+	\[
+	\frac{1}{1-u}
+	=
+	\sum_{n=0}^{\infty}u^n
+	\]
+
+	obtenemos:
+
+	\[
+	f(x)
+	=
+	4\sum_{n=0}^{\infty}
+	\left(\frac{x}{2}\right)^n
+	-
+	\frac{11}{3}
+	\sum_{n=0}^{\infty}
+	\left(\frac{x}{3}\right)^n
+	\]
+
+	\[
+	=
+	\sum_{n=0}^{\infty}
+	\left(
+	\frac{4}{2^n}
+	-
+	\frac{11}{3^{n+1}}
+	\right)x^n
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	\frac{3x+2}{x^2-5x+6}
+	=
+	\sum_{n=0}^{\infty}
+	\left(
+	\frac{4}{2^n}
+	-
+	\frac{11}{3^{n+1}}
+	\right)x^n
+	}
+	\]
+
+	La primera serie requiere:
+
+	\[
+	\left|\frac{x}{2}\right|<1
+	\qquad\Longrightarrow\qquad
+	|x|<2
+	\]
+
+	y la segunda:
+
+	\[
+	\left|\frac{x}{3}\right|<1
+	\qquad\Longrightarrow\qquad
+	|x|<3
+	\]
+
+	Por tanto, el desarrollo completo converge para:
+
+	\[
+	|x|<2
+	\]
+
+	y el radio de convergencia es:
+
+	\[
+	\boxed{
+	R=2
+	}
+	\]
+
+\section{Ejercicio 28}
+	Determinar el radio de convergencia de la serie
+
+	\[
+	\sum_{n=1}^{\infty}n^2x^n
+	\]
+
+	y calcular su suma derivando la expresión de la serie geométrica.
+
+	\subsection{Solución}
+
+	Partimos de la serie geométrica:
+
+	\[
+	\sum_{n=0}^{\infty}x^n
+	=
+	\frac{1}{1-x},
+	\qquad |x|<1
+	\]
+
+	Derivamos:
+
+	\[
+	\sum_{n=1}^{\infty}nx^{n-1}
+	=
+	\frac{1}{(1-x)^2}
+	\]
+
+	Multiplicamos por $x$:
+
+	\[
+	\sum_{n=1}^{\infty}nx^n
+	=
+	\frac{x}{(1-x)^2}
+	\]
+
+	Derivamos de nuevo:
+
+	\[
+	\sum_{n=1}^{\infty}n^2x^{n-1}
+	=
+	\frac{d}{dx}
+	\left(
+	\frac{x}{(1-x)^2}
+	\right)
+	\]
+
+	\[
+	=
+	\frac{1+x}{(1-x)^3}
+	\]
+
+	Multiplicando por $x$:
+
+	\[
+	\boxed{
+	\sum_{n=1}^{\infty}n^2x^n
+	=
+	\frac{x(1+x)}{(1-x)^3}
+	}
+	\]
+
+	Como la serie geométrica y sus derivadas tienen el mismo radio de convergencia:
+
+	\[
+	\boxed{
+	R=1
+	}
+	\]
+
+	La expresión de la suma es válida para:
+
+	\[
+	\boxed{
+	|x|<1
+	}
+	\]
+
+\section{Ejercicio 29}
+	Dada la serie
+
+	\[
+	\sum_{n=1}^{\infty}
+	\frac{x^n}{3^{n+1}n!}
+	\]
+
+	calcular su intervalo de convergencia y sumar la serie utilizando el desarrollo como serie de potencias de la función $e^x$.
+
+	\subsection{Solución}
+
+	Escribimos:
+
+	\[
+	\frac{x^n}{3^{n+1}n!}
+	=
+	\frac{1}{3}
+	\frac{\left(\frac{x}{3}\right)^n}{n!}
+	\]
+
+	Por tanto:
+
+	\[
+	\sum_{n=1}^{\infty}
+	\frac{x^n}{3^{n+1}n!}
+	=
+	\frac{1}{3}
+	\sum_{n=1}^{\infty}
+	\frac{\left(\frac{x}{3}\right)^n}{n!}
+	\]
+
+	Sabemos que:
+
+	\[
+	e^u
+	=
+	\sum_{n=0}^{\infty}
+	\frac{u^n}{n!}
+	\]
+
+	Así:
+
+	\[
+	\sum_{n=1}^{\infty}
+	\frac{\left(\frac{x}{3}\right)^n}{n!}
+	=
+	e^{x/3}-1
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	\sum_{n=1}^{\infty}
+	\frac{x^n}{3^{n+1}n!}
+	=
+	\frac{1}{3}
+	\left(
+	e^{x/3}-1
+	\right)
+	}
+	\]
+
+	Como la serie de $e^x$ converge para todo $x\in\mathbb{R}$, también lo hace la serie dada.
+
+	Por tanto:
+
+	\[
+	\boxed{
+	R=+\infty
+	}
+	\]
+
+	y el intervalo de convergencia es:
+
+	\[
+	\boxed{
+	C=\mathbb{R}
+	}
+	\]
+
+\section{Ejercicio 30}
+	Dada la serie
+
+	\[
+	\sum_{n=1}^{\infty}x^n(1-x^n)
+	\]
+
+	determinar el campo de convergencia y calcular su suma utilizando las expresiones de otras series de potencias.
+
+	\subsection{Solución}
+
+	Desarrollamos:
+
+	\[
+	x^n(1-x^n)
+	=
+	x^n-x^{2n}
+	\]
+
+	Por tanto:
+
+	\[
+	\sum_{n=1}^{\infty}x^n(1-x^n)
+	=
+	\sum_{n=1}^{\infty}x^n
+	-
+	\sum_{n=1}^{\infty}x^{2n}
+	\]
+
+	Ambas son series geométricas.
+
+	La primera converge si:
+
+	\[
+	|x|<1
+	\]
+
+	y la segunda si:
+
+	\[
+	|x^2|<1
+	\qquad\Longrightarrow\qquad
+	|x|<1
+	\]
+
+	Por tanto, para $|x|<1$:
+
+	\[
+	\sum_{n=1}^{\infty}x^n
+	=
+	\frac{x}{1-x}
+	\]
+
+	y:
+
+	\[
+	\sum_{n=1}^{\infty}x^{2n}
+	=
+	\frac{x^2}{1-x^2}
+	\]
+
+	Así:
+
+	\[
+	S(x)
+	=
+	\frac{x}{1-x}
+	-
+	\frac{x^2}{1-x^2}
+	\]
+
+	\[
+	=
+	\frac{x(1+x)-x^2}{1-x^2}
+	\]
+
+	\[
+	=
+	\frac{x}{1-x^2}
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	S(x)=\frac{x}{1-x^2}
+	}
+	\]
+
+	para:
+
+	\[
+	|x|<1
+	\]
+
+	Estudiamos los extremos.
+
+	Si $x=1$:
+
+	\[
+	x^n(1-x^n)=0
+	\]
+
+	para todo $n$, por lo que la serie converge y:
+
+	\[
+	S(1)=0
+	\]
+
+	Si $x=-1$:
+
+	\[
+	(-1)^n\left(1-(-1)^n\right)
+	\]
+
+	no tiende a cero, por lo que la serie diverge.
+
+	Por tanto, el campo de convergencia es:
+
+	\[
+	\boxed{
+	C=(-1,1]
+	}
+	\]
+
+
+\end{document}
