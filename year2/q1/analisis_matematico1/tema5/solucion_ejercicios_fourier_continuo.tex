@@ -1,0 +1,2966 @@
+\documentclass[fleqn]{article}
+\usepackage{amsmath}
+\DeclareMathOperator{\sen}{sen} 
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\title{Solución Problemas Fourier Continuo}
+\author{Juan Rodríguez}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+\maketitle
+\section{Ejercicio 1}
+	Determinar si las siguientes señales son pares o impares:
+
+	\[
+	x_1(t)=t\cos(t)
+	\]
+
+	\[
+	x_2(t)=\cos(t)\sin^2(t)
+	\]
+
+	\[
+	x_3(t)=t\sin(t)
+	\]
+
+	\subsection{Solución}
+
+	Para $x_1(t)$:
+
+	\[
+	x_1(-t)
+	=
+	(-t)\cos(-t)
+    =
+	-t\cos(t)
+	=
+	-x_1(t)
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	x_1(t)\text{ es impar}
+	}
+	\]
+
+	Para $x_2(t)$:
+
+	\[
+	x_2(-t)
+	=
+	\cos(-t)\sin^2(-t)
+	=
+	\cos(t)\sin^2(t)
+	=
+	x_2(t)
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	x_2(t)\text{ es par}
+	}
+	\]
+
+	Para $x_3(t)$:
+
+	\[
+	x_3(-t)
+	=
+	(-t)\sin(-t)
+	=
+	(-t)(-\sin(t))
+	=
+	t\sin(t)
+	=
+	x_3(t)
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	x_3(t)\text{ es par}
+	}
+	\]
+
+\section{Ejercicio 2}
+	Determinar la parte par y la parte impar de la señal
+
+	\[
+	x(t)=2\cos(t)-\sen(t)+3\sen(t)\cos(t)
+	\]
+
+	\subsection{Solución}
+
+	La parte par viene dada por:
+
+	\[
+	x_{\text{par}}(t)
+	=
+	\frac{x(t)+x(-t)}{2}
+	\]
+
+	Calculamos:
+
+	\[
+	x(-t)
+	=
+	2\cos(-t)-\sen(-t)+3\sen(-t)\cos(-t)
+	\]
+
+	\[
+	=
+	2\cos(t)+\sen(t)-3\sen(t)\cos(t)
+	\]
+
+	Por tanto:
+
+	\[
+	x_{\text{par}}(t)
+	=
+	\frac{
+	2\cos(t)-\sen(t)+3\sen(t)\cos(t)
+	+
+	2\cos(t)+\sen(t)-3\sen(t)\cos(t)
+	}{2}
+	\]
+
+	\[
+	\boxed{
+	x_{\text{par}}(t)=2\cos(t)
+	}
+	\]
+
+	La parte impar viene dada por:
+
+	\[
+	x_{\text{impar}}(t)
+	=
+	\frac{x(t)-x(-t)}{2}
+	\]
+
+	\[
+	x_{\text{impar}}(t)
+	=
+	\frac{
+	2\cos(t)-\sen(t)+3\sen(t)\cos(t)
+	-
+	\left(
+	2\cos(t)+\sen(t)-3\sen(t)\cos(t)
+	\right)
+	}{2}
+	\]
+
+	\[
+	\boxed{
+	x_{\text{impar}}(t)
+	=
+	-\sen(t)+3\sen(t)\cos(t)
+	}
+	\]
+
+\section{Ejercicio 3}
+	Obtener el período de las señales
+
+	\[
+	x_1(t)=\cos\left(\frac{8\pi}{31}t\right)
+	\]
+
+	y
+
+	\[
+	x_2(t)=\sen\left(\frac{2}{5}t\right)
+	\]
+
+	\subsection{Solución}
+
+	Para una señal sinusoidal:
+
+	\[
+	T_0=\frac{2\pi}{\omega_0}
+	\]
+
+	Para $x_1(t)$:
+
+	\[
+	\omega_0=\frac{8\pi}{31}
+	\]
+
+	\[
+	T_1
+	=
+	\frac{2\pi}{\frac{8\pi}{31}}
+	=
+	\frac{31}{4}
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	T_1=\frac{31}{4}
+	}
+	\]
+
+	Para $x_2(t)$:
+
+	\[
+	\omega_0=\frac{2}{5}
+	\]
+
+	\[
+	T_2
+	=
+	\frac{2\pi}{\frac{2}{5}}
+	=
+	5\pi
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	T_2=5\pi
+	}
+	\]
+
+\section{Ejercicio 4}
+	Determinar si la señal
+
+	\[
+	x(t)=\cos(3.5\pi t)+\sen(2\pi t)
+	+2\cos\left(\frac{7\pi}{6}t\right)
+	\]
+
+	es periódica y, en caso afirmativo, determinar su período fundamental.
+
+	\subsection{Solución}
+
+	Calculamos el período de cada término.
+
+	Para:
+
+	\[
+	\cos(3.5\pi t)
+	=
+	\cos\left(\frac{7\pi}{2}t\right)
+	\]
+
+	se tiene:
+
+	\[
+	T_1
+	=
+	\frac{2\pi}{\frac{7\pi}{2}}
+	=
+	\frac{4}{7}
+	\]
+
+	Para:
+
+	\[
+	\sen(2\pi t)
+	\]
+
+	se tiene:
+
+	\[
+	T_2
+	=
+	\frac{2\pi}{2\pi}
+	=
+	1
+	\]
+
+	Para:
+
+	\[
+	2\cos\left(\frac{7\pi}{6}t\right)
+	\]
+
+	se tiene:
+
+	\[
+	T_3
+	=
+	\frac{2\pi}{\frac{7\pi}{6}}
+	=
+	\frac{12}{7}
+	\]
+
+	Buscamos el menor valor $T_0$ que sea múltiplo de los tres períodos:
+
+	\[
+	T_0
+	=
+	12
+	\]
+
+	En efecto:
+
+	\[
+	12
+	=
+	21T_1
+	=
+	12T_2
+	=
+	7T_3
+	\]
+
+	Por tanto, la señal es periódica y su período fundamental es:
+
+	\[
+	\boxed{
+	T_0=12
+	}
+	\]
+
+\section{Ejercicio 5}
+	Determinar si son periódicas las señales
+
+	\[
+	x_1(t)=\cos(3\pi t)+\sen(6t)
+	\]
+
+	y
+
+	\[
+	x_2(t)=\cos(5t)+\sen\left(\frac{4}{3}t\right)
+	\]
+
+	y, en caso afirmativo, determinar su período fundamental.
+
+	\subsection{Solución}
+
+	Para que la suma de dos señales sinusoidales sea periódica, el cociente entre sus frecuencias angulares debe ser racional.
+
+	Para $x_1(t)$:
+
+	\[
+	\omega_1=3\pi,
+	\qquad
+	\omega_2=6
+	\]
+
+	\[
+	\frac{\omega_1}{\omega_2}
+	=
+	\frac{3\pi}{6}
+	=
+	\frac{\pi}{2}
+	\]
+
+	Como:
+
+	\[
+	\frac{\pi}{2}\notin\mathbb{Q}
+	\]
+
+	la señal no es periódica.
+
+	\[
+	\boxed{
+	x_1(t)\text{ no es periódica}
+	}
+	\]
+
+	Para $x_2(t)$:
+
+	\[
+	\omega_1=5,
+	\qquad
+	\omega_2=\frac{4}{3}
+	\]
+
+	\[
+	\frac{\omega_1}{\omega_2}
+	=
+	\frac{5}{\frac{4}{3}}
+	=
+	\frac{15}{4}
+	\]
+
+	Como:
+
+	\[
+	\frac{15}{4}\in\mathbb{Q}
+	\]
+
+	la señal es periódica.
+
+	Calculamos los períodos:
+
+	\[
+	T_1
+	=
+	\frac{2\pi}{5}
+	\]
+
+	\[
+	T_2
+	=
+	\frac{2\pi}{\frac{4}{3}}
+	=
+	\frac{3\pi}{2}
+	\]
+
+	Buscamos el menor múltiplo común:
+
+	\[
+	15T_1
+	=
+	4T_2
+	=
+	6\pi
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	T_0=6\pi
+	}
+	\]
+
+\section{Ejercicio 6}
+	Calcular las siguientes expresiones:
+
+	\[
+	\text{a) }\int_{-\infty}^{\infty}e^{-t}\delta(t)\,dt
+	\]
+
+	\[
+	\text{b) }\int_{-\infty}^{\infty}e^{-t}\delta(t-3)\,dt
+	\]
+
+	\[
+	\text{c) }\int_{-\infty}^{\infty}(t^2-2)\delta(t)\,dt
+	\]
+
+	\[
+	\text{d) }\int_{-\infty}^{\infty}e^{-t}\delta(2t)\,dt
+	\]
+
+	\subsection{Solución}
+
+	Utilizamos la propiedad de selectividad:
+
+	\[
+	\int_{-\infty}^{\infty}
+	f(t)\delta(t-t_0)\,dt
+	=
+	f(t_0)
+	\]
+
+	Para el apartado a):
+
+	\[
+	\int_{-\infty}^{\infty}
+	e^{-t}\delta(t)\,dt
+	=
+	e^0
+	\]
+
+	\[
+	\boxed{1}
+	\]
+
+	Para el apartado b):
+
+	\[
+	\int_{-\infty}^{\infty}
+	e^{-t}\delta(t-3)\,dt
+	=
+	e^{-3}
+	\]
+
+	\[
+	\boxed{e^{-3}}
+	\]
+
+	Para el apartado c):
+
+	\[
+	\int_{-\infty}^{\infty}
+	(t^2-2)\delta(t)\,dt
+	=
+	0^2-2
+	\]
+
+	\[
+	\boxed{-2}
+	\]
+
+	Para el apartado d), utilizamos:
+
+	\[
+	\delta(at)
+	=
+	\frac{1}{|a|}\delta(t)
+	\]
+
+	Por tanto:
+
+	\[
+	\delta(2t)
+	=
+	\frac{1}{2}\delta(t)
+	\]
+
+	\[
+	\int_{-\infty}^{\infty}
+	e^{-t}\delta(2t)\,dt
+	=
+	\frac{1}{2}
+	\int_{-\infty}^{\infty}
+	e^{-t}\delta(t)\,dt
+	\]
+
+	\[
+	\boxed{\frac{1}{2}}
+	\]
+
+\section{Ejercicio 7}
+	Calcular la energía y la potencia media de la señal
+
+	\[
+	x(t)=2
+	\]
+
+	\subsection{Solución}
+
+	La energía de una señal es:
+
+	\[
+	E
+	=
+	\int_{-\infty}^{\infty}
+	|x(t)|^2\,dt
+	\]
+
+	Como:
+
+	\[
+	|x(t)|^2=4
+	\]
+
+	se tiene:
+
+	\[
+	E
+	=
+	\int_{-\infty}^{\infty}4\,dt
+	=
+	+\infty
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	E=+\infty
+	}
+	\]
+
+	La potencia media es:
+
+	\[
+	P
+	=
+	\lim_{T\to\infty}
+	\frac{1}{2T}
+	\int_{-T}^{T}
+	|x(t)|^2\,dt
+	\]
+
+	\[
+	P
+	=
+	\lim_{T\to\infty}
+	\frac{1}{2T}
+	\int_{-T}^{T}
+	4\,dt
+	\]
+
+	\[
+	P
+	=
+	\lim_{T\to\infty}
+	\frac{1}{2T}
+	(8T)
+	\]
+
+	\[
+	\boxed{
+	P=4
+	}
+	\]
+
+	Por tanto, la señal está definida en potencia:
+
+	\[
+	\boxed{
+	E=+\infty,
+	\qquad
+	P=4
+	}
+	\]
+
+\section{Ejercicio 8}
+	Calcular la energía de la señal
+
+	\[
+	x(t)=e^{-2t}u(t)
+	\]
+
+	\subsection{Solución}
+
+	Como:
+
+	\[
+	u(t)=
+	\begin{cases}
+	0, & t<0 \\[1mm]
+	1, & t>0
+	\end{cases}
+	\]
+
+	la señal queda:
+
+	\[
+	x(t)=
+	\begin{cases}
+	0, & t<0 \\[1mm]
+	e^{-2t}, & t>0
+	\end{cases}
+	\]
+
+	La energía es:
+
+	\[
+	E
+	=
+	\int_{-\infty}^{\infty}
+	|x(t)|^2\,dt
+	\]
+
+	\[
+	E
+	=
+	\int_0^{\infty}
+	e^{-4t}\,dt
+	\]
+
+	\[
+	E
+	=
+	\left[
+	-\frac{1}{4}e^{-4t}
+	\right]_0^{\infty}
+	\]
+
+	\[
+	E
+	=
+	0-\left(-\frac{1}{4}\right)
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	E=\frac{1}{4}
+	}
+	\]
+
+\section{Ejercicio 9}
+	Calcular la energía y la potencia media de la señal
+
+	\[
+	x(t)=e^{-|t|}
+	\]
+
+	\subsection{Solución}
+
+	La energía es:
+
+	\[
+	E
+	=
+	\int_{-\infty}^{\infty}
+	|x(t)|^2\,dt
+	\]
+
+	\[
+	E
+	=
+	\int_{-\infty}^{\infty}
+	e^{-2|t|}\,dt
+	\]
+
+	Como la función es par:
+
+	\[
+	E
+	=
+	2\int_0^{\infty}
+	e^{-2t}\,dt
+	\]
+
+	\[
+	E
+	=
+	2
+	\left[
+	-\frac{1}{2}e^{-2t}
+	\right]_0^{\infty}
+	\]
+
+	\[
+	E=1
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	E=1
+	}
+	\]
+
+	La potencia media es:
+
+	\[
+	P
+	=
+	\lim_{T\to\infty}
+	\frac{1}{2T}
+	\int_{-T}^{T}
+	e^{-2|t|}\,dt
+	\]
+
+	Como la función es par:
+
+	\[
+	P
+	=
+	\lim_{T\to\infty}
+	\frac{1}{T}
+	\int_0^T
+	e^{-2t}\,dt
+	\]
+
+	\[
+	P
+	=
+	\lim_{T\to\infty}
+	\frac{1}{T}
+	\left[
+	-\frac{1}{2}e^{-2t}
+	\right]_0^T
+	\]
+
+	\[
+	P
+	=
+	\lim_{T\to\infty}
+	\frac{1-e^{-2T}}{2T}
+	=
+	0
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	P=0
+	}
+	\]
+
+	La señal está definida en energía:
+
+	\[
+	\boxed{
+	E=1,
+	\qquad
+	P=0
+	}
+	\]
+
+\section{Ejercicio 10}
+	Calcular la potencia media de la señal
+
+	\[
+	x(t)=A\cos(2\pi f_0t+\phi)
+	+\frac{A}{2}\cos(6\pi f_0t)
+	\]
+
+	\subsection{Solución}
+
+	La señal es periódica. Sus frecuencias son:
+
+	\[
+	f_1=f_0,
+	\qquad
+	f_2=3f_0
+	\]
+
+	Por tanto, el período fundamental es:
+
+	\[
+	T_0=\frac{1}{f_0}
+	\]
+
+	La potencia media es:
+
+	\[
+	P
+	=
+	\frac{1}{T_0}
+	\int_0^{T_0}
+	|x(t)|^2\,dt
+	\]
+
+	Desarrollamos:
+
+	\[
+	|x(t)|^2
+	=
+	A^2\cos^2(2\pi f_0t+\phi)
+	+
+	\frac{A^2}{4}\cos^2(6\pi f_0t)
+	+
+	A^2\cos(2\pi f_0t+\phi)\cos(6\pi f_0t)
+	\]
+
+	Al integrar en un período, el producto de cosenos de distintas frecuencias tiene integral nula:
+
+	\[
+	\int_0^{T_0}
+	\cos(2\pi f_0t+\phi)\cos(6\pi f_0t)\,dt
+	=
+	0
+	\]
+
+	Además:
+
+	\[
+	\frac{1}{T_0}
+	\int_0^{T_0}
+	\cos^2(2\pi f_0t+\phi)\,dt
+	=
+	\frac{1}{2}
+	\]
+
+	y:
+
+	\[
+	\frac{1}{T_0}
+	\int_0^{T_0}
+	\cos^2(6\pi f_0t)\,dt
+	=
+	\frac{1}{2}
+	\]
+
+	Por tanto:
+
+	\[
+	P
+	=
+	\frac{A^2}{2}
+	+
+	\frac{A^2}{4}\frac{1}{2}
+	\]
+
+	\[
+	P
+	=
+	\frac{A^2}{2}
+	+
+	\frac{A^2}{8}
+	\]
+
+	\[
+	\boxed{
+	P=\frac{5A^2}{8}
+	}
+	\]
+
+\section{Ejercicio 11}
+	Dibujar las gráficas de las señales
+
+	\[
+	x_1(t)=u(t+3),
+	\qquad
+	x_2(t)=u(t-2),
+	\qquad
+	x_3(t)=x_1(t)-x_2(t)
+	\]
+
+	\subsection{Solución}
+
+	La señal $x_1(t)=u(t+3)$ es un escalón desplazado $3$ unidades hacia la izquierda:
+
+	\[
+	x_1(t)=
+	\begin{cases}
+	0, & t<-3 \\[1mm]
+	\frac{1}{2}, & t=-3 \\[1mm]
+	1, & t>-3
+	\end{cases}
+	\]
+
+	La señal $x_2(t)=u(t-2)$ es un escalón desplazado $2$ unidades hacia la derecha:
+
+	\[
+	x_2(t)=
+	\begin{cases}
+	0, & t<2 \\[1mm]
+	\frac{1}{2}, & t=2 \\[1mm]
+	1, & t>2
+	\end{cases}
+	\]
+
+	Finalmente:
+
+	\[
+	x_3(t)
+	=
+	u(t+3)-u(t-2)
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	x_3(t)=
+	\begin{cases}
+	0, & t<-3 \\[1mm]
+	\frac{1}{2}, & t=-3 \\[1mm]
+	1, & -3<t<2 \\[1mm]
+	\frac{1}{2}, & t=2 \\[1mm]
+	0, & t>2
+	\end{cases}
+	}
+	\]
+
+	Así, $x_3(t)$ es un pulso rectangular de altura $1$ entre $t=-3$ y $t=2$.
+
+\section{Ejercicio 12}
+	Dibujar la gráfica de la señal
+
+	\[
+	x(t)=3u(t)+tu(t)-(t-1)u(t-1)-5u(t-2)
+	\]
+
+	\subsection{Solución}
+
+	Estudiamos la señal por intervalos.
+
+	Si $t<0$:
+
+	\[
+	u(t)=u(t-1)=u(t-2)=0
+	\]
+
+	\[
+	x(t)=0
+	\]
+
+	Si $0<t<1$:
+
+	\[
+	u(t)=1,
+	\qquad
+	u(t-1)=u(t-2)=0
+	\]
+
+	\[
+	x(t)=3+t
+	\]
+
+	Si $1<t<2$:
+
+	\[
+	u(t)=u(t-1)=1,
+	\qquad
+	u(t-2)=0
+	\]
+
+	\[
+	x(t)
+	=
+	3+t-(t-1)
+	\]
+
+	\[
+	x(t)=4
+	\]
+
+	Si $t>2$:
+
+	\[
+	u(t)=u(t-1)=u(t-2)=1
+	\]
+
+	\[
+	x(t)
+	=
+	3+t-(t-1)-5
+	\]
+
+	\[
+	x(t)=-1
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	x(t)=
+	\begin{cases}
+	0, & t<0 \\[1mm]
+	3+t, & 0<t<1 \\[1mm]
+	4, & 1<t<2 \\[1mm]
+	-1, & t>2
+	\end{cases}
+	}
+	\]
+
+	La gráfica parte de $0$, salta a $3$ en $t=0$, crece linealmente hasta $4$ en $t=1$, permanece constante en $4$ hasta $t=2$ y después baja a $-1$.
+
+\section{Ejercicio 13}
+	Dada la señal $x(t)$ de la figura, obtener las gráficas de
+
+	\[
+	x(t-2),\quad x(t+1),\quad x(2t),\quad x(0.1t),
+	\quad x(-t),\quad x(-t-2),\quad x(-t+3)
+	\]
+
+	\subsection{Solución}
+
+	La señal original puede escribirse como:
+
+	\[
+	x(t)=
+	\begin{cases}
+	-1, & -1\leq t<0 \\[1mm]
+	\displaystyle\frac{t}{2}, & 0\leq t\leq2 \\[1mm]
+	0, & \text{resto}
+	\end{cases}
+	\]
+
+	Para $x(t-2)$, desplazamos la señal $2$ unidades hacia la derecha:
+
+	\[
+	\boxed{
+	x(t-2)=
+	\begin{cases}
+	-1, & 1\leq t<2 \\[1mm]
+	\displaystyle\frac{t-2}{2}, & 2\leq t\leq4 \\[1mm]
+	0, & \text{resto}
+	\end{cases}
+	}
+	\]
+
+	Para $x(t+1)$, desplazamos la señal $1$ unidad hacia la izquierda:
+
+	\[
+	\boxed{
+	x(t+1)=
+	\begin{cases}
+	-1, & -2\leq t<-1 \\[1mm]
+	\displaystyle\frac{t+1}{2}, & -1\leq t\leq1 \\[1mm]
+	0, & \text{resto}
+	\end{cases}
+	}
+	\]
+
+	Para $x(2t)$, comprimimos la señal por un factor $2$:
+
+	\[
+	\boxed{
+	x(2t)=
+	\begin{cases}
+	-1, & -\frac{1}{2}\leq t<0 \\[1mm]
+	t, & 0\leq t\leq1 \\[1mm]
+	0, & \text{resto}
+	\end{cases}
+	}
+	\]
+
+	Para $x(0.1t)$, expandimos la señal por un factor $10$:
+
+	\[
+	\boxed{
+	x(0.1t)=
+	\begin{cases}
+	-1, & -10\leq t<0 \\[1mm]
+	\displaystyle\frac{t}{20}, & 0\leq t\leq20 \\[1mm]
+	0, & \text{resto}
+	\end{cases}
+	}
+	\]
+
+	Para $x(-t)$, invertimos la señal respecto del eje vertical:
+
+	\[
+	\boxed{
+	x(-t)=
+	\begin{cases}
+	\displaystyle-\frac{t}{2}, & -2\leq t\leq0 \\[1mm]
+	-1, & 0<t\leq1 \\[1mm]
+	0, & \text{resto}
+	\end{cases}
+	}
+	\]
+
+	Para $x(-t-2)$:
+
+	\[
+	\boxed{
+	x(-t-2)=
+	\begin{cases}
+	\displaystyle\frac{-t-2}{2}, & -4\leq t\leq-2 \\[1mm]
+	-1, & -2<t\leq-1 \\[1mm]
+	0, & \text{resto}
+	\end{cases}
+	}
+	\]
+
+	Para $x(-t+3)$:
+
+	\[
+	\boxed{
+	x(-t+3)=
+	\begin{cases}
+	\displaystyle\frac{3-t}{2}, & 1\leq t\leq3 \\[1mm]
+	-1, & 3<t\leq4 \\[1mm]
+	0, & \text{resto}
+	\end{cases}
+	}
+	\]
+
+\section{Ejercicio 14}
+	Obtener el desarrollo en serie de Fourier de la señal
+
+	\[
+	x(t)=\cos(2\pi t)-\sen(3\pi t)
+	\]
+
+	\subsection{Solución}
+
+	Las frecuencias angulares son:
+
+	\[
+	\omega_1=2\pi,
+	\qquad
+	\omega_2=3\pi
+	\]
+
+	Buscamos una frecuencia fundamental $\omega_0$ tal que:
+
+	\[
+	2\pi=2\omega_0
+	\]
+
+	y:
+
+	\[
+	3\pi=3\omega_0
+	\]
+
+	Por tanto:
+
+	\[
+	\omega_0=\pi
+	\]
+
+	y el período fundamental es:
+
+	\[
+	T_0=\frac{2\pi}{\omega_0}=2
+	\]
+
+	La serie de Fourier tiene la forma:
+
+	\[
+	x(t)
+	=
+	a_0
+	+
+	\sum_{k=1}^{\infty}
+	a_k\cos(k\omega_0t)
+	+
+	\sum_{k=1}^{\infty}
+	b_k\sen(k\omega_0t)
+	\]
+
+	Comparando con:
+
+	\[
+	x(t)
+	=
+	\cos(2\pi t)-\sen(3\pi t)
+	\]
+
+	se obtiene:
+
+	\[
+	a_0=0
+	\]
+
+	\[
+	a_2=1
+	\]
+
+	\[
+	b_3=-1
+	\]
+
+	y el resto de coeficientes son nulos:
+
+	\[
+	a_k=0
+	\qquad
+	k\neq2
+	\]
+
+	\[
+	b_k=0
+	\qquad
+	k\neq3
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	\omega_0=\pi,
+	\qquad
+	T_0=2
+	}
+	\]
+
+	y el desarrollo en serie de Fourier es:
+
+	\[
+	\boxed{
+	x(t)
+	=
+	\cos(2\omega_0t)
+	-
+	\sen(3\omega_0t)
+	}
+	\]
+
+	con:
+
+	\[
+	\boxed{
+	a_0=0,\qquad
+	a_2=1,\qquad
+	b_3=-1
+	}
+	\]
+
+\section{Ejercicio 15}
+	Obtener el desarrollo en serie de Fourier de la señal
+
+	\[
+	x(t)
+	=
+	1+\frac{1}{2}\cos(2\pi t)
+	+\cos(4\pi t)
+	+\frac{2}{3}\cos(6\pi t)
+	\]
+
+	\subsection{Solución}
+
+	Las frecuencias angulares son:
+
+	\[
+	\omega_1=2\pi,
+	\qquad
+	\omega_2=4\pi,
+	\qquad
+	\omega_3=6\pi
+	\]
+
+	Por tanto, la frecuencia fundamental es:
+
+	\[
+	\omega_0=2\pi
+	\]
+
+	y el período fundamental:
+
+	\[
+	T_0
+	=
+	\frac{2\pi}{\omega_0}
+	=
+	1
+	\]
+
+	La serie de Fourier tiene la forma:
+
+	\[
+	x(t)
+	=
+	a_0
+	+
+	\sum_{k=1}^{\infty}
+	a_k\cos(k\omega_0t)
+	+
+	\sum_{k=1}^{\infty}
+	b_k\sen(k\omega_0t)
+	\]
+
+	Comparando términos:
+
+	\[
+	a_0=1
+	\]
+
+	\[
+	a_1=\frac{1}{2}
+	\]
+
+	\[
+	a_2=1
+	\]
+
+	\[
+	a_3=\frac{2}{3}
+	\]
+
+	y:
+
+	\[
+	a_k=0,
+	\qquad
+	k\geq4
+	\]
+
+	Como no aparecen términos seno:
+
+	\[
+	b_k=0
+	\qquad
+	\forall k
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	\omega_0=2\pi,
+	\qquad
+	T_0=1
+	}
+	\]
+
+	y los coeficientes son:
+
+	\[
+	\boxed{
+	a_0=1,\qquad
+	a_1=\frac{1}{2},\qquad
+	a_2=1,\qquad
+	a_3=\frac{2}{3}
+	}
+	\]
+
+	\[
+	\boxed{
+	b_k=0
+	\qquad
+	\forall k
+	}
+	\]
+
+\section{Ejercicio 16}
+	Obtener el desarrollo en serie de Fourier de la señal
+
+	\[
+	x(t)
+	=
+	2+\cos\left(\frac{2\pi}{3}t\right)
+	+4\sen\left(\frac{5\pi}{3}t\right)
+	\]
+
+	\subsection{Solución}
+
+	Las frecuencias angulares son:
+
+	\[
+	\omega_1=\frac{2\pi}{3},
+	\qquad
+	\omega_2=\frac{5\pi}{3}
+	\]
+
+	Buscamos una frecuencia fundamental $\omega_0$ tal que:
+
+	\[
+	\frac{2\pi}{3}=2\omega_0
+	\]
+
+	y:
+
+	\[
+	\frac{5\pi}{3}=5\omega_0
+	\]
+
+	Por tanto:
+
+	\[
+	\omega_0=\frac{\pi}{3}
+	\]
+
+	y el período fundamental es:
+
+	\[
+	T_0
+	=
+	\frac{2\pi}{\omega_0}
+	=
+	6
+	\]
+
+	La serie de Fourier tiene la forma:
+
+	\[
+	x(t)
+	=
+	a_0
+	+
+	\sum_{k=1}^{\infty}
+	a_k\cos(k\omega_0t)
+	+
+	\sum_{k=1}^{\infty}
+	b_k\sen(k\omega_0t)
+	\]
+
+	Comparando términos:
+
+	\[
+	a_0=2
+	\]
+
+	\[
+	a_2=1
+	\]
+
+	\[
+	b_5=4
+	\]
+
+	y el resto de coeficientes son nulos:
+
+	\[
+	a_k=0
+	\qquad
+	k\neq2
+	\]
+
+	\[
+	b_k=0
+	\qquad
+	k\neq5
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	\omega_0=\frac{\pi}{3},
+	\qquad
+	T_0=6
+	}
+	\]
+
+	y los coeficientes no nulos son:
+
+	\[
+	\boxed{
+	a_0=2,\qquad
+	a_2=1,\qquad
+	b_5=4
+	}
+	\]
+
+\section{Ejercicio 17}
+	Obtener el desarrollo en serie de Fourier de la señal
+
+	\[
+	x(t)=\sum_{n\in\mathbb{Z}}z(t+4n)
+	\]
+
+	donde:
+
+	\[
+	z(t)=e^{-t},
+	\qquad
+	t\in[0,4]
+	\]
+
+	\subsection{Solución}
+
+	El período fundamental es:
+
+	\[
+	T_0=4
+	\]
+
+	Por tanto:
+
+	\[
+	\omega_0
+	=
+	\frac{2\pi}{T_0}
+	=
+	\frac{\pi}{2}
+	\]
+
+	La serie de Fourier tiene la forma:
+
+	\[
+	x(t)
+	=
+	a_0
+	+
+	\sum_{k=1}^{\infty}
+	a_k\cos(k\omega_0t)
+	+
+	\sum_{k=1}^{\infty}
+	b_k\sen(k\omega_0t)
+	\]
+
+	Calculamos $a_0$:
+
+	\[
+	a_0
+	=
+	\frac{1}{4}
+	\int_0^4e^{-t}\,dt
+	\]
+
+	\[
+	a_0
+	=
+	\frac{1}{4}
+	\left[
+	-e^{-t}
+	\right]_0^4
+	=
+	\frac{1-e^{-4}}{4}
+	\]
+
+	Para $a_k$:
+
+	\[
+	a_k
+	=
+	\frac{1}{2}
+	\int_0^4
+	e^{-t}
+	\cos\left(\frac{k\pi}{2}t\right)\,dt
+	\]
+
+	\[
+	\int
+	e^{-t}\cos(\alpha t)\,dt
+	=
+	\frac{e^{-t}}{1+\alpha^2}
+	\left(
+	-\cos(\alpha t)+\alpha\sen(\alpha t)
+	\right)
+	\]
+
+	con:
+
+	\[
+	\alpha=\frac{k\pi}{2}
+	\]
+
+	Como:
+
+	\[
+	\cos(2k\pi)=1,
+	\qquad
+	\sen(2k\pi)=0
+	\]
+
+	se obtiene:
+
+	\[
+	a_k
+	=
+	\frac{1-e^{-4}}
+	{2\left(1+\frac{k^2\pi^2}{4}\right)}
+	\]
+
+	\[
+	\boxed{
+	a_k
+	=
+	\frac{2(1-e^{-4})}
+	{4+k^2\pi^2}
+	}
+	\]
+
+	Para $b_k$:
+
+	\[
+	b_k
+	=
+	\frac{1}{2}
+	\int_0^4
+	e^{-t}
+	\sen\left(\frac{k\pi}{2}t\right)\,dt
+	\]
+
+	\[
+	\int
+	e^{-t}\sen(\alpha t)\,dt
+	=
+	-\frac{e^{-t}}{1+\alpha^2}
+	\left(
+	\sen(\alpha t)+\alpha\cos(\alpha t)
+	\right)
+	\]
+
+	Por tanto:
+
+	\[
+	b_k
+	=
+	\frac{
+	\frac{k\pi}{2}(1-e^{-4})
+	}{
+	2\left(1+\frac{k^2\pi^2}{4}\right)
+	}
+	\]
+
+	\[
+	\boxed{
+	b_k
+	=
+	\frac{k\pi(1-e^{-4})}
+	{4+k^2\pi^2}
+	}
+	\]
+
+	Finalmente:
+
+	\[
+	\boxed{
+	x(t)
+	=
+	\frac{1-e^{-4}}{4}
+	+
+	\sum_{k=1}^{\infty}
+	\frac{2(1-e^{-4})}{4+k^2\pi^2}
+	\cos\left(\frac{k\pi}{2}t\right)
+	+
+	\sum_{k=1}^{\infty}
+	\frac{k\pi(1-e^{-4})}{4+k^2\pi^2}
+	\sen\left(\frac{k\pi}{2}t\right)
+	}
+	\]
+
+\section{Ejercicio 18}
+	Obtener el desarrollo en serie de Fourier de la señal
+
+	\[
+	x(t)=\sum_{n\in\mathbb{Z}}z(t+6n)
+	\]
+
+	donde:
+
+	\[
+	z(t)=\operatorname{sig}(t),
+	\qquad
+	t\in[-3,3]
+	\]
+
+	\subsection{Solución}
+
+	El período fundamental es:
+
+	\[
+	T_0=6
+	\]
+
+	Por tanto:
+
+	\[
+	\omega_0
+	=
+	\frac{2\pi}{T_0}
+	=
+	\frac{\pi}{3}
+	\]
+
+	Como la señal es impar:
+
+	\[
+	a_0=0
+	\]
+
+	y:
+
+	\[
+	a_k=0
+	\]
+
+	Calculamos los coeficientes $b_k$:
+
+	\[
+	b_k
+	=
+	\frac{2}{6}
+	\int_{-3}^{3}
+	\operatorname{sig}(t)
+	\sen\left(\frac{k\pi}{3}t\right)\,dt
+	\]
+
+	Como el producto es una función par:
+
+	\[
+	b_k
+	=
+	\frac{2}{3}
+	\int_0^3
+	\sen\left(\frac{k\pi}{3}t\right)\,dt
+	\]
+
+	\[
+	b_k
+	=
+	\frac{2}{3}
+	\left[
+	-\frac{3}{k\pi}
+	\cos\left(\frac{k\pi}{3}t\right)
+	\right]_0^3
+	\]
+
+	\[
+	b_k
+	=
+	\frac{2}{k\pi}
+	\left(
+	1-\cos(k\pi)
+	\right)
+	\]
+
+	Como:
+
+	\[
+	\cos(k\pi)=(-1)^k
+	\]
+
+	se obtiene:
+
+	\[
+	b_k
+	=
+	\frac{2}{k\pi}
+	\left(
+	1-(-1)^k
+	\right)
+	\]
+
+	Por tanto:
+
+	\[
+	b_k=
+	\begin{cases}
+	\displaystyle\frac{4}{k\pi}, & k\text{ impar} \\[2mm]
+	0, & k\text{ par}
+	\end{cases}
+	\]
+
+	\[
+	\boxed{
+	x(t)
+	=
+	\frac{4}{\pi}
+	\sum_{n=0}^{\infty}
+	\frac{1}{2n+1}
+	\sen\left(
+	\frac{(2n+1)\pi}{3}t
+	\right)
+	}
+	\]
+
+	\[
+	\boxed{
+	x(t)
+	=
+	\frac{4}{\pi}
+	\left[
+	\sen\left(\frac{\pi t}{3}\right)
+	+
+	\frac{1}{3}\sen(\pi t)
+	+
+	\frac{1}{5}\sen\left(\frac{5\pi t}{3}\right)
+	+\cdots
+	\right]
+	}
+	\]
+
+\section{Ejercicio 19}
+	Obtener el desarrollo en serie de Fourier de la señal
+
+	\[
+	x(t)=\sum_{n\in\mathbb{Z}}z(t+2n)
+	\]
+
+	donde:
+
+	\[
+	z(t)=t^2,
+	\qquad
+	t\in[-1,1]
+	\]
+
+	\subsection{Solución}
+
+	El período fundamental es:
+
+	\[
+	T_0=2
+	\]
+
+	Por tanto:
+
+	\[
+	\omega_0
+	=
+	\frac{2\pi}{T_0}
+	=
+	\pi
+	\]
+
+	Como la señal es par:
+
+	\[
+	b_k=0
+	\]
+
+	Calculamos $a_0$:
+
+	\[
+	a_0
+	=
+	\frac{1}{2}
+	\int_{-1}^{1}
+	t^2\,dt
+	\]
+
+	Como $t^2$ es par:
+
+	\[
+	a_0
+	=
+	\int_0^1 t^2\,dt
+	\]
+
+	\[
+	a_0
+	=
+	\left[
+	\frac{t^3}{3}
+	\right]_0^1
+	=
+	\frac{1}{3}
+	\]
+
+	Calculamos ahora $a_k$:
+
+	\[
+	a_k
+	=
+	\frac{2}{2}
+	\int_{-1}^{1}
+	t^2\cos(k\pi t)\,dt
+	\]
+
+	Como el integrando es par:
+
+	\[
+	a_k
+	=
+	2
+	\int_0^1
+	t^2\cos(k\pi t)\,dt
+	\]
+
+	Integramos por partes:
+
+	\[
+	\int
+	t^2\cos(k\pi t)\,dt
+	=
+	\frac{t^2\sen(k\pi t)}{k\pi}
+	-
+	\frac{2}{k\pi}
+	\int
+	t\sen(k\pi t)\,dt
+	\]
+
+	De nuevo por partes:
+
+	\[
+	\int
+	t\sen(k\pi t)\,dt
+	=
+	-\frac{t\cos(k\pi t)}{k\pi}
+	+
+	\frac{\sen(k\pi t)}{k^2\pi^2}
+	\]
+
+	Por tanto:
+
+	\[
+	\int_0^1
+	t^2\cos(k\pi t)\,dt
+	=
+	\frac{2\cos(k\pi)}{k^2\pi^2}
+	\]
+
+	Como:
+
+	\[
+	\cos(k\pi)=(-1)^k
+	\]
+
+	se obtiene:
+
+	\[
+	a_k
+	=
+	\frac{4(-1)^k}{k^2\pi^2}
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	a_0=\frac{1}{3},
+	\qquad
+	a_k=\frac{4(-1)^k}{k^2\pi^2},
+	\qquad
+	b_k=0
+	}
+	\]
+
+	\[
+	\boxed{
+	x(t)
+	=
+	\frac{1}{3}
+	+
+	\frac{4}{\pi^2}
+	\sum_{k=1}^{\infty}
+	\frac{(-1)^k}{k^2}
+	\cos(k\pi t)
+	}
+	\]
+
+\section{Ejercicio 20}
+	Obtener la transformada de Fourier de las siguientes señales utilizando la definición o alguna propiedad.
+
+	\subsection{Solución}
+
+	\textbf{a) } $x_1(t)=\delta(t)$
+
+	Usando la pareja básica:
+
+	\[
+	\boxed{
+	\delta(t)
+	\overset{\mathcal{F}}{\longleftrightarrow}
+	1
+	}
+	\]
+
+	\textbf{b) } $x_2(t)=1$
+
+	Usando la pareja básica:
+
+	\[
+	\boxed{
+	1
+	\overset{\mathcal{F}}{\longleftrightarrow}
+	2\pi\delta(\omega)
+	}
+	\]
+
+	\textbf{c) } $x_3(t)=e^{j\omega_0t}$
+
+	Usando la pareja básica:
+
+	\[
+	\boxed{
+	e^{j\omega_0t}
+	\overset{\mathcal{F}}{\longleftrightarrow}
+	2\pi\delta(\omega-\omega_0)
+	}
+	\]
+
+	\textbf{d) } $x_4(t)=\cos(\omega_0t)$
+
+	Como:
+
+	\[
+	\cos(\omega_0t)
+	=
+	\frac{
+	e^{j\omega_0t}
+	+
+	e^{-j\omega_0t}
+	}{2}
+	\]
+
+	por linealidad:
+
+	\[
+	X_4(\omega)
+	=
+	\frac{1}{2}
+	\left[
+	2\pi\delta(\omega-\omega_0)
+	+
+	2\pi\delta(\omega+\omega_0)
+	\right]
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	X_4(\omega)
+	=
+	\pi
+	\left[
+	\delta(\omega-\omega_0)
+	+
+	\delta(\omega+\omega_0)
+	\right]
+	}
+	\]
+
+	\textbf{e) }
+
+	\[
+	x_5(t)
+	=
+	\sum_{k=-\infty}^{\infty}
+	c_k e^{jk\omega_0t}
+	\]
+
+	Aplicando linealidad:
+
+	\[
+	X_5(\omega)
+	=
+	\sum_{k=-\infty}^{\infty}
+	c_k
+	\mathcal{F}
+	\left[
+	e^{jk\omega_0t}
+	\right]
+	\]
+
+	\[
+	X_5(\omega)
+	=
+	2\pi
+	\sum_{k=-\infty}^{\infty}
+	c_k
+	\delta(\omega-k\omega_0)
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	X_5(\omega)
+	=
+	2\pi
+	\sum_{k=-\infty}^{\infty}
+	c_k
+	\delta(\omega-k\omega_0)
+	}
+	\]
+
+	\textbf{f) }
+
+	\[
+	x_6(t)
+	=
+	\sum_{k=-\infty}^{\infty}
+	\delta(t-kT_0)
+	\]
+
+	Usando la pareja de transformadas del tren de impulsos:
+
+	\[
+	\boxed{
+	X_6(\omega)
+	=
+	\frac{2\pi}{T_0}
+	\sum_{k=-\infty}^{\infty}
+	\delta
+	\left(
+	\omega-\frac{2\pi k}{T_0}
+	\right)
+	}
+	\]
+
+\section{Ejercicio 21}
+	Calcular la transformada de Fourier de la señal
+
+	\[
+	x(t)=
+	\cos\left(\frac{3\pi}{4}t\right)
+	-
+	\sen\left(\frac{\pi}{2}t\right)
+	\]
+
+	\subsection{Solución}
+
+	Utilizamos las parejas:
+
+	\[
+	\cos(\omega_0 t)
+	\overset{\mathcal{F}}{\longleftrightarrow}
+	\pi
+	\left[
+	\delta(\omega-\omega_0)
+	+
+	\delta(\omega+\omega_0)
+	\right]
+	\]
+
+	y:
+
+	\[
+	\sen(\omega_0 t)
+	\overset{\mathcal{F}}{\longleftrightarrow}
+	\frac{\pi}{j}
+	\left[
+	\delta(\omega-\omega_0)
+	-
+	\delta(\omega+\omega_0)
+	\right]
+	\]
+
+	Para el primer término:
+
+	\[
+	\cos\left(\frac{3\pi}{4}t\right)
+	\overset{\mathcal{F}}{\longleftrightarrow}
+	\pi
+	\left[
+	\delta\left(\omega-\frac{3\pi}{4}\right)
+	+
+	\delta\left(\omega+\frac{3\pi}{4}\right)
+	\right]
+	\]
+
+	Para el segundo término:
+
+	\[
+	-\sen\left(\frac{\pi}{2}t\right)
+	\overset{\mathcal{F}}{\longleftrightarrow}
+	-\frac{\pi}{j}
+	\left[
+	\delta\left(\omega-\frac{\pi}{2}\right)
+	-
+	\delta\left(\omega+\frac{\pi}{2}\right)
+	\right]
+	\]
+
+	Por linealidad:
+
+	\[
+	\boxed{
+	X(\omega)
+	=
+	\pi
+	\left[
+	\delta\left(\omega-\frac{3\pi}{4}\right)
+	+
+	\delta\left(\omega+\frac{3\pi}{4}\right)
+	\right]
+	-
+	\frac{\pi}{j}
+	\left[
+	\delta\left(\omega-\frac{\pi}{2}\right)
+	-
+	\delta\left(\omega+\frac{\pi}{2}\right)
+	\right]
+	}
+	\]
+
+\section{Ejercicio 22}
+	Determinar la transformada de Fourier de la señal
+
+	\[
+	x(t)=
+	\begin{cases}
+	\cos(\omega_0 t), & t\in\left[-\frac{T_0}{4},\frac{T_0}{4}\right] \\[2mm]
+	0, & \text{resto}
+	\end{cases}
+	\]
+
+	\subsection{Solución}
+
+	Aplicamos la definición de transformada de Fourier:
+
+	\[
+	X(\omega)
+	=
+	\int_{-\infty}^{\infty}
+	x(t)e^{-j\omega t}\,dt
+	\]
+
+	Como la señal solo es distinta de cero en
+	$\left[-\frac{T_0}{4},\frac{T_0}{4}\right]$:
+
+	\[
+	X(\omega)
+	=
+	\int_{-T_0/4}^{T_0/4}
+	\cos(\omega_0 t)e^{-j\omega t}\,dt
+	\]
+
+	Utilizamos:
+
+	\[
+	\cos(\omega_0 t)
+	=
+	\frac{
+	e^{j\omega_0 t}
+	+
+	e^{-j\omega_0 t}
+	}{2}
+	\]
+
+	Entonces:
+
+	\[
+	X(\omega)
+	=
+	\frac{1}{2}
+	\int_{-T_0/4}^{T_0/4}
+	e^{-j(\omega-\omega_0)t}\,dt
+	+
+	\frac{1}{2}
+	\int_{-T_0/4}^{T_0/4}
+	e^{-j(\omega+\omega_0)t}\,dt
+	\]
+
+	Usamos:
+
+	\[
+	\int_{-a}^{a}
+	e^{-j\alpha t}\,dt
+	=
+	\frac{2\sen(\alpha a)}{\alpha}
+	\]
+
+	con:
+
+	\[
+	a=\frac{T_0}{4}
+	\]
+
+	Por tanto:
+
+	\[
+	X(\omega)
+	=
+	\frac{
+	\sen\left(
+	(\omega-\omega_0)\frac{T_0}{4}
+	\right)
+	}{
+	\omega-\omega_0
+	}
+	+
+	\frac{
+	\sen\left(
+	(\omega+\omega_0)\frac{T_0}{4}
+	\right)
+	}{
+	\omega+\omega_0
+	}
+	\]
+
+	\[
+	\boxed{
+	X(\omega)
+	=
+	\frac{
+	\sen\left(
+	\frac{T_0}{4}(\omega-\omega_0)
+	\right)
+	}{
+	\omega-\omega_0
+	}
+	+
+	\frac{
+	\sen\left(
+	\frac{T_0}{4}(\omega+\omega_0)
+	\right)
+	}{
+	\omega+\omega_0
+	}
+	}
+	\]
+
+\section{Ejercicio 23}
+	Obtener la transformada de Fourier de la señal
+
+	\[
+	x(t)=be^{-at}u(t),
+	\qquad a>0,\; b>0
+	\]
+
+	\subsection{Solución}
+
+	Aplicamos la definición de transformada de Fourier:
+
+	\[
+	X(\omega)
+	=
+	\int_{-\infty}^{\infty}
+	x(t)e^{-j\omega t}\,dt
+	\]
+
+	Como $u(t)=0$ para $t<0$:
+
+	\[
+	X(\omega)
+	=
+	\int_0^{\infty}
+	be^{-at}e^{-j\omega t}\,dt
+	\]
+
+	\[
+	X(\omega)
+	=
+	b
+	\int_0^{\infty}
+	e^{-(a+j\omega)t}\,dt
+	\]
+
+	\[
+	X(\omega)
+	=
+	b
+	\left[
+	-\frac{1}{a+j\omega}
+	e^{-(a+j\omega)t}
+	\right]_0^{\infty}
+	\]
+
+	Como $a>0$:
+
+	\[
+	\lim_{t\to\infty}
+	e^{-(a+j\omega)t}
+	=
+	0
+	\]
+
+	Por tanto:
+
+	\[
+	X(\omega)
+	=
+	\frac{b}{a+j\omega}
+	\]
+
+	\[
+	\boxed{
+	X(\omega)
+	=
+	\frac{b}{a+j\omega}
+	}
+	\]
+
+\section{Ejercicio 24}
+	Determinar la transformada de Fourier de la señal
+
+	\[
+	x(t)=e^{-|t|}
+	\]
+
+	\subsection{Solución}
+
+	Aplicamos la definición:
+
+	\[
+	X(\omega)
+	=
+	\int_{-\infty}^{\infty}
+	e^{-|t|}e^{-j\omega t}\,dt
+	\]
+
+	Como:
+
+	\[
+	e^{-|t|}
+	=
+	\begin{cases}
+	e^t, & t<0 \\[1mm]
+	e^{-t}, & t\geq0
+	\end{cases}
+	\]
+
+	se tiene:
+
+	\[
+	X(\omega)
+	=
+	\int_{-\infty}^{0}
+	e^te^{-j\omega t}\,dt
+	+
+	\int_{0}^{\infty}
+	e^{-t}e^{-j\omega t}\,dt
+	\]
+
+	\[
+	X(\omega)
+	=
+	\int_{-\infty}^{0}
+	e^{(1-j\omega)t}\,dt
+	+
+	\int_{0}^{\infty}
+	e^{-(1+j\omega)t}\,dt
+	\]
+
+	Calculamos la primera integral:
+
+	\[
+	\int_{-\infty}^{0}
+	e^{(1-j\omega)t}\,dt
+	=
+	\left[
+	\frac{e^{(1-j\omega)t}}{1-j\omega}
+	\right]_{-\infty}^{0}
+	\]
+
+	\[
+	=
+	\frac{1}{1-j\omega}
+	\]
+
+	La segunda integral:
+
+	\[
+	\int_{0}^{\infty}
+	e^{-(1+j\omega)t}\,dt
+	=
+	\left[
+	-\frac{e^{-(1+j\omega)t}}{1+j\omega}
+	\right]_{0}^{\infty}
+	\]
+
+	\[
+	=
+	\frac{1}{1+j\omega}
+	\]
+
+	Por tanto:
+
+	\[
+	X(\omega)
+	=
+	\frac{1}{1-j\omega}
+	+
+	\frac{1}{1+j\omega}
+	\]
+
+	\[
+	X(\omega)
+	=
+	\frac{(1+j\omega)+(1-j\omega)}
+	{(1-j\omega)(1+j\omega)}
+	\]
+
+	\[
+	X(\omega)
+	=
+	\frac{2}{1+\omega^2}
+	\]
+
+	\[
+	\boxed{
+	X(\omega)
+	=
+	\frac{2}{1+\omega^2}
+	}
+	\]
+
+\section{Ejercicio 25}
+	Obtener la convolución de las señales
+
+	\[
+	x(t)=u(t)-u(t-T)
+	\]
+
+	e
+
+	\[
+	y(t)=be^{-at}u(t),
+	\qquad a>0,\; b>0
+	\]
+
+	\subsection{Solución}
+
+	La convolución viene dada por:
+
+	\[
+	z(t)
+	=
+	x(t)*y(t)
+	=
+	\int_{-\infty}^{\infty}
+	x(\tau)y(t-\tau)\,d\tau
+	\]
+
+	Como:
+
+	\[
+	x(\tau)=
+	\begin{cases}
+	1, & 0\leq\tau\leq T \\[1mm]
+	0, & \text{resto}
+	\end{cases}
+	\]
+
+	y:
+
+	\[
+	y(t-\tau)
+	=
+	be^{-a(t-\tau)}u(t-\tau)
+	\]
+
+	se tiene:
+
+	\[
+	z(t)
+	=
+	\int_0^T
+	be^{-a(t-\tau)}u(t-\tau)\,d\tau
+	\]
+
+	Estudiamos por intervalos.
+
+	Si $t<0$:
+
+	\[
+	u(t-\tau)=0
+	\]
+
+	para todo $\tau\in[0,T]$, luego:
+
+	\[
+	z(t)=0
+	\]
+
+	Si $0\leq t<T$:
+
+	\[
+	0\leq\tau\leq t
+	\]
+
+	\[
+	z(t)
+	=
+	\int_0^t
+	be^{-a(t-\tau)}\,d\tau
+	\]
+
+	\[
+	z(t)
+	=
+	be^{-at}
+	\int_0^t e^{a\tau}\,d\tau
+	\]
+
+	\[
+	z(t)
+	=
+	be^{-at}
+	\left[
+	\frac{e^{a\tau}}{a}
+	\right]_0^t
+	\]
+
+	\[
+	z(t)
+	=
+	\frac{b}{a}
+	\left(
+	1-e^{-at}
+	\right)
+	\]
+
+	Si $t\geq T$:
+
+	\[
+	z(t)
+	=
+	\int_0^T
+	be^{-a(t-\tau)}\,d\tau
+	\]
+
+	\[
+	z(t)
+	=
+	be^{-at}
+	\int_0^T e^{a\tau}\,d\tau
+	\]
+
+	\[
+	z(t)
+	=
+	\frac{b}{a}
+	e^{-at}
+	\left(
+	e^{aT}-1
+	\right)
+	\]
+
+	\[
+	z(t)
+	=
+	\frac{b}{a}
+	\left(
+	e^{-a(t-T)}-e^{-at}
+	\right)
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	z(t)=
+	\begin{cases}
+	0, & t<0 \\[2mm]
+	\displaystyle
+	\frac{b}{a}
+	\left(
+	1-e^{-at}
+	\right),
+	& 0\leq t<T \\[3mm]
+	\displaystyle
+	\frac{b}{a}
+	\left(
+	e^{-a(t-T)}-e^{-at}
+	\right),
+	& t\geq T
+	\end{cases}
+	}
+	\]
+
+\section{Ejercicio 26}
+	Obtener la convolución de las señales
+
+	\[
+	x(t)=-u(t+1)+2u(t)-u(t-1)
+	\]
+
+	e
+
+	\[
+	y(t)=u(t+2)-u(t-2)
+	\]
+
+	\subsection{Solución}
+
+	Las señales pueden escribirse como:
+
+	\[
+	x(t)=
+	\begin{cases}
+	-1, & -1<t<0 \\[1mm]
+	1, & 0<t<1 \\[1mm]
+	0, & \text{resto}
+	\end{cases}
+	\]
+
+	y:
+
+	\[
+	y(t)=
+	\begin{cases}
+	1, & -2<t<2 \\[1mm]
+	0, & \text{resto}
+	\end{cases}
+	\]
+
+	La convolución viene dada por:
+
+	\[
+	z(t)
+	=
+	x(t)*y(t)
+	=
+	\int_{-\infty}^{\infty}
+	x(\tau)y(t-\tau)\,d\tau
+	\]
+
+	Como $y(t-\tau)=1$ cuando:
+
+	\[
+	t-2<\tau<t+2
+	\]
+
+	la integral corresponde al área de $x(\tau)$ contenida en dicho intervalo.
+
+	Si $t<-3$:
+
+	\[
+	z(t)=0
+	\]
+
+	Si $-3\leq t<-2$:
+
+	\[
+	z(t)
+	=
+	-\int_{-1}^{t+2}d\tau
+	\]
+
+	\[
+	z(t)=-(t+3)
+	\]
+
+	Si $-2\leq t<-1$:
+
+	\[
+	z(t)
+	=
+	-\int_{-1}^{0}d\tau
+	+
+	\int_0^{t+2}d\tau
+	\]
+
+	\[
+	z(t)
+	=
+	-1+t+2
+	=
+	t+1
+	\]
+
+	Si $-1\leq t<1$, el intervalo contiene completamente ambas partes de $x(\tau)$:
+
+	\[
+	z(t)
+	=
+	-\int_{-1}^{0}d\tau
+	+
+	\int_0^1d\tau
+	\]
+
+	\[
+	z(t)=0
+	\]
+
+	Si $1\leq t<2$:
+
+	\[
+	z(t)
+	=
+	\int_{t-2}^{1}x(\tau)\,d\tau
+	\]
+
+	\[
+	z(t)
+	=
+	-\int_{t-2}^{0}d\tau
+	+
+	\int_0^1d\tau
+	\]
+
+	\[
+	z(t)=t-1
+	\]
+
+	Si $2\leq t<3$:
+
+	\[
+	z(t)
+	=
+	\int_{t-2}^{1}d\tau
+	\]
+
+	\[
+	z(t)=3-t
+	\]
+
+	Si $t\geq3$:
+
+	\[
+	z(t)=0
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	z(t)=
+	\begin{cases}
+	0, & t<-3 \\[1mm]
+	-(t+3), & -3\leq t<-2 \\[1mm]
+	t+1, & -2\leq t<-1 \\[1mm]
+	0, & -1\leq t<1 \\[1mm]
+	t-1, & 1\leq t<2 \\[1mm]
+	3-t, & 2\leq t<3 \\[1mm]
+	0, & t\geq3
+	\end{cases}
+	}
+	\]
+
+\section{Ejercicio 27}
+	Obtener la convolución de la señal
+
+	\[
+	x(t)
+	=
+	u\left(t+\frac{T}{2}\right)
+	-
+	u\left(t-\frac{T}{2}\right)
+	\]
+
+	con ella misma, donde $T>0$.
+
+	\subsection{Solución}
+
+	La señal puede escribirse como:
+
+	\[
+	x(t)=
+	\begin{cases}
+	1, & -\frac{T}{2}<t<\frac{T}{2} \\[1mm]
+	0, & \text{resto}
+	\end{cases}
+	\]
+
+	La convolución es:
+
+	\[
+	z(t)
+	=
+	x(t)*x(t)
+	=
+	\int_{-\infty}^{\infty}
+	x(\tau)x(t-\tau)\,d\tau
+	\]
+
+	La primera señal es distinta de cero cuando:
+
+	\[
+	-\frac{T}{2}<\tau<\frac{T}{2}
+	\]
+
+	y la segunda cuando:
+
+	\[
+	-\frac{T}{2}<t-\tau<\frac{T}{2}
+	\]
+
+	es decir:
+
+	\[
+	t-\frac{T}{2}<\tau<t+\frac{T}{2}
+	\]
+
+	La convolución es igual a la longitud de solapamiento de ambos intervalos.
+
+	Si $t<-T$:
+
+	\[
+	z(t)=0
+	\]
+
+	Si $-T\leq t<0$:
+
+	\[
+	z(t)
+	=
+	\int_{-T/2}^{t+T/2}d\tau
+	\]
+
+	\[
+	z(t)
+	=
+	t+T
+	\]
+
+	Si $0\leq t<T$:
+
+	\[
+	z(t)
+	=
+	\int_{t-T/2}^{T/2}d\tau
+	\]
+
+	\[
+	z(t)
+	=
+	T-t
+	\]
+
+	Si $t\geq T$:
+
+	\[
+	z(t)=0
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	z(t)=
+	\begin{cases}
+	0, & t<-T \\[1mm]
+	t+T, & -T\leq t<0 \\[1mm]
+	T-t, & 0\leq t<T \\[1mm]
+	0, & t\geq T
+	\end{cases}
+	}
+	\]
+
+	Equivalentemente:
+
+	\[
+	\boxed{
+	z(t)=
+	\begin{cases}
+	T-|t|, & |t|<T \\[1mm]
+	0, & |t|\geq T
+	\end{cases}
+	}
+	\]
+
+
+\end{document}
