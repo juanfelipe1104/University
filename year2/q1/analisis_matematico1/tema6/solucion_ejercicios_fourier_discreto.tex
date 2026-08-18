@@ -1,0 +1,2917 @@
+\documentclass[fleqn]{article}
+\usepackage{amsmath}
+\DeclareMathOperator{\sen}{sen} 
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\title{Solución Problemas Fourier Continuo}
+\author{Juan Rodríguez}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+\maketitle
+\section{Ejercicio 1}
+	Determinar la parte par y la parte impar de la señal escalón unitario
+
+	\[
+	u[n]
+	\]
+
+	\subsection{Solución}
+
+	La parte par viene dada por:
+
+	\[
+	u_{\text{par}}[n]
+	=
+	\frac{u[n]+u[-n]}{2}
+	\]
+
+	Como:
+
+	\[
+	u[n]=
+	\begin{cases}
+	1, & n\geq0 \\[1mm]
+	0, & n<0
+	\end{cases}
+	\]
+
+	se tiene:
+
+	\[
+	u[-n]=
+	\begin{cases}
+	1, & n\leq0 \\[1mm]
+	0, & n>0
+	\end{cases}
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	u_{\text{par}}[n]
+	=
+	\begin{cases}
+	1, & n=0 \\[1mm]
+	\frac{1}{2}, & n\neq0
+	\end{cases}
+	}
+	\]
+
+	La parte impar viene dada por:
+
+	\[
+	u_{\text{impar}}[n]
+	=
+	\frac{u[n]-u[-n]}{2}
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	u_{\text{impar}}[n]
+	=
+	\begin{cases}
+	-\frac{1}{2}, & n<0 \\[1mm]
+	0, & n=0 \\[1mm]
+	\frac{1}{2}, & n>0
+	\end{cases}
+	}
+	\]
+
+\section{Ejercicio 2}
+	Obtener, en los casos en que sea posible, el período de las siguientes señales.
+
+	\subsection{Solución}
+
+	Para una señal discreta sinusoidal:
+
+	\[
+	x[n]=\cos(\Omega_0 n)
+	\quad\text{o}\quad
+	x[n]=\sen(\Omega_0 n)
+	\]
+
+	es periódica si existe un entero $N>0$ tal que:
+
+	\[
+	\Omega_0 N=2\pi k,
+	\qquad k\in\mathbb{Z}
+	\]
+
+	\textbf{a)}
+
+	\[
+	x_1[n]
+	=
+	\cos\left(\frac{2\pi}{12}n\right)
+	\]
+
+	\[
+	\frac{2\pi}{12}N
+	=
+	2\pi k
+	\]
+
+	\[
+	N=12k
+	\]
+
+	El menor valor positivo se obtiene para $k=1$:
+
+	\[
+	\boxed{
+	N_0=12
+	}
+	\]
+
+	\textbf{b)}
+
+	\[
+	x_2[n]
+	=
+	\sen\left(\frac{8\pi}{31}n\right)
+	\]
+
+	\[
+	\frac{8\pi}{31}N
+	=
+	2\pi k
+	\]
+
+	\[
+	4N=31k
+	\]
+
+	El menor par de enteros que satisface la igualdad es:
+
+	\[
+	N=31,
+	\qquad
+	k=4
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	N_0=31
+	}
+	\]
+
+	\textbf{c)}
+
+	\[
+	x_3[n]
+	=
+	\sen\left(\frac{2}{5}n\right)
+	\]
+
+	Para que sea periódica debería cumplirse:
+
+	\[
+	\frac{2}{5}N
+	=
+	2\pi k
+	\]
+
+	\[
+	N=5\pi k
+	\]
+
+	Como $\pi$ es irracional, no existen enteros $N>0$ y $k$ que satisfagan la igualdad.
+
+	Por tanto:
+
+	\[
+	\boxed{
+	x_3[n]\text{ no es periódica}
+	}
+	\]
+
+	\textbf{d)}
+
+	\[
+	x_4[n]
+	=
+	e^{j\frac{2\pi}{3}n}
+	+
+	e^{j\frac{3\pi}{4}n}
+	\]
+
+	Para el primer término:
+
+	\[
+	\frac{2\pi}{3}N_1
+	=
+	2\pi k
+	\]
+
+	\[
+	N_1=3
+	\]
+
+	Para el segundo término:
+
+	\[
+	\frac{3\pi}{4}N_2
+	=
+	2\pi k
+	\]
+
+	\[
+	3N_2=8k
+	\]
+
+	El menor valor posible es:
+
+	\[
+	N_2=8
+	\]
+
+	El período fundamental de la suma es el mínimo común múltiplo:
+
+	\[
+	N_0
+	=
+	\operatorname{mcm}(3,8)
+	=
+	24
+	\]
+
+	\[
+	\boxed{
+	N_0=24
+	}
+	\]
+
+\section{Ejercicio 3}
+	Dada la señal
+
+	\[
+	x[n]=
+	\begin{cases}
+	\left(\frac{1}{2}\right)^n, & n\geq0 \\[1mm]
+	0, & n<0
+	\end{cases}
+	\]
+
+	determinar la energía y la potencia media de $x[n]$.
+
+	\subsection{Solución}
+
+	La energía de una señal discreta es:
+
+	\[
+	E
+	=
+	\sum_{n=-\infty}^{\infty}
+	|x[n]|^2
+	\]
+
+	Como $x[n]=0$ para $n<0$:
+
+	\[
+	E
+	=
+	\sum_{n=0}^{\infty}
+	\left(\frac{1}{2}\right)^{2n}
+	\]
+
+	\[
+	E
+	=
+	\sum_{n=0}^{\infty}
+	\left(\frac{1}{4}\right)^n
+	\]
+
+	Es una serie geométrica de razón:
+
+	\[
+	r=\frac{1}{4}
+	\]
+
+	Por tanto:
+
+	\[
+	E
+	=
+	\frac{1}{1-\frac{1}{4}}
+	=
+	\frac{4}{3}
+	\]
+
+	\[
+	\boxed{
+	E=\frac{4}{3}
+	}
+	\]
+
+	La potencia media es:
+
+	\[
+	P
+	=
+	\lim_{N\to\infty}
+	\frac{1}{2N+1}
+	\sum_{n=-N}^{N}
+	|x[n]|^2
+	\]
+
+	\[
+	P
+	=
+	\lim_{N\to\infty}
+	\frac{1}{2N+1}
+	\sum_{n=0}^{N}
+	\left(\frac{1}{4}\right)^n
+	\]
+
+	\[
+	P
+	=
+	\lim_{N\to\infty}
+	\frac{1}{2N+1}
+	\frac{1-\left(\frac{1}{4}\right)^{N+1}}
+	{1-\frac{1}{4}}
+	\]
+
+	\[
+	P=0
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	P=0
+	}
+	\]
+
+	\[
+	\boxed{
+	E=\frac{4}{3},
+	\qquad
+	P=0
+	}
+	\]
+
+\section{Ejercicio 4}
+	Dada la señal $x[n]$ de la figura, calcular las siguientes señales.
+
+	\subsection{Solución}
+
+	De la gráfica:
+
+	\[
+	x[n]=
+	\begin{cases}
+	\frac{3}{2}, & n=-1 \\[1mm]
+	1, & n=0,1,2 \\[1mm]
+	\frac{1}{2}, & n=3,4 \\[1mm]
+	0, & \text{resto}
+	\end{cases}
+	\]
+
+	\textbf{a)}
+
+	\[
+	y_1[n]=x[n-2]
+	\]
+
+	Es un desplazamiento de $2$ posiciones hacia la derecha:
+
+	\[
+	\boxed{
+	y_1[n]=
+	\begin{cases}
+	\frac{3}{2}, & n=1 \\[1mm]
+	1, & n=2,3,4 \\[1mm]
+	\frac{1}{2}, & n=5,6 \\[1mm]
+	0, & \text{resto}
+	\end{cases}
+	}
+	\]
+
+	\textbf{b)}
+
+	\[
+	y_2[n]=x[4-n]
+	\]
+
+	Los valores no nulos son:
+
+	\[
+	\boxed{
+	y_2[n]=
+	\begin{cases}
+	\frac{1}{2}, & n=0,1 \\[1mm]
+	1, & n=2,3,4 \\[1mm]
+	\frac{3}{2}, & n=5 \\[1mm]
+	0, & \text{resto}
+	\end{cases}
+	}
+	\]
+
+	\textbf{c)}
+
+	\[
+	y_2[n]=x[-n-1]
+	\]
+
+	Los valores no nulos son:
+
+	\[
+	\boxed{
+	y_2[n]=
+	\begin{cases}
+	\frac{1}{2}, & n=-5,-4 \\[1mm]
+	1, & n=-3,-2,-1 \\[1mm]
+	\frac{3}{2}, & n=0 \\[1mm]
+	0, & \text{resto}
+	\end{cases}
+	}
+	\]
+
+	\textbf{d)}
+
+	\[
+	y_3[n]=x[2n]
+	\]
+
+	Solo se conservan los valores de $x[n]$ cuyos índices son pares:
+
+	\[
+	y_3[0]=x[0]=1
+	\]
+
+	\[
+	y_3[1]=x[2]=1
+	\]
+
+	\[
+	y_3[2]=x[4]=\frac{1}{2}
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	y_3[n]=
+	\begin{cases}
+	1, & n=0,1 \\[1mm]
+	\frac{1}{2}, & n=2 \\[1mm]
+	0, & \text{resto}
+	\end{cases}
+	}
+	\]
+
+	\textbf{e)}
+
+	\[
+	y_4[n]=x[n]u[2-n]
+	\]
+
+	Como:
+
+	\[
+	u[2-n]=
+	\begin{cases}
+	1, & n\leq2 \\[1mm]
+	0, & n>2
+	\end{cases}
+	\]
+
+	se eliminan los valores de $x[n]$ posteriores a $n=2$:
+
+	\[
+	\boxed{
+	y_4[n]=
+	\begin{cases}
+	\frac{3}{2}, & n=-1 \\[1mm]
+	1, & n=0,1,2 \\[1mm]
+	0, & \text{resto}
+	\end{cases}
+	}
+	\]
+
+	\textbf{f)}
+
+	\[
+	y_5[n]
+	=
+	x[n-1]\cdot\delta[n-3]
+	\]
+
+	La delta solo es distinta de cero para $n=3$:
+
+	\[
+	x[3-1]
+	=
+	x[2]
+	=
+	1
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	y_5[n]=\delta[n-3]
+	}
+	\]
+
+	\textbf{g)}
+
+	\[
+	y_6[n]
+	=
+	x[n-1]*\delta[n-3]
+	\]
+
+	Utilizando la propiedad:
+
+	\[
+	f[n]*\delta[n-n_0]
+	=
+	f[n-n_0]
+	\]
+
+	se obtiene:
+
+	\[
+	y_6[n]
+	=
+	x[(n-3)-1]
+	=
+	x[n-4]
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	y_6[n]=
+	\begin{cases}
+	\frac{3}{2}, & n=3 \\[1mm]
+	1, & n=4,5,6 \\[1mm]
+	\frac{1}{2}, & n=7,8 \\[1mm]
+	0, & \text{resto}
+	\end{cases}
+	}
+	\]
+
+\section{Ejercicio 5}
+	Obtener los coeficientes de la serie de Fourier de la señal discreta periódica $x[n]$ de la figura.
+
+	\subsection{Solución}
+
+	De la gráfica se observa que:
+
+	\[
+	N_0=4
+	\]
+
+	y un período de la señal es:
+
+	\[
+	x[0]=4,
+	\qquad
+	x[1]=1,
+	\qquad
+	x[2]=2,
+	\qquad
+	x[3]=3
+	\]
+
+	La frecuencia fundamental es:
+
+	\[
+	\Omega_0
+	=
+	\frac{2\pi}{N_0}
+	=
+	\frac{\pi}{2}
+	\]
+
+	Los coeficientes vienen dados por:
+
+	\[
+	c_k
+	=
+	\frac{1}{N_0}
+	\sum_{n=0}^{N_0-1}
+	x[n]e^{-jk\Omega_0n}
+	\]
+
+	Para $k=0$:
+
+	\[
+	c_0
+	=
+	\frac{1}{4}
+	(4+1+2+3)
+	=
+	\frac{5}{2}
+	\]
+
+	Para $k=1$:
+
+	\[
+	c_1
+	=
+	\frac{1}{4}
+	\left(
+	4
+	+
+	e^{-j\pi/2}
+	+
+	2e^{-j\pi}
+	+
+	3e^{-j3\pi/2}
+	\right)
+	\]
+
+	\[
+	c_1
+	=
+	\frac{1}{4}
+	\left(
+	4-j-2+3j
+	\right)
+	\]
+
+	\[
+	c_1
+	=
+	\frac{1+j}{2}
+	\]
+
+	Para $k=2$:
+
+	\[
+	c_2
+	=
+	\frac{1}{4}
+	\left(
+	4
+	+
+	e^{-j\pi}
+	+
+	2e^{-j2\pi}
+	+
+	3e^{-j3\pi}
+	\right)
+	\]
+
+	\[
+	c_2
+	=
+	\frac{1}{4}
+	(4-1+2-3)
+	=
+	\frac{1}{2}
+	\]
+
+	Para $k=3$:
+
+	\[
+	c_3
+	=
+	\frac{1}{4}
+	\left(
+	4
+	+
+	e^{-j3\pi/2}
+	+
+	2e^{-j3\pi}
+	+
+	3e^{-j9\pi/2}
+	\right)
+	\]
+
+	\[
+	c_3
+	=
+	\frac{1}{4}
+	\left(
+	4+j-2-3j
+	\right)
+	\]
+
+	\[
+	c_3
+	=
+	\frac{1-j}{2}
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	c_0=\frac{5}{2},
+	\qquad
+	c_1=\frac{1+j}{2},
+	\qquad
+	c_2=\frac{1}{2},
+	\qquad
+	c_3=\frac{1-j}{2}
+	}
+	\]
+
+	Los coeficientes son periódicos de período $4$:
+
+	\[
+	\boxed{
+	c_{k+4}=c_k
+	}
+	\]
+
+\section{Ejercicio 6}
+	Desarrollar en serie de Fourier la señal discreta periódica $x[n]$ de la figura.
+
+	\subsection{Solución}
+
+	De la gráfica se observa que:
+
+	\[
+	N_0=6
+	\]
+
+	y un período de la señal es:
+
+	\[
+	x[0]=1,\qquad
+	x[1]=1,\qquad
+	x[2]=0,\qquad
+	x[3]=0,\qquad
+	x[4]=0,\qquad
+	x[5]=1
+	\]
+
+	La frecuencia fundamental es:
+
+	\[
+	\Omega_0
+	=
+	\frac{2\pi}{N_0}
+	=
+	\frac{\pi}{3}
+	\]
+
+	Los coeficientes vienen dados por:
+
+	\[
+	c_k
+	=
+	\frac{1}{6}
+	\sum_{n=0}^{5}
+	x[n]e^{-jk\Omega_0n}
+	\]
+
+	Como solo son distintos de cero los términos $n=0,1,5$:
+
+	\[
+	c_k
+	=
+	\frac{1}{6}
+	\left(
+	1+
+	e^{-jk\pi/3}
+	+
+	e^{-j5k\pi/3}
+	\right)
+	\]
+
+	Como:
+
+	\[
+	e^{-j5k\pi/3}
+	=
+	e^{jk\pi/3}
+	\]
+
+	se tiene:
+
+	\[
+	c_k
+	=
+	\frac{1}{6}
+	\left(
+	1+
+	e^{-jk\pi/3}
+	+
+	e^{jk\pi/3}
+	\right)
+	\]
+
+	\[
+	\boxed{
+	c_k
+	=
+	\frac{1+2\cos\left(\frac{k\pi}{3}\right)}{6}
+	}
+	\]
+
+	Calculamos los coeficientes de un período:
+
+	\[
+	c_0=\frac{1}{2}
+	\]
+
+	\[
+	c_1=\frac{1}{3}
+	\]
+
+	\[
+	c_2=0
+	\]
+
+	\[
+	c_3=-\frac{1}{6}
+	\]
+
+	\[
+	c_4=0
+	\]
+
+	\[
+	c_5=\frac{1}{3}
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	c_0=\frac{1}{2},
+	\qquad
+	c_1=\frac{1}{3},
+	\qquad
+	c_2=0,
+	\qquad
+	c_3=-\frac{1}{6},
+	\qquad
+	c_4=0,
+	\qquad
+	c_5=\frac{1}{3}
+	}
+	\]
+
+	y el desarrollo en serie de Fourier es:
+
+	\[
+	\boxed{
+	x[n]
+	=
+	\sum_{k=0}^{5}
+	c_k e^{jk\frac{\pi}{3}n}
+	}
+	\]
+
+\section{Ejercicio 7}
+	Obtener el valor medio y la potencia media de las señales periódicas de los problemas 5 y 6.
+
+	\subsection{Solución}
+
+	Para la señal del ejercicio 5:
+
+	\[
+	x[n]=\{4,1,2,3\},
+	\qquad
+	N_0=4
+	\]
+
+	El valor medio es:
+
+	\[
+	\overline{x}
+	=
+	\frac{1}{4}(4+1+2+3)
+	\]
+
+	\[
+	\boxed{
+	\overline{x}=\frac{5}{2}
+	}
+	\]
+
+	La potencia media es:
+
+	\[
+	P
+	=
+	\frac{1}{4}
+	\left(
+	4^2+1^2+2^2+3^2
+	\right)
+	\]
+
+	\[
+	P
+	=
+	\frac{30}{4}
+	\]
+
+	\[
+	\boxed{
+	P=\frac{15}{2}
+	}
+	\]
+
+	Para la señal del ejercicio 6:
+
+	\[
+	x[n]=\{1,1,0,0,0,1\},
+	\qquad
+	N_0=6
+	\]
+
+	El valor medio es:
+
+	\[
+	\overline{x}
+	=
+	\frac{1}{6}(1+1+1)
+	\]
+
+	\[
+	\boxed{
+	\overline{x}=\frac{1}{2}
+	}
+	\]
+
+	La potencia media es:
+
+	\[
+	P
+	=
+	\frac{1}{6}
+	\left(
+	1^2+1^2+1^2
+	\right)
+	\]
+
+	\[
+	\boxed{
+	P=\frac{1}{2}
+	}
+	\]
+
+\section{Ejercicio 8}
+	Determinar los coeficientes del desarrollo en serie de Fourier de las siguientes señales.
+
+	\subsection{Solución}
+
+	\textbf{a)}
+
+	\[
+	x_1[n]
+	=
+	\cos\left(\frac{\pi}{4}n\right)
+	\]
+
+	Como:
+
+	\[
+	\frac{\pi}{4}
+	=
+	\frac{2\pi}{8}
+	\]
+
+	se tiene:
+
+	\[
+	N_0=8,
+	\qquad
+	\Omega_0=\frac{\pi}{4}
+	\]
+
+	Utilizando:
+
+	\[
+	\cos(\Omega_0n)
+	=
+	\frac{1}{2}e^{j\Omega_0n}
+	+
+	\frac{1}{2}e^{-j\Omega_0n}
+	\]
+
+	se obtiene:
+
+	\[
+	\boxed{
+	c_1=\frac{1}{2},
+	\qquad
+	c_7=\frac{1}{2}
+	}
+	\]
+
+	y el resto de coeficientes son nulos.
+
+	\textbf{b)}
+
+	\[
+	x_2[n]
+	=
+	\cos\left(\frac{\pi}{3}n\right)
+	+
+	\sen\left(\frac{\pi}{4}n\right)
+	\]
+
+	Los períodos de ambas señales son:
+
+	\[
+	N_1=6,
+	\qquad
+	N_2=8
+	\]
+
+	Por tanto:
+
+	\[
+	N_0
+	=
+	\operatorname{mcm}(6,8)
+	=
+	24
+	\]
+
+	\[
+	\Omega_0
+	=
+	\frac{2\pi}{24}
+	=
+	\frac{\pi}{12}
+	\]
+
+	Entonces:
+
+	\[
+	\frac{\pi}{3}=4\Omega_0
+	\]
+
+	y:
+
+	\[
+	\frac{\pi}{4}=3\Omega_0
+	\]
+
+	Por tanto:
+
+	\[
+	\cos(4\Omega_0n)
+	=
+	\frac{1}{2}e^{j4\Omega_0n}
+	+
+	\frac{1}{2}e^{-j4\Omega_0n}
+	\]
+
+	y:
+
+	\[
+	\sen(3\Omega_0n)
+	=
+	\frac{1}{2j}e^{j3\Omega_0n}
+	-
+	\frac{1}{2j}e^{-j3\Omega_0n}
+	\]
+
+	Así:
+
+	\[
+	\boxed{
+	c_4=\frac{1}{2},
+	\qquad
+	c_{20}=\frac{1}{2},
+	\qquad
+	c_3=-\frac{j}{2},
+	\qquad
+	c_{21}=\frac{j}{2}
+	}
+	\]
+
+	y el resto son nulos.
+
+	\textbf{c)}
+
+	\[
+	x_3[n]
+	=
+	\cos^2\left(\frac{\pi}{8}n\right)
+	\]
+
+	Utilizamos:
+
+	\[
+	\cos^2(\alpha)
+	=
+	\frac{1+\cos(2\alpha)}{2}
+	\]
+
+	\[
+	x_3[n]
+	=
+	\frac{1}{2}
+	+
+	\frac{1}{2}
+	\cos\left(\frac{\pi}{4}n\right)
+	\]
+
+	El período fundamental es:
+
+	\[
+	N_0=8
+	\]
+
+	y:
+
+	\[
+	\frac{1}{2}
+	\cos\left(\frac{\pi}{4}n\right)
+	=
+	\frac{1}{4}e^{j\pi n/4}
+	+
+	\frac{1}{4}e^{-j\pi n/4}
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	c_0=\frac{1}{2},
+	\qquad
+	c_1=\frac{1}{4},
+	\qquad
+	c_7=\frac{1}{4}
+	}
+	\]
+
+	y el resto son nulos.
+
+\section{Ejercicio 9}
+	Una señal discreta periódica $x[n]$ de período $N_0=4$ tiene los coeficientes:
+
+	\[
+	\{3,2-j,4+3j,-9\}
+	\]
+
+	Determinar los coeficientes de:
+
+	\[
+	y[n]
+	=
+	x[n]e^{j\frac{3\pi}{2}n}
+	\]
+
+	\subsection{Solución}
+
+	Como:
+
+	\[
+	N_0=4
+	\]
+
+	se tiene:
+
+	\[
+	\Omega_0
+	=
+	\frac{2\pi}{4}
+	=
+	\frac{\pi}{2}
+	\]
+
+	Por tanto:
+
+	\[
+	e^{j\frac{3\pi}{2}n}
+	=
+	e^{j3\Omega_0n}
+	\]
+
+	Por la propiedad de desplazamiento en frecuencia:
+
+	\[
+	y[n]
+	=
+	x[n]e^{j3\Omega_0n}
+	\]
+
+	implica:
+
+	\[
+	d_k=c_{k-3}
+	\]
+
+	Como los coeficientes son periódicos de período $4$:
+
+	\[
+	d_0=c_1=2-j
+	\]
+
+	\[
+	d_1=c_2=4+3j
+	\]
+
+	\[
+	d_2=c_3=-9
+	\]
+
+	\[
+	d_3=c_0=3
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	\{d_k\}
+	=
+	\{2-j,4+3j,-9,3\}
+	}
+	\]
+
+\section{Ejercicio 10}
+	Calcular la convolución
+
+	\[
+	z[n]=x[n]*y[n]
+	\]
+
+	dadas las señales:
+
+	\[
+	x[n]
+	=
+	2\delta[n]
+	+
+	\delta[n-2]
+	-
+	\delta[n-3]
+	\]
+
+	\[
+	y[n]
+	=
+	\delta[n+1]
+	+
+	2\delta[n]
+	-
+	3\delta[n-1]
+	\]
+
+	\subsection{Solución}
+
+	Utilizamos:
+
+	\[
+	\delta[n-a]*\delta[n-b]
+	=
+	\delta[n-(a+b)]
+	\]
+
+	Distribuyendo la convolución:
+
+	\[
+	z[n]
+	=
+	2\delta[n]*
+	\left(
+	\delta[n+1]+2\delta[n]-3\delta[n-1]
+	\right)
+	\]
+
+	\[
+	+
+	\delta[n-2]*
+	\left(
+	\delta[n+1]+2\delta[n]-3\delta[n-1]
+	\right)
+	\]
+
+	\[
+	-
+	\delta[n-3]*
+	\left(
+	\delta[n+1]+2\delta[n]-3\delta[n-1]
+	\right)
+	\]
+
+	Se obtiene:
+
+	\[
+	z[n]
+	=
+	2\delta[n+1]
+	+
+	4\delta[n]
+	-
+	6\delta[n-1]
+	\]
+
+	\[
+	+
+	\delta[n-1]
+	+
+	2\delta[n-2]
+	-
+	3\delta[n-3]
+	\]
+
+	\[
+	-
+	\delta[n-2]
+	-
+	2\delta[n-3]
+	+
+	3\delta[n-4]
+	\]
+
+	Agrupando términos:
+
+	\[
+	\boxed{
+	z[n]
+	=
+	2\delta[n+1]
+	+
+	4\delta[n]
+	-
+	5\delta[n-1]
+	+
+	\delta[n-2]
+	-
+	5\delta[n-3]
+	+
+	3\delta[n-4]
+	}
+	\]
+
+\section{Ejercicio 11}
+	Calcular la convolución lineal y circular de:
+
+	\[
+	x[n]
+	=
+	\delta[n]
+	+
+	2\delta[n-1]
+	+
+	3\delta[n-2]
+	+
+	3\delta[n-3]
+	\]
+
+	\[
+	y[n]
+	=
+	\delta[n]
+	-
+	\delta[n-1]
+	+
+	\delta[n-2]
+	\]
+
+	\subsection{Solución}
+
+	Las secuencias son:
+
+	\[
+	x[n]=\{1,2,3,3\}
+	\]
+
+	\[
+	y[n]=\{1,-1,1\}
+	\]
+
+	Para la convolución lineal:
+
+	\[
+	z[n]
+	=
+	\sum_{k=-\infty}^{\infty}
+	x[k]y[n-k]
+	\]
+
+	Calculamos los valores:
+
+	\[
+	z[0]=1
+	\]
+
+	\[
+	z[1]=-1+2=1
+	\]
+
+	\[
+	z[2]=1-2+3=2
+	\]
+
+	\[
+	z[3]=2-3+3=2
+	\]
+
+	\[
+	z[4]=3-3=0
+	\]
+
+	\[
+	z[5]=3
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	z[n]=\{1,1,2,2,0,3\}
+	}
+	\]
+
+	Para la convolución circular tomamos:
+
+	\[
+	N=\max(4,3)=4
+	\]
+
+	y completamos:
+
+	\[
+	y[n]=\{1,-1,1,0\}
+	\]
+
+	La convolución circular puede obtenerse agrupando los términos de la convolución lineal módulo $4$:
+
+	\[
+	z_c[0]
+	=
+	z[0]+z[4]
+	=
+	1
+	\]
+
+	\[
+	z_c[1]
+	=
+	z[1]+z[5]
+	=
+	4
+	\]
+
+	\[
+	z_c[2]
+	=
+	z[2]
+	=
+	2
+	\]
+
+	\[
+	z_c[3]
+	=
+	z[3]
+	=
+	2
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	z_c[n]
+	=
+	\{1,4,2,2\}
+	}
+	\]
+
+\section{Ejercicio 12}
+	Calcular la convolución circular
+
+	\[
+	x[n]\overset{10}{*}y[n]
+	\]
+
+	donde:
+
+	\[
+	x[n]=
+	\begin{cases}
+	3n, & 0\leq n\leq6 \\[1mm]
+	0, & \text{resto}
+	\end{cases}
+	\]
+
+	y:
+
+	\[
+	y[n]=
+	\begin{cases}
+	\displaystyle\frac{n}{3}, & 0\leq n\leq5 \\[1mm]
+	0, & \text{resto}
+	\end{cases}
+	\]
+
+	\subsection{Solución}
+
+	Como la convolución circular es de longitud $N=10$, escribimos:
+
+	\[
+	x[n]
+	=
+	\{0,3,6,9,12,15,18,0,0,0\}
+	\]
+
+	\[
+	y[n]
+	=
+	\left\{
+	0,\frac{1}{3},\frac{2}{3},1,
+	\frac{4}{3},\frac{5}{3},0,0,0,0
+	\right\}
+	\]
+
+	La convolución circular viene dada por:
+
+	\[
+	z[n]
+	=
+	\sum_{k=0}^{9}
+	x[k]y[(n-k)\operatorname{mod}10]
+	\]
+
+	Calculando para $n=0,\ldots,9$ se obtiene:
+
+	\[
+	z[0]=49
+	\]
+
+	\[
+	z[1]=30
+	\]
+
+	\[
+	z[2]=1
+	\]
+
+	\[
+	z[3]=4
+	\]
+
+	\[
+	z[4]=10
+	\]
+
+	\[
+	z[5]=20
+	\]
+
+	\[
+	z[6]=35
+	\]
+
+	\[
+	z[7]=50
+	\]
+
+	\[
+	z[8]=58
+	\]
+
+	\[
+	z[9]=58
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	z[n]
+	=
+	\{49,30,1,4,10,20,35,50,58,58\}
+	}
+	\]
+
+\section{Ejercicio 13}
+	Determinar la DTFT de la señal
+
+	\[
+	x[n]=a^nu[n],
+	\qquad |a|<1
+	\]
+
+	\subsection{Solución}
+
+	La DTFT viene dada por:
+
+	\[
+	X(\Omega)
+	=
+	\sum_{n=-\infty}^{\infty}
+	x[n]e^{-j\Omega n}
+	\]
+
+	Como $u[n]=0$ para $n<0$:
+
+	\[
+	X(\Omega)
+	=
+	\sum_{n=0}^{\infty}
+	a^ne^{-j\Omega n}
+	\]
+
+	\[
+	X(\Omega)
+	=
+	\sum_{n=0}^{\infty}
+	\left(
+	ae^{-j\Omega}
+	\right)^n
+	\]
+
+	Es una serie geométrica de razón:
+
+	\[
+	r=ae^{-j\Omega}
+	\]
+
+	Como:
+
+	\[
+	|r|=|a|<1
+	\]
+
+	se tiene:
+
+	\[
+	X(\Omega)
+	=
+	\frac{1}{1-ae^{-j\Omega}}
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	X(\Omega)
+	=
+	\frac{1}{1-ae^{-j\Omega}}
+	}
+	\]
+
+\section{Ejercicio 14}
+	Determinar la DTFT de la señal
+
+	\[
+	x[n]=a^{|n|},
+	\qquad |a|<1
+	\]
+
+	\subsection{Solución}
+
+	Aplicamos la definición:
+
+	\[
+	X(\Omega)
+	=
+	\sum_{n=-\infty}^{\infty}
+	a^{|n|}e^{-j\Omega n}
+	\]
+
+	Separamos:
+
+	\[
+	X(\Omega)
+	=
+	1
+	+
+	\sum_{n=1}^{\infty}
+	a^ne^{-j\Omega n}
+	+
+	\sum_{n=-\infty}^{-1}
+	a^{|n|}e^{-j\Omega n}
+	\]
+
+	Haciendo $m=-n$ en la última suma:
+
+	\[
+	X(\Omega)
+	=
+	1
+	+
+	\sum_{n=1}^{\infty}
+	\left(ae^{-j\Omega}\right)^n
+	+
+	\sum_{n=1}^{\infty}
+	\left(ae^{j\Omega}\right)^n
+	\]
+
+	Utilizando la suma de la serie geométrica:
+
+	\[
+	X(\Omega)
+	=
+	1
+	+
+	\frac{ae^{-j\Omega}}
+	{1-ae^{-j\Omega}}
+	+
+	\frac{ae^{j\Omega}}
+	{1-ae^{j\Omega}}
+	\]
+
+	Operando:
+
+	\[
+	X(\Omega)
+	=
+	\frac{1-a^2}
+	{
+	(1-ae^{-j\Omega})(1-ae^{j\Omega})
+	}
+	\]
+
+	Como:
+
+	\[
+	e^{j\Omega}+e^{-j\Omega}
+	=
+	2\cos(\Omega)
+	\]
+
+	se obtiene:
+
+	\[
+	\boxed{
+	X(\Omega)
+	=
+	\frac{1-a^2}
+	{1-2a\cos(\Omega)+a^2}
+	}
+	\]
+
+\section{Ejercicio 15}
+	Determinar la DTFT de las señales
+
+	\[
+	x[n]
+	=
+	a^nu[n]\sen(\Omega_0n)
+	\]
+
+	e:
+
+	\[
+	y[n]
+	=
+	a^nu[n]*\sen(\Omega_0n),
+	\qquad |a|<1
+	\]
+
+	\subsection{Solución}
+
+	Para $x[n]$, utilizamos:
+
+	\[
+	\sen(\Omega_0n)
+	=
+	\frac{
+	e^{j\Omega_0n}
+	-
+	e^{-j\Omega_0n}
+	}{2j}
+	\]
+
+	Entonces:
+
+	\[
+	x[n]
+	=
+	\frac{1}{2j}
+	\left[
+	a^nu[n]e^{j\Omega_0n}
+	-
+	a^nu[n]e^{-j\Omega_0n}
+	\right]
+	\]
+
+	Sabemos que:
+
+	\[
+	a^nu[n]
+	\overset{\mathcal{F}}{\longleftrightarrow}
+	\frac{1}{1-ae^{-j\Omega}}
+	\]
+
+	Aplicando la propiedad de modulación:
+
+	\[
+	\boxed{
+	X(\Omega)
+	=
+	\frac{1}{2j}
+	\left[
+	\frac{1}
+	{1-ae^{-j(\Omega-\Omega_0)}}
+	-
+	\frac{1}
+	{1-ae^{-j(\Omega+\Omega_0)}}
+	\right]
+	}
+	\]
+
+	Para $y[n]$, utilizamos la propiedad de la convolución:
+
+	\[
+	y[n]
+	=
+	a^nu[n]*\sen(\Omega_0n)
+	\]
+
+	\[
+	Y(\Omega)
+	=
+	A(\Omega)S(\Omega)
+	\]
+
+	donde:
+
+	\[
+	A(\Omega)
+	=
+	\frac{1}{1-ae^{-j\Omega}}
+	\]
+
+	y:
+
+	\[
+	S(\Omega)
+	=
+	\frac{\pi}{j}
+	\left[
+	\delta_p(\Omega-\Omega_0)
+	-
+	\delta_p(\Omega+\Omega_0)
+	\right]
+	\]
+
+	Por tanto:
+
+	\[
+	Y(\Omega)
+	=
+	\frac{\pi}{j}
+	\left[
+	\frac{
+	\delta_p(\Omega-\Omega_0)
+	}{
+	1-ae^{-j\Omega_0}
+	}
+	-
+	\frac{
+	\delta_p(\Omega+\Omega_0)
+	}{
+	1-ae^{j\Omega_0}
+	}
+	\right]
+	\]
+
+	\[
+	\boxed{
+	Y(\Omega)
+	=
+	\frac{\pi}{j}
+	\left[
+	\frac{
+	\delta_p(\Omega-\Omega_0)
+	}{
+	1-ae^{-j\Omega_0}
+	}
+	-
+	\frac{
+	\delta_p(\Omega+\Omega_0)
+	}{
+	1-ae^{j\Omega_0}
+	}
+	\right]
+	}
+	\]
+
+\section{Ejercicio 16}
+	Determinar la DTFT de la señal
+
+	\[
+	x[n]=
+	\begin{cases}
+	1, & |n|\leq N \\[1mm]
+	0, & \text{resto}
+	\end{cases}
+	\]
+
+	\subsection{Solución}
+
+	Aplicamos la definición:
+
+	\[
+	X(\Omega)
+	=
+	\sum_{n=-\infty}^{\infty}
+	x[n]e^{-j\Omega n}
+	\]
+
+	Como la señal solo es distinta de cero para $-N\leq n\leq N$:
+
+	\[
+	X(\Omega)
+	=
+	\sum_{n=-N}^{N}
+	e^{-j\Omega n}
+	\]
+
+	Escribimos:
+
+	\[
+	X(\Omega)
+	=
+	e^{jN\Omega}
+	\sum_{k=0}^{2N}
+	e^{-j\Omega k}
+	\]
+
+	Utilizando la suma geométrica:
+
+	\[
+	X(\Omega)
+	=
+	e^{jN\Omega}
+	\frac{
+	1-e^{-j(2N+1)\Omega}
+	}{
+	1-e^{-j\Omega}
+	}
+	\]
+
+	Utilizamos:
+
+	\[
+	1-e^{-j\alpha}
+	=
+	2je^{-j\alpha/2}
+	\sen\left(\frac{\alpha}{2}\right)
+	\]
+
+	Entonces:
+
+	\[
+	X(\Omega)
+	=
+	e^{jN\Omega}
+	\frac{
+	2je^{-j(2N+1)\Omega/2}
+	\sen\left(\frac{(2N+1)\Omega}{2}\right)
+	}{
+	2je^{-j\Omega/2}
+	\sen\left(\frac{\Omega}{2}\right)
+	}
+	\]
+
+	Los términos exponenciales se cancelan y se obtiene:
+
+	\[
+	\boxed{
+	X(\Omega)
+	=
+	\frac{
+	\sen\left(\frac{(2N+1)\Omega}{2}\right)
+	}{
+	\sen\left(\frac{\Omega}{2}\right)
+	}
+	}
+	\]
+
+	En $\Omega=2\pi k$:
+
+	\[
+	\boxed{
+	X(2\pi k)=2N+1
+	}
+	\]
+
+\section{Ejercicio 17}
+	Calcular la DTFT inversa de
+
+	\[
+	X(\Omega)=
+	\begin{cases}
+	1, & |\Omega|\leq W<\pi \\[1mm]
+	0, & \text{resto}
+	\end{cases}
+	\]
+
+	y representar gráficamente tanto $X(\Omega)$ como $x[n]$.
+
+	\subsection{Solución}
+
+	La DTFT inversa viene dada por:
+
+	\[
+	x[n]
+	=
+	\frac{1}{2\pi}
+	\int_{-\pi}^{\pi}
+	X(\Omega)e^{j\Omega n}\,d\Omega
+	\]
+
+	Como $X(\Omega)=1$ para $|\Omega|\leq W$:
+
+	\[
+	x[n]
+	=
+	\frac{1}{2\pi}
+	\int_{-W}^{W}
+	e^{j\Omega n}\,d\Omega
+	\]
+
+	Si $n\neq0$:
+
+	\[
+	x[n]
+	=
+	\frac{1}{2\pi}
+	\left[
+	\frac{e^{j\Omega n}}{jn}
+	\right]_{-W}^{W}
+	\]
+
+	\[
+	x[n]
+	=
+	\frac{1}{2\pi}
+	\frac{
+	e^{jWn}-e^{-jWn}
+	}{jn}
+	\]
+
+	Utilizando:
+
+	\[
+	e^{jWn}-e^{-jWn}
+	=
+	2j\sen(Wn)
+	\]
+
+	se obtiene:
+
+	\[
+	x[n]
+	=
+	\frac{\sen(Wn)}{\pi n}
+	\]
+
+	Para $n=0$:
+
+	\[
+	x[0]
+	=
+	\frac{1}{2\pi}
+	\int_{-W}^{W}d\Omega
+	=
+	\frac{W}{\pi}
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	x[n]=
+	\begin{cases}
+	\displaystyle\frac{W}{\pi}, & n=0 \\[3mm]
+	\displaystyle\frac{\sen(Wn)}{\pi n}, & n\neq0
+	\end{cases}
+	}
+	\]
+
+	La señal $X(\Omega)$ es un pulso rectangular entre $-W$ y $W$,
+	periódico con período $2\pi$, mientras que $x[n]$ tiene forma de sinc discreta.
+
+\section{Ejercicio 18}
+	Calcular la DFT de la secuencia
+
+	\[
+	x[n]=[2,0,-1,3]
+	\]
+
+	\subsection{Solución}
+
+	La longitud de la secuencia es:
+
+	\[
+	N=4
+	\]
+
+	La DFT viene dada por:
+
+	\[
+	X[k]
+	=
+	\sum_{n=0}^{3}
+	x[n]e^{-j\frac{2\pi}{4}kn}
+	\]
+
+	Para $k=0$:
+
+	\[
+	X[0]
+	=
+	2+0-1+3
+	=
+	4
+	\]
+
+	Para $k=1$:
+
+	\[
+	X[1]
+	=
+	2
+	-
+	e^{-j\pi}
+	+
+	3e^{-j3\pi/2}
+	\]
+
+	\[
+	X[1]
+	=
+	2+1+3j
+	\]
+
+	\[
+	X[1]=3+3j
+	\]
+
+	Para $k=2$:
+
+	\[
+	X[2]
+	=
+	2
+	-
+	e^{-j2\pi}
+	+
+	3e^{-j3\pi}
+	\]
+
+	\[
+	X[2]
+	=
+	2-1-3
+	=
+	-2
+	\]
+
+	Como la secuencia es real:
+
+	\[
+	X[3]=X^*[1]
+	\]
+
+	\[
+	X[3]=3-3j
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	X[k]
+	=
+	[4,\;3+3j,\;-2,\;3-3j]
+	}
+	\]
+
+\section{Ejercicio 19}
+	Calcular la DFT inversa de la secuencia
+
+	\[
+	X[k]
+	=
+	[0,-3-3j,-2,-3+3j]
+	\]
+
+	\subsection{Solución}
+
+	La longitud es:
+
+	\[
+	N=4
+	\]
+
+	La DFT inversa viene dada por:
+
+	\[
+	x[n]
+	=
+	\frac{1}{4}
+	\sum_{k=0}^{3}
+	X[k]e^{j\frac{2\pi}{4}kn}
+	\]
+
+	Para $n=0$:
+
+	\[
+	x[0]
+	=
+	\frac{1}{4}
+	\left[
+	(-3-3j)-2+(-3+3j)
+	\right]
+	\]
+
+	\[
+	x[0]=-2
+	\]
+
+	Para $n=1$:
+
+	\[
+	x[1]
+	=
+	\frac{1}{4}
+	\left[
+	(-3-3j)j
+	+
+	(-2)(-1)
+	+
+	(-3+3j)(-j)
+	\right]
+	\]
+
+	\[
+	x[1]=2
+	\]
+
+	Para $n=2$:
+
+	\[
+	x[2]
+	=
+	\frac{1}{4}
+	\left[
+	(-3-3j)(-1)
+	-2
+	+
+	(-3+3j)(-1)
+	\right]
+	\]
+
+	\[
+	x[2]=1
+	\]
+
+	Para $n=3$:
+
+	\[
+	x[3]
+	=
+	\frac{1}{4}
+	\left[
+	(-3-3j)(-j)
+	+
+	(-2)(-1)
+	+
+	(-3+3j)j
+	\right]
+	\]
+
+	\[
+	x[3]=-1
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	x[n]=[-2,2,1,-1]
+	}
+	\]
+
+\section{Ejercicio 20}
+	Proporcionar un ejemplo de secuencia simétrica y otro de secuencia antisimétrica
+	para $N=5$ y para $N=6$.
+
+	\subsection{Solución}
+
+	Una secuencia es simétrica si:
+
+	\[
+	x[n]=x[N-n]
+	\]
+
+	y es antisimétrica si:
+
+	\[
+	x[n]=-x[N-n]
+	\]
+
+	Para $N=5$, un ejemplo de secuencia simétrica es:
+
+	\[
+	\boxed{
+	x[n]=[1,2,3,3,2]
+	}
+	\]
+
+	ya que:
+
+	\[
+	x[1]=x[4],
+	\qquad
+	x[2]=x[3]
+	\]
+
+	Un ejemplo de secuencia antisimétrica es:
+
+	\[
+	\boxed{
+	x[n]=[0,1,2,-2,-1]
+	}
+	\]
+
+	Para $N=6$, un ejemplo de secuencia simétrica es:
+
+	\[
+	\boxed{
+	x[n]=[1,2,3,4,3,2]
+	}
+	\]
+
+	ya que:
+
+	\[
+	x[1]=x[5],
+	\qquad
+	x[2]=x[4]
+	\]
+
+	Un ejemplo de secuencia antisimétrica es:
+
+	\[
+	\boxed{
+	x[n]=[0,1,2,0,-2,-1]
+	}
+	\]
+
+	En este caso:
+
+	\[
+	x[0]=0,
+	\qquad
+	x[3]=0
+	\]
+
+	ya que estos índices son simétricos consigo mismos.
+
+\section{Ejercicio 21}
+	Dada la transformación $X[k]$ asociada a una secuencia real $x[n]$ con $N=14$:
+
+	\[
+	X[0]=12
+	\]
+
+	\[
+	X[1]=-1+3j,\quad
+	X[2]=3+4j,\quad
+	X[3]=-1+5j
+	\]
+
+	\[
+	X[4]=-2+2j,\quad
+	X[5]=6+3j,\quad
+	X[6]=-2-3j,\quad
+	X[7]=10
+	\]
+
+	calcular el resto de coeficientes.
+
+	\subsection{Solución}
+
+	Como $x[n]$ es una secuencia real, se cumple:
+
+	\[
+	X[k]
+	=
+	X^*[N-k]
+	\]
+
+	Por tanto:
+
+	\[
+	X[8]
+	=
+	X^*[6]
+	=
+-2+3j
+	\]
+
+	\[
+	X[9]
+	=
+	X^*[5]
+	=
+	6-3j
+	\]
+
+	\[
+	X[10]
+	=
+	X^*[4]
+	=
+	-2-2j
+	\]
+
+	\[
+	X[11]
+	=
+	X^*[3]
+	=
+	-1-5j
+	\]
+
+	\[
+	X[12]
+	=
+	X^*[2]
+	=
+	3-4j
+	\]
+
+	\[
+	X[13]
+	=
+	X^*[1]
+	=
+	-1-3j
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	\begin{aligned}
+	X[8]&=-2+3j \\
+	X[9]&=6-3j \\
+	X[10]&=-2-2j \\
+	X[11]&=-1-5j \\
+	X[12]&=3-4j \\
+	X[13]&=-1-3j
+	\end{aligned}
+	}
+	\]
+
+\section{Ejercicio 22}
+	Dada una secuencia de números reales $x[n]$ de longitud $N=9$, se sabe que su transformada DFT es:
+
+	\[
+	X[k]
+	=
+	[3.1,\;a,\;2.5+4.6j,\;b,\;-1.7+5.2j,\;c,\;9.3+6.3j,\;d,\;5.5-8j]
+	\]
+
+	Determinar el valor de las constantes $a$, $b$, $c$ y $d$.
+
+	\subsection{Solución}
+
+	Como $x[n]$ es una secuencia real, se cumple:
+
+	\[
+	X[k]
+	=
+	X^*[N-k]
+	\]
+
+	Por tanto:
+
+	\[
+	X[1]
+	=
+	X^*[8]
+	\]
+
+	\[
+	a
+	=
+	5.5+8j
+	\]
+
+	Además:
+
+	\[
+	X[2]
+	=
+	X^*[7]
+	\]
+
+	\[
+	d
+	=
+	2.5-4.6j
+	\]
+
+	Para $k=3$:
+
+	\[
+	X[3]
+	=
+	X^*[6]
+	\]
+
+	\[
+	b
+	=
+	9.3-6.3j
+	\]
+
+	Y para $k=4$:
+
+	\[
+	X[4]
+	=
+	X^*[5]
+	\]
+
+	\[
+	c
+	=
+	-1.7-5.2j
+	\]
+
+	Por tanto:
+
+	\[
+	\boxed{
+	\begin{aligned}
+	a&=5.5+8j\\
+	b&=9.3-6.3j\\
+	c&=-1.7-5.2j\\
+	d&=2.5-4.6j
+	\end{aligned}
+	}
+	\]
+
+\section{Ejercicio 23}
+	Realizar de nuevo la convolución circular del problema 11 calculando previamente la DFT de cada secuencia.
+
+	\subsection{Solución}
+
+	Las secuencias del ejercicio 11 son:
+
+	\[
+	x[n]=[1,2,3,3]
+	\]
+
+	y:
+
+	\[
+	y[n]=[1,-1,1,0]
+	\]
+
+	con:
+
+	\[
+	N=4
+	\]
+
+	Calculamos la DFT de $x[n]$:
+
+	\[
+	X[k]
+	=
+	\sum_{n=0}^{3}
+	x[n]e^{-j\frac{2\pi}{4}kn}
+	\]
+
+	Se obtiene:
+
+	\[
+	\boxed{
+	X[k]=[9,-2+j,-1,-2-j]
+	}
+	\]
+
+	Para $y[n]$:
+
+	\[
+	Y[k]
+	=
+	\sum_{n=0}^{3}
+	y[n]e^{-j\frac{2\pi}{4}kn}
+	\]
+
+	Se obtiene:
+
+	\[
+	\boxed{
+	Y[k]=[1,j,3,-j]
+	}
+	\]
+
+	La DFT de la convolución circular es:
+
+	\[
+	Z[k]
+	=
+	X[k]Y[k]
+	\]
+
+	Por tanto:
+
+	\[
+	Z[k]
+	=
+	[9,-2+j,-1,-2-j]
+	\cdot
+	[1,j,3,-j]
+	\]
+
+	\[
+	\boxed{
+	Z[k]
+	=
+	[9,-1-2j,-3,-1+2j]
+	}
+	\]
+
+	Aplicando la DFT inversa:
+
+	\[
+	z[n]
+	=
+	\frac{1}{4}
+	\sum_{k=0}^{3}
+	Z[k]e^{j\frac{2\pi}{4}kn}
+	\]
+
+	se obtiene:
+
+	\[
+	\boxed{
+	z[n]=[1,4,2,2]
+	}
+	\]
+
+\section{Ejercicio 24}
+	Dadas las siguientes secuencias reales, determinar cuáles tendrán una transformada DFT cuyos elementos sean imaginarios puros:
+
+	\[
+	\text{a) }x[n]=[1,1,1,0,0,0,1,1]
+	\]
+
+	\[
+	\text{b) }x[n]=[1,1,0,0,0,0,-1,-1]
+	\]
+
+	\[
+	\text{c) }x[n]=[0,1,1,0,0,0,-1,-1]
+	\]
+
+	\[
+	\text{d) }x[n]=[0,1,1,0,0,0,1,1]
+	\]
+
+	\subsection{Solución}
+
+	Para que una secuencia real tenga una DFT imaginaria pura, debe ser antisimétrica:
+
+	\[
+	x[n]
+	=
+	-x[N-n]
+	\]
+
+	con $N=8$.
+
+	En el apartado a):
+
+	\[
+	x[0]=1
+	\]
+
+	por lo que no puede ser antisimétrica.
+
+	En el apartado b):
+
+	\[
+	x[0]=1
+	\]
+
+	por lo que tampoco es antisimétrica.
+
+	En el apartado c):
+
+	\[
+	x[0]=0
+	\]
+
+	y además:
+
+	\[
+	x[1]=-x[7]
+	\]
+
+	\[
+	x[2]=-x[6]
+	\]
+
+	\[
+	x[3]=-x[5]
+	\]
+
+	\[
+	x[4]=0
+	\]
+
+	Por tanto, esta secuencia es antisimétrica.
+
+	En el apartado d):
+
+	\[
+	x[1]=x[7],
+	\qquad
+	x[2]=x[6]
+	\]
+
+	por lo que es simétrica, no antisimétrica.
+
+	Por tanto:
+
+	\[
+	\boxed{
+	\text{La única secuencia cuya DFT es imaginaria pura es la c)}
+	}
+	\]
+
+\section{Ejercicio 25}
+	Utilizar la DFT para calcular el producto de los polinomios
+
+	\[
+	(1+x)
+	\]
+
+	y:
+
+	\[
+	(1+x+x^2)
+	\]
+
+	\subsection{Solución}
+
+	Representamos los polinomios mediante sus coeficientes y completamos hasta longitud $N=4$:
+
+	\[
+	x[n]=[1,1,0,0]
+	\]
+
+	\[
+	y[n]=[1,1,1,0]
+	\]
+
+	Calculamos sus DFT:
+
+	\[
+	\boxed{
+	X[k]=[2,1-j,0,1+j]
+	}
+	\]
+
+	\[
+	\boxed{
+	Y[k]=[3,-j,1,j]
+	}
+	\]
+
+	Multiplicamos componente a componente:
+
+	\[
+	Z[k]
+	=
+	X[k]Y[k]
+	\]
+
+	\[
+	Z[k]
+	=
+	[6,-1-j,0,-1+j]
+	\]
+
+	Aplicando la DFT inversa:
+
+	\[
+	z[n]
+	=
+	[1,2,2,1]
+	\]
+
+	Estos valores son los coeficientes del polinomio producto.
+
+	Por tanto:
+
+	\[
+	\boxed{
+	(1+x)(1+x+x^2)
+	=
+	1+2x+2x^2+x^3
+	}
+	\]
+
+\section{Ejercicio 26}
+	Calcular el producto de los números $321$ y $12$ utilizando la DFT.
+
+	\subsection{Solución}
+
+	Interpretamos los números como polinomios evaluados en $x=10$:
+
+	\[
+	321
+	=
+	3x^2+2x+1
+	\]
+
+	\[
+	12
+	=
+	x+2
+	\]
+
+	Por tanto, las secuencias de coeficientes son:
+
+	\[
+	x[n]=[1,2,3,0]
+	\]
+
+	\[
+	y[n]=[2,1,0,0]
+	\]
+
+	Calculamos sus DFT:
+
+	\[
+	\boxed{
+	X[k]=[6,-2-2j,2,-2+2j]
+	}
+	\]
+
+	\[
+	\boxed{
+	Y[k]=[3,2-j,1,2+j]
+	}
+	\]
+
+	Multiplicamos componente a componente:
+
+	\[
+	Z[k]
+	=
+	X[k]Y[k]
+	\]
+
+	\[
+	\boxed{
+	Z[k]=[18,-6-2j,2,-6+2j]
+	}
+	\]
+
+	Aplicando la DFT inversa:
+
+	\[
+	z[n]
+	=
+	[2,5,8,3]
+	\]
+
+	Por tanto, el polinomio producto es:
+
+	\[
+	3x^3+8x^2+5x+2
+	\]
+
+	Evaluando en $x=10$:
+
+	\[
+	3(10)^3+8(10)^2+5(10)+2
+	\]
+
+	\[
+	=
+	3000+800+50+2
+	\]
+
+	\[
+	\boxed{
+	321\cdot12=3852
+	}
+	\]
+
+    
+\end{document}
